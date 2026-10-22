@@ -1,0 +1,350 @@
+[
+  {
+    "id": "qr-parking-meter-sticker",
+    "channel": "qr",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "qr",
+      "lookalike-domain",
+      "payment",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "ركنت سيارتك في وسط المدينة وتريد دفع رسوم الموقف.",
+      "card": {
+        "place": "ملصق لامع على عداد الموقف، حوافه مرتفعة قليلاً",
+        "title": "ادفع رسوم الموقف بسرعة عبر الرمز",
+        "text": "امسح الرمز وادفع بالبطاقة دون الحاجة إلى عملات معدنية، 100 فلس للساعة\nخدمة الدفع الرسمية للبلدية",
+        "opens": "parking.gov.kw.meter-pay.com/k/112"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "parking.gov.kw.meter-pay.com/k/112",
+          "why": "العنوان يحتوي على gov.kw في منتصفه لكنّ نطاقه ينتهي بـ meter-pay.com، والعبرة بنهاية النطاق قبل أول شرطة مائلة لا بما يرد في وسطه."
+        },
+        {
+          "kind": "red",
+          "mark": "حوافه مرتفعة قليلاً",
+          "why": "الحواف المرتفعة علامة على ملصق أضيف لاحقاً فوق العداد، وربما يغطي الرمز الأصلي ليحوّل مدفوعاتك إلى المحتال."
+        },
+        {
+          "kind": "trap",
+          "mark": "خدمة الدفع الرسمية للبلدية",
+          "why": "عبارة الخدمة الرسمية على ملصق لا تثبت شيئاً، فأي شخص يستطيع طباعتها ولصقها على عداد في الشارع."
+        }
+      ],
+      "lesson": "ادفع رسوم المواقف من التطبيق الرسمي الذي ثبّته بنفسك، وإذا مسحت رمزاً في الشارع فاقرأ العنوان كاملاً وتأكد أن نطاقه ينتهي بـ gov.kw قبل أن تدفع."
+    },
+    "en": {
+      "context": "You have parked downtown and want to pay for parking.",
+      "card": {
+        "place": "A glossy sticker on the parking meter, its edges slightly lifted",
+        "title": "Pay for parking fast with this code",
+        "text": "Scan and pay by card, no coins needed. 100 fils per hour\nOfficial municipal payment service",
+        "opens": "parking.gov.kw.meter-pay.com/k/112"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "parking.gov.kw.meter-pay.com/k/112",
+          "why": "It has gov.kw in the middle, but the domain ends in meter-pay.com. What counts is how the domain ends, just before the first slash."
+        },
+        {
+          "kind": "red",
+          "mark": "its edges slightly lifted",
+          "why": "Lifted edges show a sticker added later on top of the meter, possibly covering the real code to send your payment to a scammer."
+        },
+        {
+          "kind": "trap",
+          "mark": "Official municipal payment service",
+          "why": "The word official on a sticker proves nothing. Anyone can print it and stick it on a meter in the street."
+        }
+      ],
+      "lesson": "Pay for parking in the official app you installed yourself. If you scan a code in the street, read the whole address and check its domain ends in gov.kw before paying."
+    }
+  },
+  {
+    "id": "qr-charity-box-personal-transfer",
+    "channel": "qr",
+    "verdict": "scam",
+    "category": "charity",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "qr",
+      "emotional",
+      "payment",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "مررت بصندوق تبرعات عند مدخل مجمع تجاري وأردت التبرع دون نقد.",
+      "card": {
+        "place": "ملصق على صندوق تبرعات لجمعية خيرية عند مدخل مجمع تجاري",
+        "title": "تبرّع فوراً دون نقد",
+        "text": "امسح الرمز وحوّل تبرعك مباشرة، 5 د.ك تكسو طفلاً هذا الشتاء",
+        "opens": "quick-pay-transfer.me/fahad.k88"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "quick-pay-transfer.me/fahad.k88",
+          "why": "الرمز يفتح صفحة تحويل إلى حساب شخصي باسم فرد لا إلى الجمعية، والجمعيات المرخصة تجمع التبرعات عبر قنواتها الرسمية وباسمها."
+        },
+        {
+          "kind": "red",
+          "mark": "ملصق على صندوق تبرعات",
+          "why": "الرمز ملصق على الصندوق لا مطبوع عليه، لذا قد يكون أي شخص أضافه ليحوّل التبرعات إلى حسابه."
+        },
+        {
+          "kind": "trap",
+          "mark": "5 د.ك تكسو طفلاً هذا الشتاء",
+          "why": "العبارة المؤثرة تحرك مشاعرك لكنها لا تثبت أن المال سيصل إلى الجمعية، والمحتال يستغل العمل الخيري لأنه لا يثير الشك."
+        }
+      ],
+      "lesson": "تبرّع عبر الموقع أو التطبيق الرسمي للجمعية الذي تصل إليه بنفسك، وإذا فتح لك رمز صفحة تحويل باسم شخص فلا ترسل شيئاً."
+    },
+    "en": {
+      "context": "You passed a donation box at a mall entrance and want to give without cash.",
+      "card": {
+        "place": "A sticker on a charity's donation box at a mall entrance",
+        "title": "Donate instantly, no cash needed",
+        "text": "Scan and transfer your donation directly. 5 KWD clothes a child this winter",
+        "opens": "quick-pay-transfer.me/fahad.k88"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "quick-pay-transfer.me/fahad.k88",
+          "why": "The code opens a transfer page to one person's account, not the charity. Licensed charities collect donations through their own official channels, in their own name."
+        },
+        {
+          "kind": "red",
+          "mark": "A sticker on a charity's donation box",
+          "why": "The code is stuck on the box, not printed on it, so anyone could have added it to divert donations to their own account."
+        },
+        {
+          "kind": "trap",
+          "mark": "5 KWD clothes a child this winter",
+          "why": "The touching line moves you but proves nothing about where the money goes. Scammers use charity because it raises no suspicion."
+        }
+      ],
+      "lesson": "Donate through the charity's official website or app that you open yourself. If a code opens a transfer page in a person's name, send nothing."
+    }
+  },
+  {
+    "id": "qr-missed-delivery-reschedule-fee",
+    "channel": "qr",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "qr",
+      "small-fee",
+      "payment",
+      "urgency",
+      "lookalike-domain"
+    ],
+    "ar": {
+      "context": "تنتظر شحنة هذا الأسبوع ووجدت هذه البطاقة على باب بيتك.",
+      "card": {
+        "place": "بطاقة ورقية عالقة في باب البيت",
+        "title": "حاولنا توصيل شحنتك ولم نجدك",
+        "text": "امسح الرمز لتحديد موعد جديد للتوصيل، وتُطبق رسوم إعادة جدولة بسيطة قدرها 1.50 يورو\nتُعاد الشحنة إلى المرسل بعد 48 ساعة",
+        "opens": "courier-redelivery.net/r/5521"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "courier-redelivery.net/r/5521",
+          "why": "الرمز يفتح موقعاً بكلمات عامة لا موقع شركة الشحن التي تنتظر منها شحنتك، ولن تكتشف ذلك إلا إذا قرأت العنوان قبل فتحه."
+        },
+        {
+          "kind": "red",
+          "mark": "رسوم إعادة جدولة بسيطة",
+          "why": "شركات الشحن لا تفرض عادة رسوماً لتغيير موعد التوصيل، والمبلغ البسيط طُعم للحصول على بيانات بطاقتك."
+        },
+        {
+          "kind": "red",
+          "mark": "بعد 48 ساعة",
+          "why": "المهلة تضغط عليك لتدفع بسرعة، خاصة أنك تنتظر شحنة فعلاً، وهذا ما يجعل الخدعة مقنعة."
+        },
+        {
+          "kind": "trap",
+          "mark": "حاولنا توصيل شحنتك ولم نجدك",
+          "why": "العبارة المألوفة وتزامن البطاقة مع شحنة تنتظرها لا يثبتان شيئاً، فالمحتالون يوزعون هذه البطاقات على البيوت عشوائياً."
+        }
+      ],
+      "lesson": "إذا فاتك التوصيل فتابع الشحنة برقم التتبع في تطبيق المتجر أو موقع شركة الشحن الذي تعرفه، ولا تدفع رسوماً عبر رمز وجدته على بابك."
+    },
+    "en": {
+      "context": "You are expecting a parcel this week and found this card in your door.",
+      "card": {
+        "place": "A paper card tucked into your front door",
+        "title": "Sorry we missed you",
+        "text": "Scan to book a new delivery time. A small rescheduling fee of €1.50 applies.\nParcels are returned to the sender after 48 hours.",
+        "opens": "courier-redelivery.net/r/5521"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "courier-redelivery.net/r/5521",
+          "why": "The code opens a site made of generic words, not the courier you are waiting on. You only spot it by reading the address before you open it."
+        },
+        {
+          "kind": "red",
+          "mark": "small rescheduling fee",
+          "why": "Couriers don't normally charge to change a delivery time. The small amount is bait to get your card details."
+        },
+        {
+          "kind": "red",
+          "mark": "after 48 hours",
+          "why": "The deadline pushes you to pay quickly, especially since you really are expecting a parcel. That is what makes the trick convincing."
+        },
+        {
+          "kind": "trap",
+          "mark": "Sorry we missed you",
+          "why": "A familiar line that happens to match a parcel you expect proves nothing. Scammers drop these cards at doors at random."
+        }
+      ],
+      "lesson": "If you miss a delivery, use the tracking number in the store's app or the courier site you know. Never pay a fee through a code left on your door."
+    }
+  },
+  {
+    "id": "qr-restaurant-table-menu",
+    "channel": "qr",
+    "verdict": "legit",
+    "category": "shopping",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "qr",
+      "expected"
+    ],
+    "ar": {
+      "context": "جلست إلى طاولة في مطعم وتريد الاطلاع على قائمة الطعام.",
+      "card": {
+        "place": "رمز مطبوع على حامل أكريليك ثابت فوق طاولة المطعم",
+        "title": "امسح الرمز لعرض قائمة الطعام",
+        "text": "القائمة متوفرة بالعربية والإنجليزية، اطلب من النادل مباشرة وادفع عند المحاسب",
+        "opens": "menu.example.com/table-12"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "menu.example.com/table-12",
+          "why": "الرمز يفتح صفحة قائمة الطعام فقط، والعنوان يحمل رقم طاولتك ولا يقود إلى أي صفحة دفع."
+        },
+        {
+          "kind": "green",
+          "mark": "وادفع عند المحاسب",
+          "why": "تدفع لموظفي المطعم مباشرة لا عبر الرمز، لذا لا يحتاج الرمز إلى أي بيانات منك."
+        },
+        {
+          "kind": "green",
+          "mark": "مطبوع على حامل أكريليك ثابت",
+          "why": "الرمز مطبوع ضمن تصميم الحامل نفسه لا ملصق فوقه، أي أنه جزء من أدوات المطعم."
+        }
+      ],
+      "lesson": "رمز قائمة الطعام الحقيقي يعرض القائمة فقط، فإذا طلب منك رمز في مطعم بيانات بطاقتك أو تثبيت تطبيق فاطلب القائمة الورقية من الموظفين."
+    },
+    "en": {
+      "context": "You have sat down at a restaurant table and want to see the menu.",
+      "card": {
+        "place": "A code printed on a fixed acrylic stand on the restaurant table",
+        "title": "Scan to see our menu",
+        "text": "Menu available in Arabic and English. Order with your waiter and pay at the counter.",
+        "opens": "menu.example.com/table-12"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "menu.example.com/table-12",
+          "why": "The code only opens the menu page. The address carries your table number and leads to no payment page."
+        },
+        {
+          "kind": "green",
+          "mark": "pay at the counter",
+          "why": "You pay the restaurant staff, not through the code, so the code needs nothing from you."
+        },
+        {
+          "kind": "green",
+          "mark": "printed on a fixed acrylic stand",
+          "why": "The code is printed as part of the stand itself, not stuck on top, so it belongs to the restaurant."
+        }
+      ],
+      "lesson": "A genuine menu code just shows the menu. If a code at a restaurant wants card details or an app install, ask the staff for a paper menu instead."
+    }
+  },
+  {
+    "id": "qr-event-ticket-venue-map",
+    "channel": "qr",
+    "verdict": "legit",
+    "category": "shopping",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "qr",
+      "expected",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "اشتريت تذكرة حفل من موقع الجهة المنظمة ووصلتك على بريدك.",
+      "card": {
+        "place": "رمز مطبوع على تذكرة الحفل التي اشتريتها",
+        "title": "تذكرة دخول: الحفل الموسيقي، البوابة 3، المقعد C14",
+        "text": "يُمسح هذا الرمز عند البوابة للدخول، ويمكنك مسحه أيضاً لعرض خريطة القاعة ومواقف السيارات\nلا تشارك صورة التذكرة مع أحد",
+        "opens": "tickets.example.org/venue-map"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "tickets.example.org/venue-map",
+          "why": "الرمز يفتح خريطة القاعة على موقع الجهة المنظمة التي اشتريت منها التذكرة، ولا يطلب منك دفعاً ولا بيانات."
+        },
+        {
+          "kind": "green",
+          "mark": "تذكرة الحفل التي اشتريتها",
+          "why": "الرمز مطبوع على تذكرة اشتريتها بنفسك من الجهة المنظمة، أي أن مصدره معروف لك."
+        },
+        {
+          "kind": "green",
+          "mark": "لا تشارك صورة التذكرة مع أحد",
+          "why": "تحذيرك من مشاركة صورة التذكرة سمة الجهات الحقيقية، لأن من ينسخ الرمز يستطيع الدخول بدلاً منك."
+        }
+      ],
+      "lesson": "امسح الرموز التي تعرف مصدرها كالرمز المطبوع على تذكرة اشتريتها بنفسك، واحتفظ بتذكرتك لنفسك ولا تنشر صورتها على الإنترنت."
+    },
+    "en": {
+      "context": "You bought a concert ticket on the organiser's site and it arrived by email.",
+      "card": {
+        "place": "A code printed on the concert ticket you bought",
+        "title": "Entry ticket: Concert, Gate 3, Seat C14",
+        "text": "This code is scanned at the gate for entry. You can also scan it to see the venue map and parking.\nDo not share photos of your ticket.",
+        "opens": "tickets.example.org/venue-map"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "tickets.example.org/venue-map",
+          "why": "The code opens the venue map on the organiser's site where you bought the ticket, and asks for no payment or details."
+        },
+        {
+          "kind": "green",
+          "mark": "the concert ticket you bought",
+          "why": "The code is printed on a ticket you bought yourself from the organiser, so you know where it came from."
+        },
+        {
+          "kind": "green",
+          "mark": "Do not share photos of your ticket",
+          "why": "Warning you not to share ticket photos is typical of genuine organisers, because anyone who copies the code can get in instead of you."
+        }
+      ],
+      "lesson": "Scan codes whose source you know, like one printed on a ticket you bought yourself, and keep your ticket to yourself rather than posting it online."
+    }
+  }
+]

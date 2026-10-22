@@ -1,0 +1,1 @@
+phishing,fraud,spam,text,sms,call,email,link,qr code,quiz,cyber,security,safety,fake,checker,bank

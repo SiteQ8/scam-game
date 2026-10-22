@@ -1,0 +1,30 @@
+{{NAME_EN}}: notes for App Review
+
+What the app is
+A free game that teaches people to spot scams. Each card shows a realistic message on a phone screen: a text message, app notification, chat, email, phone call, web page, QR code, social post or marketplace chat. The player swipes left for scam or right for legit, then a debrief highlights the words that gave it away, with a short lesson. The game is in Arabic and English.
+
+Sign in
+There is no login and no account, so no demo account is needed.
+
+Trying every mode in about a minute
+1. First launch: choose English, then tap Skip at the top right. The four intro screens include one practice card if you prefer to step through them.
+2. Home: tap "Open today's case". Swipe the card, or tap the Scam or Legit button under it. After each card the debrief marks the signs; tap "Next card".
+3. Back on Home, under "More ways to play":
+Journey: open Chapter 1 and tap Start. Later chapters unlock after 7 of 10 right in the chapter before.
+60 second rush: a timed round. A wrong answer costs 3 seconds.
+Play together: tap Start (two players are set up by default), then "I'm ready", and pass the phone.
+Flag hunt: tap the words that are warning signs before the 25 second timer runs out.
+Check a message: type or paste any text, for example "URGENT: pay the fee within 24 hours at http://parcel-fee.example.com", then tap "Check it". iOS may ask for permission when Paste is tapped.
+4. Stats and About are at the bottom of Home. Settings (the gear at the top right) holds language, examples (Gulf, worldwide or both), appearance, text size, sound effects, music (off by default), play calls automatically, vibration, reduce motion and Erase my progress.
+Calls: call cards play the caller's voice while the transcript appears. They start on their own, and this can be turned off in Settings.
+
+About the content
+Every name, phone number, address, link and QR code inside the cards is fictional. On scam cards they are made to look suspicious on purpose, because spotting them is the lesson. Addresses are plain text and cannot be opened. The QR codes only contain the sentence "Training example from a scam awareness game. This code opens nothing." No real bank, company or brand is named.
+
+Privacy and network
+The message checker runs entirely on the device, and the text is never saved or sent. The app makes no network requests: its content security policy allows only files bundled in the app, and it works in airplane mode. All cards, voices, music and sound effects are bundled; the audio was generated with ElevenLabs. There are no ads, analytics, tracking, purchases or third-party SDKs. Progress is stored on the device only. The only ways out of the app are the player's own taps: Share opens the system share sheet, and the email and source code rows open Mail or Safari.
+
+Contact
+Ali AlEnezi
+site@hotmail.com
++96551153554

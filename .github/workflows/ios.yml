@@ -1,0 +1,75 @@
+name: ios
+
+on:
+  push:
+    tags: ['ios-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: macos-26
+    env:
+      HAS_SIGNING: ${{ secrets.IOS_CERT_P12 != '' && secrets.IOS_PROFILE != '' && secrets.ASC_KEY_P8 != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stop when signing secrets are missing
+        if: env.HAS_SIGNING != 'true'
+        run: echo "Add IOS_TEAM_ID, IOS_CERT_P12, IOS_CERT_PASSWORD, IOS_PROFILE, ASC_KEY_ID, ASC_ISSUER_ID and ASC_KEY_P8 to the repository secrets." && exit 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci && npm run build && npx cap sync ios
+      - name: Install certificate and profile
+        env:
+          IOS_CERT_P12: ${{ secrets.IOS_CERT_P12 }}
+          IOS_CERT_PASSWORD: ${{ secrets.IOS_CERT_PASSWORD }}
+          IOS_PROFILE: ${{ secrets.IOS_PROFILE }}
+        run: |
+          KC=$RUNNER_TEMP/build.keychain-db
+          security create-keychain -p ci "$KC"
+          security set-keychain-settings -lut 21600 "$KC"
+          security unlock-keychain -p ci "$KC"
+          echo "$IOS_CERT_P12" | base64 -d > $RUNNER_TEMP/cert.p12
+          security import $RUNNER_TEMP/cert.p12 -P "$IOS_CERT_PASSWORD" -A -t cert -f pkcs12 -k "$KC"
+          security list-keychain -d user -s "$KC"
+          security set-key-partition-list -S apple-tool:,apple: -s -k ci "$KC"
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          echo "$IOS_PROFILE" | base64 -d > $RUNNER_TEMP/app.mobileprovision
+          UUID=$(security cms -D -i $RUNNER_TEMP/app.mobileprovision | plutil -extract UUID raw -)
+          cp $RUNNER_TEMP/app.mobileprovision "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision"
+          echo "PROFILE_UUID=$UUID" >> $GITHUB_ENV
+      - name: Archive
+        env:
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -o pipefail
+          BUNDLE=$(node -p "require('./brand.json').appId")
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release \
+            -destination 'generic/platform=iOS' -archivePath $RUNNER_TEMP/App.xcarchive archive \
+            CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="$IOS_TEAM_ID" CODE_SIGN_IDENTITY="Apple Distribution" \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_UUID" PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE" \
+            CURRENT_PROJECT_VERSION=${{ github.run_number }} | tail -30
+      - name: Package the IPA from the signed archive
+        run: |
+          APP=$(ls -d $RUNNER_TEMP/App.xcarchive/Products/Applications/*.app | head -1)
+          test -x "$APP/$(plutil -extract CFBundleExecutable raw "$APP/Info.plist")" || { echo "archive has no executable"; exit 1; }
+          mkdir -p $RUNNER_TEMP/ipa/Payload && cp -R "$APP" $RUNNER_TEMP/ipa/Payload/
+          (cd $RUNNER_TEMP/ipa && zip -qry App.ipa Payload)
+      - name: Validate and upload to App Store Connect
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          mkdir -p ~/.appstoreconnect/private_keys
+          echo "$ASC_KEY_P8" > ~/.appstoreconnect/private_keys/AuthKey_$ASC_KEY_ID.p8
+          xcrun altool --validate-app -f $RUNNER_TEMP/ipa/App.ipa -t ios --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
+          xcrun altool --upload-app -f $RUNNER_TEMP/ipa/App.ipa -t ios --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipa
+          path: ${{ runner.temp }}/ipa/App.ipa

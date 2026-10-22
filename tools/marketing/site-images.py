@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+"""Turns the captured screens into the website's pictures.
+usage: site-images.py <capture dir> <site img dir>
+Phone screens become 880 px wide WebP (two pixels per CSS pixel); crops become 720 px wide (360 CSS px).
+Writes manifest.json with each crop's CSS size so the page reserves the right space."""
+import json, os, sys
+from PIL import Image
+
+cap, out = sys.argv[1:3]
+SCREENS = ['onboarding', 'home', 'card', 'drag', 'debrief', 'debrief2', 'chat', 'email', 'web', 'qr', 'social', 'market', 'call',
+           'journey', 'hunt', 'party', 'checker', 'stats', 'settings', 'about', 'results']
+manifest = {}
+for lang in ('en', 'ar'):
+    os.makedirs(os.path.join(out, lang), exist_ok=True)
+    manifest[lang] = {}
+    for name in SCREENS:
+        src = os.path.join(cap, lang, f'{name}.png')
+        if not os.path.exists(src):
+            print('missing', lang, name); continue
+        im = Image.open(src).convert('RGB')
+        im = im.resize((880, round(880 * im.height / im.width)), Image.LANCZOS)
+        im.save(os.path.join(out, lang, f'{name}.webp'), 'WEBP', quality=80, method=6)
+    for n in range(1, 7):
+        src = os.path.join(cap, lang, f'crop-f{n}.png')
+        if not os.path.exists(src):
+            print('missing crop', lang, n); continue
+        im = Image.open(src).convert('RGB')
+        css_w, css_h = 360, round(im.height * 360 / im.width)
+        im = im.resize((720, css_h * 2), Image.LANCZOS)
+        im.save(os.path.join(out, lang, f'crop-f{n}.webp'), 'WEBP', quality=82, method=6)
+        manifest[lang][f'f{n}'] = {'w': css_w, 'h': css_h}
+json.dump(manifest, open(os.path.join(out, 'manifest.json'), 'w'), indent=1)
+total = sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(out) for f in fs)
+print(f'site images written, {total // 1024} KB')

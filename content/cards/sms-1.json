@@ -1,0 +1,837 @@
+[
+  {
+    "id": "sms-customs-duty-expected-parcel",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "payment",
+      "small-fee",
+      "lookalike-domain",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "أنت تنتظر وصول سترة طلبتها من متجر إلكتروني في الخارج.",
+      "card": {
+        "sender": "Customs",
+        "time": "11:26",
+        "body": "وصلت شحنتك الدولية رقم KW4471903 إلى الكويت وعليها رسوم جمركية قدرها 3.250 د.ك يجب سدادها قبل الإفراج عنها، ادفع بأمان عبر kwcustoms-clearance.com/duty خلال 48 ساعة لتجنب إعادتها إلى المرسل"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Customs",
+          "why": "ظهور اسم الجمارك في خانة المرسل لا يثبت شيئاً، لأنّ المحتالين يستطيعون انتحال أسماء المرسلين بسهولة."
+        },
+        {
+          "kind": "red",
+          "mark": "kwcustoms-clearance.com/duty",
+          "why": "الرابط يقود إلى موقع تجاري لا إلى نطاق حكومي، ووجود كلمة الجمارك بالإنجليزية في اسمه لا يجعله تابعاً للجمارك."
+        },
+        {
+          "kind": "red",
+          "mark": "شحنتك الدولية",
+          "why": "الرسالة لا تذكر اسم المتجر ولا ما طلبته لأنّ المرسل لا يعرفهما، لذا يكتب صيغة عامة تناسب كل من ينتظر شحنة."
+        },
+        {
+          "kind": "trap",
+          "mark": "ادفع بأمان",
+          "why": "كلمة «بأمان» لا تكلف المحتال شيئاً، فهي لا تجعل الرابط آمناً ولا تثبت هوية المرسل."
+        }
+      ],
+      "lesson": "إذا كانت على شحنتك رسوم جمركية فادفعها داخل تطبيق شركة التوصيل الذي ثبّته بنفسك أو عند الاستلام، ولا تدفع عبر رابط وصلك في رسالة مهما بدا رسمياً."
+    },
+    "en": {
+      "context": "You are waiting for a jacket you ordered from an overseas store.",
+      "card": {
+        "sender": "Customs",
+        "time": "11:26",
+        "body": "Your international shipment KW4471903 has arrived in Kuwait. A customs duty of 3.250 KWD must be paid before release. Pay securely at kwcustoms-clearance.com/duty within 48 hours to avoid return to sender."
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Customs",
+          "why": "A sender name can be spoofed, so seeing Customs as the sender proves nothing."
+        },
+        {
+          "kind": "red",
+          "mark": "kwcustoms-clearance.com/duty",
+          "why": "This is a commercial site, not a government domain. Having the word customs in it does not make it official."
+        },
+        {
+          "kind": "red",
+          "mark": "Your international shipment",
+          "why": "It never names the store or the item, because the sender does not know them. Vague wording fits anyone waiting for a parcel."
+        },
+        {
+          "kind": "trap",
+          "mark": "Pay securely",
+          "why": "Calling a payment secure costs a scammer nothing. The word does not make the link safe."
+        }
+      ],
+      "lesson": "If a parcel owes duty, pay it only in the courier app you installed yourself or on delivery, never through a link in a text."
+    }
+  },
+  {
+    "id": "sms-courier-reschedule-expected",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "طلبت هاتفاً من متجر إلكتروني وكان من المفترض أن يصلك اليوم.",
+      "card": {
+        "sender": "Courier",
+        "time": "13:40",
+        "body": "نعتذر عن التأخير، سيصلك طردك رقم 58213 غداً الأحد بين الساعة 4 و8 مساءً، ولا يوجد أي مبلغ مستحق عليك، ولاختيار موعد آخر استخدم تطبيقنا"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "لا يوجد أي مبلغ مستحق عليك",
+          "why": "الرسالة لا تطلب رسوماً ولا بيانات بطاقة ولا رمزاً، لذا لا يجد فيها المحتال ما يستفيد منه."
+        },
+        {
+          "kind": "green",
+          "mark": "استخدم تطبيقنا",
+          "why": "الرسالة توجهك إلى التطبيق الذي تستخدمه أصلاً ولا ترسل لك رابطاً، وهذا ما تفعله شركات التوصيل الحقيقية غالباً."
+        },
+        {
+          "kind": "trap",
+          "mark": "Courier",
+          "why": "اسم المرسل يمكن انتحاله فلا يثبت شيئاً وحده، لكنّ الرسالة آمنة لأنك تنتظر الشحنة فعلاً ولا يُطلب منك فيها أي شيء."
+        }
+      ],
+      "lesson": "من الطبيعي أن تصلك رسالة تأجيل لا تطلب منك شيئاً، وإذا أردت تغيير الموعد فافتح تطبيق شركة التوصيل بنفسك بدلاً من الضغط على أي رابط."
+    },
+    "en": {
+      "context": "You ordered a phone online and it was due to arrive today.",
+      "card": {
+        "sender": "Courier",
+        "time": "13:40",
+        "body": "Sorry for the delay. Your parcel 58213 will now arrive tomorrow, Sunday, between 4 PM and 8 PM. There is nothing to pay. To choose another time, use our app."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "There is nothing to pay",
+          "why": "It asks for no fee, card details or code, so there is nothing in it for a scammer."
+        },
+        {
+          "kind": "green",
+          "mark": "use our app",
+          "why": "It points you to the app you already use instead of sending a link, which is how real couriers usually work."
+        },
+        {
+          "kind": "trap",
+          "mark": "Courier",
+          "why": "A sender name can be faked, so it proves nothing alone. This one is safe because you expect the parcel and it asks for nothing."
+        }
+      ],
+      "lesson": "A delay notice that asks for nothing is normal. To change the slot, open the courier app yourself rather than tapping any link."
+    }
+  },
+  {
+    "id": "sms-card-blocked-call-number",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "impersonation",
+      "urgency",
+      "verify-independently"
+    ],
+    "ar": {
+      "context": "بطاقتك المصرفية تنتهي فعلاً بالأرقام 4417.",
+      "card": {
+        "sender": "Bank",
+        "time": "08:52",
+        "body": "حفاظاً على أمان حسابك تم إيقاف بطاقتك المنتهية بـ 4417 مؤقتاً بسبب محاولة دفع غير معتادة، ولإعادة تفعيلها اليوم يرجى الاتصال بفريق أمن البطاقات على الرقم +965 2••• ••19 مع إبقاء البطاقة بالقرب منك"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "ظهور اسم البنك في خانة المرسل لا يكفي لتصديق الرسالة، لأنّ أسماء المرسلين يمكن انتحالها."
+        },
+        {
+          "kind": "trap",
+          "mark": "المنتهية بـ 4417",
+          "why": "آخر أربعة أرقام من بطاقتك ليست سراً لأنها تظهر في الإيصالات وفي البيانات المسربة، فمعرفتها لا تثبت أن المرسل هو البنك."
+        },
+        {
+          "kind": "red",
+          "mark": "+965 2••• ••19",
+          "why": "البنك الحقيقي يوجهك عادة إلى الرقم المطبوع خلف بطاقتك أو إلى تطبيقه الرسمي، أما الرقم الوارد في الرسالة فقد يوصلك مباشرة إلى المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "مع إبقاء البطاقة بالقرب منك",
+          "why": "هذا الطلب يمهد لمكالمة يُطلب منك فيها قراءة رقم البطاقة وتاريخ انتهائها والرمز المطبوع خلفها."
+        }
+      ],
+      "lesson": "إذا وصلتك رسالة عن إيقاف بطاقتك فاتصل بالرقم المطبوع خلف البطاقة أو افتح تطبيق البنك الرسمي، ولا تتصل أبداً برقم وارد في الرسالة نفسها."
+    },
+    "en": {
+      "context": "Your bank card really does end in 4417.",
+      "card": {
+        "sender": "Bank",
+        "time": "08:52",
+        "body": "For your security, your card ending 4417 has been temporarily blocked after an unusual payment attempt. To unblock it today, please call our Card Security team on +965 2••• ••19 and keep your card with you."
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "The bank's sender name can be spoofed, so it is not enough to trust the message."
+        },
+        {
+          "kind": "trap",
+          "mark": "card ending 4417",
+          "why": "Your last four digits are not secret. They appear on receipts and in leaked data, so knowing them proves nothing."
+        },
+        {
+          "kind": "red",
+          "mark": "+965 2••• ••19",
+          "why": "A real bank normally points you to the number on the back of your card or to its app. A number written in the message can lead straight to the scammer."
+        },
+        {
+          "kind": "red",
+          "mark": "keep your card with you",
+          "why": "This sets up a call where you will be asked to read out the card number, expiry date and the code on the back."
+        }
+      ],
+      "lesson": "If a text says your card is blocked, call the number on the back of the card or open your bank app. Never call a number given in the message."
+    }
+  },
+  {
+    "id": "sms-traffic-fine-gov-lookalike",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "lookalike-domain",
+      "impersonation",
+      "threat",
+      "payment"
+    ],
+    "ar": {
+      "context": "تعتقد أن كاميرا ضبط السرعة التقطت صورة لسيارتك الأسبوع الماضي.",
+      "card": {
+        "sender": "Traffic",
+        "time": "10:08",
+        "body": "إدارة المرور: سُجلت على مركبتك مخالفة تجاوز السرعة رقم 88143 بقيمة 30.000 د.ك، يرجى سدادها عبر kw.gov-fines.net/pay خلال 3 أيام تجنباً لإيقاف معاملاتك"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "kw.gov-fines.net/pay",
+          "why": "الرابط يبدو حكومياً لكنّ النطاق الحقيقي فيه هو gov-fines.net وهو موقع تجاري، بينما تنتهي المواقع الحكومية الكويتية بـ gov.kw."
+        },
+        {
+          "kind": "trap",
+          "mark": "إدارة المرور",
+          "why": "ذكر اسم إدارة المرور في نص الرسالة لا يثبت شيئاً، لأنّ أي شخص يستطيع أن يكتبه."
+        },
+        {
+          "kind": "trap",
+          "mark": "رقم 88143",
+          "why": "رقم المخالفة يعطي الرسالة مظهراً رسمياً، لكنّ اختلاق رقم كهذا لا يكلف المحتال شيئاً."
+        },
+        {
+          "kind": "red",
+          "mark": "تجنباً لإيقاف معاملاتك",
+          "why": "التهديد بإيقاف معاملاتك خلال أيام قليلة أسلوب ضغط يدفعك إلى الدفع قبل أن تتحقق."
+        }
+      ],
+      "lesson": "استعلم عن مخالفاتك المرورية ولا تدفعها إلا عبر التطبيق الحكومي الرسمي أو موقع تكتب عنوانه بنفسك، ولا تثق برابط لمجرد أنّ اختصار الحكومة يظهر في وسطه."
+    },
+    "en": {
+      "context": "You think a speed camera caught your car last week.",
+      "card": {
+        "sender": "Traffic",
+        "time": "10:08",
+        "body": "Traffic Department: a speeding violation no. 88143 of 30.000 KWD has been recorded against your vehicle. Please pay at kw.gov-fines.net/pay within 3 days to avoid a hold on your transactions."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "kw.gov-fines.net/pay",
+          "why": "It looks governmental, but the real domain is gov-fines.net, a commercial site. Kuwaiti government addresses end in gov.kw instead."
+        },
+        {
+          "kind": "trap",
+          "mark": "Traffic Department",
+          "why": "Anyone can type the name of a government department into a text."
+        },
+        {
+          "kind": "trap",
+          "mark": "no. 88143",
+          "why": "A violation number looks official, but making one up costs a scammer nothing."
+        },
+        {
+          "kind": "red",
+          "mark": "to avoid a hold on your transactions",
+          "why": "Threatening a hold on your transactions within days is pressure to pay before you check."
+        }
+      ],
+      "lesson": "Check and pay traffic fines only in the official government app or on a site you type yourself. A link is not official just because gov appears in the middle."
+    }
+  },
+  {
+    "id": "sms-civil-id-renewal-reminder",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "no-link",
+      "official-channel",
+      "expected"
+    ],
+    "ar": {
+      "context": "تعرف أنّ بطاقتك المدنية تنتهي صلاحيتها فعلاً في 14/11/2026.",
+      "card": {
+        "sender": "Civil ID",
+        "time": "09:30",
+        "body": "تذكير: تنتهي صلاحية بطاقتك المدنية بتاريخ 14/11/2026، يرجى تجديدها قبل هذا التاريخ عبر التطبيق الحكومي الرسمي، ولا تشارك بياناتك مع أي جهة تتواصل معك بهذا الشأن"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "بتاريخ 14/11/2026",
+          "why": "التاريخ يطابق موعد انتهاء بطاقتك الحقيقي، والرسالة لا تطلب أي مبلغ ولا تهددك بعقوبة."
+        },
+        {
+          "kind": "green",
+          "mark": "عبر التطبيق الحكومي الرسمي",
+          "why": "الرسالة توجهك إلى التطبيق الحكومي الذي تعرفه ولا ترسل لك رابطاً، فتنجز التجديد بنفسك من مصدر موثوق."
+        },
+        {
+          "kind": "green",
+          "mark": "لا تشارك بياناتك",
+          "why": "التحذير من مشاركة البيانات سمة الرسائل الرسمية، لأنّ الجهة الحقيقية لا تطلب بياناتك عبر رسالة أو اتصال."
+        }
+      ],
+      "lesson": "رسائل التذكير الحكومية التي لا تحمل رابطاً ولا تطلب مالاً رسائل طبيعية، فجدّد معاملتك بنفسك عبر التطبيق الحكومي الرسمي الذي تستخدمه عادة."
+    },
+    "en": {
+      "context": "You know your civil ID card really does expire on 14/11/2026.",
+      "card": {
+        "sender": "Civil ID",
+        "time": "09:30",
+        "body": "Reminder: your civil ID card expires on 14/11/2026. Please renew it before then through the official government app. Do not share your details with anyone who contacts you about this."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "expires on 14/11/2026",
+          "why": "The date matches your real expiry, and the text asks for no money and makes no threat."
+        },
+        {
+          "kind": "green",
+          "mark": "through the official government app",
+          "why": "It sends you to the government app you already know, with no link, so you renew from a trusted source yourself."
+        },
+        {
+          "kind": "green",
+          "mark": "Do not share your details",
+          "why": "Official messages warn you not to share details, because the real authority never asks for them by text or call."
+        }
+      ],
+      "lesson": "Government reminders with no link and no request for money are normal. Renew through the official government app you already use."
+    }
+  },
+  {
+    "id": "sms-travel-ban-pay-to-lift",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "threat",
+      "urgency",
+      "payment",
+      "lookalike-domain"
+    ],
+    "ar": {
+      "context": "تخطط للسفر إلى الخارج الأسبوع القادم.",
+      "card": {
+        "sender": "+965 5••• ••73",
+        "time": "16:15",
+        "body": "إشعار قضائي: صدر بحقك قرار منع سفر بسبب مطالبة مالية غير مسددة بقيمة 186.500 د.ك، ولرفع المنع قبل سفرك سدد المبلغ عبر kw-travelban-check.com خلال 24 ساعة"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "+965 5••• ••73",
+          "why": "الرقم المحلي لا يعني أن الرسالة رسمية، فأي شخص يستطيع شراء شريحة محلية، والجهات القضائية لا ترسل قراراتها من هواتف شخصية."
+        },
+        {
+          "kind": "red",
+          "mark": "kw-travelban-check.com",
+          "why": "قرارات منع السفر لا تُرفع عبر رابط في رسالة، وهذا الموقع تجاري لا صلة له بأي جهة حكومية."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 24 ساعة",
+          "why": "المهلة القصيرة مع التهديد بمنعك من السفر مقصودة لإثارة خوفك فتدفع دون تفكير."
+        }
+      ],
+      "lesson": "إذا قلقت من وجود قضية أو منع سفر فاستعلم بنفسك عبر التطبيق الحكومي الرسمي أو لدى الجهة المختصة، ولا تدفع أي مبلغ عبر رابط في رسالة."
+    },
+    "en": {
+      "context": "You are planning a trip abroad next week.",
+      "card": {
+        "sender": "+965 5••• ••73",
+        "time": "16:15",
+        "body": "Court notice: a travel ban has been issued against you over an unpaid claim of 186.500 KWD. To lift it before you travel, pay at kw-travelban-check.com within 24 hours."
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "+965 5••• ••73",
+          "why": "A local number proves nothing. Anyone can buy a local SIM, and courts do not send rulings from personal phones."
+        },
+        {
+          "kind": "red",
+          "mark": "kw-travelban-check.com",
+          "why": "Travel bans are not lifted through a link in a text, and this commercial site has no tie to any government body."
+        },
+        {
+          "kind": "red",
+          "mark": "within 24 hours",
+          "why": "A tight deadline plus a travel threat is meant to scare you into paying without thinking."
+        }
+      ],
+      "lesson": "Worried about a case or a travel ban? Check it yourself in the official government app or in person, and never pay through a link in a text."
+    }
+  },
+  {
+    "id": "sms-telecom-bill-cutoff-threat",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "telecom",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "threat",
+      "urgency",
+      "payment",
+      "unknown-number"
+    ],
+    "ar": {
+      "context": "تقيم في الرياض وتدفع فاتورة هاتفك كل شهر.",
+      "card": {
+        "sender": "+966 5••• •••18",
+        "time": "12:05",
+        "body": "عميلنا العزيز، سيتم إيقاف خطك اليوم الساعة 6 مساءً بسبب فاتورة متأخرة بقيمة 289.75 ر.س، ولتجنب الإيقاف وفقدان رقمك نهائياً ادفع الآن عبر telecom-sa-pay.com"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+966 5••• •••18",
+          "why": "شركة الاتصالات ترسل باسمها المسجل لا من رقم جوال عادي، فوصول الرسالة من رقم شخصي علامة واضحة على الاحتيال."
+        },
+        {
+          "kind": "red",
+          "mark": "telecom-sa-pay.com",
+          "why": "الرابط موقع مجهول لا يعود إلى شركة الاتصالات، بينما تُسدد الفواتير من تطبيق الشركة الرسمي أو في فروعها."
+        },
+        {
+          "kind": "red",
+          "mark": "وفقدان رقمك نهائياً",
+          "why": "التهديد بفقدان رقمك نهائياً خلال ساعات مبالغة مقصودة لإخافتك فتدفع فوراً."
+        }
+      ],
+      "lesson": "تحقق من فاتورتك ولا تدفعها إلا من تطبيق شركة الاتصالات الرسمي أو من موقعها الذي تكتب عنوانه بنفسك، ولا تستجب لرسائل التهديد بقطع الخط."
+    },
+    "en": {
+      "context": "You live in Riyadh and pay your phone bill every month.",
+      "card": {
+        "sender": "+966 5••• •••18",
+        "time": "12:05",
+        "body": "Dear customer, your line will be suspended today at 6 PM due to an overdue bill of 289.75 SAR. To avoid suspension and losing your number for good, pay now at telecom-sa-pay.com"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+966 5••• •••18",
+          "why": "Your telecom provider texts from its registered name, not from an ordinary mobile number."
+        },
+        {
+          "kind": "red",
+          "mark": "telecom-sa-pay.com",
+          "why": "The link is an unknown site, not your provider's. Bills are paid in the provider's official app or at a branch."
+        },
+        {
+          "kind": "red",
+          "mark": "losing your number for good",
+          "why": "Threatening to take your number away for good within hours is exaggeration meant to scare you into paying."
+        }
+      ],
+      "lesson": "Check and pay your phone bill only in your provider's official app or on a site you type yourself, and ignore texts that threaten to cut your line."
+    }
+  },
+  {
+    "id": "sms-electricity-cutoff-threat",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "utilities",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "threat",
+      "urgency",
+      "payment",
+      "impersonation"
+    ],
+    "ar": {
+      "card": {
+        "sender": "Electricity",
+        "time": "19:20",
+        "body": "عليك مبلغ مستحق لفاتورة الكهرباء والماء قدره 41.200 د.ك، وسيُفصل التيار الكهربائي عن منزلك غداً الساعة 9 صباحاً ما لم تسدده عبر kw-power-bill.com/pay"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Electricity",
+          "why": "اسم المرسل يوحي بأن الرسالة من جهة الكهرباء، لكنّ انتحال أسماء المرسلين سهل فلا تعتمد عليه وحده."
+        },
+        {
+          "kind": "red",
+          "mark": "kw-power-bill.com/pay",
+          "why": "هذا الموقع تجاري لا ينتهي بنطاق حكومي، أما جهة الكهرباء الحكومية فتُسدد فواتيرها عبر تطبيقها الرسمي أو موقعها الحكومي."
+        },
+        {
+          "kind": "red",
+          "mark": "غداً الساعة 9 صباحاً",
+          "why": "تحديد موعد قريب للفصل يهدف إلى إخافتك حتى تدفع فوراً دون أن تراجع حسابك."
+        }
+      ],
+      "lesson": "راجع فاتورة الكهرباء وادفعها عبر التطبيق الحكومي الرسمي أو موقع تكتب عنوانه بنفسك، ولا تدفع عبر رابط وصلك في رسالة مهما كان التهديد."
+    },
+    "en": {
+      "card": {
+        "sender": "Electricity",
+        "time": "19:20",
+        "body": "You have an outstanding electricity and water balance of 41.200 KWD. Power to your home will be cut tomorrow at 9 AM unless you pay at kw-power-bill.com/pay"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Electricity",
+          "why": "The sender name suggests the utility, but sender names are easy to spoof."
+        },
+        {
+          "kind": "red",
+          "mark": "kw-power-bill.com/pay",
+          "why": "This is a commercial site, not a government domain. The real utility takes payment in its official app or on its government website."
+        },
+        {
+          "kind": "red",
+          "mark": "tomorrow at 9 AM",
+          "why": "A cutoff set for tomorrow morning is meant to frighten you into paying before you check your account."
+        }
+      ],
+      "lesson": "Check your electricity bill in the official government app or on a site you type yourself, and never pay through a link in a text, however urgent it sounds."
+    }
+  },
+  {
+    "id": "sms-planned-power-outage",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "utilities",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "no-link",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "تسكن في قطعة 4 بمنطقة سلوى.",
+      "card": {
+        "sender": "Electricity",
+        "time": "18:10",
+        "body": "نحيطكم علماً بأنه سيتم قطع التيار الكهربائي عن قطعة 4 في منطقة سلوى يوم الخميس من الساعة 9 صباحاً حتى الساعة 1 ظهراً لأعمال صيانة مجدولة، ولا يتطلب ذلك أي إجراء منكم، مع الاعتذار عن الإزعاج"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "لا يتطلب ذلك أي إجراء منكم",
+          "why": "الرسالة لا تطلب دفعاً ولا بيانات ولا ضغطاً على رابط، فهي إشعار للعلم فقط."
+        },
+        {
+          "kind": "green",
+          "mark": "قطعة 4 في منطقة سلوى",
+          "why": "الإشعار يحدد منطقتك بدقة ويذكر موعداً وسبباً واضحين، وهي معلومات تستطيع التحقق منها دون أن تتفاعل مع الرسالة."
+        },
+        {
+          "kind": "trap",
+          "mark": "Electricity",
+          "why": "المحتالون يستخدمون اسم المرسل نفسه أيضاً، لذا فما يطمئنك هنا أنّ الرسالة لا تطلب منك شيئاً لا اسم المرسل."
+        }
+      ],
+      "lesson": "إشعار الصيانة الذي لا يطلب مالاً ولا بيانات ولا ضغطاً على رابط إشعار طبيعي، وإذا أردت التأكد فراجع الإعلانات في التطبيق الحكومي الرسمي."
+    },
+    "en": {
+      "context": "You live in Block 4 of Salwa.",
+      "card": {
+        "sender": "Electricity",
+        "time": "18:10",
+        "body": "Power will be off in Block 4, Salwa, on Thursday from 9 AM to 1 PM for scheduled maintenance. No action is needed from you. We apologise for the inconvenience."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "No action is needed from you",
+          "why": "It asks for no payment, no details and no tap. It is just for your information."
+        },
+        {
+          "kind": "green",
+          "mark": "Block 4, Salwa",
+          "why": "It names your exact area, a time window and a reason, details you can check without acting on the message."
+        },
+        {
+          "kind": "trap",
+          "mark": "Electricity",
+          "why": "Scammers use this same sender name too. What makes this safe is that it asks nothing of you."
+        }
+      ],
+      "lesson": "A maintenance notice that asks for no money, details or taps is normal. To double check, look at the announcements in the official government app."
+    }
+  },
+  {
+    "id": "sms-bank-spoof-same-thread",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "impersonation",
+      "urgency",
+      "lookalike-domain",
+      "credentials"
+    ],
+    "ar": {
+      "context": "وصلت هذه الرسالة في المحادثة نفسها التي تصلك فيها رموز البنك الحقيقية.",
+      "card": {
+        "sender": "Bank",
+        "time": "22:47",
+        "body": "طُلب تحويل مبلغ 450.000 د.ك من حسابك إلى مستفيد جديد الساعة 22:41، وإن لم تكن أنت من طلبه فيرجى إلغاؤه خلال 30 دقيقة عبر bank-kw-secure.com/cancel"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "وصول الرسالة باسم البنك وفي المحادثة نفسها مع رسائله الحقيقية لا يثبت شيئاً، لأنّ الهاتف يضع كل رسالة تحمل هذا الاسم في المحادثة ذاتها."
+        },
+        {
+          "kind": "trap",
+          "mark": "فيرجى إلغاؤه",
+          "why": "الأسلوب الهادئ المهذب يشبه أسلوب البنك، لكنّ اللطف لا يثبت شيئاً ولا يغير أن المطلوب منك هو الضغط على رابط."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 30 دقيقة",
+          "why": "المهلة القصيرة تجعلك تضغط على الرابط في لحظة خوف بدلاً من أن تفتح تطبيق البنك وتتحقق."
+        },
+        {
+          "kind": "red",
+          "mark": "bank-kw-secure.com/cancel",
+          "why": "البنك لا يطلب منك إلغاء عملية عبر رابط في رسالة، والموقع ليس موقع البنك بل اسم مركّب يوحي بالأمان."
+        }
+      ],
+      "lesson": "إذا أقلقتك رسالة عن عملية لم تطلبها فافتح تطبيق البنك الرسمي بنفسك أو اتصل بالرقم المطبوع خلف بطاقتك، ولا تضغط على أي رابط حتى لو وصل في محادثة البنك المعتادة."
+    },
+    "en": {
+      "context": "This text appears in the same thread as your bank's real codes.",
+      "card": {
+        "sender": "Bank",
+        "time": "22:47",
+        "body": "A transfer of 450.000 KWD to a new beneficiary was requested from your account at 22:41. If this was not you, please cancel it within 30 minutes at bank-kw-secure.com/cancel"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "Landing in the same thread as real bank texts proves nothing. Your phone files every message with that sender name into the same thread."
+        },
+        {
+          "kind": "trap",
+          "mark": "please cancel it",
+          "why": "The calm, polite tone sounds like your bank, but politeness proves nothing. You are still being asked to tap a link."
+        },
+        {
+          "kind": "red",
+          "mark": "within 30 minutes",
+          "why": "The short window pushes you to tap in a panic instead of opening your bank app to check."
+        },
+        {
+          "kind": "red",
+          "mark": "bank-kw-secure.com/cancel",
+          "why": "Banks do not ask you to cancel anything through a link in a text, and this is not the bank's site."
+        }
+      ],
+      "lesson": "If a text warns about a transfer you did not make, open your bank app yourself or call the number on your card. Never tap a link, even in your usual bank thread."
+    }
+  },
+  {
+    "id": "sms-ramadan-donation-appeal",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "charity",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "emotional",
+      "urgency",
+      "payment",
+      "unknown-number"
+    ],
+    "ar": {
+      "context": "نحن في العشر الأواخر من شهر رمضان.",
+      "card": {
+        "sender": "+965 6••• ••08",
+        "time": "20:35",
+        "body": "رمضان كريم، ساهم في إفطار 100 أسرة متعففة قبل نهاية الشهر الفضيل، فتبرعك بـ 5 د.ك فقط يكفي لإفطار أسرة كاملة، تبرع الآن عبر iftar-kw-donate.com قبل إغلاق الحملة الليلة، والحملة بإشراف جمعية خيرية مرخصة"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+965 6••• ••08",
+          "why": "الجمعيات المرخصة ترسل باسمها المسجل لا من هاتف شخصي، لذا فرقم الجوال المجهول علامة تحذير."
+        },
+        {
+          "kind": "red",
+          "mark": "iftar-kw-donate.com",
+          "why": "الرابط لا يعود إلى أي جمعية معروفة، بل هو موقع أُنشئ للحملة ويمكن أن يختفي بعد جمع الأموال."
+        },
+        {
+          "kind": "red",
+          "mark": "قبل إغلاق الحملة الليلة",
+          "why": "حثّك على الاستعجال في فعل الخير يمنعك من التحقق، والجمعيات الحقيقية لا تضغط عليك بمهلة ليلة واحدة."
+        },
+        {
+          "kind": "trap",
+          "mark": "جمعية خيرية مرخصة",
+          "why": "ادعاء الترخيص دون ذكر اسم الجمعية لا يثبت شيئاً، لأنّ الجمعيات المرخصة تعلن عن اسمها وتجمع التبرعات عبر قنواتها الرسمية."
+        }
+      ],
+      "lesson": "تبرّع لجمعية خيرية مرخصة تعرفها عبر تطبيقها الرسمي أو موقع تكتب عنوانه بنفسك، ولا تتبرع عبر رابط وصلك من رقم مجهول مهما كان الكلام مؤثراً."
+    },
+    "en": {
+      "context": "It is the last ten nights of Ramadan.",
+      "card": {
+        "sender": "+965 6••• ••08",
+        "time": "20:35",
+        "body": "Ramadan Kareem. Help provide iftar for 100 families in need before the blessed month ends. Just 5 KWD feeds a whole family. Donate now at iftar-kw-donate.com before the campaign closes tonight. Supervised by a licensed charity."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+965 6••• ••08",
+          "why": "Licensed charities text from their registered name, not from a personal mobile."
+        },
+        {
+          "kind": "red",
+          "mark": "iftar-kw-donate.com",
+          "why": "The link belongs to no known charity. It is a site set up for the campaign that can vanish once the money is in."
+        },
+        {
+          "kind": "red",
+          "mark": "before the campaign closes tonight",
+          "why": "Rushing a good deed stops you from checking. Real charities do not pressure you with a one-night deadline."
+        },
+        {
+          "kind": "trap",
+          "mark": "a licensed charity",
+          "why": "Claiming a licence without naming the charity proves nothing. Licensed charities name themselves and collect through their own channels."
+        }
+      ],
+      "lesson": "Give to a licensed charity you know through its official app or a site you type yourself, never through a link from an unknown number, however moving the message."
+    }
+  },
+  {
+    "id": "sms-raffle-prize-transfer-fee",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "prize",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": [
+      "too-good",
+      "advance-fee",
+      "unknown-number",
+      "urgency"
+    ],
+    "ar": {
+      "context": "تقيم في الدوحة.",
+      "card": {
+        "sender": "+44 7700 900417",
+        "time": "15:02",
+        "body": "مبروك! فاز رقمك بجائزة قدرها 20,000 ر.ق في السحب السنوي للعملاء، ولاستلامها ادفع رسوم تحويل قدرها 50 ر.ق عبر qa-prize-claim.com خلال ساعتين"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+44 7700 900417",
+          "why": "أُعلن عن الجائزة من رقم بريطاني رغم أنك في قطر، فلا صلة للرسالة بأي جهة محلية."
+        },
+        {
+          "kind": "red",
+          "mark": "رسوم تحويل قدرها 50 ر.ق",
+          "why": "الجائزة الحقيقية لا تطلب منك دفع رسوم لاستلامها، وهذه الرسوم هي ما يريده المحتال أصلاً."
+        },
+        {
+          "kind": "red",
+          "mark": "السحب السنوي للعملاء",
+          "why": "الرسالة لا تذكر اسم الجهة ولا متى اشتركت في السحب، لأنك لم تشترك فيه أصلاً."
+        }
+      ],
+      "lesson": "لا يمكن أن تربح سحباً لم تشترك فيه، وأي جائزة تطلب رسوماً قبل استلامها احتيال، لذا احذف الرسالة دون أن تضغط على الرابط."
+    },
+    "en": {
+      "context": "You live in Doha.",
+      "card": {
+        "sender": "+44 7700 900417",
+        "time": "15:02",
+        "body": "Congratulations! Your number has won 20,000 QAR in our annual customer draw. To receive it, pay a 50 QAR transfer fee at qa-prize-claim.com within 2 hours."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+44 7700 900417",
+          "why": "A prize in Qatar announced from a UK number has nothing to do with any local company."
+        },
+        {
+          "kind": "red",
+          "mark": "50 QAR transfer fee",
+          "why": "A real prize never asks you to pay to receive it. The fee is what the scammer is after."
+        },
+        {
+          "kind": "red",
+          "mark": "annual customer draw",
+          "why": "It never names the company or says when you entered, because you never did."
+        }
+      ],
+      "lesson": "You cannot win a draw you never entered, and any prize that asks for a fee first is a scam. Delete it without tapping the link."
+    }
+  }
+]

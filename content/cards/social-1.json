@@ -1,0 +1,301 @@
+[
+  {
+    "id": "social-giveaway-fake-badge",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "prize",
+    "region": "global",
+    "difficulty": 3,
+    "tags": ["too-good", "small-fee", "payment", "urgency", "impersonation"],
+    "ar": {
+      "card": {
+        "displayName": "هدايا التقنية ✔️",
+        "handle": "@tech.giveaways.official1",
+        "verified": false,
+        "followers": "50.6K",
+        "kind": "post",
+        "text": "🎉 احتفالاً بوصولنا إلى 50 ألف متابع نوزع 20 هاتفاً جديداً 📱 للمشاركة تابع الحساب واضغط إعجاب على المنشور واكتب «تم» في التعليقات، وسنراسل الفائزين اليوم لدفع رسوم شحن رمزية 4.99 دولار واستلام الجائزة، أسرع فالسحب ينتهي منتصف الليل ⏰"
+      },
+      "signals": [
+        {"kind": "trap", "mark": "✔️", "why": "علامة التوثيق هنا رمز تعبيري مكتوب ضمن الاسم لا شارة حقيقية، وحتى الشارة الحقيقية لا تعني أن صاحب الحساب صادق."},
+        {"kind": "trap", "mark": "50 ألف متابع", "why": "المتابعون يُشترون بالآلاف، لذا لا يثبت الرقم الكبير أن الحساب موثوق."},
+        {"kind": "red", "mark": "وسنراسل الفائزين", "why": "المسابقات الحقيقية تعلن أسماء الفائزين علناً، أما الرسالة الخاصة التي تطلب الدفع فهي الطريقة المعتادة لاصطياد الضحايا."},
+        {"kind": "red", "mark": "رسوم شحن رمزية 4.99 دولار", "why": "الجائزة الحقيقية لا تتطلب أن تدفع شيئاً، والرسوم الصغيرة طُعم للحصول على بيانات بطاقتك."}
+      ],
+      "lesson": "لا تدفع أي رسوم لتستلم جائزة، وتحقق من المسابقة في الحساب الرسمي للجهة المنظمة الذي تصل إليه بنفسك لا في حساب ظهر لك فجأة."
+    },
+    "en": {
+      "card": {
+        "displayName": "Tech Giveaways ✔️",
+        "handle": "@tech.giveaways.official1",
+        "verified": false,
+        "followers": "50.6K",
+        "kind": "post",
+        "text": "🎉 To celebrate 50K followers we're giving away 20 brand new phones! 📱 To enter: follow us, like this post and comment DONE. Winners will get a DM today to pay a small $4.99 shipping fee and claim the prize. Hurry, the draw ends at midnight! ⏰"
+      },
+      "signals": [
+        {"kind": "trap", "mark": "✔️", "why": "That tick is an emoji typed into the name, not a real badge. Even a real badge does not mean the owner is honest."},
+        {"kind": "trap", "mark": "50K followers", "why": "Followers can be bought by the thousand, so a big number proves nothing."},
+        {"kind": "red", "mark": "Winners will get a DM", "why": "Real giveaways announce winners publicly. A private message asking for payment is how fake winners are hooked."},
+        {"kind": "red", "mark": "$4.99 shipping fee", "why": "A real prize never makes you pay. The small fee is bait to get your card details."}
+      ],
+      "lesson": "Never pay a fee to claim a prize. Check the giveaway on the organiser's official account that you find yourself, not one that just appeared in your feed."
+    }
+  },
+  {
+    "id": "social-fake-support-suspension",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 2,
+    "tags": ["threat", "urgency", "credentials", "lookalike-domain", "impersonation"],
+    "ar": {
+      "card": {
+        "displayName": "فريق أمان الحسابات 🛡️",
+        "handle": "@safety.support.center24",
+        "verified": false,
+        "followers": "312",
+        "kind": "dm",
+        "text": "مرحباً، تم الإبلاغ عن صفحتك بسبب انتهاك حقوق النشر وسيتم إيقافها نهائياً خلال 24 ساعة، إذا كنت ترى أن هذا خطأ فقدّم اعتراضاً ووثّق حسابك عبر الرابط page-appeal-center.com/verify"
+      },
+      "signals": [
+        {"kind": "trap", "mark": "فريق أمان الحسابات", "why": "الاسم يوحي بأنه رسمي لكنّ أي شخص يستطيع اختياره لحسابه."},
+        {"kind": "red", "mark": "@safety.support.center24", "why": "المنصة لا تراسلك من حساب عادي باسم مستخدم عشوائي فيه أرقام، والتنبيهات الحقيقية تظهر في إشعارات التطبيق وإعداداته."},
+        {"kind": "red", "mark": "خلال 24 ساعة", "why": "المهلة القصيرة والتهديد بخسارة صفحتك يدفعانك إلى التصرف قبل التفكير."},
+        {"kind": "red", "mark": "page-appeal-center.com/verify", "why": "الرابط يقود إلى صفحة دخول مزيفة صُممت لسرقة كلمة المرور ورمز التحقق."}
+      ],
+      "lesson": "تنبيهات الحسابات تصل داخل التطبيق نفسه، فتحقق من حالة حسابك من الإعدادات ولا تسجل الدخول أبداً عبر رابط وصلك في رسالة خاصة."
+    },
+    "en": {
+      "card": {
+        "displayName": "Account Safety Team 🛡️",
+        "handle": "@safety.support.center24",
+        "verified": false,
+        "followers": "312",
+        "kind": "dm",
+        "text": "Hello, your page has been reported for copyright violation and will be permanently suspended within 24 hours. If you think this is a mistake, submit an appeal and verify your account here: page-appeal-center.com/verify"
+      },
+      "signals": [
+        {"kind": "trap", "mark": "Account Safety Team", "why": "It sounds official, but anyone can pick that name."},
+        {"kind": "red", "mark": "@safety.support.center24", "why": "The platform does not message you from an ordinary account with a random handle. Real warnings appear in the app's own notifications and settings."},
+        {"kind": "red", "mark": "within 24 hours", "why": "The deadline and the threat of losing your page push you to act before you think."},
+        {"kind": "red", "mark": "page-appeal-center.com/verify", "why": "The link leads to a fake login page built to steal your password and verification code."}
+      ],
+      "lesson": "Account warnings appear inside the app itself. Check your account status in settings and never log in through a link sent by DM."
+    }
+  },
+  {
+    "id": "social-charity-personal-account",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "charity",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["emotional", "urgency", "payment"],
+    "ar": {
+      "card": {
+        "displayName": "حملة الإغاثة العاجلة",
+        "handle": "@relief.now.campaign",
+        "verified": false,
+        "followers": "1,204",
+        "kind": "post",
+        "text": "🚨 نداء عاجل 🚨 أسر منكوبة بالفيضانات بلا مأوى ولا طعام، وكل دينار يفرق، حولوا تبرعاتكم على حساب المنسق مباشرة KW•• •••• •••• 5512 باسم فهد ع، الحملة تنتهي الليلة وما راح نقدر نوصل للكل، صدقتك تنقذ أرواح 🤲"
+      },
+      "signals": [
+        {"kind": "red", "mark": "حساب المنسق", "why": "التبرع يكون لجهة خيرية مرخصة لا لحساب شخصي باسم فرد، والتحويل إلى شخص لا يمكن متابعته ولا التأكد من وصوله إلى المحتاجين."},
+        {"kind": "red", "mark": "الحملة تنتهي الليلة", "why": "استعجال المتبرعين علامة خطر، لأنّ الجمعيات الحقيقية تستقبل التبرعات عبر قنواتها الرسمية دون مهلة ضاغطة."},
+        {"kind": "trap", "mark": "صدقتك تنقذ أرواح", "why": "العبارات الدينية والمؤثرة تبعث على الثقة، لكنها لا تثبت أين سيذهب المال."}
+      ],
+      "lesson": "تبرّع عبر القنوات الرسمية للجمعيات الخيرية المرخصة التي تعرفها، ولا تحوّل تبرعاتك إلى حساب شخصي مهما كانت القصة مؤثرة."
+    },
+    "en": {
+      "card": {
+        "displayName": "Urgent Relief Campaign",
+        "handle": "@relief.now.campaign",
+        "verified": false,
+        "followers": "1,204",
+        "kind": "post",
+        "text": "🚨 URGENT APPEAL 🚨 Families hit by the floods have no shelter or food, and every dinar counts! Send your donations straight to the coordinator's account KW•• •••• •••• 5512, name Fahad A. The campaign closes tonight and we can't reach everyone. Your charity saves lives 🤲"
+      },
+      "signals": [
+        {"kind": "red", "mark": "the coordinator's account", "why": "Donations go to a licensed charity, not a person's account. Money sent to an individual cannot be tracked or checked."},
+        {"kind": "red", "mark": "closes tonight", "why": "Rushing donors is a warning sign. Real charities take donations through their official channels without pressure like this."},
+        {"kind": "trap", "mark": "Your charity saves lives", "why": "Religious and emotional words build trust, but they prove nothing about where the money goes."}
+      ],
+      "lesson": "Give through the official channels of licensed charities you know, and never transfer donations to a personal account, however moving the story."
+    }
+  },
+  {
+    "id": "social-shop-transfer-only",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "shopping",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": ["too-good", "payment", "urgency"],
+    "ar": {
+      "card": {
+        "displayName": "عروض الماركات الأصلية",
+        "handle": "@original_deals_kw",
+        "verified": false,
+        "followers": "23.5K",
+        "kind": "post",
+        "text": "🔥 تصفية نهائية 🔥 ساعات وحقائب ماركات أصلية 100% بخصم 85%، الساعة بـ 19 د.ك بس بدل 120 🤯 الكمية محدودة، والدفع تحويل بنكي فقط وبدون استرجاع، ما عندنا دفع عند الاستلام، احجز طلبك بالخاص قبل لا يخلص"
+      },
+      "signals": [
+        {"kind": "red", "mark": "بخصم 85%", "why": "الخصم الخيالي على منتجات أصلية غير واقعي، وهو طُعم يجعلك تتجاهل باقي العلامات."},
+        {"kind": "red", "mark": "تحويل بنكي فقط", "why": "رفض كل طريقة دفع تحميك يعني أن البائع يريد مالاً لا يمكن استرجاعه، بينما المتاجر الحقيقية تقبل البطاقة أو الدفع عند الاستلام."},
+        {"kind": "trap", "mark": "أصلية 100%", "why": "عبارة «أصلية مئة بالمئة» يكتبها أي بائع ولا تثبت شيئاً."}
+      ],
+      "lesson": "إذا كان السعر أقل بكثير من المعقول والدفع بالتحويل البنكي فقط فلا تشترِ، واختر متجراً يتيح الدفع بالبطاقة أو عند الاستلام لتبقى محمياً."
+    },
+    "en": {
+      "card": {
+        "displayName": "Original Brand Deals",
+        "handle": "@original_deals_kw",
+        "verified": false,
+        "followers": "23.5K",
+        "kind": "post",
+        "text": "🔥 FINAL CLEARANCE 🔥 100% original brand watches and bags at 85% off! Watches for only 19 KWD instead of 120 🤯 Limited stock. Payment by bank transfer only, no refunds, no cash on delivery. DM to reserve before it's gone"
+      },
+      "signals": [
+        {"kind": "red", "mark": "85% off", "why": "An unreal discount on genuine brands is bait that makes you ignore the other signs."},
+        {"kind": "red", "mark": "bank transfer only", "why": "Refusing every payment method that protects you means they want money you cannot get back. Real shops take cards or cash on delivery."},
+        {"kind": "trap", "mark": "100% original", "why": "Anyone can write 100% original. It proves nothing."}
+      ],
+      "lesson": "If the price is far too low and the shop only takes bank transfers, do not buy. Choose shops that let you pay by card or on delivery so you stay protected."
+    }
+  },
+  {
+    "id": "social-account-recovery-comment",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "tech-support",
+    "region": "global",
+    "difficulty": 1,
+    "tags": ["crypto", "too-good", "payment"],
+    "ar": {
+      "context": "نشرت قبل قليل أن حسابك القديم تعرض للاختراق وطلبت المساعدة من أصدقائك.",
+      "card": {
+        "displayName": "خبير استعادة الحسابات 💻",
+        "handle": "@recover_fast_247",
+        "verified": false,
+        "followers": "1,890",
+        "kind": "comment",
+        "text": "مرحباً، أقدر أرجع لك حسابك المخترق خلال 30 دقيقة ومضمون 100% ✅ ساعدت أكثر من 500 شخص هذا الشهر، راسلني بالخاص الحين، والرسوم بسيطة 50 دولار تدفعها بالعملات الرقمية"
+      },
+      "signals": [
+        {"kind": "red", "mark": "أرجع لك حسابك المخترق خلال 30 دقيقة", "why": "لا يستطيع شخص غريب استعادة حسابك، لأنّ الاستعادة لا تكون إلا عبر خطوات التطبيق الرسمية وهي مجانية."},
+        {"kind": "red", "mark": "بالعملات الرقمية", "why": "الدفع بالعملات الرقمية لا يمكن استرجاعه ويصعب الوصول إلى صاحبه، فتخسر المال ولا تستعيد حسابك."},
+        {"kind": "trap", "mark": "ساعدت أكثر من 500 شخص", "why": "ادعاء النجاح السابق لا يكلف كاتبه شيئاً ولا يثبت شيئاً."}
+      ],
+      "lesson": "استعادة الحساب المخترق تكون عبر خطوات التطبيق الرسمية وحدها وهي مجانية، ومن يعرض عليك في التعليقات استعادته مقابل مال يحتال عليك مرة ثانية."
+    },
+    "en": {
+      "context": "You just posted that your old account was hacked and asked friends for help.",
+      "card": {
+        "displayName": "Account Recovery Expert 💻",
+        "handle": "@recover_fast_247",
+        "verified": false,
+        "followers": "1,890",
+        "kind": "comment",
+        "text": "Hi! I can get your hacked account back in 30 minutes, 100% guaranteed ✅ Helped over 500 people this month. DM me now, small fee of $50 paid in crypto"
+      },
+      "signals": [
+        {"kind": "red", "mark": "get your hacked account back in 30 minutes", "why": "A stranger cannot restore your account. Only the app's official recovery steps can, and they are free."},
+        {"kind": "red", "mark": "paid in crypto", "why": "Crypto payments cannot be reversed and are hard to trace to a person. You lose the money and still do not get your account back."},
+        {"kind": "trap", "mark": "Helped over 500 people", "why": "Claims of past success cost nothing to write and prove nothing."}
+      ],
+      "lesson": "Recover a hacked account only through the app's official recovery steps, which are free. Anyone in the comments offering to do it for a fee is running a second scam."
+    }
+  },
+  {
+    "id": "social-charity-official-channels",
+    "channel": "social",
+    "verdict": "legit",
+    "category": "charity",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": ["official-channel", "no-link"],
+    "ar": {
+      "context": "تتابع هذه الجمعية منذ مدة وسبق أن تبرعت لها.",
+      "card": {
+        "displayName": "الجمعية الخيرية للإغاثة",
+        "handle": "@relief_charity_society",
+        "verified": true,
+        "followers": "86.3K",
+        "kind": "post",
+        "text": "حملة شتاء دافئ لدعم الأسر المحتاجة 🧣 تُستقبل تبرعاتكم عبر تطبيق الجمعية الرسمي أو في مقراتنا ومنافذنا المعتمدة فقط، وكل متبرع يستلم إيصالاً رسمياً، تنبيه: الجمعية لا تطلب التحويل إلى حسابات شخصية ولا تراسل المتبرعين بالخاص لطلب المال"
+      },
+      "signals": [
+        {"kind": "green", "mark": "تطبيق الجمعية الرسمي", "why": "تتبرع عبر قنوات الجمعية الرسمية التي تصل إليها بنفسك، لا عبر رابط ولا حساب شخصي."},
+        {"kind": "green", "mark": "إيصالاً رسمياً", "why": "الإيصال الرسمي يثبت وصول تبرعك إلى الجمعية ويمكن متابعته، وهذا ما لا يوفره التحويل إلى شخص."},
+        {"kind": "green", "mark": "لا تطلب التحويل إلى حسابات شخصية", "why": "الجمعية تحذّر بنفسها من الاحتيال باسمها، وهذا سلوك الجهات الحقيقية."}
+      ],
+      "lesson": "تبرّع عبر التطبيق الرسمي للجمعية أو مقراتها واحتفظ بالإيصال الرسمي، وتجاهل أي حساب يطلب منك التبرع بتحويل إلى شخص أو برسالة خاصة."
+    },
+    "en": {
+      "context": "You have followed this charity for a while and have donated before.",
+      "card": {
+        "displayName": "Relief Charity Society",
+        "handle": "@relief_charity_society",
+        "verified": true,
+        "followers": "86.3K",
+        "kind": "post",
+        "text": "Warm Winter campaign for families in need 🧣 Donate only through our official app or at our offices and approved collection points. Every donor gets an official receipt. Please note: we never ask for transfers to personal accounts and never DM donors asking for money"
+      },
+      "signals": [
+        {"kind": "green", "mark": "our official app", "why": "You give through the charity's own channels that you can reach yourself, not through a link or a personal account."},
+        {"kind": "green", "mark": "official receipt", "why": "An official receipt proves your donation reached the charity and can be tracked. A transfer to a person gives you nothing like it."},
+        {"kind": "green", "mark": "we never ask for transfers to personal accounts", "why": "The charity warns you about scams in its name, which is how genuine organisations behave."}
+      ],
+      "lesson": "Donate through the charity's official app or offices and keep the official receipt. Ignore any account that asks you to give by transferring to a person or through a DM."
+    }
+  },
+  {
+    "id": "social-cafe-draw-legit",
+    "channel": "social",
+    "verdict": "legit",
+    "category": "prize",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": ["no-link", "official-channel"],
+    "ar": {
+      "context": "تتابع هذا المقهى القريب من بيتك وتشتري منه القهوة كثيراً.",
+      "card": {
+        "displayName": "مقهى الحي",
+        "handle": "@neighbourhood_cafe",
+        "verified": false,
+        "followers": "6,420",
+        "kind": "post",
+        "text": "☕ سحب الخميس ☕ اكتب مشروبك المفضل في التعليقات ونختار 3 فائزين عشوائياً، نعلن الأسماء في الستوري يوم الخميس، والفائز يستلم قسيمة مشروب مجاني من الفرع بإبراز حسابه، ما نطلب أي رسوم أو بيانات بطاقة أو رموز، وما نراسل أحد بالخاص، انتبهوا من الحسابات اللي تقلد اسمنا 🙏"
+      },
+      "signals": [
+        {"kind": "green", "mark": "يستلم قسيمة مشروب مجاني من الفرع", "why": "الجائزة تُستلم شخصياً من فرع تعرفه دون أي دفع، فلا مال ولا بيانات تخرج منك."},
+        {"kind": "green", "mark": "ما نطلب أي رسوم أو بيانات بطاقة أو رموز", "why": "المقهى يعلن بوضوح أنه لا يطلب رسوماً ولا بيانات، وهذا عكس المسابقات المزيفة التي تنتهي دائماً بطلب دفع."},
+        {"kind": "green", "mark": "نعلن الأسماء في الستوري", "why": "إعلان أسماء الفائزين علناً في حساب المقهى نفسه يعني أنك لن تحتاج إلى التعامل مع أي رسالة خاصة."},
+        {"kind": "trap", "mark": "انتبهوا من الحسابات اللي تقلد اسمنا", "why": "التحذير من الحسابات المقلدة علامة جيدة لكنّ المحتال يستطيع نسخه أيضاً، لذا تأكد أنك في حساب المقهى الذي تتابعه فعلاً."}
+      ],
+      "lesson": "بعض المسابقات حقيقية وعلامتها أن الجائزة تُستلم دون دفع أو بيانات وأن الإعلان يأتي من الحساب الذي تتابعه بنفسك، فإذا طلب منك أحد بعدها رسوماً أو رمزاً فهو احتيال."
+    },
+    "en": {
+      "context": "You follow this café near your home and often buy coffee there.",
+      "card": {
+        "displayName": "Neighbourhood Café",
+        "handle": "@neighbourhood_cafe",
+        "verified": false,
+        "followers": "6,420",
+        "kind": "post",
+        "text": "☕ Thursday Draw ☕ Comment your favourite drink and we'll pick 3 winners at random. We'll post the names in our story on Thursday, and winners collect a free drink voucher at the branch by showing their account. We never ask for fees, card details or codes, and we never DM anyone. Watch out for accounts copying our name 🙏"
+      },
+      "signals": [
+        {"kind": "green", "mark": "collect a free drink voucher at the branch", "why": "You pick up the prize in person at a branch you know, paying nothing and sharing nothing."},
+        {"kind": "green", "mark": "We never ask for fees, card details or codes", "why": "The café says clearly it asks for nothing, the opposite of fake giveaways that always end with a payment."},
+        {"kind": "green", "mark": "post the names in our story", "why": "Winners are announced publicly on the café's own account, so you never need to deal with a private message."},
+        {"kind": "trap", "mark": "Watch out for accounts copying our name", "why": "A warning about fake accounts is a good sign, but scammers copy it too. Make sure you are on the café account you actually follow."}
+      ],
+      "lesson": "Some giveaways are real: you pay nothing, share no details, and the post comes from the account you already follow. If anyone then asks you for a fee or a code, it is a scam."
+    }
+  }
+]

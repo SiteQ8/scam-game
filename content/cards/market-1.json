@@ -1,0 +1,335 @@
+[
+  {
+    "id": "market-buyer-overpay-refund",
+    "channel": "market",
+    "verdict": "scam",
+    "category": "marketplace",
+    "region": "global",
+    "difficulty": 3,
+    "tags": ["payment", "urgency", "verify-independently"],
+    "ar": {
+      "context": "عرضت دراجتك الهوائية للبيع في تطبيق للبيع والشراء.",
+      "card": {
+        "item": "دراجة هوائية للطرق، مقاس 54، استعمال خفيف",
+        "price": "420 دولار",
+        "messages": [
+          {"from": "them", "text": "مرحباً، الدراجة لسا متوفرة؟ آخذها بسعرك بدون مفاصلة", "time": "15:10"},
+          {"from": "them", "text": "حولت المبلغ، بس مساعدي غلط وحول 920 دولار بدل 420 😩 شيك على إيميلك بتلقى تأكيد الدفع", "time": "15:31"},
+          {"from": "them", "text": "الله يخليك رجّع الفرق 500 دولار على حساب ولد عمي اليوم، والمندوب بيمر ياخذ الدراجة بكرة", "time": "15:32"},
+          {"from": "me", "text": "ما شفت أي مبلغ في حسابي للحين", "time": "15:40"},
+          {"from": "them", "text": "المبلغ معلق لين ترجع الفرق، هذا نظام التحويل، بس بسرعة لأن ولد عمي محتاجه الليلة", "time": "15:41"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "920 دولار بدل 420", "why": "الدفع الزائد مع طلب إرجاع الفرق حيلة معروفة، فالتحويل الأصلي مزيف أو سيُلغى لاحقاً وتخسر ما أرجعته."},
+        {"kind": "trap", "mark": "تأكيد الدفع", "why": "رسالة تأكيد الدفع في البريد تبدو رسمية لكنها تُزوّر في دقائق، والمال الحقيقي يظهر فقط في تطبيق البنك الخاص بك."},
+        {"kind": "red", "mark": "حساب ولد عمي", "why": "الفرق سيذهب إلى شخص ثالث، أي أنك سترسل مالك أنت إلى المحتال."},
+        {"kind": "red", "mark": "معلق لين ترجع الفرق", "why": "لا يوجد تحويل حقيقي ينتظر أن تدفع أنت أولاً، وهذه الجملة غرضها الوحيد الحصول على مالك."}
+      ],
+      "lesson": "المشتري الذي يدفع أكثر من السعر ويطلب إرجاع الفرق محتال في الغالب، لذا لا ترجع أي مبلغ ولو ظهر في حسابك، واترك للبنك معالجة أي خطأ حقيقي."
+    },
+    "en": {
+      "context": "You listed your bike for sale on a marketplace app.",
+      "card": {
+        "item": "Road bike, 54 cm frame, barely used",
+        "price": "$420",
+        "messages": [
+          {"from": "them", "text": "Hi, is the bike still available? I'll take it at your price, no need to haggle", "time": "15:10"},
+          {"from": "them", "text": "Payment sent! My assistant made a mistake and sent $920 instead of $420 😩 Check your email for the payment confirmation", "time": "15:31"},
+          {"from": "them", "text": "Please refund the extra $500 to my cousin's account today, and my driver will collect the bike tomorrow", "time": "15:32"},
+          {"from": "me", "text": "I don't see anything in my account yet", "time": "15:40"},
+          {"from": "them", "text": "It's on hold until you send the refund, that's how the system works. Please hurry, my cousin needs it tonight", "time": "15:41"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "$920 instead of $420", "why": "Overpaying and asking for the difference back is a classic trick. The original payment is fake or will be reversed later."},
+        {"kind": "trap", "mark": "payment confirmation", "why": "A confirmation email looks official but can be faked in minutes. Only your own banking app shows real money."},
+        {"kind": "red", "mark": "my cousin's account", "why": "The refund goes to a third person, so you would be sending your own money to the scammer."},
+        {"kind": "red", "mark": "on hold until you send the refund", "why": "No real payment waits for you to pay first. This line exists only to get your money."}
+      ],
+      "lesson": "A buyer who overpays and asks for the difference back is almost always a scammer. Send nothing back, even if money shows in your account, and let the banks fix any real mistake."
+    }
+  },
+  {
+    "id": "market-receive-payment-link",
+    "channel": "market",
+    "verdict": "scam",
+    "category": "marketplace",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": ["lookalike-domain", "payment", "urgency", "credentials"],
+    "ar": {
+      "context": "عرضت آلة قهوة مستعملة للبيع بسعر 45 د.ك في تطبيق للبيع والشراء.",
+      "card": {
+        "item": "آلة قهوة كبسولات، شبه جديدة",
+        "price": "45 د.ك",
+        "messages": [
+          {"from": "them", "text": "السلام عليكم، آلة القهوة موجودة؟ أبيها، وبدفع لك الحين عشان أحجزها", "time": "19:02"},
+          {"from": "them", "text": "دفعت لك عن طريق خدمة الدفع الآمن، اضغط الرابط واستلم فلوسك secure-pay-receive.com/kw/45", "time": "19:05"},
+          {"from": "them", "text": "بس دخّل بيانات بطاقتك عشان ينزل المبلغ بحسابك، والرابط ينتهي بعد 30 دقيقة", "time": "19:05"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "خدمة الدفع الآمن", "why": "كلمة «آمن» لا تكلف المحتال شيئاً ولا تثبت شيئاً."},
+        {"kind": "red", "mark": "secure-pay-receive.com/kw/45", "why": "المبالغ الحقيقية تصل إلى حسابك دون أن تضغط على أي شيء، والرابط الذي يدعي أنه لاستلام المال صفحة احتيال."},
+        {"kind": "red", "mark": "دخّل بيانات بطاقتك", "why": "لا تحتاج إلى بيانات بطاقتك لتستلم مالاً، وإدخالها يسلّم بطاقتك للمحتال."},
+        {"kind": "red", "mark": "ينتهي بعد 30 دقيقة", "why": "المهلة القصيرة تدفعك إلى إدخال بياناتك قبل أن تفكر أو تسأل أحداً."}
+      ],
+      "lesson": "استلام المال لا يتطلب الضغط على رابط ولا إدخال بيانات بطاقتك، لذا تحقق من رصيدك في تطبيق البنك ولا تسلّم الغرض إلا بعد أن ترى المبلغ بنفسك."
+    },
+    "en": {
+      "context": "You listed a used coffee machine for 45 KWD on a marketplace app.",
+      "card": {
+        "item": "Capsule coffee machine, like new",
+        "price": "45 KWD",
+        "messages": [
+          {"from": "them", "text": "Hi, is the coffee machine still available? I want it, I'll pay now to reserve it", "time": "19:02"},
+          {"from": "them", "text": "Paid you through the safe payment service. Tap the link to receive your money: secure-pay-receive.com/kw/45", "time": "19:05"},
+          {"from": "them", "text": "Just enter your card details so the money lands in your account. The link expires in 30 minutes", "time": "19:05"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "safe payment service", "why": "Words like safe and secure cost a scammer nothing and prove nothing."},
+        {"kind": "red", "mark": "secure-pay-receive.com/kw/45", "why": "Real payments reach your account without you clicking anything. A link to receive money is a scam page."},
+        {"kind": "red", "mark": "enter your card details", "why": "You never need card details to receive money. Typing them in hands your card to the scammer."},
+        {"kind": "red", "mark": "expires in 30 minutes", "why": "The short deadline pushes you to type your details before you think or ask anyone."}
+      ],
+      "lesson": "Receiving money never needs a link or your card details. Check your balance in your banking app and hand over the item only once you see the money yourself."
+    }
+  },
+  {
+    "id": "market-car-deposit-before-viewing",
+    "channel": "market",
+    "verdict": "scam",
+    "category": "marketplace",
+    "region": "global",
+    "difficulty": 3,
+    "tags": ["advance-fee", "payment", "urgency"],
+    "ar": {
+      "context": "تبحث عن سيارة مستعملة وراسلت البائع بخصوص هذا الإعلان.",
+      "card": {
+        "item": "سيارة عائلية دفع رباعي موديل 2019، ممشى 62 ألف كم، مالك واحد",
+        "price": "11,500 دولار",
+        "messages": [
+          {"from": "me", "text": "مرحبا، السيارة متوفرة؟ أقدر أشوفها نهاية الأسبوع؟", "time": "12:00"},
+          {"from": "them", "text": "متوفرة، بس عليها طلب وايد، وأنا حالياً أشتغل برا البلد والسيارة عند شركة شحن", "time": "12:04"},
+          {"from": "them", "text": "حوّل عربون 500 دولار مسترد بتحويل بنكي، وأنا أشيل الإعلان وأخلي الشركة توصلها لك", "time": "12:05"},
+          {"from": "them", "text": "في واحد ثاني عرض يدفع العربون اليوم، فأقدر أحجزها لك لين الليلة بس", "time": "12:06"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "أشتغل برا البلد", "why": "بائع لا يمكن مقابلته وسيارة لا يمكن معاينتها نمط احتيال متكرر، فقد تدفع ثمن سيارة غير موجودة أصلاً."},
+        {"kind": "red", "mark": "عربون 500 دولار مسترد", "why": "العربون قبل أن ترى السيارة هو طريقة هذا الاحتيال في أخذ مالك، ووصفه بأنه مسترد لا قيمة له بعد التحويل."},
+        {"kind": "red", "mark": "لين الليلة بس", "why": "الحديث عن مشترٍ آخر غرضه الضغط عليك لتدفع بسرعة."}
+      ],
+      "lesson": "لا تدفع عربوناً لسيارة لم ترها بعينك، بل قابل البائع وافحص السيارة وتأكد من أوراقها قبل أن تدفع أي مبلغ."
+    },
+    "en": {
+      "context": "You are looking for a used car and messaged the seller about this listing.",
+      "card": {
+        "item": "2019 family SUV, 62,000 km, one owner",
+        "price": "$11,500",
+        "messages": [
+          {"from": "me", "text": "Hi, is the SUV still available? Can I see it this weekend?", "time": "12:00"},
+          {"from": "them", "text": "Yes, but lots of people are asking. I'm working abroad at the moment and the car is with a shipping company", "time": "12:04"},
+          {"from": "them", "text": "Send a refundable $500 deposit by bank transfer and I'll take the ad down and have the company deliver it to you", "time": "12:05"},
+          {"from": "them", "text": "Someone else offered to pay the deposit today, so I can only hold it until tonight", "time": "12:06"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "working abroad at the moment", "why": "A seller you can never meet and a car you can never see is a common setup. You could be paying for a car that does not exist."},
+        {"kind": "red", "mark": "refundable $500 deposit", "why": "A deposit before you have seen the car is how this scam takes your money. Refundable means nothing once it is gone."},
+        {"kind": "red", "mark": "only hold it until tonight", "why": "Talk of another buyer is there to rush you into paying."}
+      ],
+      "lesson": "Never pay a deposit for a car you have not seen. Meet the seller, inspect the car and check its papers before any money changes hands."
+    }
+  },
+  {
+    "id": "market-chalet-deposit",
+    "channel": "market",
+    "verdict": "scam",
+    "category": "rental",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": ["advance-fee", "payment", "verify-independently"],
+    "ar": {
+      "context": "تبحث عن شاليه لعطلة نهاية الأسبوع ووجدت هذا الإعلان.",
+      "card": {
+        "item": "شاليه بحري، 3 غرف ومسبح خاص، من الخميس إلى السبت",
+        "price": "180 د.ك لليلتين",
+        "messages": [
+          {"from": "me", "text": "مرحبا، الشاليه فاضي هالويكند؟ أقدر أمر أشوفه قبل؟", "time": "21:00"},
+          {"from": "them", "text": "هلا فيك، باقي هالويكند بس، والمعاينة ما تمشي لأن فيه مستأجرين لين الخميس، بس أرسلت لك صور وفيديو وعقد الإيجار 📄", "time": "21:03"},
+          {"from": "them", "text": "عشان أثبت لك الحجز حوّل عربون 60 د.ك على حساب أخوي لأن حسابي فيه مشكلة، والباقي تدفعه يوم الاستلام", "time": "21:04"},
+          {"from": "them", "text": "وإذا تبي أرسل لك صورة بطاقتي المدنية عشان تطمن 👍", "time": "21:05"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "صور وفيديو وعقد الإيجار", "why": "الصور والفيديو يمكن نسخها من إعلانات حقيقية والعقد ملف يكتبه أي شخص، لذا لا يثبت أي منها أن الشاليه ملك للمعلن."},
+        {"kind": "red", "mark": "المعاينة ما تمشي", "why": "رفض المعاينة يعني أنك ستدفع دون أن تتأكد أن الشاليه موجود أو أن المعلن يملكه."},
+        {"kind": "red", "mark": "على حساب أخوي", "why": "التحويل إلى حساب باسم شخص آخر بحجة مشكلة في الحساب علامة احتيال، لأنه يخفي هوية من يستلم المال فعلاً."},
+        {"kind": "trap", "mark": "صورة بطاقتي المدنية", "why": "صورة الهوية لا تثبت شيئاً لأنّ المحتالين يستخدمون هويات مسروقة من ضحايا سابقين، وقد تخص شخصاً بريئاً."}
+      ],
+      "lesson": "لا تدفع عربون الشاليه قبل أن تعاينه وتقابل صاحبه، وليكن التحويل إلى حساب باسم المالك نفسه أو احجز عبر جهة معروفة."
+    },
+    "en": {
+      "context": "You want to rent a chalet for the weekend and found this listing.",
+      "card": {
+        "item": "Beach chalet, 3 bedrooms, private pool, Thursday to Saturday",
+        "price": "180 KWD for 2 nights",
+        "messages": [
+          {"from": "me", "text": "Hi, is the chalet free this weekend? Can I come and see it first?", "time": "21:00"},
+          {"from": "them", "text": "Hi! Only this weekend is left. Viewing isn't possible because there are tenants until Thursday, but I've sent you photos, a video and the rental contract 📄", "time": "21:03"},
+          {"from": "them", "text": "To secure the booking, transfer a 60 KWD deposit to my brother's account because mine has an issue. You pay the rest when you get the keys", "time": "21:04"},
+          {"from": "them", "text": "If you like, I can send you a photo of my civil ID so you feel safe 👍", "time": "21:05"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "photos, a video and the rental contract", "why": "Photos and videos can be copied from real listings, and anyone can type up a contract. None of it proves the chalet is theirs."},
+        {"kind": "red", "mark": "Viewing isn't possible", "why": "Without a viewing you pay without knowing the chalet exists or belongs to them."},
+        {"kind": "red", "mark": "my brother's account", "why": "Paying into someone else's name because of an account issue hides who really gets the money."},
+        {"kind": "trap", "mark": "a photo of my civil ID", "why": "An ID photo proves nothing. Scammers use IDs stolen from earlier victims, which may belong to an innocent person."}
+      ],
+      "lesson": "Never pay a chalet deposit before you have seen it and met the owner. Pay only into an account in the owner's own name, or book through a known company."
+    }
+  },
+  {
+    "id": "market-buyer-public-pickup",
+    "channel": "market",
+    "verdict": "legit",
+    "category": "marketplace",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": ["expected", "no-link"],
+    "ar": {
+      "context": "عرضت هاتفك القديم للبيع بسعر 70 د.ك في تطبيق للبيع والشراء.",
+      "card": {
+        "item": "هاتف مستعمل 128 جيجا، البطارية 89%",
+        "price": "70 د.ك",
+        "messages": [
+          {"from": "them", "text": "مرحبا، الهاتف موجود؟", "time": "17:20"},
+          {"from": "me", "text": "هلا، إي موجود", "time": "17:25"},
+          {"from": "them", "text": "ممتاز، نتقابل بكرة الساعة 6 عند المدخل الرئيسي للمجمع التجاري؟ أشيك عليه وأدفع لك كاش", "time": "17:26"},
+          {"from": "me", "text": "تمام، أشوفك هناك", "time": "17:30"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "المدخل الرئيسي للمجمع التجاري", "why": "اللقاء في مكان عام مزدحم آمن للطرفين، والمشتري هو من اقترحه بنفسه."},
+        {"kind": "green", "mark": "أشيك عليه", "why": "المشتري الذي يريد فحص الغرض قبل الدفع يتصرف كمشترٍ حقيقي."},
+        {"kind": "green", "mark": "أدفع لك كاش", "why": "المشتري يدفع لك وجهاً لوجه عند التسليم، دون روابط ولا رموز ولا إرجاع مبالغ."}
+      ],
+      "lesson": "المشتري الحقيقي يقابلك في مكان عام ويفحص الغرض ويدفع في المكان نفسه، فلا تسلّم الغرض إلا بعد أن تستلم المبلغ بيدك أو تراه في تطبيق البنك."
+    },
+    "en": {
+      "context": "You listed your old phone for 70 KWD on a marketplace app.",
+      "card": {
+        "item": "Used phone, 128 GB, battery 89%",
+        "price": "70 KWD",
+        "messages": [
+          {"from": "them", "text": "Hi, is the phone still available?", "time": "17:20"},
+          {"from": "me", "text": "Hi, yes it is", "time": "17:25"},
+          {"from": "them", "text": "Great, can we meet tomorrow at 6 at the main entrance of the shopping centre? I'll check it and pay you cash", "time": "17:26"},
+          {"from": "me", "text": "Sure, see you there", "time": "17:30"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "main entrance of the shopping centre", "why": "Meeting in a busy public place is safe for both of you, and the buyer suggested it."},
+        {"kind": "green", "mark": "I'll check it", "why": "A buyer who wants to check the item before paying behaves like a real buyer."},
+        {"kind": "green", "mark": "pay you cash", "why": "Payment happens face to face at handover, with no links, codes or refunds involved."}
+      ],
+      "lesson": "A real buyer meets in a public place, checks the item and pays on the spot. Hand it over once the money is in your hand or showing in your banking app."
+    }
+  },
+  {
+    "id": "market-car-inspection-first",
+    "channel": "market",
+    "verdict": "legit",
+    "category": "marketplace",
+    "region": "global",
+    "difficulty": 2,
+    "tags": ["expected", "no-link"],
+    "ar": {
+      "context": "تبحث عن سيارة مستعملة وسألت البائع عن هذا الإعلان.",
+      "card": {
+        "item": "سيارة سيدان عائلية موديل 2017، ممشى 98 ألف كم، سجل صيانة كامل",
+        "price": "7,800 دولار",
+        "messages": [
+          {"from": "me", "text": "مرحبا، السيارة متوفرة؟ أقدر أشوفها؟", "time": "10:00"},
+          {"from": "them", "text": "إي متوفرة، حياك يوم السبت الصبح عند البيت تشوفها وتجربها", "time": "10:12"},
+          {"from": "them", "text": "وإذا تبي جيب معك ميكانيكي، والأوراق ودفتر الصيانة جاهزين، وما أبي عربون، الدفع يكون وقت ما نوقع على نقل الملكية", "time": "10:13"},
+          {"from": "me", "text": "ممتاز، السبت الساعة 10 يناسبني", "time": "10:20"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "تشوفها وتجربها", "why": "البائع يدعوك إلى معاينة السيارة وتجربتها قبل أي شيء، وهذا ما يفعله البائع الحقيقي."},
+        {"kind": "green", "mark": "جيب معك ميكانيكي", "why": "الترحيب بفحص مستقل يعني أن البائع لا يخفي شيئاً."},
+        {"kind": "green", "mark": "ما أبي عربون", "why": "لا يُطلب منك أي مبلغ قبل أن ترى السيارة وأوراقها بنفسك."}
+      ],
+      "lesson": "البائع الحقيقي يتيح لك معاينة السيارة وفحص أوراقها واصطحاب ميكانيكي قبل أي دفع، فلا تدفع إلا عند توقيع نقل الملكية الرسمي."
+    },
+    "en": {
+      "context": "You are looking for a used car and asked the seller about this listing.",
+      "card": {
+        "item": "2017 family sedan, 98,000 km, full service history",
+        "price": "$7,800",
+        "messages": [
+          {"from": "me", "text": "Hi, is the car still available? Can I see it?", "time": "10:00"},
+          {"from": "them", "text": "Yes it is. You're welcome to come by my house on Saturday morning to see it and take it for a test drive", "time": "10:12"},
+          {"from": "them", "text": "Bring a mechanic if you like, I'll have the papers and service book ready. No deposit needed, we can sort out payment when we sign the transfer", "time": "10:13"},
+          {"from": "me", "text": "Great, Saturday at 10 works for me", "time": "10:20"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "take it for a test drive", "why": "The seller invites you to see and drive the car before anything else, which is what a genuine seller does."},
+        {"kind": "green", "mark": "Bring a mechanic if you like", "why": "Welcoming an independent check shows the seller has nothing to hide."},
+        {"kind": "green", "mark": "No deposit needed", "why": "No money is asked for before you have seen the car and its papers yourself."}
+      ],
+      "lesson": "A genuine seller lets you see the car, check its papers and bring a mechanic before any payment. Pay only when you sign the official transfer."
+    }
+  },
+  {
+    "id": "market-holiday-apartment-in-app",
+    "channel": "market",
+    "verdict": "legit",
+    "category": "rental",
+    "region": "global",
+    "difficulty": 4,
+    "tags": ["official-channel", "no-link"],
+    "ar": {
+      "context": "تخطط لإجازة وراسلت صاحب شقة داخل تطبيق لحجز الإقامات.",
+      "card": {
+        "item": "شقة بإطلالة على البحر، غرفتا نوم، قرب البلدة القديمة",
+        "price": "95 يورو لليلة",
+        "messages": [
+          {"from": "me", "text": "مرحبا، الشقة متاحة من 12 إلى 16؟ أقدر أحول لك المبلغ مباشرة عشان ما أدفع رسوم الخدمة؟", "time": "20:10"},
+          {"from": "them", "text": "أهلاً، نعم التواريخ متاحة، لكن آسف، أنا أقبل الحجز والدفع من خلال التطبيق فقط لأنه يحمي الطرفين", "time": "20:25"},
+          {"from": "them", "text": "بعد الحجز تظهر لك تعليمات تسجيل الوصول في التطبيق قبل وصولك بيومين", "time": "20:26"},
+          {"from": "me", "text": "معك حق، بحجز الحين", "time": "20:30"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "أقبل الحجز والدفع من خلال التطبيق فقط", "why": "بقاء الدفع داخل التطبيق يحميك بقواعد الاسترجاع فيه، والمضيف الذي يرفض التحويل خارجه يتصرف كما ينبغي."},
+        {"kind": "green", "mark": "تعليمات تسجيل الوصول في التطبيق", "why": "كل شيء يبقى داخل التطبيق، فلا روابط خارجية ولا حسابات بنكية ولا أرقام شخصية."}
+      ],
+      "lesson": "احجز إقامتك وادفع ثمنها داخل تطبيق الحجز فقط، لأنّ المضيف الذي يطلب تحويلاً خارجه أو يوافق عليه يُسقط عنك كل حماية."
+    },
+    "en": {
+      "context": "You are planning a holiday and messaged a host inside a rental booking app.",
+      "card": {
+        "item": "Sea view apartment, 2 bedrooms, near the old town",
+        "price": "€95 per night",
+        "messages": [
+          {"from": "me", "text": "Hi! Is the apartment free from the 12th to the 16th? Could I pay you directly by transfer to skip the service fee?", "time": "20:10"},
+          {"from": "them", "text": "Hi, yes those dates are free. Sorry, I only take bookings and payment through the app, it protects both of us", "time": "20:25"},
+          {"from": "them", "text": "Once you book, the check-in instructions will appear in the app two days before you arrive", "time": "20:26"},
+          {"from": "me", "text": "Fair enough, booking now", "time": "20:30"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "I only take bookings and payment through the app", "why": "Paying inside the app keeps you covered by its refund rules. A host who refuses transfers outside it is doing the right thing."},
+        {"kind": "green", "mark": "check-in instructions will appear in the app", "why": "Everything stays inside the app, with no outside links, bank accounts or personal numbers."}
+      ],
+      "lesson": "Book and pay for stays only inside the booking app. A host who asks for a transfer outside it, or agrees to one, takes away all your protection."
+    }
+  }
+]

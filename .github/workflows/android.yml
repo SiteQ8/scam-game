@@ -1,0 +1,65 @@
+name: android
+
+on:
+  push:
+    tags: ['android-v*']
+    branches: [main]
+    paths: ['android/**', 'app/**', 'content/**', 'package.json', '.github/workflows/android.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HAS_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+      HAS_PLAY: ${{ secrets.PLAY_SERVICE_ACCOUNT != '' }}
+      VERSION_CODE: ${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm ci && npm run build && npx cap sync android
+      - name: Debug APK for testing
+        working-directory: android
+        run: ./gradlew --no-daemon assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-debug-apk
+          path: android/app/build/outputs/apk/debug/*.apk
+      - name: Signed release bundle
+        if: env.HAS_KEYSTORE == 'true' && startsWith(github.ref, 'refs/tags/android-v')
+        working-directory: android
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > upload.keystore
+          ./gradlew --no-daemon bundleRelease \
+            -Pandroid.injected.signing.store.file="$PWD/upload.keystore" \
+            -Pandroid.injected.signing.store.password="$ANDROID_KEYSTORE_PASSWORD" \
+            -Pandroid.injected.signing.key.alias="$ANDROID_KEY_ALIAS" \
+            -Pandroid.injected.signing.key.password="$ANDROID_KEY_PASSWORD"
+          rm -f upload.keystore
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_KEYSTORE == 'true' && startsWith(github.ref, 'refs/tags/android-v')
+        with:
+          name: android-release-aab
+          path: android/app/build/outputs/bundle/release/*.aab
+      - name: Upload to the Play internal track
+        if: env.HAS_KEYSTORE == 'true' && env.HAS_PLAY == 'true' && startsWith(github.ref, 'refs/tags/android-v')
+        env:
+          PLAY_SERVICE_ACCOUNT: ${{ secrets.PLAY_SERVICE_ACCOUNT }}
+        run: |
+          pip install --quiet google-auth requests
+          python3 tools/android/play-upload.py android/app/build/outputs/bundle/release/app-release.aab internal store/google-play

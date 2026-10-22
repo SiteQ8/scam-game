@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Content rules
+        run: node scripts/validate-content.mjs
+      - name: Type check
+        run: npx tsc --noEmit -p tsconfig.json
+      - name: Tests
+        run: npx vitest run
+      - name: Build the game and the site
+        run: npm run build:site
+      - name: Site is in sync with the build
+        run: git diff --stat --exit-code -- docs || (echo "docs/ is out of date, run npm run build:site and commit" && exit 1)
+
+  ios-compile:
+    if: github.event_name == 'push'
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci && npm run build && npx cap sync ios
+      - name: Build for the simulator without signing
+        run: |
+          set -o pipefail
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | tail -20
