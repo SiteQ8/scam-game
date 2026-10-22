@@ -1,0 +1,701 @@
+[
+  {
+    "id": "notification-salary-credited",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "ar": {
+      "context": "اليوم أول الشهر، وهو موعد إيداع راتبك.",
+      "card": {
+        "app": "Bank",
+        "title": "تم إيداع الراتب",
+        "body": "أُودع راتبك البالغ 1,250.000 د.ك في حسابك المنتهي بـ 2286، ويمكنك الاطلاع على التفاصيل في التطبيق",
+        "time": "07:02"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Bank",
+          "why": "الإشعار صادر من تطبيق البنك المثبت على هاتفك لا من رسالة نصية، والغرباء لا يستطيعون إرسال إشعارات عبر هذا التطبيق."
+        },
+        {
+          "kind": "green",
+          "mark": "1,250.000 د.ك",
+          "why": "المبلغ يطابق راتبك المعتاد ووصل في موعده، أي أن الإشعار متوقع تماماً."
+        },
+        {
+          "kind": "green",
+          "mark": "الاطلاع على التفاصيل في التطبيق",
+          "why": "الإشعار لا يحمل رابطاً ولا يطلب منك شيئاً، بل يدلك على التطبيق الذي تستخدمه أصلاً."
+        }
+      ],
+      "lesson": "إشعارات تطبيق البنك التي تطابق ما تتوقعه ولا تطلب منك شيئاً إشعارات طبيعية، وراجع أي عملية لا تعرفها من داخل التطبيق نفسه."
+    },
+    "en": {
+      "context": "It is the first of the month and your salary is due today.",
+      "card": {
+        "app": "Bank",
+        "title": "Salary credited",
+        "body": "Your salary of 1,250.000 KWD has been credited to your account ending 2286. See the details in the app.",
+        "time": "07:02"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Bank",
+          "why": "This alert comes from the bank app installed on your phone, not a text, and outsiders cannot send alerts through it."
+        },
+        {
+          "kind": "green",
+          "mark": "1,250.000 KWD",
+          "why": "The amount matches your usual salary on the usual day, so the alert is expected."
+        },
+        {
+          "kind": "green",
+          "mark": "See the details in the app",
+          "why": "There is no link and nothing to do. It simply points you to the app you already use."
+        }
+      ],
+      "lesson": "Bank app alerts that match what you expect and ask for nothing are normal. Check anything unfamiliar inside the app itself."
+    }
+  },
+  {
+    "id": "notification-wallet-topup-own",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "ar": {
+      "context": "شحنت محفظتك للتو بمبلغ 20 د.ك من بطاقتك.",
+      "card": {
+        "app": "Wallet",
+        "title": "تم شحن المحفظة",
+        "body": "أُضيف مبلغ 20.000 د.ك إلى محفظتك من بطاقتك المنتهية بـ 4417، ورصيدك الجديد 26.350 د.ك",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Wallet",
+          "why": "الإشعار صادر من تطبيق المحفظة نفسه لا من رسالة نصية، ولا يحمل رابطاً ولا يطلب منك شيئاً."
+        },
+        {
+          "kind": "green",
+          "mark": "20.000 د.ك",
+          "why": "المبلغ يطابق عملية الشحن التي أجريتها قبل لحظات."
+        },
+        {
+          "kind": "trap",
+          "mark": "المنتهية بـ 4417",
+          "why": "آخر أرقام بطاقتك وحدها لا تثبت شيئاً، فما يجعل الإشعار موثوقاً أنه يطابق ما فعلته للتو."
+        }
+      ],
+      "lesson": "الإشعار الذي يؤكد عملية أجريتها للتو أمر طبيعي، أما إذا وصلك تأكيد لعملية لا تعرفها فافتح التطبيق بنفسك وتواصل مع الجهة عبر قنواتها الرسمية."
+    },
+    "en": {
+      "context": "You just topped up your wallet with 20 KWD from your card.",
+      "card": {
+        "app": "Wallet",
+        "title": "Top-up successful",
+        "body": "20.000 KWD was added to your wallet from your card ending 4417. Your new balance is 26.350 KWD.",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Wallet",
+          "why": "The alert comes from the wallet app itself, not a text, and it has no link and asks for nothing."
+        },
+        {
+          "kind": "green",
+          "mark": "20.000 KWD",
+          "why": "The amount matches the top-up you made a moment ago."
+        },
+        {
+          "kind": "trap",
+          "mark": "card ending 4417",
+          "why": "Your card's last digits prove nothing alone. What makes this trustworthy is that it matches what you just did."
+        }
+      ],
+      "lesson": "An alert confirming something you just did is normal. If one confirms something you did not do, open the app yourself and contact the provider through official channels."
+    }
+  },
+  {
+    "id": "notification-new-device-own-login",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "official-channel",
+      "verify-independently"
+    ],
+    "ar": {
+      "context": "انتهيت للتو من تثبيت تطبيق البنك على هاتفك الجديد.",
+      "card": {
+        "app": "Bank",
+        "title": "تسجيل دخول من جهاز جديد",
+        "body": "تم الدخول إلى حسابك من جهاز جديد اليوم الساعة 19:42، إذا كنت أنت فلا يلزمك أي إجراء، وإن لم تكن أنت فاتصل بنا على الرقم المطبوع خلف بطاقتك",
+        "time": "19:42"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "اليوم الساعة 19:42",
+          "why": "وقت التنبيه يطابق اللحظة التي سجلت فيها الدخول على هاتفك الجديد، أي أنه يصف ما فعلته بنفسك."
+        },
+        {
+          "kind": "green",
+          "mark": "فلا يلزمك أي إجراء",
+          "why": "التنبيه لا يطلب رمزاً ولا بيانات ولا ضغطاً على رابط."
+        },
+        {
+          "kind": "green",
+          "mark": "الرقم المطبوع خلف بطاقتك",
+          "why": "التنبيه يحيلك إلى الرقم المطبوع على بطاقتك لا إلى رقم أو رابط داخل الرسالة، وهذا ما تفعله البنوك الحقيقية."
+        }
+      ],
+      "lesson": "تنبيه الدخول من جهاز جديد طبيعي حين يكون الجهاز جهازك، وإن لم يكن الدخول منك فاتصل بالرقم المطبوع خلف بطاقتك لا بأي رقم يصلك في رسالة."
+    },
+    "en": {
+      "context": "You just finished setting up your bank app on your new phone.",
+      "card": {
+        "app": "Bank",
+        "title": "New device sign-in",
+        "body": "Your account was accessed from a new device today at 19:42. If this was you, no action is needed. If not, call us on the number on the back of your card.",
+        "time": "19:42"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "today at 19:42",
+          "why": "The time matches the moment you signed in on your new phone, so it describes what you did."
+        },
+        {
+          "kind": "green",
+          "mark": "no action is needed",
+          "why": "It asks for no code, no details and no tap."
+        },
+        {
+          "kind": "green",
+          "mark": "the number on the back of your card",
+          "why": "It points you to the number printed on your card, not a number or link in the message, just as real banks do."
+        }
+      ],
+      "lesson": "A new device alert is normal when the device is yours. If it is not, call the number on your card, never one sent in a message."
+    }
+  },
+  {
+    "id": "notification-telecom-bill-ready",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "telecom",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "official-channel",
+      "no-link",
+      "expected"
+    ],
+    "ar": {
+      "context": "فاتورة هاتفك الشهرية تكون عادة في حدود 12 د.ك.",
+      "card": {
+        "app": "Telecom",
+        "title": "فاتورتك جاهزة",
+        "body": "فاتورة شهر سبتمبر بقيمة 11.750 د.ك جاهزة، ويمكنك سدادها حتى 31 أكتوبر من التطبيق أو في أي فرع",
+        "time": "10:05"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "11.750 د.ك",
+          "why": "المبلغ قريب من فاتورتك المعتادة، فلا يوجد رقم مفاجئ يهدف إلى إفزاعك."
+        },
+        {
+          "kind": "green",
+          "mark": "حتى 31 أكتوبر",
+          "why": "المهلة معقولة وواضحة، ولا يرافقها تهديد بقطع الخط خلال ساعات."
+        },
+        {
+          "kind": "green",
+          "mark": "من التطبيق أو في أي فرع",
+          "why": "الإشعار يتركك تدفع عبر قنوات تعرفها ولا يرسل لك رابطاً."
+        }
+      ],
+      "lesson": "إشعار الفاتورة الحقيقي يعطيك مهلة معقولة ويتركك تدفع من التطبيق أو الفرع، أما الرسالة التي تهددك بقطع الخط خلال ساعات وتحمل رابطاً فتعامل معها بحذر."
+    },
+    "en": {
+      "context": "Your monthly phone bill is usually about 12 KWD.",
+      "card": {
+        "app": "Telecom",
+        "title": "Your bill is ready",
+        "body": "Your September bill of 11.750 KWD is ready. You can pay it by 31 October in the app or at any branch.",
+        "time": "10:05"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "11.750 KWD",
+          "why": "The amount is close to your usual bill, with no shock figure to scare you."
+        },
+        {
+          "kind": "green",
+          "mark": "by 31 October",
+          "why": "The deadline is reasonable, with no threat to cut your line within hours."
+        },
+        {
+          "kind": "green",
+          "mark": "in the app or at any branch",
+          "why": "It lets you pay through channels you know and sends no link."
+        }
+      ],
+      "lesson": "A real bill notice gives you reasonable time and lets you pay in the app or at a branch. Be wary of texts that threaten to cut your line within hours and carry a link."
+    }
+  },
+  {
+    "id": "notification-new-number-family",
+    "channel": "notification",
+    "verdict": "scam",
+    "category": "family",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "new-number",
+      "emotional",
+      "urgency",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "ابنك فهد يدرس في الخارج ويراسلك كثيراً.",
+      "card": {
+        "app": "Messages",
+        "title": "+44 7700 900236",
+        "body": "يبه هذا رقمي الجديد، تلفوني طاح وانكسر، أبي 180 دينار ضروري حق إيجار السكن اليوم وبطرش لك رقم الحساب، وبرجعها لك أول ما ينزل راتب البعثة، ولا تتصل الحين لأن الخط الجديد ما يستقبل مكالمات",
+        "time": "2m"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "+44 7700 900236",
+          "why": "الرقم الأجنبي يبدو منطقياً لأنّ ابنك في الخارج، لكنه لا يثبت أن المرسل هو ابنك."
+        },
+        {
+          "kind": "red",
+          "mark": "هذا رقمي الجديد",
+          "why": "ادعاء تغيير الرقم مع طلب المال فوراً هو الأسلوب الأشهر في انتحال أفراد العائلة."
+        },
+        {
+          "kind": "red",
+          "mark": "180 دينار ضروري",
+          "why": "طلب مبلغ عاجل إلى حساب لا تعرفه قبل أي تحقق هو الهدف الحقيقي من الرسالة."
+        },
+        {
+          "kind": "red",
+          "mark": "ولا تتصل الحين",
+          "why": "منعك من الاتصال يهدف إلى ألا تسمع صوت المرسل فتكتشف أنه ليس ابنك."
+        }
+      ],
+      "lesson": "إذا راسلك قريب من رقم جديد يطلب مالاً فاتصل به على رقمه القديم أو اسأله سؤالاً لا يعرف إجابته غيره، ولا تحوّل شيئاً قبل أن تتأكد أنه هو فعلاً."
+    },
+    "en": {
+      "context": "Your son Fahad is studying abroad and texts you often.",
+      "card": {
+        "app": "Messages",
+        "title": "+44 7700 900236",
+        "body": "Dad, this is my new number. My phone fell and broke. I need 180 KWD urgently for rent today, I'll send you the account number. I'll pay you back as soon as my scholarship allowance comes in. Don't call now, this new line can't take calls.",
+        "time": "2m"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "+44 7700 900236",
+          "why": "A foreign number fits a son abroad, but it does not prove the sender is him."
+        },
+        {
+          "kind": "red",
+          "mark": "this is my new number",
+          "why": "A new number followed straight away by a money request is the classic family impersonation trick."
+        },
+        {
+          "kind": "red",
+          "mark": "180 KWD urgently",
+          "why": "An urgent payment to an account you do not know, before you can check, is the whole point."
+        },
+        {
+          "kind": "red",
+          "mark": "Don't call now",
+          "why": "Stopping you from calling keeps you from hearing a voice that is not your son's."
+        }
+      ],
+      "lesson": "If a relative texts from a new number asking for money, call their old number or ask something only they would know, and send nothing until you are sure it is them."
+    }
+  },
+  {
+    "id": "notification-subscription-receipt",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "subscriptions",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "ar": {
+      "context": "اشتركت أمس في تطبيق لتحرير الصور مقابل 4.99 دولار شهرياً.",
+      "card": {
+        "app": "Store",
+        "title": "إيصال اشتراكك",
+        "body": "اشتراكك في تطبيق تحرير الصور مفعّل بقيمة 4.99 دولار شهرياً ويتجدد في 15 نوفمبر، ويمكنك إدارته أو إلغاؤه في أي وقت من إعدادات حسابك في المتجر",
+        "time": "09:18"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Store",
+          "why": "الإيصال صادر من تطبيق المتجر المثبت على هاتفك، ولا يطلب منك أي بيانات."
+        },
+        {
+          "kind": "green",
+          "mark": "4.99 دولار شهرياً",
+          "why": "المبلغ والتطبيق يطابقان الاشتراك الذي فعّلته أمس بنفسك."
+        },
+        {
+          "kind": "green",
+          "mark": "إعدادات حسابك في المتجر",
+          "why": "الإشعار يدلك على إدارة الاشتراك من إعدادات حسابك لا من رابط، فتصل إليها بنفسك."
+        }
+      ],
+      "lesson": "إيصال الاشتراك الذي يطابق ما فعّلته بنفسك أمر طبيعي، وإذا وصلك إيصال لاشتراك لا تعرفه فراجعه من إعدادات حسابك مباشرة لا من رابط في رسالة."
+    },
+    "en": {
+      "context": "Yesterday you subscribed to a photo editing app for 4.99 USD a month.",
+      "card": {
+        "app": "Store",
+        "title": "Your subscription receipt",
+        "body": "Your photo editing app subscription is active at 4.99 USD a month and renews on 15 November. You can manage or cancel it any time in your store account settings.",
+        "time": "09:18"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Store",
+          "why": "The receipt comes from the store app on your phone and asks for no details."
+        },
+        {
+          "kind": "green",
+          "mark": "4.99 USD a month",
+          "why": "The price and the app match the subscription you started yesterday."
+        },
+        {
+          "kind": "green",
+          "mark": "store account settings",
+          "why": "It points you to your own account settings rather than a link, so you get there yourself."
+        }
+      ],
+      "lesson": "A receipt that matches what you signed up for is normal. If one arrives for something you do not recognise, check your account settings directly, not through a link."
+    }
+  },
+  {
+    "id": "notification-store-refund-issued",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "shopping",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "ar": {
+      "context": "أعدت الأسبوع الماضي سماعات اشتريتها من متجر إلكتروني.",
+      "card": {
+        "app": "Store",
+        "title": "تم رد المبلغ",
+        "body": "استلمنا السماعات التي أعدتها، وسيصل المبلغ المسترد 59.00 دولار إلى بطاقتك التي دفعت بها خلال 5 إلى 7 أيام عمل، ولا يلزمك أي إجراء",
+        "time": "14:12"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "السماعات التي أعدتها",
+          "why": "الإشعار يذكر المنتج الذي أعدته فعلاً، أي أنه متابعة متوقعة لما فعلته."
+        },
+        {
+          "kind": "green",
+          "mark": "بطاقتك التي دفعت بها",
+          "why": "المبلغ يعود تلقائياً إلى البطاقة نفسها دون أن يُطلب منك إدخال بياناتها."
+        },
+        {
+          "kind": "green",
+          "mark": "لا يلزمك أي إجراء",
+          "why": "الإشعار لا يحمل رابطاً ولا يطلب منك شيئاً."
+        }
+      ],
+      "lesson": "المبلغ المسترد يعود تلقائياً إلى البطاقة التي دفعت بها، لذا فأي رسالة تطلب بياناتك لإتمام الاسترداد احتيال."
+    },
+    "en": {
+      "context": "Last week you returned headphones you bought online.",
+      "card": {
+        "app": "Store",
+        "title": "Refund issued",
+        "body": "We received the headphones you returned. Your refund of 59.00 USD will reach the card you paid with within 5 to 7 working days. No action is needed.",
+        "time": "14:12"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "the headphones you returned",
+          "why": "It names the item you actually returned, so it follows something you did."
+        },
+        {
+          "kind": "green",
+          "mark": "the card you paid with",
+          "why": "Refunds go back to the same card automatically, without asking you to type its details."
+        },
+        {
+          "kind": "green",
+          "mark": "No action is needed",
+          "why": "There is no link and nothing for you to do."
+        }
+      ],
+      "lesson": "Refunds go back automatically to the card you paid with, so any message asking for your details to complete a refund is a scam."
+    }
+  },
+  {
+    "id": "notification-mailbox-full",
+    "channel": "notification",
+    "verdict": "scam",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "credentials",
+      "urgency",
+      "lookalike-domain",
+      "impersonation"
+    ],
+    "ar": {
+      "card": {
+        "app": "Mail",
+        "title": "دعم البريد الإلكتروني",
+        "body": "امتلأت مساحة بريدك بنسبة 99% وتُعاد الرسائل الجديدة إلى مرسليها، تحقق من حسابك خلال 24 ساعة عبر mailbox-quota-verify.com لتستمر في استقبال البريد",
+        "time": "2m"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "دعم البريد الإلكتروني",
+          "why": "الاسم الظاهر للمرسل يستطيع أي شخص أن يختاره، فلا يدل على أن الرسالة من مزود بريدك."
+        },
+        {
+          "kind": "red",
+          "mark": "تحقق من حسابك خلال 24 ساعة",
+          "why": "التحقق من الحساب لا علاقة له بمساحة التخزين، والمهلة القصيرة تهدف إلى أن تُدخل كلمة المرور دون تفكير."
+        },
+        {
+          "kind": "red",
+          "mark": "mailbox-quota-verify.com",
+          "why": "الرابط لا يعود إلى مزود بريدك بل إلى صفحة مجهولة تطلب كلمة المرور لتسرقها."
+        }
+      ],
+      "lesson": "لمعرفة المساحة المتبقية في بريدك افتح التطبيق أو الإعدادات بنفسك، ولا تُدخل كلمة المرور في صفحة وصلت إليها عبر رابط في رسالة."
+    },
+    "en": {
+      "card": {
+        "app": "Mail",
+        "title": "Mailbox Support",
+        "body": "Your mailbox is 99% full and new messages are being returned to senders. Verify your account within 24 hours to keep receiving email: mailbox-quota-verify.com",
+        "time": "2m"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Mailbox Support",
+          "why": "Anyone can choose the display name an email shows, so it does not mean the message is from your provider."
+        },
+        {
+          "kind": "red",
+          "mark": "Verify your account within 24 hours",
+          "why": "Verifying your account has nothing to do with storage. The deadline is there to rush you into typing your password."
+        },
+        {
+          "kind": "red",
+          "mark": "mailbox-quota-verify.com",
+          "why": "The link is not your email provider's. It leads to a page that wants your password."
+        }
+      ],
+      "lesson": "To check your storage, open the mail app or its settings yourself, and never type your password into a page reached from a link in a message."
+    }
+  },
+  {
+    "id": "notification-streaming-payment-failed",
+    "channel": "notification",
+    "verdict": "scam",
+    "category": "subscriptions",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "payment",
+      "urgency",
+      "lookalike-domain",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "تدفع 9.99 دولار شهرياً مقابل اشتراك في خدمة بث.",
+      "card": {
+        "app": "Mail",
+        "title": "فريق الفوترة",
+        "body": "تعذّر تحصيل رسوم اشتراكك البالغة 9.99 دولار وعُلّقت عضويتك، حدّث بيانات الدفع عبر stream-account-billing.com خلال 48 ساعة لتواصل المشاهدة",
+        "time": "08:05"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "فريق الفوترة",
+          "why": "اسم المرسل يبدو رسمياً لكنّ أي شخص يستطيع كتابته في خانة الاسم."
+        },
+        {
+          "kind": "trap",
+          "mark": "9.99 دولار",
+          "why": "المبلغ يطابق اشتراكك لكنه ليس سراً، لأنّ أسعار باقات البث معلنة ويستطيع أي محتال أن يخمّنها."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 48 ساعة",
+          "why": "المهلة القصيرة وتعليق العضوية يدفعانك إلى تحديث البيانات بسرعة بدلاً من فتح التطبيق والتأكد."
+        },
+        {
+          "kind": "red",
+          "mark": "stream-account-billing.com",
+          "why": "الرابط ليس موقع الخدمة التي تشترك فيها، بل صفحة صُممت لجمع بيانات بطاقتك."
+        }
+      ],
+      "lesson": "إذا وصلتك رسالة بتعذّر دفع اشتراكك فافتح تطبيق الخدمة بنفسك وتحقق من حالة الاشتراك، ولا تُدخل بيانات بطاقتك عبر رابط في رسالة."
+    },
+    "en": {
+      "context": "You pay 9.99 USD a month for a streaming service.",
+      "card": {
+        "app": "Mail",
+        "title": "Billing Team",
+        "body": "We could not collect your 9.99 USD payment and your membership is on hold. Update your payment details within 48 hours to keep watching: stream-account-billing.com",
+        "time": "08:05"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Billing Team",
+          "why": "The sender name sounds official, but anyone can type it."
+        },
+        {
+          "kind": "trap",
+          "mark": "9.99 USD",
+          "why": "The amount matches your plan, but prices are public, so anyone can guess it."
+        },
+        {
+          "kind": "red",
+          "mark": "within 48 hours",
+          "why": "The deadline and the hold push you to act fast instead of opening the app to check."
+        },
+        {
+          "kind": "red",
+          "mark": "stream-account-billing.com",
+          "why": "This is not your streaming service's site. It is a page built to collect your card details."
+        }
+      ],
+      "lesson": "If you are told a subscription payment failed, open the service's app yourself to check, and never enter card details through a link."
+    }
+  },
+  {
+    "id": "notification-loyalty-points-expiring",
+    "channel": "notification",
+    "verdict": "scam",
+    "category": "shopping",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "too-good",
+      "urgency",
+      "lookalike-domain"
+    ],
+    "ar": {
+      "card": {
+        "app": "Messages",
+        "title": "Rewards",
+        "body": "تنتهي صلاحية نقاطك البالغة 12,450 نقطة الليلة، استبدلها الآن بهدية مجانية عبر points-redeem-now.com قبل أن تضيع",
+        "time": "21:30"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Rewards",
+          "why": "الرسالة لا تذكر اسم أي متجر، لأنّ المرسل لا يعرف أين تتسوق فيكتب اسماً عاماً."
+        },
+        {
+          "kind": "trap",
+          "mark": "12,450 نقطة",
+          "why": "الرقم الدقيق للنقاط يوحي بأن المرسل يعرف حسابك، لكنه رقم مختلق."
+        },
+        {
+          "kind": "red",
+          "mark": "الليلة",
+          "why": "انتهاء صلاحية النقاط في الليلة نفسها أسلوب ضغط يدفعك إلى فتح الرابط قبل أن تتحقق."
+        },
+        {
+          "kind": "red",
+          "mark": "points-redeem-now.com",
+          "why": "الرابط لا يعود إلى أي متجر أو برنامج ولاء تعرفه، والهدية المجانية مجرد طُعم لجمع بياناتك."
+        }
+      ],
+      "lesson": "تحقق من نقاط الولاء من تطبيق المتجر الذي تتعامل معه، ولا تفتح رابطاً يعدك بهدية دون أن يذكر حتى اسم المتجر."
+    },
+    "en": {
+      "card": {
+        "app": "Messages",
+        "title": "Rewards",
+        "body": "Your 12,450 reward points expire tonight! Redeem them now for a free gift before they are gone: points-redeem-now.com",
+        "time": "21:30"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Rewards",
+          "why": "It never names a store, because the sender does not know where you shop."
+        },
+        {
+          "kind": "trap",
+          "mark": "12,450 reward points",
+          "why": "An exact points balance suggests they know your account, but the number is made up."
+        },
+        {
+          "kind": "red",
+          "mark": "expire tonight",
+          "why": "Expiring the very same night is pressure to tap before you check."
+        },
+        {
+          "kind": "red",
+          "mark": "points-redeem-now.com",
+          "why": "The link belongs to no store or loyalty scheme you know. The free gift is bait for your details."
+        }
+      ],
+      "lesson": "Check loyalty points in the store's own app, and never tap a link promising a gift that does not even name the store."
+    }
+  }
+]

@@ -1,0 +1,1008 @@
+[
+  {
+    "id": "email-mailbox-full-login",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 1,
+    "tags": [
+      "credentials",
+      "urgency",
+      "threat",
+      "impersonation"
+    ],
+    "ar": {
+      "card": {
+        "fromName": "مكتب الدعم الفني",
+        "fromAddress": "support@mailbox-quota-alert.com",
+        "subject": "صندوق بريدك ممتلئ بنسبة 99%",
+        "body": "عزيزي المستخدم،\n\nوصل صندوق بريدك إلى 99% من سعته، وبعد 24 ساعة ستتوقف عن استقبال الرسائل الجديدة وقد تُحذف رسائلك القديمة\n\nسجّل الدخول من الزر أدناه واحصل الآن على مساحة إضافية مجانية بسعة 50 غيغابايت\n\nفريق الدعم",
+        "button": {
+          "label": "احصل على مساحة مجانية",
+          "url": "mailbox-quota-alert.com/login"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "عزيزي المستخدم",
+          "why": "الجهة التي تدير بريدك فعلاً تعرف اسمك، أما التحية العامة فتدل على رسالة جماعية أُرسلت إلى آلاف العناوين."
+        },
+        {
+          "kind": "red",
+          "mark": "بعد 24 ساعة",
+          "why": "المهلة القصيرة والتهديد بحذف رسائلك يهدفان إلى أن تضغط على الزر قبل أن تفكر."
+        },
+        {
+          "kind": "red",
+          "mark": "mailbox-quota-alert.com/login",
+          "why": "رابط تسجيل الدخول يقود إلى موقع غريب لا علاقة له بمزود بريدك، لذا فأي كلمة مرور تكتبها فيه تذهب مباشرة إلى المحتال."
+        },
+        {
+          "kind": "trap",
+          "mark": "مكتب الدعم الفني",
+          "why": "اسم المرسل الظاهر مجرد نص يكتبه المرسل كما يشاء، لذا انظر دائماً إلى العنوان الفعلي المكتوب بجانبه."
+        }
+      ],
+      "lesson": "إذا أردت معرفة المساحة المتبقية في بريدك فافتح تطبيق البريد أو اكتب عنوان مزود الخدمة بنفسك، ولا تسجّل الدخول أبداً من رابط وصلك في رسالة."
+    },
+    "en": {
+      "card": {
+        "fromName": "IT Service Desk",
+        "fromAddress": "support@mailbox-quota-alert.com",
+        "subject": "Your mailbox is 99% full",
+        "body": "Dear user,\n\nYour mailbox has reached 99% of its limit. In 24 hours you will stop receiving new emails and older messages may be deleted.\n\nSign in below to claim 50 GB of free extra space now.\n\nSupport Team",
+        "button": {
+          "label": "Get free space",
+          "url": "mailbox-quota-alert.com/login"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Dear user",
+          "why": "Whoever really runs your mailbox knows your name. A generic greeting means a mass email sent to thousands of addresses."
+        },
+        {
+          "kind": "red",
+          "mark": "In 24 hours",
+          "why": "The deadline and the threat to delete your messages are there to make you click before you think."
+        },
+        {
+          "kind": "red",
+          "mark": "mailbox-quota-alert.com/login",
+          "why": "The sign in link goes to a random site, not your email provider. Any password typed there goes straight to the scammer."
+        },
+        {
+          "kind": "trap",
+          "mark": "IT Service Desk",
+          "why": "The display name is just text the sender typed. Always look at the real address next to it."
+        }
+      ],
+      "lesson": "To check your mailbox space, open your email app or type the provider's address yourself. Never sign in from a link in an email."
+    }
+  },
+  {
+    "id": "email-tax-refund-claim",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "government",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "too-good",
+      "payment",
+      "urgency",
+      "impersonation"
+    ],
+    "ar": {
+      "card": {
+        "fromName": "مكتب استرداد الضرائب",
+        "fromAddress": "refunds@tax-return-online.net",
+        "subject": "أنت مؤهل لاسترداد ضريبي بقيمة 482.60 دولار",
+        "body": "عزيزي دافع الضرائب،\n\nبعد المراجعة السنوية لسجلك الضريبي تبيّن أنك مؤهل لاسترداد مبلغ 482.60 دولار\n\nلاستلام المبلغ املأ نموذج المطالبة وأدخل بيانات بطاقتك المصرفية خلال 48 ساعة، وستُلغى المطالبات التي لا تصل في موعدها\n\nقسم المبالغ المستردة",
+        "button": {
+          "label": "استرد المبلغ الآن",
+          "url": "tax-return-online.net/claim"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "refunds@tax-return-online.net",
+          "why": "الجهة الضريبية الحقيقية تراسلك من نطاقها الحكومي الرسمي، بينما ينتمي هذا العنوان إلى موقع تجاري لا صلة له بأي جهة رسمية."
+        },
+        {
+          "kind": "red",
+          "mark": "بيانات بطاقتك المصرفية",
+          "why": "المبالغ المستردة تعود إلى الحساب المسجل لدى الجهة مسبقاً، ولا تطلب أي جهة ضريبية بيانات البطاقة المصرفية عبر البريد."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 48 ساعة",
+          "why": "المبالغ المستحقة لا تختفي خلال يومين، لذا فالمهلة القصيرة وسيلة للضغط عليك حتى تتصرف بسرعة."
+        },
+        {
+          "kind": "trap",
+          "mark": "مكتب استرداد الضرائب",
+          "why": "الاسم الرسمي في خانة المرسل لا يثبت شيئاً لأن أي شخص يستطيع كتابته، فالعبرة بالعنوان الفعلي ومضمون الطلب."
+        }
+      ],
+      "lesson": "تحقق من أي استرداد ضريبي بالدخول إلى البوابة الرسمية بعد كتابة عنوانها بنفسك، وتذكّر أن استلام المال لا يحتاج أبداً إلى بيانات بطاقتك."
+    },
+    "en": {
+      "card": {
+        "fromName": "Tax Refund Office",
+        "fromAddress": "refunds@tax-return-online.net",
+        "subject": "You are eligible for a tax refund of $482.60",
+        "body": "Dear Taxpayer,\n\nAfter the annual review of your tax records, we have determined that you are eligible for a refund of $482.60.\n\nTo receive it, complete the claim form with your card details within 48 hours. Claims not received in time will be cancelled.\n\nRefunds Department",
+        "button": {
+          "label": "Claim my refund",
+          "url": "tax-return-online.net/claim"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "refunds@tax-return-online.net",
+          "why": "A real tax office writes from its official government domain, not from a commercial site like this one."
+        },
+        {
+          "kind": "red",
+          "mark": "with your card details",
+          "why": "Refunds go back to the account already on file. No tax office asks for card details by email."
+        },
+        {
+          "kind": "red",
+          "mark": "within 48 hours",
+          "why": "Money you are owed does not vanish in two days. The deadline is there to rush you."
+        },
+        {
+          "kind": "trap",
+          "mark": "Tax Refund Office",
+          "why": "An official sounding sender name proves nothing, because anyone can type it. Look at the real address and what is being asked."
+        }
+      ],
+      "lesson": "Check any refund on the official tax portal by typing its address yourself. Receiving money never requires your card details."
+    }
+  },
+  {
+    "id": "email-order-confirmation-headphones",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "shopping",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "طلبت قبل قليل سماعات لاسلكية بقيمة 24.750 د.ك من متجر إلكتروني.",
+      "card": {
+        "fromName": "المتجر",
+        "fromAddress": "orders@store.example.com",
+        "subject": "تم تأكيد طلبك رقم 55120",
+        "body": "مرحباً أحمد،\n\nشكراً لتسوقك معنا، وهذه تفاصيل طلبك:\n\nرقم الطلب: 55120\nسماعات لاسلكية × 1\nالمبلغ المدفوع: 24.750 د.ك (بطاقة تنتهي بـ 4417)\nموعد التوصيل المتوقع: من 19 إلى 21 أكتوبر\n\nيمكنك متابعة طلبك في أي وقت من سجل المشتريات في التطبيق، ولا يلزمك أي إجراء آخر"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "المبلغ المدفوع: 24.750 د.ك",
+          "why": "المنتج والمبلغ يطابقان تماماً ما اشتريته قبل قليل، أي أن الرسالة متوقعة ولها سبب واضح."
+        },
+        {
+          "kind": "green",
+          "mark": "ولا يلزمك أي إجراء آخر",
+          "why": "الرسالة لا تطلب منك شيئاً، فلا رابط تضغط عليه ولا دفعة تحتاج إلى تصحيح."
+        },
+        {
+          "kind": "green",
+          "mark": "سجل المشتريات في التطبيق",
+          "why": "الرسالة توجّهك إلى التطبيق الذي تستخدمه أصلاً بدلاً من رابط، وهكذا تتعامل المتاجر الحقيقية مع عملائها."
+        }
+      ],
+      "lesson": "رسالة التأكيد التي تطابق ما اشتريته ولا تطلب منك شيئاً رسالة طبيعية، لكن راجع تفاصيل طلبك دائماً من تطبيق المتجر لا من روابط البريد."
+    },
+    "en": {
+      "context": "You just ordered wireless headphones online for 24.750 KWD.",
+      "card": {
+        "fromName": "Store",
+        "fromAddress": "orders@store.example.com",
+        "subject": "Order #55120 confirmed",
+        "body": "Hi Ahmad,\n\nThanks for shopping with us. Here are your order details:\n\nOrder #55120\nWireless headphones x 1\nTotal paid: 24.750 KWD (card ending 4417)\nEstimated delivery: 19 to 21 October\n\nYou can follow your order any time from Purchase History in the app. No further action is needed."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Total paid: 24.750 KWD",
+          "why": "The item and the amount match exactly what you just bought, so the email is expected."
+        },
+        {
+          "kind": "green",
+          "mark": "No further action is needed",
+          "why": "A real confirmation asks you for nothing. There is no link to click and no payment to fix."
+        },
+        {
+          "kind": "green",
+          "mark": "Purchase History in the app",
+          "why": "It points you to the app you already use instead of a link, which is how genuine stores work."
+        }
+      ],
+      "lesson": "A confirmation that matches what you just bought and asks for nothing is normal. Still, check order details in the store's app rather than through email links."
+    }
+  },
+  {
+    "id": "email-manager-gift-cards",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "business",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "gift-cards",
+      "secrecy",
+      "urgency",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "دانيال هو المدير العام للشركة التي تعمل فيها.",
+      "card": {
+        "fromName": "دانيال (المدير العام)",
+        "fromAddress": "daniel.director.office@quickmail-box.com",
+        "subject": "طلب سريع، هل أنت في مكتبك الآن؟",
+        "body": "مرحباً،\n\nأنا في اجتماعات متواصلة ولا أستطيع الرد على المكالمات، وأحتاج منك أن تشتري اليوم 5 بطاقات هدايا بقيمة 100 دولار لكل بطاقة لأقدمها لأحد العملاء، وأرجو أن يبقى الأمر بيننا حالياً لأنها مفاجأة\n\nاكشط ظهر كل بطاقة وأرسل لي صوراً واضحة للأرقام على البريد، وسأعيد لك المبلغ هذا المساء\n\nدانيال\nأُرسلت من هاتفي"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "بطاقات هدايا",
+          "why": "الشركات الحقيقية لا تطلب من موظفيها شراء بطاقات هدايا وإرسال أرقامها بالبريد، وبمجرد إرسال الأرقام يضيع المال ويصعب تتبعه."
+        },
+        {
+          "kind": "red",
+          "mark": "أن يبقى الأمر بيننا",
+          "why": "طلب الكتمان يمنعك من التحقق مع أي زميل، وهذا بالضبط ما يحتاجه المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "daniel.director.office@quickmail-box.com",
+          "why": "مديرك يراسلك عادة من بريد الشركة الرسمي، أما هذا العنوان فبريد مجاني يستطيع أي شخص إنشاءه بأي اسم."
+        },
+        {
+          "kind": "trap",
+          "mark": "دانيال (المدير العام)",
+          "why": "ظهور الاسم الصحيح في خانة المرسل لا يثبت شيئاً لأن أي شخص يستطيع كتابته."
+        }
+      ],
+      "lesson": "إذا طلب منك مديرك بطاقات هدايا أو تحويلاً عاجلاً فاتصل به على رقمه المعروف لديك قبل أن تفعل أي شيء."
+    },
+    "en": {
+      "context": "Daniel is the managing director of the company you work for.",
+      "card": {
+        "fromName": "Daniel (Managing Director)",
+        "fromAddress": "daniel.director.office@quickmail-box.com",
+        "subject": "Quick favour, are you at your desk?",
+        "body": "Hi,\n\nI'm stuck in back to back meetings and can't take calls. I need you to buy 5 gift cards of $100 each for a client today. Please keep this between us for now, it's a surprise.\n\nScratch the back of each card and email me clear photos of the codes. I'll pay you back this evening.\n\nDaniel\nSent from my phone"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "gift cards",
+          "why": "Real companies do not ask staff to buy gift cards and email the codes. Once the codes are sent, the money is gone and very hard to trace."
+        },
+        {
+          "kind": "red",
+          "mark": "keep this between us",
+          "why": "Secrecy stops you from checking with a colleague, which is exactly what the scammer needs."
+        },
+        {
+          "kind": "red",
+          "mark": "daniel.director.office@quickmail-box.com",
+          "why": "Your director would write from the company address, not from a free mailbox anyone can open in any name."
+        },
+        {
+          "kind": "trap",
+          "mark": "Daniel (Managing Director)",
+          "why": "The right name in the display name proves nothing, since anyone can type it."
+        }
+      ],
+      "lesson": "When a manager asks for gift cards or an urgent payment, call them on the number you already have before doing anything."
+    }
+  },
+  {
+    "id": "email-job-offer-processing-fee",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "advance-fee",
+      "payment",
+      "too-good",
+      "urgency"
+    ],
+    "ar": {
+      "context": "رفعت سيرتك الذاتية على موقع للوظائف الشهر الماضي.",
+      "card": {
+        "fromName": "إدارة التوظيف",
+        "fromAddress": "hr.offers.kuwait@quickmail-box.com",
+        "subject": "عرض وظيفي: منسق مبيعات براتب 950 د.ك",
+        "body": "مرحباً،\n\nيسعدنا إبلاغك بقبولك في وظيفة منسق مبيعات لدى شركة تجارية كبرى في الكويت، دون الحاجة إلى مقابلة شخصية\n\nالراتب: 950 د.ك شهرياً مع السكن والمواصلات\nمدة العقد: سنتان\n\nلتثبيت الوظيفة حوّل رسوم معالجة العقد والفحص الطبي وقدرها 85 د.ك إلى مكتب التوظيف المعتمد خلال ثلاثة أيام، ثمّ أرسل صورة الإيصال ردّاً على هذه الرسالة\n\nإدارة التوظيف"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "رسوم معالجة العقد والفحص الطبي",
+          "why": "صاحب العمل الحقيقي يتحمل تكاليف التوظيف والتأشيرة بنفسه، أما مطالبة المتقدم بالرسوم فهي أشهر علامات الاحتيال الوظيفي."
+        },
+        {
+          "kind": "red",
+          "mark": "دون الحاجة إلى مقابلة شخصية",
+          "why": "لا تعيّن أي شركة حقيقية موظفاً براتب كهذا دون أن تقابله، لذا فالقبول الفوري طُعم لإغرائك بالدفع."
+        },
+        {
+          "kind": "red",
+          "mark": "hr.offers.kuwait@quickmail-box.com",
+          "why": "عروض العمل الحقيقية تصل من نطاق الشركة الرسمي، بينما هذا بريد مجاني يستطيع أي شخص إنشاءه في دقيقة."
+        },
+        {
+          "kind": "trap",
+          "mark": "مكتب التوظيف المعتمد",
+          "why": "كلمة المعتمد لا تكلف المحتال شيئاً ولا تثبت شيئاً، فلا جهة معروفة تقف خلفها ولا اسم يمكن التحقق منه."
+        }
+      ],
+      "lesson": "لا تدفع أي مبلغ مقابل وظيفة أو تأشيرة، وتحقق من الشركة باسمها وموقعها الرسمي قبل أن ترسل إليها أي مستند."
+    },
+    "en": {
+      "context": "You uploaded your CV to a jobs website last month.",
+      "card": {
+        "fromName": "Recruitment Team",
+        "fromAddress": "hr.offers.kuwait@quickmail-box.com",
+        "subject": "Job offer: Sales Coordinator, 950 KWD salary",
+        "body": "Hello,\n\nWe are pleased to tell you that you have been selected as Sales Coordinator at a leading trading company in Kuwait, with no interview required.\n\nSalary: 950 KWD per month plus housing and transport\nContract: 2 years\n\nTo secure the position, transfer the contract processing and medical check fee of 85 KWD to our approved recruitment office within three days, then reply with a photo of the receipt.\n\nRecruitment Team"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "contract processing and medical check fee",
+          "why": "Real employers pay for hiring and work permits themselves. Charging the applicant a fee is the classic sign of a job scam."
+        },
+        {
+          "kind": "red",
+          "mark": "with no interview required",
+          "why": "No genuine company hires someone on this salary without meeting them. Instant acceptance is bait to get you paying."
+        },
+        {
+          "kind": "red",
+          "mark": "hr.offers.kuwait@quickmail-box.com",
+          "why": "Real offers come from the company's own domain. This is a free mailbox anyone can open in a minute."
+        },
+        {
+          "kind": "trap",
+          "mark": "approved recruitment office",
+          "why": "Words like approved cost nothing to write. There is no named organisation behind them that you could check."
+        }
+      ],
+      "lesson": "Never pay to get a job or a work permit. Check the company by its name and official website before you send any documents."
+    }
+  },
+  {
+    "id": "email-password-reset-requested",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "expected",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "ضغطت قبل لحظات على خيار «نسيت كلمة المرور» في متجر إلكتروني تستخدمه.",
+      "card": {
+        "fromName": "المتجر",
+        "fromAddress": "no-reply@store.example.com",
+        "subject": "إعادة تعيين كلمة المرور",
+        "body": "مرحباً فهد،\n\nتلقينا قبل دقيقة طلباً لإعادة تعيين كلمة مرور حسابك، ويمكنك اختيار كلمة مرور جديدة من الزر أدناه خلال 30 دقيقة\n\nإذا لم تطلب ذلك فتجاهل هذه الرسالة وستبقى كلمة مرورك كما هي\n\nلن نطلب منك كلمة المرور أو رمز التحقق في أي رسالة",
+        "button": {
+          "label": "اختيار كلمة مرور جديدة",
+          "url": "store.example.com/reset"
+        }
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "طلباً لإعادة تعيين كلمة مرور حسابك",
+          "why": "الرسالة وصلت بعد لحظات من ضغطك على خيار نسيت كلمة المرور، أي أنها نتيجة طبيعية لما فعلته أنت."
+        },
+        {
+          "kind": "green",
+          "mark": "store.example.com/reset",
+          "why": "الرابط يعود إلى الموقع نفسه الذي كنت تستخدمه قبل قليل، ولا يطلب منك سوى اختيار كلمة مرور جديدة."
+        },
+        {
+          "kind": "green",
+          "mark": "فتجاهل هذه الرسالة",
+          "why": "الرسالة الحقيقية تترك لك حرية تجاهلها دون أي تهديد، بينما تضغط عليك رسائل الاحتيال بالإغلاق أو الحذف."
+        }
+      ],
+      "lesson": "لا تستخدم رابط إعادة التعيين إلا إذا طلبته بنفسك قبل لحظات، أما الرسالة التي تصلك دون طلب فتجاهلها ولا تضغط على أي رابط فيها."
+    },
+    "en": {
+      "context": "You just tapped Forgot password on an online store you use.",
+      "card": {
+        "fromName": "Store",
+        "fromAddress": "no-reply@store.example.com",
+        "subject": "Reset your password",
+        "body": "Hi Fahad,\n\nWe received a request a minute ago to reset your account password. You can choose a new one with the button below within 30 minutes.\n\nIf you did not ask for this, just ignore this email and your password will stay the same.\n\nWe will never ask for your password or a verification code by email.",
+        "button": {
+          "label": "Choose a new password",
+          "url": "store.example.com/reset"
+        }
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "reset your account password",
+          "why": "It arrived right after you tapped Forgot password, so it is the expected result of something you did."
+        },
+        {
+          "kind": "green",
+          "mark": "store.example.com/reset",
+          "why": "The link goes back to the same site you were just using, and it only asks you to pick a new password."
+        },
+        {
+          "kind": "green",
+          "mark": "just ignore this email",
+          "why": "A genuine email lets you ignore it without threats. Scams push you with closures or deletions."
+        }
+      ],
+      "lesson": "Only use a reset link you asked for moments ago. If one arrives that you did not request, ignore it and click nothing."
+    }
+  },
+  {
+    "id": "email-shared-document-login",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "credentials",
+      "impersonation",
+      "lookalike-domain",
+      "urgency"
+    ],
+    "ar": {
+      "context": "تتبادل الملفات مع زملائك في العمل يومياً.",
+      "card": {
+        "fromName": "نورة (عبر خدمة المستندات)",
+        "fromAddress": "share-noreply@docs-share-view.com",
+        "subject": "شاركت نورة معك مستنداً",
+        "body": "شاركت نورة معك المستند التالي:\n\nمراجعة الرواتب 2026\n\nهذا المستند محمي، ولعرضه سجّل الدخول ببريدك الإلكتروني وكلمة مرورك المعتادة\n\nيبقى الرابط صالحاً لمدة 24 ساعة فقط",
+        "button": {
+          "label": "فتح المستند",
+          "url": "docs-share-view.com/file/salary-2026"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "docs-share-view.com/file/salary-2026",
+          "why": "الرابط لا يقود إلى خدمة المستندات التي تستخدمها في عملك، بل إلى موقع باسم عام مصنوع ليبدو مألوفاً."
+        },
+        {
+          "kind": "red",
+          "mark": "سجّل الدخول ببريدك الإلكتروني وكلمة مرورك المعتادة",
+          "why": "كلمة مرور بريدك هي الهدف الحقيقي للرسالة، لأن من يملكها يستطيع الدخول إلى حساباتك الأخرى وإعادة تعيين كلمات مرورها."
+        },
+        {
+          "kind": "red",
+          "mark": "مراجعة الرواتب 2026",
+          "why": "اختيار ملف عن الرواتب مقصود لإثارة فضولك، فالمحتال يعلم أن قلة من الناس يقاومون الاطلاع على رواتب زملائهم."
+        },
+        {
+          "kind": "trap",
+          "mark": "نورة (عبر خدمة المستندات)",
+          "why": "ظهور اسم زميلة تعرفها لا يثبت شيئاً، لأن المحتال قد يعرف أسماء فريقك من الإنترنت أو من بريد مخترق."
+        }
+      ],
+      "lesson": "إذا وصلك ملف مشترك لم تتوقعه فاسأل صاحبه بطريقة أخرى، ثمّ افتحه من تطبيق المستندات الذي تستخدمه عادة لا من الرابط."
+    },
+    "en": {
+      "context": "You swap files with colleagues at work every day.",
+      "card": {
+        "fromName": "Noura (via Docs)",
+        "fromAddress": "share-noreply@docs-share-view.com",
+        "subject": "Noura shared a document with you",
+        "body": "Noura shared the following document with you:\n\nSalary Review 2026\n\nThis document is protected. To view it, sign in with your email address and your usual password.\n\nThis link stays valid for 24 hours only.",
+        "button": {
+          "label": "Open document",
+          "url": "docs-share-view.com/file/salary-2026"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "docs-share-view.com/file/salary-2026",
+          "why": "The link does not lead to the document service you use at work, but to a generic site made to look familiar."
+        },
+        {
+          "kind": "red",
+          "mark": "sign in with your email address and your usual password",
+          "why": "Your email password is the real target. Whoever has it can get into your other accounts and reset their passwords."
+        },
+        {
+          "kind": "red",
+          "mark": "Salary Review 2026",
+          "why": "A file about salaries is picked to make you curious. Few people can resist a peek at what colleagues earn."
+        },
+        {
+          "kind": "trap",
+          "mark": "Noura (via Docs)",
+          "why": "A colleague's name proves nothing. Scammers can find your team's names online or in a hacked mailbox."
+        }
+      ],
+      "lesson": "If a shared file surprises you, ask the sender another way, then open it from the documents app you normally use, not from the link."
+    }
+  },
+  {
+    "id": "email-hotel-booking-confirmation",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "travel",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "حجزت هذا الصباح ليلتين في صلالة عبر تطبيق للسفر.",
+      "card": {
+        "fromName": "حجوزات السفر",
+        "fromAddress": "bookings@travel.example.com",
+        "subject": "تأكيد حجزك في صلالة رقم 7731",
+        "body": "مرحباً يوسف،\n\nتم تأكيد حجزك، وهذه تفاصيله:\n\nالفندق: منتجع شاطئي في صلالة\nالوصول: 5 نوفمبر\nالمغادرة: 7 نوفمبر\nليلتان لشخصين\nالإجمالي: 96.000 ر.ع، يُدفع عند الوصول إلى الفندق\n\nلا نطلب منك أي دفعة أو بيانات بطاقة عبر البريد، ويمكنك تعديل الحجز أو إلغاؤه من قسم رحلاتي في التطبيق"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "ليلتان لشخصين",
+          "why": "التفاصيل تطابق الحجز الذي أجريته بنفسك هذا الصباح، من المدينة إلى عدد الليالي والأشخاص."
+        },
+        {
+          "kind": "green",
+          "mark": "يُدفع عند الوصول إلى الفندق",
+          "why": "لا يُطلب منك أي مبلغ الآن، فالدفع في الفندق نفسه ولا رابط للدفع في الرسالة."
+        },
+        {
+          "kind": "green",
+          "mark": "قسم رحلاتي في التطبيق",
+          "why": "الرسالة توجّهك إلى التطبيق الذي حجزت منه لتعديل الحجز، ولا تحتوي على أي رابط يطلب بياناتك."
+        }
+      ],
+      "lesson": "رسالة التأكيد الحقيقية تطابق ما حجزته ولا تطلب منك دفعاً ولا بيانات، فإذا طلبت رسالة حجز دفعة إضافية فتحقق منها داخل التطبيق نفسه."
+    },
+    "en": {
+      "context": "This morning you booked two nights in Salalah through a travel app.",
+      "card": {
+        "fromName": "Travel Bookings",
+        "fromAddress": "bookings@travel.example.com",
+        "subject": "Your Salalah booking 7731 is confirmed",
+        "body": "Hi Yousef,\n\nYour booking is confirmed. Here are the details:\n\nHotel: beach resort in Salalah\nCheck in: 5 November\nCheck out: 7 November\n2 nights, 2 guests\nTotal: 96.000 OMR, payable at the hotel on arrival\n\nWe never ask for payments or card details by email. You can change or cancel your booking from My Trips in the app."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "2 nights, 2 guests",
+          "why": "The details match the booking you made yourself this morning, from the city to the nights and guests."
+        },
+        {
+          "kind": "green",
+          "mark": "payable at the hotel on arrival",
+          "why": "Nothing is due now. You pay at the hotel itself, and there is no payment link in the email."
+        },
+        {
+          "kind": "green",
+          "mark": "My Trips in the app",
+          "why": "It points you to the app you booked with, and has no link asking for your details."
+        }
+      ],
+      "lesson": "A real confirmation matches what you booked and asks for nothing. If a booking email ever wants an extra payment, check it inside the app itself."
+    }
+  },
+  {
+    "id": "email-invoice-html-attachment",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "business",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "attachment",
+      "credentials",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "تعمل في قسم الحسابات وتعرف الموردين الذين يرسلون الفواتير إلى شركتك.",
+      "card": {
+        "fromName": "مريم، قسم الحسابات",
+        "fromAddress": "accounts@gulf-trade-billing.com",
+        "subject": "فاتورة مستحقة، توريدات أكتوبر",
+        "body": "مساء الخير،\n\nنرفق لكم الفاتورة رقم 8841 الخاصة بتوريدات شهر أكتوبر بقيمة 1,240.500 د.ك، ونأمل سدادها خلال 7 أيام عمل\n\nالفاتورة محمية، لذا افتح الملف المرفق وسجّل الدخول ببريد العمل لعرضها\n\nمع خالص التحية\nمريم\nقسم الحسابات",
+        "attachment": "Invoice_8841.html"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Invoice_8841.html",
+          "why": "امتداد اسم الملف يكشف أنه صفحة إنترنت لا مستند، وهذه الصفحة تفتح في المتصفح نموذج دخول مزيفاً يسرق كلمة مرورك."
+        },
+        {
+          "kind": "red",
+          "mark": "وسجّل الدخول ببريد العمل لعرضها",
+          "why": "الفاتورة الحقيقية تُفتح مباشرة دون أي تسجيل دخول، لذا فطلب كلمة مرور بريد العمل لعرض مرفق هو الهدف الحقيقي للرسالة."
+        },
+        {
+          "kind": "red",
+          "mark": "accounts@gulf-trade-billing.com",
+          "why": "العنوان لا يعود إلى أي مورد تتعامل معه شركتك، والفاتورة من مرسل لا تعرفه لا تستحق الثقة مهما بدت مرتبة."
+        },
+        {
+          "kind": "trap",
+          "mark": "الفاتورة رقم 8841",
+          "why": "رقم الفاتورة والمبلغ الدقيق يمنحان الرسالة مظهراً مهنياً، لكن المحتال يستطيع كتابة أي رقم يشاء."
+        }
+      ],
+      "lesson": "لا تسجّل الدخول لفتح مرفق أبداً، وتحقق من أي فاتورة لم تتوقعها بالاتصال بالمورد على رقمه المسجل لديكم قبل فتحها أو سدادها."
+    },
+    "en": {
+      "context": "You work in accounts and know the suppliers who invoice your company.",
+      "card": {
+        "fromName": "Maryam, Accounts",
+        "fromAddress": "accounts@gulf-trade-billing.com",
+        "subject": "Invoice due, October supplies",
+        "body": "Good afternoon,\n\nPlease find attached invoice 8841 for October supplies, totalling 1,240.500 KWD. We kindly ask for payment within 7 working days.\n\nThe invoice is protected, so open the attached file and sign in with your work email to view it.\n\nKind regards,\nMaryam\nAccounts Department",
+        "attachment": "Invoice_8841.html"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Invoice_8841.html",
+          "why": "The .html ending means this is a web page, not a document. It opens a fake sign in form in your browser to steal your password."
+        },
+        {
+          "kind": "red",
+          "mark": "sign in with your work email to view it",
+          "why": "A real invoice opens without any sign in. Asking for your work password to read an attachment is the real goal of this email."
+        },
+        {
+          "kind": "red",
+          "mark": "accounts@gulf-trade-billing.com",
+          "why": "The address belongs to no supplier your company deals with. An invoice from a sender you don't know deserves no trust, however tidy it looks."
+        },
+        {
+          "kind": "trap",
+          "mark": "invoice 8841",
+          "why": "An invoice number and an exact amount look professional, but a scammer can type any number."
+        }
+      ],
+      "lesson": "Never sign in to open an attachment. Check any invoice you did not expect by calling the supplier on the number you already have before opening or paying it."
+    }
+  },
+  {
+    "id": "email-supplier-bank-details-change",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "business",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "lookalike-domain",
+      "impersonation",
+      "payment",
+      "urgency",
+      "verify-independently"
+    ],
+    "ar": {
+      "context": "تسدد شركتك فواتير مورّد تغليف يراسلكم دائماً من pack-line-supplies.com.",
+      "card": {
+        "fromName": "يوسف، قسم الحسابات",
+        "fromAddress": "yousef.accounts@pack-line-suppiles.com",
+        "subject": "تحديث بيانات الحساب البنكي قبل الدفعة القادمة",
+        "body": "صباح الخير،\n\nنود إعلامكم بأننا نقلنا حساباتنا إلى بنك جديد ضمن مراجعة التدقيق السنوية، لذا نرجو تحويل قيمة الفاتورة رقم 3307 البالغة 4,860.000 د.ك إلى الحساب الجديد الوارد في الخطاب المرفق\n\nسيُغلق الحساب القديم نهاية هذا الأسبوع، وخط المكتب معطل حالياً بسبب أعمال صيانة، لذا أرجو التواصل معي عبر البريد فقط\n\nشاكرين تعاونكم الدائم\nيوسف\nقسم الحسابات",
+        "attachment": "Bank_Details_Letter.pdf"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "pack-line-suppiles.com",
+          "why": "قارن العنوان بالنطاق المعتاد pack-line-supplies.com تجد حرفين تبادلا موقعيهما، وهذا الفرق الصغير يجعله نطاقاً آخر يملكه المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "نقلنا حساباتنا إلى بنك جديد",
+          "why": "طلب تغيير الحساب البنكي عبر البريد هو جوهر احتيال اختراق البريد التجاري، لذا لا يُعتمد أي تغيير قبل التحقق منه هاتفياً."
+        },
+        {
+          "kind": "red",
+          "mark": "خط المكتب معطل حالياً",
+          "why": "تعطّل الهاتف حجة لمنعك من الاتصال بالمورد، لأن مكالمة واحدة على رقمه المعروف تكشف الاحتيال فوراً."
+        },
+        {
+          "kind": "trap",
+          "mark": "الفاتورة رقم 3307",
+          "why": "رقم الفاتورة الصحيح لا يطمئن، فقد يكون المحتال اطلع على مراسلات حقيقية بعد اختراق بريد المورد."
+        }
+      ],
+      "lesson": "إذا طلب مورد تغيير حسابه البنكي فاتصل به على الرقم المسجل لديكم من قبل لا على رقم في الرسالة، ولا تحوّل أي مبلغ قبل أن يؤكد لك الطلب بنفسه."
+    },
+    "en": {
+      "context": "Your company pays a packaging supplier that always emails from pack-line-supplies.com.",
+      "card": {
+        "fromName": "Yousef, Accounts",
+        "fromAddress": "yousef.accounts@pack-line-suppiles.com",
+        "subject": "Updated bank details before your next payment",
+        "body": "Good morning,\n\nAs part of our annual audit review we have moved our accounts to a new bank. Please transfer invoice 3307 for 4,860.000 KWD to the new account shown in the attached letter.\n\nThe old account will be closed at the end of this week. Our office line is down for maintenance, so please contact me by email only.\n\nThank you for your continued cooperation,\nYousef\nAccounts Department",
+        "attachment": "Bank_Details_Letter.pdf"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "pack-line-suppiles.com",
+          "why": "Compare it with the usual pack-line-supplies.com and two letters have swapped places. That tiny change makes it a different domain the scammer owns."
+        },
+        {
+          "kind": "red",
+          "mark": "moved our accounts to a new bank",
+          "why": "A change of bank details by email is the heart of business email compromise. Never accept one without checking by phone."
+        },
+        {
+          "kind": "red",
+          "mark": "Our office line is down",
+          "why": "The broken phone line is an excuse to stop you calling, because one call to the known number would expose the scam."
+        },
+        {
+          "kind": "trap",
+          "mark": "invoice 3307",
+          "why": "The correct invoice number is not reassuring. The scammer may have read real emails after breaking into the supplier's mailbox."
+        }
+      ],
+      "lesson": "When a supplier asks to change bank details, call them on the number you already have on file, not one in the email, and pay nothing until they confirm."
+    }
+  },
+  {
+    "id": "email-interview-invitation-no-fee",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "تقدمت الأسبوع الماضي لوظيفة محاسب عبر موقع التوظيف الخاص بإحدى الشركات.",
+      "card": {
+        "fromName": "إيما، فريق التوظيف",
+        "fromAddress": "emma.recruiting@careers.example.com",
+        "subject": "دعوة لمقابلة وظيفة محاسب (المرجع ACC-214)",
+        "body": "مرحباً أحمد،\n\nشكراً لتقدمك إلى وظيفة محاسب (المرجع ACC-214)، ويسعدنا دعوتك إلى مقابلة مرئية مدتها 30 دقيقة مع مدير الشؤون المالية\n\nاختر الموعد الذي يناسبك من المواعيد المتاحة في موقع التوظيف حيث يُحفظ طلبك\n\nالتوظيف لدينا مجاني في جميع مراحله، ولن نطلب منك أي مبلغ أو بيانات مصرفية\n\nمع أطيب التحيات\nإيما\nفريق التوظيف",
+        "button": {
+          "label": "اختيار موعد المقابلة",
+          "url": "careers.example.com/interviews"
+        }
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "شكراً لتقدمك إلى وظيفة محاسب",
+          "why": "الدعوة تخص الوظيفة نفسها التي تقدمت إليها بنفسك الأسبوع الماضي، أي أن الرسالة متوقعة ولها سبب واضح."
+        },
+        {
+          "kind": "green",
+          "mark": "careers.example.com/interviews",
+          "why": "الرابط يعود إلى موقع التوظيف نفسه الذي قدّمت منه طلبك، ولا يطلب منك سوى اختيار موعد."
+        },
+        {
+          "kind": "green",
+          "mark": "التوظيف لدينا مجاني في جميع مراحله",
+          "why": "الشركة الحقيقية لا تطلب رسوماً من المتقدمين، وذكر ذلك صراحة عكس ما تفعله عروض العمل الاحتيالية تماماً."
+        }
+      ],
+      "lesson": "الدعوة الحقيقية تأتي بعد أن تتقدم بنفسك وتطلب منك مقابلة لا مالاً، فإذا طلبت منك أي جهة رسوماً مقابل التوظيف فتوقف فوراً."
+    },
+    "en": {
+      "context": "Last week you applied for an accountant job on a company's careers site.",
+      "card": {
+        "fromName": "Emma, Talent Team",
+        "fromAddress": "emma.recruiting@careers.example.com",
+        "subject": "Interview invitation: Accountant (ref ACC-214)",
+        "body": "Hi Ahmad,\n\nThank you for applying for the Accountant role (ref ACC-214). We would like to invite you to a 30 minute video interview with our finance manager.\n\nPlease choose a time that suits you from the available slots on our careers site, where your application is saved.\n\nOur hiring process is free at every stage, and we will never ask you for money or bank details.\n\nBest regards,\nEmma\nTalent Team",
+        "button": {
+          "label": "Choose an interview time",
+          "url": "careers.example.com/interviews"
+        }
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Thank you for applying for the Accountant role",
+          "why": "It is about the very job you applied for yourself last week, so the email is expected."
+        },
+        {
+          "kind": "green",
+          "mark": "careers.example.com/interviews",
+          "why": "The link goes to the same careers site where you applied, and it only asks you to pick a time."
+        },
+        {
+          "kind": "green",
+          "mark": "Our hiring process is free at every stage",
+          "why": "Real employers never charge applicants. Saying so plainly is the opposite of what job scams do."
+        }
+      ],
+      "lesson": "A real invitation follows an application you made and asks for an interview, not money. If anyone wants a fee to hire you, stop there."
+    }
+  },
+  {
+    "id": "email-subscription-card-expired",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "subscriptions",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "انتهت صلاحية بطاقتك الشهر الماضي ولديك اشتراك شهري في خدمة بث.",
+      "card": {
+        "fromName": "خدمة البث",
+        "fromAddress": "billing@stream.example.com",
+        "subject": "تعذّر تجديد اشتراكك",
+        "body": "مرحباً جون،\n\nحاولنا تجديد اشتراكك الشهري بقيمة 9.99 دولار لكن الدفع لم يتم، لأن بطاقتك المسجلة (•••• 2291) منتهية الصلاحية\n\nلتستمر في المشاهدة افتح التطبيق وادخل إلى الحساب ثمّ طريقة الدفع وأضف بطاقة جديدة، وسيبقى اشتراكك فعالاً 7 أيام أخرى\n\nحرصاً على أمانك لا نطلب بيانات البطاقة عبر البريد أو الرسائل النصية"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "منتهية الصلاحية",
+          "why": "سبب تعذّر الدفع يطابق ما تعرفه، فبطاقتك انتهت صلاحيتها فعلاً الشهر الماضي، أي أن للرسالة سبباً حقيقياً."
+        },
+        {
+          "kind": "green",
+          "mark": "افتح التطبيق",
+          "why": "الرسالة تطلب منك فتح التطبيق بنفسك ولا تضع أي رابط أو زر للدفع، وهكذا تتصرف الخدمات الحقيقية."
+        },
+        {
+          "kind": "green",
+          "mark": "لا نطلب بيانات البطاقة عبر البريد",
+          "why": "الخدمة تذكّرك بأنها لا تطلب بيانات البطاقة في الرسائل، وهذا عكس ما تفعله رسائل التصيد الاحتيالي تماماً."
+        },
+        {
+          "kind": "trap",
+          "mark": "9.99 دولار",
+          "why": "المبلغ الصحيح لا يكفي دليلاً لأن أسعار الاشتراكات معروفة للجميع، فما يطمئنك فعلاً أن الرسالة بلا رابط ولا تطلب أي بيانات."
+        }
+      ],
+      "lesson": "إذا وصلك تنبيه بتعذّر الدفع فحدّث بطاقتك من داخل التطبيق الذي تستخدمه، لأن الرسالة الحقيقية لا تحتاج منك إلى رابط أو رد."
+    },
+    "en": {
+      "context": "Your card expired last month and you pay monthly for a streaming service.",
+      "card": {
+        "fromName": "Streaming",
+        "fromAddress": "billing@stream.example.com",
+        "subject": "We couldn't renew your subscription",
+        "body": "Hi John,\n\nWe tried to renew your monthly plan for $9.99, but the payment did not go through because your saved card (•••• 2291) has expired.\n\nTo keep watching, open the app and go to Account, then Payment method, and add a new card. Your plan stays active for 7 more days.\n\nFor your security, we never ask for card details by email or text."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "has expired",
+          "why": "The reason matches what you know: your card really did expire last month, so the email has a real cause."
+        },
+        {
+          "kind": "green",
+          "mark": "open the app",
+          "why": "It asks you to open the app yourself and gives no link or payment button, which is how genuine services behave."
+        },
+        {
+          "kind": "green",
+          "mark": "we never ask for card details by email",
+          "why": "It reminds you that card details are never requested in messages, the opposite of what phishing does."
+        },
+        {
+          "kind": "trap",
+          "mark": "$9.99",
+          "why": "The right price is not proof, since everyone knows common subscription prices. What reassures you is that there is no link and no request for details."
+        }
+      ],
+      "lesson": "When a payment fails, update your card inside the app you already use. A genuine notice never needs you to click a link or reply."
+    }
+  },
+  {
+    "id": "email-new-signin-alert-own-device",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "سجّلت الدخول إلى بريدك من حاسوبك المحمول الجديد قبل خمس دقائق.",
+      "card": {
+        "fromName": "أمان الحساب",
+        "fromAddress": "no-reply@mail.example.com",
+        "subject": "تسجيل دخول جديد إلى حسابك",
+        "body": "مرحباً يوسف،\n\nتم تسجيل الدخول إلى حسابك قبل قليل من جهاز جديد\n\nالجهاز: حاسوب محمول\nالوقت: اليوم الساعة 20:41\n\nإذا كنت أنت فلا يلزمك أي إجراء\n\nوإن لم تكن أنت فافتح الإعدادات في تطبيق البريد واختر تغيير كلمة المرور، ولن نطلب منك أبداً إرسال كلمة المرور أو رمز التحقق في رد على رسالة"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "الجهاز: حاسوب محمول",
+          "why": "الجهاز والوقت يطابقان ما فعلته بنفسك قبل دقائق، أي أن التنبيه يصف دخولك أنت."
+        },
+        {
+          "kind": "green",
+          "mark": "فلا يلزمك أي إجراء",
+          "why": "التنبيه الحقيقي لا يطلب منك شيئاً إذا كان الدخول دخولك، فلا رابط فيه ولا مهلة ولا تهديد."
+        },
+        {
+          "kind": "green",
+          "mark": "فافتح الإعدادات في تطبيق البريد",
+          "why": "حتى عند الشك توجّهك الرسالة إلى إعدادات التطبيق الذي تستخدمه لا إلى رابط داخل الرسالة."
+        },
+        {
+          "kind": "trap",
+          "mark": "أمان الحساب",
+          "why": "اسم المرسل الرسمي لا يثبت شيئاً وحده، فما يجعل الرسالة آمنة أنها تصف ما فعلته أنت ولا تطلب منك شيئاً."
+        }
+      ],
+      "lesson": "تنبيه الدخول الذي يطابق ما فعلته لا يحتاج منك إلى شيء، وإن لم يكن الدخول دخولك فغيّر كلمة المرور من التطبيق نفسه لا من رابط في رسالة."
+    },
+    "en": {
+      "context": "Five minutes ago you signed in to your email on your new laptop.",
+      "card": {
+        "fromName": "Account Security",
+        "fromAddress": "no-reply@mail.example.com",
+        "subject": "New sign in to your account",
+        "body": "Hi Yousef,\n\nWe noticed a sign in to your account from a new device just now.\n\nDevice: Laptop\nTime: today at 20:41\n\nIf this was you, there is nothing you need to do.\n\nIf it wasn't, open Settings in your mail app and choose Change password. We will never ask you to reply with your password or a code."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Device: Laptop",
+          "why": "The device and time match what you did yourself a few minutes ago, so the alert describes your own sign in."
+        },
+        {
+          "kind": "green",
+          "mark": "there is nothing you need to do",
+          "why": "A real alert asks nothing of you when the sign in was yours. No link, no deadline, no threat."
+        },
+        {
+          "kind": "green",
+          "mark": "open Settings in your mail app",
+          "why": "Even if you are unsure, it sends you to the settings of the app you use, not to a link in the email."
+        },
+        {
+          "kind": "trap",
+          "mark": "Account Security",
+          "why": "An official sender name proves nothing on its own. What makes this safe is that it describes what you did and asks for nothing."
+        }
+      ],
+      "lesson": "A sign in alert that matches what you just did needs nothing from you. If it wasn't you, change your password inside the app, never through a link in a message."
+    }
+  }
+]

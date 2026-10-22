@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-capture/
+coverage/
+
+# Local tool state
+.taste-skill/
+*.log
+.DS_Store
+.env
+.env.*
+
+# Signing material never belongs in the repository
+*.jks
+*.keystore
+*.p12
+*.p8
+*.mobileprovision
+
+# Working folders for the capture, recording and audio tools
+.work/

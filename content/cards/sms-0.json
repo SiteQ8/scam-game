@@ -1,0 +1,78 @@
+[
+  {
+    "id": "sms-parcel-redelivery-fee",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": ["payment", "small-fee", "lookalike-domain", "urgency", "unknown-number"],
+    "ar": {
+      "context": "لم تطلب أي شحنة هذا الأسبوع.",
+      "card": {
+        "sender": "+63 9•• ••• ••41",
+        "time": "09:14",
+        "body": "البريد: شحنتك رقم KW8812 متوقفة في المستودع بسبب عنوان غير مكتمل، ادفع رسوم إعادة التوصيل 0.350 د.ك خلال 12 ساعة عبر الرابط parcel-fee-kw.com/pay وإلا ستعاد الشحنة إلى المرسل"
+      },
+      "signals": [
+        { "kind": "red", "mark": "+63 9•• ••• ••41", "why": "وصلت الرسالة من رقم أجنبي لا صلة له بأي جهة توصيل محلية، بينما ترسل الجهات الحقيقية باسمها المسجل لا من أرقام عشوائية." },
+        { "kind": "red", "mark": "parcel-fee-kw.com/pay", "why": "الرابط ليس موقعاً رسمياً بل اسم مركّب من كلمات توحي بالثقة، ولو كانت عليك رسوم حقيقية لظهرت في تطبيق جهة التوصيل أو موقعها الرسمي." },
+        { "kind": "red", "mark": "خلال 12 ساعة", "why": "المهلة القصيرة مقصودة لتدفعك إلى التصرف بسرعة قبل أن تفكر أو تتحقق." },
+        { "kind": "red", "mark": "0.350 د.ك", "why": "المبلغ الصغير طُعم يخفّض حذرك، لأن الهدف الحقيقي هو بيانات بطاقتك لا الرسوم نفسها." }
+      ],
+      "lesson": "إذا كنت تنتظر شحنة فتابعها من تطبيق جهة التوصيل الذي ثبّته بنفسك، ولا تُدخل بيانات بطاقتك في رابط وصلك برسالة."
+    },
+    "en": {
+      "context": "You have not ordered anything this week.",
+      "card": {
+        "sender": "+63 9•• ••• ••41",
+        "time": "09:14",
+        "body": "POST: Your parcel KW8812 is held at our depot due to an incomplete address. Pay the 0.350 KWD redelivery fee within 12 hours at parcel-fee-kw.com/pay or it will be returned to the sender."
+      },
+      "signals": [
+        { "kind": "red", "mark": "+63 9•• ••• ••41", "why": "It comes from a random foreign number. Real couriers send from their registered sender name." },
+        { "kind": "red", "mark": "parcel-fee-kw.com/pay", "why": "This is not an official site, just trustworthy sounding words glued together. A real fee would show up in the courier's official app or website." },
+        { "kind": "red", "mark": "within 12 hours", "why": "A short deadline is there to rush you before you stop and check." },
+        { "kind": "red", "mark": "0.350 KWD", "why": "The tiny amount lowers your guard. What they really want is your card details." }
+      ],
+      "lesson": "Expecting a parcel? Track it in the courier app you installed yourself, and never type card details into a link that arrived by text."
+    }
+  },
+  {
+    "id": "sms-bank-otp-own-purchase",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": ["otp", "expected", "no-link", "official-channel"],
+    "ar": {
+      "context": "أنت تدفع الآن ثمن طلب بقيمة 18.500 د.ك من متجر إلكتروني.",
+      "card": {
+        "sender": "Bank",
+        "time": "21:03",
+        "body": "رمز التحقق لعملية الشراء بقيمة 18.500 د.ك هو 482915، لا تشارك هذا الرمز مع أي شخص حتى موظفي البنك"
+      },
+      "signals": [
+        { "kind": "green", "mark": "18.500 د.ك", "why": "المبلغ يطابق عملية الشراء التي بدأتها بنفسك قبل لحظات، أي أن الرسالة متوقعة ولها سبب واضح." },
+        { "kind": "green", "mark": "لا تشارك هذا الرمز مع أي شخص", "why": "التحذير من مشاركة الرمز سمة الرسائل الحقيقية، لأن البنك لا يحتاج إلى أن تعطيه الرمز أبداً." },
+        { "kind": "trap", "mark": "Bank", "why": "اسم المرسل وحده ليس دليلاً لأن المحتالين يستطيعون انتحال أسماء المرسلين، لذا اعتمد على أن العملية بدأتها أنت." }
+      ],
+      "lesson": "لا تُدخل رمز التحقق إلا في الصفحة التي بدأت منها العملية بنفسك، ولا تقرأه لأي شخص يتصل بك مهما كانت صفته."
+    },
+    "en": {
+      "context": "You are paying for an online order of 18.500 KWD right now.",
+      "card": {
+        "sender": "Bank",
+        "time": "21:03",
+        "body": "Your verification code for the 18.500 KWD purchase is 482915. Do not share this code with anyone, including bank staff."
+      },
+      "signals": [
+        { "kind": "green", "mark": "18.500 KWD", "why": "The amount matches the purchase you started a moment ago, so the message is expected." },
+        { "kind": "green", "mark": "Do not share this code with anyone", "why": "Real banks warn you never to share the code, because they never need it from you." },
+        { "kind": "trap", "mark": "Bank", "why": "A sender name alone proves nothing, since scammers can spoof sender names. What makes this safe is that you started the payment." }
+      ],
+      "lesson": "Only type a code into the page where you started the action yourself, and never read it out to anyone who calls you."
+    }
+  }
+]

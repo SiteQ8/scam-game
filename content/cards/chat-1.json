@@ -1,0 +1,388 @@
+[
+  {
+    "id": "chat-hi-mum-new-number",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "family",
+    "region": "global",
+    "difficulty": 2,
+    "tags": ["new-number", "unknown-number", "payment", "urgency", "emotional"],
+    "ar": {
+      "context": "ابنتك تدرس في جامعة خارج البلاد.",
+      "card": {
+        "contact": "+44 7700 900582",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "ماما هذا رقمي الجديد، جوالي القديم طاح في المغسلة وخرب، احفظي هذا الرقم وامسحي القديم", "time": "08:47"},
+          {"from": "them", "text": "أحتاج منك خدمة، لازم أدفع إيجار السكن اليوم وتطبيق البنك ما يشتغل على الجوال الجديد قبل التفعيل", "time": "08:52"},
+          {"from": "them", "text": "ممكن تحولين 640 باوند على حساب صاحب السكن؟ أرجعها لك بكرة أوعدك", "time": "08:53"},
+          {"from": "them", "text": "لا تتصلين الحين أنا في محاضرة، راسليني هني بس", "time": "08:53"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "هذا رقمي الجديد", "why": "الرسالة جاءت من رقم مجهول يزعم أنه رقم ابنتك الجديد، وهذه بداية حيلة معروفة تستغل حرص الأهل على أبنائهم."},
+        {"kind": "red", "mark": "امسحي القديم", "why": "طلب حذف الرقم القديم غرضه قطع طريق التحقق، فلا يبقى لديك رقم حقيقي للتواصل مع ابنتك."},
+        {"kind": "red", "mark": "على حساب صاحب السكن", "why": "المبلغ يذهب إلى حساب شخص غريب لا إلى حساب ابنتك، لذا يصعب تتبعه أو استرجاعه بعد التحويل."},
+        {"kind": "red", "mark": "لا تتصلين الحين", "why": "التهرب من الاتصال هو العلامة الأوضح، لأنّ مكالمة واحدة إلى رقم ابنتك المحفوظ تكشف الحيلة كلها."}
+      ],
+      "lesson": "إذا طلب رقم جديد مالاً باسم أحد أبنائك فالخطوة الأولى هي الاتصال برقمه المحفوظ لديك قبل أي تحويل."
+    },
+    "en": {
+      "context": "Your daughter is studying at a university abroad.",
+      "card": {
+        "contact": "+44 7700 900582",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Hi Mum, it's me! This is my new number, my old phone fell in the sink. Save this one and delete the old one x", "time": "08:47"},
+          {"from": "them", "text": "Bit embarrassing but I need a favour. My rent is due today and my banking app won't work on the new phone until it's verified", "time": "08:52"},
+          {"from": "them", "text": "Could you send £640 to my landlord's account? I'll pay you back tomorrow, promise", "time": "08:53"},
+          {"from": "them", "text": "Please don't call, I'm in a lecture. Just text me here x", "time": "08:53"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "This is my new number", "why": "An unknown number claiming to be your daughter is the classic opening of this scam, which plays on a parent's instinct to help."},
+        {"kind": "red", "mark": "delete the old one", "why": "Asking you to delete the old number cuts off the one way you could check with your real daughter."},
+        {"kind": "red", "mark": "my landlord's account", "why": "The money goes to a stranger's account, not your daughter's, so it is hard to trace or get back."},
+        {"kind": "red", "mark": "Please don't call", "why": "Avoiding a call is the clearest sign, because hearing your daughter on her saved number would end the trick."}
+      ],
+      "lesson": "If a new number asks for money in your child's name, call the number you already have saved before you send anything."
+    }
+  },
+  {
+    "id": "chat-voice-brother-accident",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "family",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": ["voice-clone", "new-number", "unknown-number", "secrecy", "urgency", "payment", "emotional"],
+    "ar": {
+      "context": "الوقت متأخر وأخوك فهد خارج البيت مع أصدقائه.",
+      "card": {
+        "contact": "+965 5••• ••37",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "هذا رقمي الجديد، تلفوني تكسّر بالحادث", "time": "23:41"},
+          {"from": "them", "voice": true, "duration": "0:14", "text": "هلا أخوي، أنا فهد، صار لي حادث بسيط والحمد لله ما فيني شي، بس لازم أدفع للرجال اللي صدمته الحين عشان ما يكبّر السالفة، تكفى لا تقول لأبوي", "time": "23:42"},
+          {"from": "them", "text": "حوّل 250 د.ك على حساب ربيعي KW•• •••• •••• 7781 وأرجعها لك أول الشهر", "time": "23:43"},
+          {"from": "them", "text": "لا تتصل الحين أنا عند الشرطة، راسلني هني بس", "time": "23:44"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "هذا رقمي الجديد", "why": "الطلب وصل من رقم غير محفوظ، وقصة الهاتف المكسور عذر جاهز يمنعك من التحقق عبر رقم أخيك القديم."},
+        {"kind": "trap", "mark": "أنا فهد", "why": "تشابه الصوت مع صوت أخيك لا يثبت شيئاً، لأنّ تقنيات استنساخ الصوت تقلد أي شخص من مقطع قصير منشور له."},
+        {"kind": "red", "mark": "على حساب ربيعي", "why": "المال يذهب إلى حساب شخص غريب لا إلى حساب أخيك، والتحويل بهذه الطريقة يصعب استرجاعه."},
+        {"kind": "red", "mark": "لا تتصل الحين", "why": "رفض المكالمة هو مفتاح الحيلة، لأنّ اتصالاً واحداً برقم أخيك المحفوظ يكشف أن الرسالة ليست منه."}
+      ],
+      "lesson": "إذا طلب منك قريب مالاً من رقم جديد فاتصل به على رقمه المحفوظ قبل أي تحويل، واتفق مع أهلك على كلمة سر عائلية للحالات الطارئة."
+    },
+    "en": {
+      "context": "It is late at night and your brother Fahad is out with friends.",
+      "card": {
+        "contact": "+965 5••• ••37",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "This is my new number, my phone got smashed in the accident", "time": "23:41"},
+          {"from": "them", "voice": true, "duration": "0:14", "text": "Hey bro, it's Fahad. I had a small accident, I'm okay, thank God, but I need to pay the guy I hit now so it doesn't become a big problem. Please don't tell Dad.", "time": "23:42"},
+          {"from": "them", "text": "Send 250 KWD to my friend's account KW•• •••• •••• 7781, I'll pay you back at the start of the month", "time": "23:43"},
+          {"from": "them", "text": "Don't call now, I'm with the police. Just text me here", "time": "23:44"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "This is my new number", "why": "The request comes from an unsaved number, and a smashed phone is a ready-made excuse to stop you checking his real one."},
+        {"kind": "trap", "mark": "it's Fahad", "why": "A familiar voice proves nothing. Voice cloning tools can copy anyone from a short clip posted online."},
+        {"kind": "red", "mark": "my friend's account", "why": "The money goes to a stranger's account, not your brother's, and a transfer like this is very hard to reverse."},
+        {"kind": "red", "mark": "Don't call now", "why": "Refusing a call is the key tell. One call to his saved number would show the message is not from him."}
+      ],
+      "lesson": "If a relative asks for money from a new number, call their saved number before sending anything, and agree on a family code word for emergencies."
+    }
+  },
+  {
+    "id": "chat-voice-son-trip-abroad",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "family",
+    "region": "global",
+    "difficulty": 5,
+    "tags": ["voice-clone", "impersonation", "payment", "urgency", "emotional"],
+    "ar": {
+      "context": "سافر ابنك آدم قبل يومين إلى لشبونة في رحلة جامعية.",
+      "card": {
+        "contact": "آدم",
+        "saved": true,
+        "messages": [
+          {"from": "them", "voice": true, "duration": "0:12", "text": "يبه هذا أنا، سرقوا شنطتي في المحطة وفيها البوك والجواز، أنا بخير بس السفارة تبي رسوم اليوم قبل لا يسكّرون، تقدر تساعدني؟", "time": "19:05"},
+          {"from": "them", "text": "حوّل 480 يورو على حساب ليو، واحد من مجموعتنا وبيعطيني كاش، IBAN PT•• •••• •••• 2291", "time": "19:06"},
+          {"from": "me", "text": "أكيد، بس خلني أتصل عليك أول", "time": "19:08"},
+          {"from": "them", "text": "ما أقدر أتكلم، الشحن 3% وأنا في الطابور، حوّل بس وبعدين أشرح لك", "time": "19:08"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "آدم", "why": "اسم جهة الاتصال المحفوظة يدل على الحساب الذي أرسل الرسالة فقط، والحسابات قد تُخترق، لذا لا يكفي الاسم دليلاً على هوية المرسل."},
+        {"kind": "trap", "mark": "يبه هذا أنا", "why": "النبرة والكلمات المألوفة لا تثبت أن المتكلم ابنك، لأنّ صوته يمكن استنساخه من رسائله الصوتية السابقة."},
+        {"kind": "red", "mark": "على حساب ليو", "why": "المبلغ يذهب إلى شخص لا تعرفه لا إلى حساب ابنك، والتحويل بهذه الطريقة يصعب استرجاعه."},
+        {"kind": "red", "mark": "ما أقدر أتكلم", "why": "لديه وقت للكتابة لكنه يرفض مكالمة قصيرة، والتهرب من الاتصال هو ما يحمي الحيلة من الانكشاف."}
+      ],
+      "lesson": "في أي طارئ مالي اتصل بقريبك بنفسك أو بأحد المرافقين له، واسأله سؤالاً لا يعرف جوابه سواه قبل أن تحوّل أي مبلغ."
+    },
+    "en": {
+      "context": "Your son Adam flew to Lisbon for a university trip two days ago.",
+      "card": {
+        "contact": "Adam",
+        "saved": true,
+        "messages": [
+          {"from": "them", "voice": true, "duration": "0:13", "text": "Dad, it's me. Someone took my bag at the station with my wallet and passport. I'm okay, but the embassy needs a fee today before they close. Can you help me?", "time": "19:05"},
+          {"from": "them", "text": "Please send €480 to Leo's account, he's from our group and he'll give me the cash. IBAN PT•• •••• •••• 2291", "time": "19:06"},
+          {"from": "me", "text": "Of course. Let me call you first", "time": "19:08"},
+          {"from": "them", "text": "Can't talk, my battery is at 3% and I'm in the queue. Please just send it, I'll explain later", "time": "19:08"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "Adam", "why": "A saved contact name only shows which account sent it. Accounts get hacked, so the name alone proves nothing."},
+        {"kind": "trap", "mark": "Dad, it's me", "why": "It sounds just like him, but a voice can be cloned from the voice notes he has sent before."},
+        {"kind": "red", "mark": "Leo's account", "why": "The money goes to someone you have never met, not your son's own account, and it is very hard to get back once sent."},
+        {"kind": "red", "mark": "Can't talk", "why": "He has time to type but not for a ten-second call. Avoiding a call is what keeps the trick alive."}
+      ],
+      "lesson": "In any money emergency, call your relative yourself or someone travelling with them, and ask a question only they would know before you send anything."
+    }
+  },
+  {
+    "id": "chat-friend-forward-code",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "accounts",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["otp", "impersonation", "urgency", "credentials"],
+    "ar": {
+      "context": "وصلتك قبل دقيقة رسالة نصية فيها رمز تحقق لم تطلبه.",
+      "card": {
+        "contact": "ناصر",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "هلا والله، شلونك؟", "time": "20:14"},
+          {"from": "them", "text": "اسمح لي، دزيت لك كود من 6 أرقام بالغلط وأنا أسجل دخولي، ممكن ترسله لي؟", "time": "20:14"},
+          {"from": "them", "text": "بسرعة الله يخليك قبل لا تنتهي صلاحيته", "time": "20:15"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "ناصر", "why": "الاسم المحفوظ لا يضمن أن صديقك هو من يكتب، فقد يكون حسابه مخترقاً ويديره محتال."},
+        {"kind": "red", "mark": "كود من 6 أرقام بالغلط", "why": "لا أحد يرسل رمز تحقق إلى رقمك بالخطأ، فالرمز الذي وصلك يخص حسابك أنت وهناك من يحاول الاستيلاء عليه."},
+        {"kind": "red", "mark": "ممكن ترسله لي", "why": "إعادة إرسال الرمز هي جوهر الحيلة، لأنّ من يحصل عليه يستطيع نقل حسابك إلى جهازه."},
+        {"kind": "red", "mark": "قبل لا تنتهي صلاحيته", "why": "الاستعجال يمنعك من التفكير أو الاتصال بصديقك للتأكد."}
+      ],
+      "lesson": "رمز التحقق الذي يصل إلى هاتفك يخصك وحدك فلا ترسله لأحد ولو كان صديقاً، وإذا طلبه منك صديق فاتصل به ونبّهه إلى أن حسابه قد يكون مخترقاً."
+    },
+    "en": {
+      "context": "A minute ago you got a text with a verification code you did not ask for.",
+      "card": {
+        "contact": "Nasser",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "Heyy, how are you?", "time": "20:14"},
+          {"from": "them", "text": "Sorry, I sent a 6-digit code to your number by mistake while logging in. Can you send it to me?", "time": "20:14"},
+          {"from": "them", "text": "Quick please, before it expires", "time": "20:15"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "Nasser", "why": "A saved name does not prove your friend is the one typing. His account may have been taken over."},
+        {"kind": "red", "mark": "by mistake", "why": "Nobody sends a code to your number by mistake. That code belongs to your own account, and someone is trying to take it."},
+        {"kind": "red", "mark": "Can you send it to me?", "why": "Forwarding the code is the whole trick. Whoever has it can move your account onto their phone."},
+        {"kind": "red", "mark": "before it expires", "why": "Rushing you stops you from thinking or calling your friend to check."}
+      ],
+      "lesson": "A verification code sent to your phone is for you alone. Never forward it, even to a friend, and call that friend to warn them their account may be hacked."
+    }
+  },
+  {
+    "id": "chat-voice-mum-groceries",
+    "channel": "chat",
+    "verdict": "legit",
+    "category": "family",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": ["expected", "no-link"],
+    "ar": {
+      "context": "أنت في عملك، وأمك اعتادت أن ترسل لك رسائل صوتية بطلبات البيت.",
+      "card": {
+        "contact": "أمي ❤️",
+        "saved": true,
+        "messages": [
+          {"from": "them", "voice": true, "duration": "0:11", "text": "هلا يمه، وأنت راجع من الدوام مر الجمعية وجيب خبز وحليب، وإذا لقيت طماط زين جيب كيلو، وترى العشا الساعة ثمان لا تتأخر", "time": "13:20"},
+          {"from": "me", "text": "إن شاء الله يمه، تبين شي ثاني؟", "time": "13:26"},
+          {"from": "them", "text": "لا يمه بس سلامتك، وانتبه للطريق", "time": "13:27"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "خبز وحليب", "why": "طلب مألوف من أمك لا يتضمن مالاً ولا رمز تحقق ولا رابطاً، لذا لا يوجد فيه ما يستفيد منه محتال."},
+        {"kind": "green", "mark": "مر الجمعية", "why": "ستشتري الأغراض بنفسك من مكان تعرفه، فلا تحويل إلى أي حساب ولا بيانات تخرج منك."},
+        {"kind": "trap", "mark": "أمي", "why": "الاسم المحفوظ والصوت المألوف لا يثبتان وحدهما هوية المرسل، غير أنّ الرسالة آمنة لأنّ طلبها لا يعرّضك لأي خسارة."}
+      ],
+      "lesson": "الرسائل الصوتية من أهلك أمر طبيعي، وما يستحق التوقف عنده هو مضمون الطلب، فإذا طُلب منك مال أو رمز تحقق فاتصل للتأكد قبل أن تستجيب."
+    },
+    "en": {
+      "context": "You are at work and your mum often sends voice notes with things to pick up.",
+      "card": {
+        "contact": "Mum ❤️",
+        "saved": true,
+        "messages": [
+          {"from": "them", "voice": true, "duration": "0:12", "text": "Hi love, on your way back from work stop at the co-op and get bread and milk. If the tomatoes look good, grab a kilo. Dinner's at eight, don't be late.", "time": "13:20"},
+          {"from": "me", "text": "Will do, anything else you need?", "time": "13:26"},
+          {"from": "them", "text": "No dear, just drive safe", "time": "13:27"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "bread and milk", "why": "An ordinary family errand with no money, codes or links, so there is nothing a scammer could gain."},
+        {"kind": "green", "mark": "stop at the co-op", "why": "You buy the things yourself at a shop you know. Nothing is transferred and no details leave your hands."},
+        {"kind": "trap", "mark": "Mum", "why": "A saved name and a familiar voice do not prove who sent it on their own. This message is safe because the request costs you nothing."}
+      ],
+      "lesson": "Voice notes from family are normal. What deserves a pause is the request: if a message asks for money or a code, call to check first."
+    }
+  },
+  {
+    "id": "chat-task-job-likes",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 2,
+    "tags": ["too-good", "advance-fee", "payment", "unknown-number"],
+    "ar": {
+      "context": "لم تتقدم مؤخراً لأي وظيفة.",
+      "card": {
+        "contact": "+1 202 555 0119",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "مرحباً، أنا سارة من وكالة تسويق رقمي، عندنا عمل بسيط من المنزل: تضغط إعجاب على فيديوهات وتربح من 50 إلى 300 دولار يومياً 😊", "time": "10:02"},
+          {"from": "them", "text": "أحسنت! ربحت 18 دولاراً من أول 3 مهام، ولفتح السحب والانتقال إلى مهام كبار الأعضاء اشحن رصيدك بـ 100 دولار أولاً", "time": "10:40"},
+          {"from": "me", "text": "ليش أدفع عشان آخذ فلوسي؟", "time": "10:43"},
+          {"from": "them", "text": "هذا مبلغ تأمين معتاد ويرجع لك مع العمولة، وأغلب أعضائنا يسترجعونه في يوم واحد 💰", "time": "10:44"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "من 50 إلى 300 دولار يومياً", "why": "الربح الكبير مقابل ضغطة إعجاب لا يمكن أن يكون عملاً حقيقياً، بل هو طُعم يجذبك إلى ما بعده."},
+        {"kind": "trap", "mark": "ربحت 18 دولاراً", "why": "الرصيد الظاهر لك رقم على شاشتهم لا مال حقيقي، وهدفه إقناعك بأن الربح مضمون قبل أن يطلبوا منك الدفع."},
+        {"kind": "red", "mark": "اشحن رصيدك بـ 100 دولار أولاً", "why": "الوظيفة الحقيقية تدفع لك ولا تطلب منك مالاً، وكل دفعة هنا تفتح الباب لطلب دفعة أكبر بعدها."},
+        {"kind": "red", "mark": "مبلغ تأمين معتاد", "why": "تسمية الدفعة تأميناً أو رسوماً لا تغيّر حقيقتها، فهي مال سيأخذه المحتال ولن يعود."}
+      ],
+      "lesson": "أي عمل يطلب منك أن تدفع لتستلم أرباحك احتيال، فتوقف عند أول طلب للدفع ولا تحاول استرجاع ما دفعته بدفع المزيد."
+    },
+    "en": {
+      "context": "You have not applied for any job recently.",
+      "card": {
+        "contact": "+1 202 555 0119",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Hi! I'm Sara from a digital marketing agency. Easy work from home: like videos and earn $50 to $300 a day 😊", "time": "10:02"},
+          {"from": "them", "text": "Well done! You earned $18 from your first 3 tasks. To unlock withdrawals and move up to VIP tasks, top up $100 first", "time": "10:40"},
+          {"from": "me", "text": "Why do I have to pay to get my own money?", "time": "10:43"},
+          {"from": "them", "text": "It's a standard security deposit, refunded with your commission. Most members get it back in one day 💰", "time": "10:44"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "$50 to $300 a day", "why": "Big money for tapping like on videos is not a real job. It is bait for what comes next."},
+        {"kind": "trap", "mark": "You earned $18", "why": "The balance is just a number on their screen, not real money. It is there to convince you before they ask you to pay."},
+        {"kind": "red", "mark": "top up $100 first", "why": "A real job pays you and never asks you to pay. Each payment here leads to a request for a bigger one."},
+        {"kind": "red", "mark": "standard security deposit", "why": "Calling it a deposit or a fee does not change what it is: money the scammer keeps."}
+      ],
+      "lesson": "Any job that makes you pay to collect your earnings is a scam. Stop at the first payment request, and never pay more to recover what you lost."
+    }
+  },
+  {
+    "id": "chat-recruiter-training-fee",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": ["advance-fee", "payment", "unknown-number"],
+    "ar": {
+      "context": "تبحث عن عمل ونشرت سيرتك الذاتية في موقع للوظائف قبل أيام.",
+      "card": {
+        "contact": "+965 6••• ••21",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "مرحبا، معك أحمد من مكتب توظيف، شفنا سيرتك الذاتية وعندنا وظيفة مشرف مبيعات في شركة كبيرة براتب 650 د.ك", "time": "11:05"},
+          {"from": "them", "text": "أرسلت لك عرض العمل على الإيميل، والمدير اطلع على سيرتك وقبلك مبدئياً", "time": "11:06"},
+          {"from": "me", "text": "ممتاز، مشكور، شنو الخطوة الجاية؟", "time": "11:20"},
+          {"from": "them", "text": "باقي بس الدورة التدريبية الإلزامية قبل المباشرة، رسومها 95 د.ك تحولها على حساب المكتب وترجع لك مع أول راتب", "time": "11:21"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "عرض العمل", "why": "عرض العمل المرسل بملف أنيق فيه شعار وتوقيع لا يثبت شيئاً، لأنّ أي شخص يستطيع تصميمه في دقائق."},
+        {"kind": "red", "mark": "قبلك مبدئياً", "why": "القبول دون أي مقابلة أو اختبار علامة خطر، لأنّ الشركات الحقيقية لا توظف أحداً من سيرته الذاتية وحدها."},
+        {"kind": "red", "mark": "رسومها 95 د.ك", "why": "صاحب العمل هو من يتحمل تكاليف التوظيف والتدريب، وطلب أي رسوم من المتقدم هو جوهر هذا الاحتيال."},
+        {"kind": "trap", "mark": "ترجع لك مع أول راتب", "why": "وعد الاسترجاع يجعل الدفع يبدو بلا مخاطرة، لكنه وعد بلا قيمة لأنّ الراتب لن يأتي أصلاً."}
+      ],
+      "lesson": "لا تدفع أي رسوم لتحصل على وظيفة، وتحقق من الشركة نفسها عبر رقمها الرسمي قبل أن ترسل إليها أي مستند."
+    },
+    "en": {
+      "context": "You are job hunting and posted your CV on a job website a few days ago.",
+      "card": {
+        "contact": "+965 6••• ••21",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Hi, this is Ahmad from a recruitment office. We saw your CV and have a sales supervisor role at a large company, salary 650 KWD", "time": "11:05"},
+          {"from": "them", "text": "I've emailed you the offer letter. The manager reviewed your CV and approved you already", "time": "11:06"},
+          {"from": "me", "text": "Great, thanks! What's the next step?", "time": "11:20"},
+          {"from": "them", "text": "Just the mandatory training course before you start. The fee is 95 KWD, transfer it to the office account and it comes back with your first salary", "time": "11:21"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "the offer letter", "why": "A neat offer letter with a logo and a signature proves nothing. Anyone can make one in minutes."},
+        {"kind": "red", "mark": "approved you already", "why": "Being hired with no interview or test is a red flag. Real companies do not hire from a CV alone."},
+        {"kind": "red", "mark": "The fee is 95 KWD", "why": "Employers pay for hiring and training. Any fee asked of the candidate is the heart of this scam."},
+        {"kind": "trap", "mark": "comes back with your first salary", "why": "The refund promise makes paying feel safe, but it is worthless because the salary never comes."}
+      ],
+      "lesson": "Never pay a fee to get a job. Check the company through its own official number before you send any documents."
+    }
+  },
+  {
+    "id": "chat-voice-trading-mentor",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 4,
+    "tags": ["crypto", "too-good", "unknown-number"],
+    "ar": {
+      "context": "أضافك شخص لا تعرفه أمس إلى مجموعة توصيات تداول على تطبيق دردشة.",
+      "card": {
+        "contact": "+44 7700 900263",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "مرحباً، أنا نور مساعدة الدكتور سامي، أهلاً بك في مجموعتنا 😊", "time": "18:30"},
+          {"from": "them", "voice": true, "duration": "0:13", "text": "أهلاً فيك، معك الدكتور سامي، وما في داعي للاستعجال أبداً، ابدأ بمئة دولار بس على منصتنا للعملات الرقمية، طبّق توصياتي أسبوع واسحب أرباحك متى ما حبيت، وراح تشوف النتيجة بنفسك", "time": "18:31"},
+          {"from": "them", "text": "رابط التسجيل في المنصة crypto-signal-club.net/join، واستخدم كودي SAM88 عشان تحصل على توصيات VIP", "time": "18:32"},
+          {"from": "them", "text": "أغلب الأعضاء يضاعفون إيداعهم الأول خلال شهر 📈", "time": "18:33"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "ما في داعي للاستعجال", "why": "النبرة الهادئة الخالية من الضغط أسلوب مقصود لكسب ثقتك، ثمّ يأتي الضغط لاحقاً بعد أن تودع مبالغ أكبر."},
+        {"kind": "trap", "mark": "اسحب أرباحك متى ما حبيت", "why": "قد يسمحون لك فعلاً بسحب مبلغ صغير في البداية، لكنّ ذلك طُعم يدفعك إلى إيداع أكبر ثمّ يُغلق باب السحب."},
+        {"kind": "red", "mark": "crypto-signal-club.net/join", "why": "المنصة التي لا تصل إليها إلا عبر رابطهم ليست جهة مرخصة، والأرباح التي تعرضها أرقام وهمية على الشاشة."},
+        {"kind": "red", "mark": "يضاعفون إيداعهم الأول خلال شهر", "why": "مضاعفة المال في شهر وعد غير واقعي، ولا يقدمه أي استثمار حقيقي."}
+      ],
+      "lesson": "لا تستثمر عبر منصة أرسلها لك غريب في مجموعة دردشة، وتحقق من ترخيص أي جهة استثمار لدى الجهة الرقابية في بلدك قبل أن تودع أي مبلغ."
+    },
+    "en": {
+      "context": "Yesterday a stranger added you to a trading tips group on a chat app.",
+      "card": {
+        "contact": "+44 7700 900263",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Hi! I'm Nora, Dr. Sam's assistant. Welcome to our group 😊", "time": "18:30"},
+          {"from": "them", "voice": true, "duration": "0:14", "text": "Hello, Dr. Sam here. No pressure at all. Start with just one hundred dollars on our crypto platform, follow my signals for a week, and withdraw whenever you like. You'll see the results yourself.", "time": "18:31"},
+          {"from": "them", "text": "Here's the link to register: crypto-signal-club.net/join. Use my code SAM88 for VIP signals", "time": "18:32"},
+          {"from": "them", "text": "Most members double their first deposit within a month 📈", "time": "18:33"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "No pressure at all", "why": "The calm, no-pressure tone is a tactic to win your trust. The pressure comes later, once you have deposited more."},
+        {"kind": "trap", "mark": "withdraw whenever you like", "why": "They may let you withdraw a small amount at first. It is bait for a bigger deposit, and then withdrawals stop."},
+        {"kind": "red", "mark": "crypto-signal-club.net/join", "why": "A platform you can only reach through their link is not a licensed firm, and the profits it shows are fake numbers."},
+        {"kind": "red", "mark": "double their first deposit within a month", "why": "Doubling your money in a month is not realistic. No genuine investment promises that."}
+      ],
+      "lesson": "Never invest through a platform a stranger sent you in a chat group. Check that any investment firm is licensed with your country's regulator first."
+    }
+  }
+]

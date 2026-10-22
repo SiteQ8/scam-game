@@ -1,0 +1,1017 @@
+[
+  {
+    "id": "web-parcel-fee-card-details",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": [
+      "payment",
+      "small-fee",
+      "lookalike-domain",
+      "urgency"
+    ],
+    "ar": {
+      "context": "فتحت رابطاً من رسالة نصية عن شحنة لم تكن تنتظرها.",
+      "card": {
+        "url": "track-kw-parcel.com/fee",
+        "secure": true,
+        "title": "دفع آمن | تتبع الشحنات",
+        "heading": "شحنتك بانتظار دفع رسوم التوصيل",
+        "text": "الشحنة KW55120 متوقفة في المستودع، ادفع رسوم إعادة التوصيل 0.250 د.ك خلال ساعتين وإلا ستُعاد إلى المرسل",
+        "fields": [
+          "رقم البطاقة",
+          "تاريخ الانتهاء",
+          "رمز الأمان",
+          "الاسم على البطاقة"
+        ],
+        "button": "ادفع 0.250 د.ك"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "track-kw-parcel.com/fee",
+          "why": "العنوان ليس موقع جهة توصيل رسمية بل كلمات مركّبة توحي بالتتبع، ولو كانت عليك رسوم حقيقية لظهرت في تطبيق جهة التوصيل أو موقعها الرسمي."
+        },
+        {
+          "kind": "red",
+          "mark": "رقم البطاقة",
+          "why": "الصفحة تطلب بيانات بطاقتك كاملة مقابل مبلغ زهيد، لأن الهدف الحقيقي سرقة البطاقة لا تحصيل الرسوم."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال ساعتين",
+          "why": "المهلة القصيرة جداً تدفعك إلى الدفع قبل أن تتذكر أنك لم تطلب شيئاً أصلاً."
+        },
+        {
+          "kind": "trap",
+          "mark": "دفع آمن",
+          "why": "القفل وعبارة الدفع الآمن يعنيان فقط أن الاتصال مشفر لا أن الموقع صادق، والمحتالون يحصلون على القفل مجاناً."
+        }
+      ],
+      "lesson": "لا تكتب بيانات بطاقتك في صفحة وصلت إليها من رابط في رسالة، وتابع شحناتك من تطبيق جهة التوصيل الرسمي الذي ثبّته بنفسك."
+    },
+    "en": {
+      "context": "You opened a link from a text about a parcel you were not expecting.",
+      "card": {
+        "url": "track-kw-parcel.com/fee",
+        "secure": true,
+        "title": "Secure payment | Parcel tracking",
+        "heading": "Your parcel is waiting for a delivery fee",
+        "text": "Parcel KW55120 is held at our depot. Pay the 0.250 KWD redelivery fee within 2 hours or it will be returned to the sender.",
+        "fields": [
+          "Card number",
+          "Expiry date",
+          "Security code",
+          "Name on card"
+        ],
+        "button": "Pay 0.250 KWD"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "track-kw-parcel.com/fee",
+          "why": "This is not a courier's official site, just tracking words glued together. A real fee would show up in the courier's official app or website."
+        },
+        {
+          "kind": "red",
+          "mark": "Card number",
+          "why": "It wants your full card details for a tiny fee, because the real goal is your card, not the fee."
+        },
+        {
+          "kind": "red",
+          "mark": "within 2 hours",
+          "why": "The very short deadline rushes you into paying before you remember you ordered nothing."
+        },
+        {
+          "kind": "trap",
+          "mark": "Secure payment",
+          "why": "A padlock and the word secure only mean the connection is encrypted, not that the site is honest. Scammers get padlocks for free."
+        }
+      ],
+      "lesson": "Never type card details into a page you reached from a link in a message. Track parcels in the official courier app you installed yourself."
+    }
+  },
+  {
+    "id": "web-virus-warning-call-support",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "tech-support",
+    "region": "global",
+    "difficulty": 1,
+    "tags": [
+      "threat",
+      "urgency",
+      "remote-access",
+      "unknown-number"
+    ],
+    "ar": {
+      "context": "ظهرت لك هذه الصفحة فجأة وأنت تتصفح موقعاً إخبارياً.",
+      "card": {
+        "url": "secure-device-check.online/alert",
+        "secure": false,
+        "title": "تحذير أمني",
+        "heading": "تم اكتشاف 5 فيروسات في جهازك!",
+        "text": "جهازك مصاب وبياناتك المصرفية وصورك معرضة للسرقة، لا تغلق هذه الصفحة ولا تُعد تشغيل الجهاز واتصل فوراً بالدعم الفني على الرقم +1 202 555 0131",
+        "fields": [],
+        "button": "اتصل بالدعم الآن"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+1 202 555 0131",
+          "why": "تحذيرات الأمان الحقيقية لا تتضمن أرقام هواتف للاتصال، ومن يرد على هذا الرقم سيطلب منك تثبيت برنامج للتحكم في جهازك عن بعد أو دفع رسوم إصلاح وهمية."
+        },
+        {
+          "kind": "red",
+          "mark": "لا تغلق هذه الصفحة",
+          "why": "منعك من إغلاق الصفحة حيلة لإبقائك خائفاً، بينما يكفي إغلاقها لتنتهي المشكلة كلها."
+        },
+        {
+          "kind": "red",
+          "mark": "تم اكتشاف 5 فيروسات",
+          "why": "صفحة الإنترنت لا تستطيع فحص جهازك أصلاً، لذا فأي عدد تذكره من الفيروسات مجرد تخويف."
+        }
+      ],
+      "lesson": "إذا ظهرت لك صفحة تحذير مخيفة فأغلق المتصفح ولا تتصل بأي رقم فيها، ولا تسمح لأحد بالتحكم في جهازك عن بعد."
+    },
+    "en": {
+      "context": "This page suddenly appeared while you were reading a news site.",
+      "card": {
+        "url": "secure-device-check.online/alert",
+        "secure": false,
+        "title": "Security warning",
+        "heading": "5 viruses detected on your device!",
+        "text": "Your device is infected and your banking details and photos are at risk. Do not close this page or restart your device. Call technical support now on +1 202 555 0131.",
+        "fields": [],
+        "button": "Call support now"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+1 202 555 0131",
+          "why": "Real security warnings never include a phone number to call. Whoever answers will ask you to install remote control software or pay for a fake repair."
+        },
+        {
+          "kind": "red",
+          "mark": "Do not close this page",
+          "why": "Telling you not to close the page keeps you scared. Closing it is all it takes to end the problem."
+        },
+        {
+          "kind": "red",
+          "mark": "5 viruses detected",
+          "why": "A web page cannot scan your device at all, so any virus count it shows is just a scare tactic."
+        }
+      ],
+      "lesson": "If a scary warning page appears, close the browser and never call the number on it. Don't let anyone take remote control of your device."
+    }
+  },
+  {
+    "id": "web-video-player-app-install",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "app-install",
+      "emotional",
+      "impersonation"
+    ],
+    "ar": {
+      "context": "أرسل لك حساب أحد أصدقائك رابطاً يسألك فيه إن كنت أنت من يظهر في مقطع فيديو.",
+      "card": {
+        "url": "watch-clip-now.net/v/8812",
+        "secure": true,
+        "title": "مقطع فيديو خاص",
+        "heading": "لا يمكن تشغيل هذا الفيديو على جهازك",
+        "text": "لمشاهدة المقطع ثبّت تطبيق مشغل الفيديو بلس، ثمّ اسمح له بالوصول إلى الرسائل وجهات الاتصال حتى يعمل بشكل صحيح",
+        "fields": [],
+        "button": "تثبيت المشغل"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "ثبّت تطبيق مشغل الفيديو بلس",
+          "why": "المتصفح يشغّل الفيديو دون أي برنامج إضافي، وطلب تثبيت تطبيق من صفحة إنترنت طريقة شائعة لزرع البرامج الخبيثة."
+        },
+        {
+          "kind": "red",
+          "mark": "الوصول إلى الرسائل وجهات الاتصال",
+          "why": "مشغل الفيديو لا يحتاج إلى رسائلك، لكن التطبيق الخبيث يحتاج إليها ليقرأ رموز التحقق وينشر الرابط بين أصدقائك."
+        },
+        {
+          "kind": "red",
+          "mark": "watch-clip-now.net/v/8812",
+          "why": "الرابط يقود إلى موقع مجهول لا إلى منصة تعرفها، وقد وصلك من حساب صديقك لأن حسابه على الأرجح مخترق."
+        }
+      ],
+      "lesson": "لا تثبّت أي تطبيق تطلبه صفحة إنترنت لتشغيل مقطع، وإذا وصلك رابط غريب من صديق فاسأله بطريقة أخرى إن كان أرسله فعلاً."
+    },
+    "en": {
+      "context": "A friend's account messaged you a link asking if that is you in a video.",
+      "card": {
+        "url": "watch-clip-now.net/v/8812",
+        "secure": true,
+        "title": "Private video",
+        "heading": "This video can't play on your device",
+        "text": "To watch this clip, install the Video Player Plus app, then allow it to access your messages and contacts so it works properly.",
+        "fields": [],
+        "button": "Install player"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "install the Video Player Plus app",
+          "why": "Browsers play video without extra software. A web page asking you to install an app is a common way to plant malware."
+        },
+        {
+          "kind": "red",
+          "mark": "access your messages and contacts",
+          "why": "A video player has no use for your messages. Malware wants them to read your codes and spread the link to your friends."
+        },
+        {
+          "kind": "red",
+          "mark": "watch-clip-now.net/v/8812",
+          "why": "The link leads to an unknown site, not a platform you know. It came from your friend's account because that account was most likely hacked."
+        }
+      ],
+      "lesson": "Never install an app because a web page says a video needs it. If a friend sends an odd link, ask them another way whether they really sent it."
+    }
+  },
+  {
+    "id": "web-traffic-fines-fake-gov",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "lookalike-domain",
+      "impersonation",
+      "payment",
+      "urgency"
+    ],
+    "ar": {
+      "context": "ضغطت على أول نتيجة إعلانية عند بحثك عن المخالفات المرورية.",
+      "card": {
+        "url": "gov-kw-fines.com/pay",
+        "secure": true,
+        "title": "إدارة المرور | سداد المخالفات",
+        "heading": "لديك مخالفة غير مسددة بقيمة 15 د.ك",
+        "text": "سدد المخالفة اليوم لتجنب مضاعفة الغرامة، ثمّ أدخل رقمك المدني وبيانات بطاقتك لإتمام الدفع",
+        "fields": [
+          "الرقم المدني",
+          "رقم البطاقة",
+          "تاريخ الانتهاء",
+          "رمز الأمان"
+        ],
+        "button": "ادفع 15 د.ك"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "gov-kw-fines.com/pay",
+          "why": "العنوان يبدأ بكلمات توحي بأنه حكومي لكنه لا ينتهي بـ gov.kw، والمواقع الحكومية الكويتية تنتهي دائماً بهذا الامتداد."
+        },
+        {
+          "kind": "red",
+          "mark": "الرقم المدني",
+          "why": "الصفحة تجمع رقمك المدني مع بيانات بطاقتك كاملة، وهذا يكفي المحتال ليسرق مالك وينتحل هويتك أيضاً."
+        },
+        {
+          "kind": "red",
+          "mark": "لتجنب مضاعفة الغرامة",
+          "why": "التهديد بمضاعفة الغرامة إن لم تدفع اليوم ضغط مقصود ليمنعك من التحقق عبر القنوات الرسمية."
+        },
+        {
+          "kind": "trap",
+          "mark": "إدارة المرور",
+          "why": "الاسم الرسمي في عنوان الصفحة لا يثبت شيئاً لأن أي شخص يستطيع كتابته، والإعلان في نتائج البحث لا يعني أن الموقع موثوق."
+        }
+      ],
+      "lesson": "ادفع المخالفات من التطبيق الحكومي الرسمي أو من موقع ينتهي بـ gov.kw تكتب عنوانه بنفسك، ولا تعتمد على الإعلانات في نتائج البحث."
+    },
+    "en": {
+      "context": "You tapped the first sponsored result when searching for traffic fines.",
+      "card": {
+        "url": "gov-kw-fines.com/pay",
+        "secure": true,
+        "title": "Traffic Department | Pay fines",
+        "heading": "You have an unpaid fine of 15 KWD",
+        "text": "Pay today to avoid a doubled fine, then enter your Civil ID and card details to complete the payment.",
+        "fields": [
+          "Civil ID number",
+          "Card number",
+          "Expiry date",
+          "Security code"
+        ],
+        "button": "Pay 15 KWD"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "gov-kw-fines.com/pay",
+          "why": "It starts with words that sound official but does not end in gov.kw, the ending every Kuwaiti government site has."
+        },
+        {
+          "kind": "red",
+          "mark": "Civil ID number",
+          "why": "The page collects your Civil ID along with full card details, enough to steal your money and your identity too."
+        },
+        {
+          "kind": "red",
+          "mark": "avoid a doubled fine",
+          "why": "The threat of a doubled fine if you don't pay today is pressure to stop you checking through official channels."
+        },
+        {
+          "kind": "trap",
+          "mark": "Traffic Department",
+          "why": "An official name in the page title proves nothing, since anyone can type it. A sponsored search result is not a sign of trust either."
+        }
+      ],
+      "lesson": "Pay fines only in the official government app or on a site ending in gov.kw that you type yourself. Don't rely on sponsored search results."
+    }
+  },
+  {
+    "id": "web-crypto-fixed-daily-returns",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "crypto",
+      "too-good",
+      "advance-fee",
+      "payment"
+    ],
+    "ar": {
+      "context": "شخص تعرفت إليه عبر الإنترنت الشهر الماضي يلحّ عليك لتجرب منصة التداول هذه.",
+      "card": {
+        "url": "yield-trade-pro.io/dashboard",
+        "secure": true,
+        "title": "لوحة الاستثمار",
+        "heading": "رصيدك: 6,420.00 دولار",
+        "text": "عائد يومي ثابت 3% مضمون دون أي مخاطرة، وأرباحك اليوم 186.98 دولار\n\nلسحب أرباحك ادفع أولاً رسوم تحرير الأرباح بنسبة 15%",
+        "fields": [
+          "مبلغ السحب",
+          "عنوان محفظتك الرقمية"
+        ],
+        "button": "ادفع الرسوم واسحب أرباحك"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "عائد يومي ثابت 3%",
+          "why": "لا يوجد استثمار حقيقي يضمن ربحاً يومياً ثابتاً، فنسبة كهذه تعني أن يتضاعف المال آلاف المرات خلال سنة واحدة."
+        },
+        {
+          "kind": "red",
+          "mark": "مضمون دون أي مخاطرة",
+          "why": "كل استثمار حقيقي يحمل مخاطرة، لذا فوعد الربح المضمون جملة يستخدمها المحتالون لا المستثمرون."
+        },
+        {
+          "kind": "red",
+          "mark": "رسوم تحرير الأرباح",
+          "why": "المنصة الحقيقية تخصم رسومها من رصيدك، أما مطالبتك بالدفع قبل السحب فدليل على أن الرصيد وهمي ولن يصلك منه شيء."
+        },
+        {
+          "kind": "trap",
+          "mark": "رصيدك: 6,420.00 دولار",
+          "why": "الرصيد المتزايد يبدو مطمئناً، لكنه مجرد أرقام على شاشة يتحكم فيها المحتال كما يشاء."
+        }
+      ],
+      "lesson": "تحقق من أي منصة استثمار لدى الجهة الرقابية المختصة قبل أن تودع أي مبلغ، وتوقف فوراً إذا طُلب منك أن تدفع لتسحب أموالك."
+    },
+    "en": {
+      "context": "Someone you met online last month keeps urging you to try this trading site.",
+      "card": {
+        "url": "yield-trade-pro.io/dashboard",
+        "secure": true,
+        "title": "Investment dashboard",
+        "heading": "Your balance: $6,420.00",
+        "text": "Fixed daily return of 3%, guaranteed with zero risk. Today's profit: $186.98\n\nTo withdraw your profits, first pay a 15% profit release fee.",
+        "fields": [
+          "Withdrawal amount",
+          "Your crypto wallet address"
+        ],
+        "button": "Pay fee and withdraw"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Fixed daily return of 3%",
+          "why": "No real investment guarantees a fixed daily profit. A rate like this would multiply money thousands of times in a year."
+        },
+        {
+          "kind": "red",
+          "mark": "guaranteed with zero risk",
+          "why": "Every real investment carries risk. Guaranteed profit is a line used by scammers, not investors."
+        },
+        {
+          "kind": "red",
+          "mark": "profit release fee",
+          "why": "A real platform deducts fees from your balance. Being asked to pay before you withdraw shows the balance is fake and you will never get it."
+        },
+        {
+          "kind": "trap",
+          "mark": "Your balance: $6,420.00",
+          "why": "The growing balance looks reassuring, but it is only numbers on a screen the scammer controls."
+        }
+      ],
+      "lesson": "Check any investment platform with the financial regulator before depositing anything, and stop the moment you are asked to pay to withdraw your own money."
+    }
+  },
+  {
+    "id": "web-bank-login-lookalike-padlock",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "lookalike-domain",
+      "credentials",
+      "impersonation",
+      "threat"
+    ],
+    "ar": {
+      "context": "موقع بنكك الحقيقي هو bank.example.com، وقد فتحت هذه الصفحة من رابط في رسالة نصية.",
+      "card": {
+        "url": "bank.example.com.secure-login.net/kw",
+        "secure": true,
+        "title": "تسجيل الدخول | الخدمات المصرفية عبر الإنترنت",
+        "heading": "تحقق من هويتك لإعادة تفعيل حسابك",
+        "text": "أوقفنا حسابك مؤقتاً لحمايتك، لذا سجّل الدخول وأكّد بيانات بطاقتك لإعادة تفعيله\n\nاتصالك آمن ومحمي بأعلى معايير التشفير",
+        "fields": [
+          "اسم المستخدم",
+          "كلمة المرور",
+          "رقم البطاقة",
+          "الرقم السري للبطاقة"
+        ],
+        "button": "تسجيل الدخول"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "bank.example.com.secure-login.net/kw",
+          "why": "اقرأ النطاق من آخره قبل أول شرطة مائلة، فالنطاق الفعلي هنا secure-login.net، أما bank.example.com في بدايته فجزء مضاف للتمويه."
+        },
+        {
+          "kind": "red",
+          "mark": "الرقم السري للبطاقة",
+          "why": "صفحة تسجيل الدخول لا تحتاج أبداً إلى الرقم السري لبطاقتك، ومن يحصل عليه مع بيانات البطاقة يستطيع استخدامها لسرقة أموالك."
+        },
+        {
+          "kind": "red",
+          "mark": "أوقفنا حسابك مؤقتاً",
+          "why": "قصة إيقاف الحساب المفاجئ تخيفك لتسرع في إدخال بياناتك دون تدقيق."
+        },
+        {
+          "kind": "trap",
+          "mark": "اتصالك آمن ومحمي",
+          "why": "القفل وعبارة الاتصال الآمن يعنيان فقط أن الاتصال مشفر لا أن الموقع صادق، والمحتالون يحصلون على القفل مجاناً."
+        }
+      ],
+      "lesson": "افتح موقع بنكك من تطبيقه الرسمي أو من رابط محفوظ لديك، واقرأ النطاق في أي عنوان من آخره قبل أن تكتب فيه كلمة المرور."
+    },
+    "en": {
+      "context": "Your bank's real website is bank.example.com, and you opened this from a text.",
+      "card": {
+        "url": "bank.example.com.secure-login.net/kw",
+        "secure": true,
+        "title": "Sign in | Online Banking",
+        "heading": "Verify your identity to reactivate your account",
+        "text": "We have temporarily suspended your account to protect you. Sign in and confirm your card details to reactivate it.\n\nYour connection is secure and protected by the highest encryption standards.",
+        "fields": [
+          "Username",
+          "Password",
+          "Card number",
+          "Card PIN"
+        ],
+        "button": "Sign in"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "bank.example.com.secure-login.net/kw",
+          "why": "Read the domain from its end, just before the first slash. The actual domain here is secure-login.net, and bank.example.com at the start is just decoration."
+        },
+        {
+          "kind": "red",
+          "mark": "Card PIN",
+          "why": "A sign in page never needs your card PIN. With the PIN and your card details, a scammer can use your card to take your money."
+        },
+        {
+          "kind": "red",
+          "mark": "temporarily suspended your account",
+          "why": "A sudden suspension story scares you into typing your details without checking."
+        },
+        {
+          "kind": "trap",
+          "mark": "Your connection is secure",
+          "why": "A padlock and the words secure connection only mean the link is encrypted, not that the site is honest. Scammers get padlocks for free."
+        }
+      ],
+      "lesson": "Open your bank from its official app or a bookmark you saved, and read the domain of any address from its end before typing your password."
+    }
+  },
+  {
+    "id": "web-wallet-code-verify-identity",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "global",
+    "difficulty": 5,
+    "tags": [
+      "otp",
+      "lookalike-domain",
+      "impersonation",
+      "urgency"
+    ],
+    "ar": {
+      "context": "وصلت إلى هذه الصفحة عبر رسالة نصية عن دفعة بقيمة 480 دولاراً لم تدفعها.",
+      "card": {
+        "url": "wallet-example.com/verify",
+        "secure": true,
+        "title": "المحفظة | إلغاء عملية",
+        "heading": "إلغاء عملية دفع مشبوهة بقيمة 480 دولاراً",
+        "text": "أرسلنا قبل لحظات رمز تحقق إلى رقمك المنتهي بـ 42، فأدخله هنا لنتحقق من هويتك ونوقف العملية قبل تنفيذها\n\nتنتهي صلاحية الرمز خلال 3 دقائق",
+        "fields": [
+          "رمز التحقق"
+        ],
+        "button": "تحقق وألغِ العملية"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "wallet-example.com/verify",
+          "why": "شرطة واحدة مكان النقطة تصنع نطاقاً مختلفاً تماماً، فعنوان المحفظة الحقيقي wallet.example.com، أما هذا فموقع يملكه المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "أرسلنا قبل لحظات رمز تحقق",
+          "why": "المحتال يطلب الآن من محفظتك الحقيقية رمزاً لعملية يجريها هو، ثمّ يطلب منك كتابته هنا ليكملها باسمك."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 3 دقائق",
+          "why": "العد التنازلي يمنعك من قراءة نص رسالة الرمز، وغالباً ما يذكر النص أن الرمز لإضافة بطاقتك إلى جهاز جديد لا لإلغاء عملية."
+        },
+        {
+          "kind": "trap",
+          "mark": "المنتهي بـ 42",
+          "why": "ظهور آخر رقمين من رقم هاتفك لا يثبت أن الصفحة حقيقية، فالمحتال يعرف رقمك أصلاً لأنه هو من أرسل إليك الرسالة."
+        }
+      ],
+      "lesson": "رمز التحقق يخص العملية التي أُرسل من أجلها فقط، فلا تكتبه في صفحة وصلت إليها من رابط، وإذا أقلقتك عملية فافتح تطبيق المحفظة بنفسك."
+    },
+    "en": {
+      "context": "A text about a $480 wallet payment you did not make brought you here.",
+      "card": {
+        "url": "wallet-example.com/verify",
+        "secure": true,
+        "title": "Wallet | Cancel payment",
+        "heading": "Cancel a suspicious $480 payment",
+        "text": "We have just sent a verification code to your number ending 42. Enter it here so we can verify your identity and stop the payment before it goes through.\n\nThe code expires in 3 minutes.",
+        "fields": [
+          "Verification code"
+        ],
+        "button": "Verify and cancel"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "wallet-example.com/verify",
+          "why": "One hyphen where a dot should be makes a different domain. The real wallet is wallet.example.com, and this site belongs to the scammer."
+        },
+        {
+          "kind": "red",
+          "mark": "We have just sent a verification code",
+          "why": "The scammer is asking your real wallet for a code to do something themselves, then wants you to type it here to finish it in your name."
+        },
+        {
+          "kind": "red",
+          "mark": "expires in 3 minutes",
+          "why": "The countdown stops you reading the text that carried the code, which usually says it is for adding your card to a new device, not cancelling anything."
+        },
+        {
+          "kind": "trap",
+          "mark": "ending 42",
+          "why": "Seeing the last digits of your number proves nothing. The scammer already has your number, since they texted you."
+        }
+      ],
+      "lesson": "A code belongs only to the action it was sent for. Never type it into a page you reached from a link; if a payment worries you, open the wallet app yourself."
+    }
+  },
+  {
+    "id": "web-gov-portal-traffic-fines",
+    "channel": "web",
+    "verdict": "legit",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "official-channel",
+      "expected",
+      "verify-independently"
+    ],
+    "ar": {
+      "context": "كتبت عنوان البوابة الحكومية بنفسك للاستعلام عن مخالفاتك المرورية.",
+      "card": {
+        "url": "services.gov.kw/traffic-fines",
+        "secure": true,
+        "title": "البوابة الحكومية | المخالفات المرورية",
+        "heading": "الاستعلام عن المخالفات وسدادها",
+        "text": "أدخل رقمك المدني لعرض المخالفات المسجلة عليك، ثمّ أكّد دخولك بالهوية الرقمية من التطبيق الحكومي الرسمي على هاتفك، وبعدها تختار طريقة الدفع",
+        "fields": [
+          "الرقم المدني"
+        ],
+        "button": "عرض المخالفات"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "services.gov.kw/traffic-fines",
+          "why": "العنوان ينتهي بـ gov.kw وهو امتداد لا تحصل عليه إلا الجهات الحكومية الكويتية، وقد كتبته بنفسك ولم تصل إليه من رابط."
+        },
+        {
+          "kind": "green",
+          "mark": "التطبيق الحكومي الرسمي",
+          "why": "الصفحة لا تطلب كلمة مرور ولا بيانات بطاقة، بل تحيلك إلى التطبيق الرسمي على هاتفك لتؤكد دخولك بنفسك."
+        },
+        {
+          "kind": "trap",
+          "mark": "البوابة الحكومية",
+          "why": "الاسم الرسمي في أعلى الصفحة لا يثبت شيئاً وحده لأن صفحات الاحتيال تنسخه أيضاً، فالذي يميز الموقع الحقيقي هو عنوانه."
+        }
+      ],
+      "lesson": "اكتب عنوان البوابة الحكومية بنفسك وتأكد أنه ينتهي بـ gov.kw، فهذا ما يميز الموقع الحقيقي لا الشعار أو الاسم الرسمي في أعلى الصفحة."
+    },
+    "en": {
+      "context": "You typed the government portal's address yourself to check your traffic fines.",
+      "card": {
+        "url": "services.gov.kw/traffic-fines",
+        "secure": true,
+        "title": "Government portal | Traffic fines",
+        "heading": "Check and pay traffic fines",
+        "text": "Enter your Civil ID number to see the fines on your record. Then confirm your sign in with your digital ID in the official government app on your phone, and choose how to pay.",
+        "fields": [
+          "Civil ID number"
+        ],
+        "button": "Show my fines"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "services.gov.kw/traffic-fines",
+          "why": "The address ends in gov.kw, which only Kuwaiti government bodies can get, and you typed it yourself rather than following a link."
+        },
+        {
+          "kind": "green",
+          "mark": "official government app",
+          "why": "The page asks for no password or card details. It sends you to the official app on your phone to confirm it is you."
+        },
+        {
+          "kind": "trap",
+          "mark": "Government portal",
+          "why": "An official name at the top proves nothing on its own, because scam pages copy it too. The address is what marks the real site."
+        }
+      ],
+      "lesson": "Type the government portal's address yourself and check it ends in gov.kw. That, not the logo or the official name at the top, is what marks the real site."
+    }
+  },
+  {
+    "id": "web-store-checkout-typed-address",
+    "channel": "web",
+    "verdict": "legit",
+    "category": "shopping",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "official-channel",
+      "payment"
+    ],
+    "ar": {
+      "context": "كتبت عنوان المتجر بنفسك وتدفع الآن ثمن سترة بقيمة 64.90 يورو.",
+      "card": {
+        "url": "store.example.com/checkout",
+        "secure": true,
+        "title": "إتمام الطلب | المتجر",
+        "heading": "إتمام الطلب: 64.90 يورو",
+        "text": "سترة شتوية، المقاس M، الكمية 1\nالشحن مجاني\n\nبعد الضغط على ادفع قد يرسل بنكك رمز تحقق إلى هاتفك لتأكيد العملية",
+        "fields": [
+          "رقم البطاقة",
+          "تاريخ الانتهاء",
+          "رمز الأمان",
+          "الاسم على البطاقة"
+        ],
+        "button": "ادفع 64.90 يورو"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "store.example.com/checkout",
+          "why": "العنوان هو نفسه الذي كتبته بنفسك للمتجر، ولم تصل إلى الصفحة من رابط في رسالة أو إعلان."
+        },
+        {
+          "kind": "green",
+          "mark": "سترة شتوية",
+          "why": "المنتج والمبلغ يطابقان ما اخترته في سلة التسوق، فلا مفاجآت ولا رسوم غامضة."
+        },
+        {
+          "kind": "green",
+          "mark": "قد يرسل بنكك رمز تحقق إلى هاتفك",
+          "why": "الرمز سيأتي من بنكك لتأكيد عملية بدأتها أنت في هذه الصفحة، لذا فمكانه الصحيح هنا بخلاف أي رمز تطلبه صفحة لم تفتحها بنفسك."
+        }
+      ],
+      "lesson": "لا تدفع إلا في صفحة وصلت إليها بكتابة عنوان المتجر بنفسك أو من تطبيقه، وتأكد أن المنتج والمبلغ يطابقان سلتك قبل الضغط على ادفع."
+    },
+    "en": {
+      "context": "You typed the store's address yourself and are paying for a €64.90 jacket.",
+      "card": {
+        "url": "store.example.com/checkout",
+        "secure": true,
+        "title": "Checkout | Store",
+        "heading": "Checkout: €64.90",
+        "text": "Winter jacket, size M, qty 1\nFree delivery\n\nAfter you tap Pay, your bank may send a code to your phone to confirm the payment.",
+        "fields": [
+          "Card number",
+          "Expiry date",
+          "Security code",
+          "Name on card"
+        ],
+        "button": "Pay €64.90"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "store.example.com/checkout",
+          "why": "It is the address you typed yourself, not a page you reached from a message or an ad."
+        },
+        {
+          "kind": "green",
+          "mark": "Winter jacket",
+          "why": "The item and total match what you put in your basket. No surprises and no vague fees."
+        },
+        {
+          "kind": "green",
+          "mark": "your bank may send a code to your phone",
+          "why": "That code would come from your bank to confirm a payment you started on this page, which is the only place it belongs."
+        }
+      ],
+      "lesson": "Pay only on a page you reached by typing the store's address or opening its app, and check the item and total match your basket before tapping Pay."
+    }
+  },
+  {
+    "id": "web-bank-login-from-bookmark",
+    "channel": "web",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "official-channel",
+      "expected",
+      "credentials"
+    ],
+    "ar": {
+      "context": "فتحت موقع بنكك من رابط حفظته بنفسك في مفضلة المتصفح.",
+      "card": {
+        "url": "bank.example.com/login",
+        "secure": true,
+        "title": "تسجيل الدخول | البنك",
+        "heading": "تسجيل الدخول إلى الخدمات المصرفية عبر الإنترنت",
+        "text": "أدخل اسم المستخدم وكلمة المرور، ثمّ وافق على طلب الدخول من تطبيق البنك الرسمي على هاتفك\n\nلن نطلب منك أبداً الرقم السري لبطاقتك أو رمز التحقق عبر الهاتف",
+        "fields": [
+          "اسم المستخدم",
+          "كلمة المرور"
+        ],
+        "button": "تسجيل الدخول"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "bank.example.com/login",
+          "why": "العنوان يطابق تماماً موقع بنكك الذي حفظته بنفسك، فلا كلمات مضافة قبله أو بعده ولا حروف مبدّلة."
+        },
+        {
+          "kind": "green",
+          "mark": "وافق على طلب الدخول من تطبيق البنك الرسمي",
+          "why": "تؤكد الدخول بموافقتك داخل تطبيق البنك على هاتفك لا بكتابة رمز في الصفحة، وهذا أسلوب البنوك الحديثة."
+        },
+        {
+          "kind": "green",
+          "mark": "لن نطلب منك أبداً الرقم السري لبطاقتك",
+          "why": "الصفحة لا تطلب إلا اسم المستخدم وكلمة المرور، وتذكّرك بما لن يطلبه البنك منك أبداً."
+        },
+        {
+          "kind": "trap",
+          "mark": "الخدمات المصرفية عبر الإنترنت",
+          "why": "العبارة الظاهرة في أعلى الصفحة وتصميمها المألوف لا يثبتان شيئاً لأن صفحات الاحتيال تنسخهما حرفياً، فالفيصل هو العنوان في شريط المتصفح."
+        }
+      ],
+      "lesson": "احفظ عنوان بنكك في المفضلة أو استخدم تطبيقه الرسمي وادخل منهما دائماً، فهكذا تضمن أنك في الموقع الحقيقي مهما وصلتك من رسائل."
+    },
+    "en": {
+      "context": "You opened your bank's website from a bookmark you saved yourself.",
+      "card": {
+        "url": "bank.example.com/login",
+        "secure": true,
+        "title": "Sign in | Bank",
+        "heading": "Sign in to online banking",
+        "text": "Enter your username and password, then approve the sign in request in the official bank app on your phone.\n\nWe will never ask for your card PIN, or for a code over the phone.",
+        "fields": [
+          "Username",
+          "Password"
+        ],
+        "button": "Sign in"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "bank.example.com/login",
+          "why": "The address matches the bank site you saved yourself exactly, with no extra words around it and no swapped letters."
+        },
+        {
+          "kind": "green",
+          "mark": "approve the sign in request in the official bank app",
+          "why": "You confirm by approving inside the bank app on your phone, not by typing a code into a page, which is how modern banks work."
+        },
+        {
+          "kind": "green",
+          "mark": "We will never ask for your card PIN",
+          "why": "The page asks only for your username and password, and reminds you what the bank will never ask for."
+        },
+        {
+          "kind": "trap",
+          "mark": "Sign in to online banking",
+          "why": "A familiar heading and design prove nothing, because fake pages copy them word for word. The address bar is what decides it."
+        }
+      ],
+      "lesson": "Save your bank's address as a bookmark or use its official app, and always sign in from there. That way you know you are on the real site, whatever messages arrive."
+    }
+  },
+  {
+    "id": "web-airline-refund-from-app",
+    "channel": "web",
+    "verdict": "legit",
+    "category": "travel",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "ar": {
+      "context": "أُلغيت رحلتك أمس ففتحت قسم رحلاتي في تطبيق شركة الطيران.",
+      "card": {
+        "url": "air.example.com/trips/refund",
+        "secure": true,
+        "title": "استرداد قيمة التذكرة",
+        "heading": "أُلغيت رحلتك",
+        "text": "الحجز رقم QX7H2L، والمبلغ القابل للاسترداد 312.00 يورو\n\nسيُعاد المبلغ كاملاً إلى البطاقة التي دفعت بها والمنتهية بـ 4417 خلال 7 إلى 14 يوم عمل، دون أي رسوم\n\nويمكنك بدلاً من ذلك الحصول على رصيد سفر بالقيمة نفسها",
+        "fields": [],
+        "button": "تأكيد الاسترداد إلى البطاقة"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "air.example.com/trips/refund",
+          "why": "وصلت إلى الصفحة من تطبيق شركة الطيران نفسه، والعنوان يعود إلى موقعها لا إلى موقع يحمل كلمات عامة عن الاسترداد."
+        },
+        {
+          "kind": "green",
+          "mark": "البطاقة التي دفعت بها",
+          "why": "المبلغ يعود إلى البطاقة التي دفعت بها، فلا يُطلب منك رقم بطاقة جديد أو أي بيانات مصرفية."
+        },
+        {
+          "kind": "green",
+          "mark": "دون أي رسوم",
+          "why": "الاسترداد الحقيقي لا يطلب منك رسوماً مقدمة، أما صفحات الاحتيال فتطلب رسوم معالجة قبل أن تعيد لك مالك."
+        },
+        {
+          "kind": "trap",
+          "mark": "الحجز رقم QX7H2L",
+          "why": "رقم الحجز الصحيح لا يكفي دليلاً لأن المحتالين يحصلون أحياناً على بيانات حجوزات مسربة، فالعبرة بأنك فتحت الصفحة من التطبيق بنفسك."
+        }
+      ],
+      "lesson": "اطلب استرداد قيمة الرحلة الملغاة من تطبيق شركة الطيران أو من موقعها الذي تكتب عنوانه بنفسك، فالاسترداد الحقيقي يعود إلى بطاقتك دون رسوم ودون أن تُدخل بياناتها من جديد."
+    },
+    "en": {
+      "context": "Your flight was cancelled yesterday, so you opened My Trips in the airline's app.",
+      "card": {
+        "url": "air.example.com/trips/refund",
+        "secure": true,
+        "title": "Ticket refund",
+        "heading": "Your flight was cancelled",
+        "text": "Booking QX7H2L, refundable amount €312.00\n\nThe full amount goes back to the card you paid with, ending 4417, within 7 to 14 working days. No fees apply.\n\nYou can choose travel credit of the same value instead.",
+        "fields": [],
+        "button": "Confirm refund to card"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "air.example.com/trips/refund",
+          "why": "You reached this page from the airline's own app, and the address belongs to its site, not to a site full of generic refund words."
+        },
+        {
+          "kind": "green",
+          "mark": "the card you paid with",
+          "why": "The money goes back to the card you paid with, so you are not asked for a new card number or any bank details."
+        },
+        {
+          "kind": "green",
+          "mark": "No fees apply",
+          "why": "A real refund never asks for an upfront fee. Scam refund pages charge a processing fee before returning your money."
+        },
+        {
+          "kind": "trap",
+          "mark": "Booking QX7H2L",
+          "why": "A correct booking reference is not proof, since scammers sometimes get leaked booking data. What counts is that you opened the page from the app."
+        }
+      ],
+      "lesson": "Claim refunds for cancelled flights in the airline's app or on a site you type yourself. A real refund goes back to your card with no fees and no need to re-enter card details."
+    }
+  },
+  {
+    "id": "web-parcel-tracking-typed-address",
+    "channel": "web",
+    "verdict": "legit",
+    "category": "delivery",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "كتبت عنوان شركة الشحن بنفسك لتتبع طلبك برقم التتبع الظاهر في تطبيق المتجر.",
+      "card": {
+        "url": "courier.example.com/track",
+        "secure": true,
+        "title": "تتبع الشحنات",
+        "heading": "الشحنة RX4471 في الطريق إليك",
+        "text": "آخر تحديث: غادرت الشحنة مركز الفرز اليوم الساعة 08:15\nموعد التسليم المتوقع: غداً بين 10:00 و14:00\n\nلا توجد أي رسوم مستحقة على هذه الشحنة، ويمكنك اختيار يوم آخر للتسليم من الحقل أدناه",
+        "fields": [
+          "يوم التسليم المفضل"
+        ],
+        "button": "حفظ"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "courier.example.com/track",
+          "why": "كتبت عنوان شركة الشحن بنفسك، ولم يصلك الرابط في رسالة من رقم مجهول."
+        },
+        {
+          "kind": "green",
+          "mark": "RX4471",
+          "why": "رقم التتبع هو نفسه الظاهر في تطبيق المتجر، أي أن الصفحة تعرض شحنتك أنت لا شحنة مختلقة."
+        },
+        {
+          "kind": "green",
+          "mark": "لا توجد أي رسوم مستحقة",
+          "why": "الصفحة تعرض حالة الشحنة فقط ولا تطلب منك أي مبلغ أو بيانات بطاقة."
+        }
+      ],
+      "lesson": "تابع شحناتك برقم التتبع من تطبيق المتجر على موقع شركة الشحن الذي تكتب عنوانه بنفسك، فالصفحة الحقيقية تعرض الحالة دون أن تطلب منك دفع شيء."
+    },
+    "en": {
+      "context": "You typed the courier's site yourself and used the tracking number from the store's app.",
+      "card": {
+        "url": "courier.example.com/track",
+        "secure": true,
+        "title": "Parcel tracking",
+        "heading": "Parcel RX4471 is on its way",
+        "text": "Latest update: left the sorting centre today at 08:15\nExpected delivery: tomorrow between 10:00 and 14:00\n\nNo fees are due on this parcel. You can pick another delivery day in the field below.",
+        "fields": [
+          "Preferred delivery day"
+        ],
+        "button": "Save"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "courier.example.com/track",
+          "why": "You typed the courier's address yourself. The link did not arrive in a text from an unknown number."
+        },
+        {
+          "kind": "green",
+          "mark": "RX4471",
+          "why": "The tracking number is the same one shown in the store's app, so this is your parcel, not a made up one."
+        },
+        {
+          "kind": "green",
+          "mark": "No fees are due",
+          "why": "The page only shows the parcel's status and asks for no money or card details."
+        }
+      ],
+      "lesson": "Track parcels using the number from the store's app on a courier site you type yourself. A real tracking page shows the status without asking you to pay."
+    }
+  }
+]

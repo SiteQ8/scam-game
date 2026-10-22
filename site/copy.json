@@ -1,0 +1,360 @@
+{
+  "meta_title": { "en": "Swipe left on scams", "ar": "اكشف الاحتيال بسحبة" },
+  "meta_desc": {
+    "en": "A free game in Arabic and English. Judge realistic texts, calls, emails and QR codes, then see the exact signs that give a scam away. Offline, with no ads and no account.",
+    "ar": "لعبة مجانية بالعربية والإنجليزية تحكم فيها على رسائل ومكالمات وبريد ورموز QR تحاكي الواقع، ثمّ ترى العلامات التي تكشف الاحتيال، وهي تعمل دون إنترنت وبلا إعلانات ولا حساب."
+  },
+  "skip": { "en": "Skip to content", "ar": "انتقل إلى المحتوى" },
+  "home_link": { "en": "Home", "ar": "الرئيسية" },
+  "nav_label": { "en": "Main", "ar": "القائمة الرئيسية" },
+  "nav_how": { "en": "How it works", "ar": "طريقة اللعب" },
+  "nav_features": { "en": "Features", "ar": "المزايا" },
+  "nav_faq": { "en": "Questions", "ar": "الأسئلة" },
+  "nav_play": { "en": "Play now", "ar": "العب الآن" },
+  "lang_other": { "en": "عربي", "ar": "English" },
+  "lang_other_label": { "en": "النسخة العربية", "ar": "English version" },
+
+  "hero_h1": { "en": "Swipe left on scams", "ar": "اكشف الاحتيال بسحبة" },
+  "hero_sub": {
+    "en": "A free game where you judge realistic texts, calls, emails and QR codes, then see every sign you missed.",
+    "ar": "لعبة مجانية تحكم فيها على رسائل ومكالمات وبريد ورموز QR تحاكي الواقع، فتكشف لك بعد كل حكم العلامات التي فاتتك."
+  },
+  "cta_primary": { "en": "Open today’s case", "ar": "افتح ملف اليوم" },
+  "hero_check": { "en": "Check a message you received", "ar": "افحص رسالة وصلتك" },
+  "bar_today": { "en": "Today's case", "ar": "ملف اليوم" },
+  "bar_note": { "en": "Ten cards, the same for everyone today", "ar": "عشر بطاقات يلعبها الجميع اليوم" },
+  "stage_label": { "en": "Screens from the game", "ar": "شاشات من اللعبة" },
+
+  "shot_home": { "en": "The home screen with today’s case file", "ar": "الشاشة الرئيسية وعليها ملف اليوم" },
+  "shot_card": { "en": "A text message waiting to be judged", "ar": "رسالة نصية تنتظر حكمك" },
+  "shot_debrief": { "en": "The debrief marking each warning sign in a scam text", "ar": "شرح البطاقة وقد حدد كل علامة تحذير في رسالة احتيال" },
+  "shot_call": { "en": "An incoming call with its transcript", "ar": "مكالمة واردة مع نصها المكتوب" },
+  "shot_journey": { "en": "The journey with its eight chapters", "ar": "المسار بفصوله الثمانية" },
+  "shot_hunt": { "en": "Flag hunt, with the warning signs being tapped", "ar": "صيد العلامات أثناء لمس علامات التحذير" },
+  "shot_party": { "en": "Setting up a game for several players", "ar": "تجهيز تحدٍّ جماعي لعدة لاعبين" },
+  "shot_settings": { "en": "Settings for language, examples and privacy", "ar": "إعدادات اللغة والأمثلة والخصوصية" },
+  "shot_results": { "en": "A closed case with its share grid", "ar": "ملف مغلق مع شبكة النتيجة للمشاركة" },
+  "shot_checker": { "en": "The message checker with its findings", "ar": "أداة فحص الرسائل ونتيجة الفحص" },
+  "shot_chat": { "en": "A chat card from a stranger", "ar": "بطاقة محادثة من شخص غريب" },
+  "shot_onboarding": { "en": "The first screen of the game", "ar": "الشاشة الأولى في اللعبة" },
+
+  "sc_a": { "en": "Paste any message", "ar": "الصق أي رسالة" },
+  "sc_b": { "en": "see what it hides", "ar": "واكشف ما تخفيه" },
+  "sc_label": { "en": "Message to check", "ar": "الرسالة التي تريد فحصها" },
+  "sc_hint": { "en": "Edit this text or paste one you received.", "ar": "عدّل هذا النص أو الصق رسالة وصلتك." },
+  "sc_try": { "en": "Try another", "ar": "جرّب مثالاً آخر" },
+  "sc_note": {
+    "en": "The check runs in your browser, exactly as it runs in the app. Nothing you type is saved or sent.",
+    "ar": "يجري الفحص في متصفحك كما يجري في اللعبة تماماً، ولا يُحفظ شيء مما تكتبه ولا يُرسل."
+  },
+  "sc_empty": { "en": "Type or paste a message to check it.", "ar": "اكتب رسالة أو الصقها لتفحصها." },
+  "sc_count": { "en": "{n} marked in the text", "ar": "{n} محددة في النص" },
+  "sc_nomarks": { "en": "Nothing to mark in the text", "ar": "لا شيء يستحق التحديد في النص" },
+  "sc_fragment": { "en": "What the checker found", "ar": "ما وجدته أداة الفحص" },
+
+  "how_h2": { "en": "One case a day", "ar": "ملف جديد كل يوم" },
+  "how_p": {
+    "en": "Everyone gets the same ten cards each day, from the easiest to the hardest, so you can compare results with family and friends.",
+    "ar": "يحصل الجميع على البطاقات العشر نفسها كل يوم مرتبة من الأسهل إلى الأصعب، لذا تستطيع أن تقارن نتيجتك بنتائج عائلتك وأصدقائك."
+  },
+  "slip_g1": { "en": "Open the case", "ar": "تفتح الملف" },
+  "slip_r1": { "en": "Ten cards from nine kinds of message", "ar": "عشر بطاقات من تسعة أنواع من الرسائل" },
+  "slip_v1": { "en": "10 cards", "ar": "10 بطاقات" },
+  "slip_r2": { "en": "Easiest first, hardest last", "ar": "الأسهل أولاً والأصعب أخيراً" },
+  "slip_v2": { "en": "level 1 to 5", "ar": "المستوى 1 إلى 5" },
+  "slip_g2": { "en": "Each card", "ar": "مع كل بطاقة" },
+  "slip_r3": { "en": "Swipe left for scam, right for legit", "ar": "اسحب يساراً للاحتيال ويميناً للسليم" },
+  "slip_v3": { "en": "1 swipe", "ar": "سحبة واحدة" },
+  "slip_r4": { "en": "See the words that gave it away", "ar": "شاهد الكلمات التي كشفتها" },
+  "slip_v4": { "en": "2 to 4 marks", "ar": "2 إلى 4 علامات" },
+  "slip_r5": { "en": "Score more on hard cards and streaks", "ar": "نقاط أكثر للبطاقات الصعبة والسلاسل" },
+  "slip_v5": { "en": "100+ points", "ar": "100 نقطة فأكثر" },
+  "slip_g3": { "en": "Case closed", "ar": "يُغلق الملف" },
+  "slip_r6": { "en": "Review what fooled you", "ar": "راجع ما خدعك" },
+  "slip_v6": { "en": "every card", "ar": "كل البطاقات" },
+  "slip_r7": { "en": "Share a grid that gives nothing away", "ar": "شارك شبكة لا تكشف الإجابات" },
+  "slip_grid_label": { "en": "A sample grid: seven right, three wrong", "ar": "شبكة نموذجية فيها سبع إجابات صحيحة وثلاث خاطئة" },
+  "slip_total": { "en": "A sharper eye", "ar": "عين أكثر انتباهاً" },
+  "slip_total_v": { "en": "about 3 minutes", "ar": "3 دقائق تقريباً" },
+
+  "feat_h2": { "en": "Everything in the game", "ar": "كل ما في اللعبة" },
+  "f1_h": { "en": "Nine kinds of message", "ar": "تسعة أنواع من الرسائل" },
+  "f1_p1": {
+    "en": "Texts, app alerts, chats, emails, calls, web pages, QR codes, social posts and marketplace chats.",
+    "ar": "رسائل نصية وإشعارات تطبيقات ومحادثات وبريد إلكتروني ومكالمات وصفحات ويب ورموز QR ومنشورات تواصل اجتماعي ومحادثات بيع وشراء."
+  },
+  "f1_p2": {
+    "en": "Each card looks the way it would on your phone, from the sender line to the link.",
+    "ar": "تظهر كل بطاقة كما تظهر على هاتفك، من اسم المرسل حتى الرابط."
+  },
+  "f2_h": { "en": "Calls you can hear", "ar": "مكالمات تسمعها" },
+  "f2_p1": {
+    "en": "Some cards ring. Answer and listen to the caller while the words appear on screen.",
+    "ar": "بعض البطاقات ترن، فترد وتستمع إلى المتصل بينما تظهر كلماته على الشاشة."
+  },
+  "f2_p2": {
+    "en": "The voices were made with ElevenLabs and filtered to sound like a real phone line.",
+    "ar": "صُنعت الأصوات عبر ElevenLabs ثمّ عولجت لتبدو كأنها قادمة عبر خط هاتف حقيقي."
+  },
+  "f3_h": { "en": "Every sign, marked", "ar": "كل علامة واضحة" },
+  "f3_p1": {
+    "en": "After each swipe, the game highlights the exact words that gave the message away and explains each one.",
+    "ar": "بعد كل سحبة تظلل اللعبة الكلمات التي كشفت الرسالة وتشرح كل واحدة منها."
+  },
+  "f3_p2": {
+    "en": "It marks the traps too: details that feel reassuring but prove nothing, like a familiar sender name.",
+    "ar": "وتحدد الفخاخ أيضاً، أي التفاصيل التي تطمئنك ولا تثبت شيئاً مثل اسم مرسل مألوف."
+  },
+  "f4_h": { "en": "Eight chapters, two quick challenges", "ar": "ثمانية فصول وتحديان سريعان" },
+  "f4_p1": {
+    "en": "The journey runs from first steps to expert. Get seven of ten right to open the next chapter.",
+    "ar": "يبدأ المسار من الخطوات الأولى وينتهي بمستوى الخبراء، وتفتح الفصل التالي حين تصيب في سبع بطاقات من عشر."
+  },
+  "f4_p2": {
+    "en": "In between, beat the clock in a 60 second rush, or hunt the warning signs before time runs out.",
+    "ar": "وبين الفصول تسابق الوقت في سباق الستين ثانية أو تصطاد علامات التحذير قبل نفاده."
+  },
+  "f5_h": { "en": "Play together on one phone", "ar": "العبوا معاً على هاتف واحد" },
+  "f5_p1": {
+    "en": "Pass the phone around the room. Each player judges their own cards and the game keeps the score.",
+    "ar": "مرّروا الهاتف بينكم، فيحكم كل لاعب على بطاقاته وتحسب اللعبة النقاط."
+  },
+  "f5_p2": {
+    "en": "Made for a family evening, a diwaniya or a classroom.",
+    "ar": "تناسب سهرة العائلة والديوانية والفصل الدراسي."
+  },
+  "f6_h": { "en": "Nothing leaves your phone", "ar": "لا شيء يغادر هاتفك" },
+  "f6_p1": {
+    "en": "No account, no ads and no tracking. The app works offline and never connects to the internet.",
+    "ar": "لا حساب ولا إعلانات ولا تتبع، والتطبيق يعمل دون إنترنت ولا يتصل به أبداً."
+  },
+  "f6_p2": {
+    "en": "Your progress is kept on your device, and you can erase it from the settings.",
+    "ar": "يبقى تقدمك على جهازك وحده، وتستطيع أن تمسحه من الإعدادات."
+  },
+
+  "letter_label": { "en": "Why this game exists", "ar": "لماذا صُنعت هذه اللعبة" },
+  "letter_1": {
+    "en": "Scam messages reach everyone here: a parcel fee, a blocked account, a prize, a caller who sounds official.",
+    "ar": "رسائل الاحتيال تصل إلى الجميع هنا، من رسوم شحنة لم تطلبها إلى حساب موقوف أو جائزة لم تشارك فيها أو متصل يبدو رسمياً."
+  },
+  "letter_2": {
+    "en": "Warnings tell us to be careful, but they rarely show what careful looks like. That comes from seeing many examples and learning {mark}the small signs{/mark}: an address that is almost right, the hurry, the request for a code.",
+    "ar": "التحذيرات تطلب منا الحذر لكنها نادراً ما تُرينا شكله، فالحذر يأتي من رؤية أمثلة كثيرة ومن تعلّم {mark}العلامات الصغيرة{/mark} مثل العنوان الذي يكاد يكون صحيحاً والاستعجال وطلب الرمز."
+  },
+  "letter_3": {
+    "en": "So I made this game. Every card follows a trick that scammers really use, in the Gulf and around the world, with fictional names and links that lead nowhere.",
+    "ar": "لذلك صنعت هذه اللعبة، وكل بطاقة فيها تتبع حيلة يستخدمها المحتالون فعلاً في الخليج وحول العالم، بأسماء وهمية وروابط لا تقود إلى أي مكان."
+  },
+  "letter_4": {
+    "en": "It is free and open source, with no ads, and it never asks for your data. Play the daily case with your family, and if a message ever fools you, {mail}send it to me{/mail} so it can become a card.",
+    "ar": "اللعبة مجانية ومفتوحة المصدر وبلا إعلانات ولا تطلب منك أي بيانات، فالعب ملف اليوم مع عائلتك، وإن خدعتك رسالة يوماً {mail}فأرسلها إليّ{/mail} لتصبح بطاقة في اللعبة."
+  },
+  "sign_name": { "en": "Ali AlEnezi", "ar": "علي العنزي" },
+  "sign_role": { "en": "Security architect in Kuwait", "ar": "مهندس أمن سيبراني من الكويت" },
+  "mail_subject": { "en": "A message that fooled someone", "ar": "رسالة خدعت أحدهم" },
+
+  "faq_h2": { "en": "Questions", "ar": "أسئلة وأجوبة" },
+  "q1": { "en": "Is it free?", "ar": "هل اللعبة مجانية؟" },
+  "a1": { "en": "Yes. There are no ads, no purchases and no subscription.", "ar": "نعم، فلا إعلانات فيها ولا مشتريات ولا اشتراكات." },
+  "q2": { "en": "Does it need the internet?", "ar": "هل تحتاج إلى إنترنت؟" },
+  "a2": {
+    "en": "No. The cards, voices and music are all inside the app, so it plays anywhere, even on a plane.",
+    "ar": "لا، فالبطاقات والأصوات والموسيقى كلها داخل التطبيق، لذا تعمل في أي مكان حتى على متن الطائرة."
+  },
+  "q3": { "en": "What does it collect?", "ar": "ما البيانات التي تجمعها؟" },
+  "a3": {
+    "en": "Nothing. There is no account and no analytics, and your scores stay on your phone.",
+    "ar": "لا شيء، فلا حساب ولا أدوات تحليل، ونتائجك تبقى على هاتفك."
+  },
+  "q4": { "en": "Are the messages real?", "ar": "هل الرسائل حقيقية؟" },
+  "a4": {
+    "en": "They are written to look real and follow tricks that scammers really use, but every name, number and link is fictional. The links lead nowhere and the QR codes only say they are a training example.",
+    "ar": "كُتبت لتبدو حقيقية وتتبع حيلاً يستخدمها المحتالون فعلاً، لكن كل الأسماء والأرقام والروابط وهمية، فالروابط لا تقود إلى أي مكان ورموز QR لا تحمل إلا عبارة تقول إنها مثال للتدريب."
+  },
+  "q5": { "en": "Why are some cards genuine?", "ar": "لماذا بعض البطاقات سليمة؟" },
+  "a5": {
+    "en": "Because real life is mixed. A game where everything is a scam would teach you to distrust your own bank, so every daily case holds at least three genuine cards.",
+    "ar": "لأن الواقع مختلط، واللعبة التي تجعل كل شيء احتيالاً تعلّمك أن تشك حتى في بنكك، لذا يضم كل ملف يومي ثلاث بطاقات سليمة على الأقل."
+  },
+  "q6": { "en": "Which languages and regions?", "ar": "ما اللغات والمناطق المتاحة؟" },
+  "a6": {
+    "en": "Arabic and English. In the settings you can choose examples from the Gulf, from around the world, or both.",
+    "ar": "العربية والإنجليزية، وتستطيع أن تختار من الإعدادات أمثلة من الخليج أو من حول العالم أو من الاثنين معاً."
+  },
+  "q7": { "en": "How is the daily case chosen?", "ar": "كيف يُختار ملف اليوم؟" },
+  "a7": {
+    "en": "Everyone on the same edition gets the same ten cards on the same day, so you can compare results without spoiling the answers.",
+    "ar": "يحصل كل من يلعب النسخة نفسها على البطاقات العشر نفسها في اليوم نفسه، لذا تستطيع أن تقارن نتيجتك بغيرك دون أن تكشف الإجابات."
+  },
+  "q8": { "en": "Can I check a message I received?", "ar": "هل أستطيع أن أفحص رسالة وصلتني؟" },
+  "a8": {
+    "en": "Yes. The checker looks for common warning signs on your device. It cannot prove that a message is safe, so when in doubt, contact the sender through a number you already trust.",
+    "ar": "نعم، فأداة الفحص تبحث عن علامات التحذير الشائعة على جهازك، لكنها لا تستطيع أن تثبت أن الرسالة آمنة، لذا إن ساورك الشك فتواصل مع الجهة من رقم تثق به."
+  },
+  "q9": { "en": "Who is it for?", "ar": "لمن صُنعت هذه اللعبة؟" },
+  "a9": {
+    "en": "Anyone with a phone. Playing together makes it easy to enjoy with family or a class.",
+    "ar": "لكل من يملك هاتفاً، والتحدي الجماعي يسهّل اللعب مع العائلة أو مع طلاب الفصل."
+  },
+  "q10": { "en": "Is it open source?", "ar": "هل هي مفتوحة المصدر؟" },
+  "a10": {
+    "en": "Yes. The code and every card are public on GitHub, so anyone can check them or suggest a new card.",
+    "ar": "نعم، فالشيفرة وكل البطاقات منشورة على GitHub، ويستطيع أي شخص أن يراجعها أو يقترح بطاقة جديدة."
+  },
+  "q11": { "en": "A real scam reached me. What now?", "ar": "وصلتني رسالة احتيال حقيقية، فماذا أفعل؟" },
+  "a11": {
+    "en": "Don’t tap the link and don’t reply. If you shared card details or a code, call your bank on the number printed on your card, then report it to the authorities in your country.",
+    "ar": "لا تضغط الرابط ولا ترد، وإن شاركت بيانات بطاقتك أو رمزاً فاتصل ببنكك فوراً من الرقم المطبوع على البطاقة، ثمّ بلّغ الجهات المختصة في بلدك."
+  },
+  "q12": { "en": "Where can I get it?", "ar": "من أين أحصل عليها؟" },
+  "a12_soon": {
+    "en": "Play the full game in your browser now. The App Store and Google Play versions are on their way.",
+    "ar": "العبها كاملة من متصفحك الآن، ونسختا App Store و Google Play في الطريق."
+  },
+  "a12_live": {
+    "en": "On the App Store and Google Play, or in your browser on this site.",
+    "ar": "من App Store و Google Play، أو من متصفحك عبر هذا الموقع."
+  },
+
+  "cta_h2_1": { "en": "Your case", "ar": "ملفك" },
+  "cta_h2_2": { "en": "is open", "ar": "مفتوح" },
+  "cta_p": {
+    "en": "Play today’s case right here. Your progress carries over when you open the game full screen.",
+    "ar": "العب ملف اليوم هنا مباشرة، وسينتقل تقدمك معك حين تفتح اللعبة بملء الشاشة."
+  },
+  "cta_frame": { "en": "The game, ready to play", "ar": "اللعبة جاهزة للعب" },
+  "cta_stores": { "en": "Get the app", "ar": "حمّل التطبيق" },
+
+  "foot_what": { "en": "A game against scams, made in Kuwait", "ar": "لعبة ضد الاحتيال، صُنعت في الكويت" },
+  "foot_play": { "en": "Play", "ar": "العب" },
+  "foot_privacy": { "en": "Privacy", "ar": "الخصوصية" },
+  "foot_support": { "en": "Support", "ar": "الدعم" },
+  "foot_press": { "en": "Press kit", "ar": "للإعلام" },
+  "foot_code": { "en": "Source code", "ar": "الشيفرة المصدرية" },
+  "foot_copy": { "en": "© 2026 Ali AlEnezi", "ar": "© 2026 علي العنزي" },
+
+  "pv_title": { "en": "Privacy", "ar": "الخصوصية" },
+  "pv_desc": { "en": "The game collects nothing about you and never connects to the internet.", "ar": "اللعبة لا تجمع أي معلومة عنك ولا تتصل بالإنترنت أبداً." },
+  "pv_updated": { "en": "Updated 16 October 2026", "ar": "آخر تحديث في 16 أكتوبر 2026" },
+  "pv_lead": {
+    "en": "The game collects nothing about you. There is no account, no ads, no analytics and no tracking, and the app never connects to the internet.",
+    "ar": "لا تجمع اللعبة أي معلومة عنك، فلا حساب ولا إعلانات ولا أدوات تحليل ولا تتبع، والتطبيق لا يتصل بالإنترنت أبداً."
+  },
+  "pv_h1": { "en": "What stays on your device", "ar": "ما يبقى على جهازك" },
+  "pv_p1": {
+    "en": "Your settings, scores, streaks and achievements are saved on your device so you can continue where you left off. They never leave it. You can erase them at any time with Erase my progress in the settings, or by deleting the app.",
+    "ar": "تُحفظ إعداداتك ونقاطك وسلاسلك وإنجازاتك على جهازك لتكمل من حيث توقفت، ولا تغادره أبداً، وتستطيع أن تمسحها متى شئت عبر خيار «امسح تقدمي» في الإعدادات أو بحذف التطبيق."
+  },
+  "pv_h2": { "en": "The message checker", "ar": "أداة فحص الرسائل" },
+  "pv_p2": {
+    "en": "A message you paste into the checker is examined on your device and discarded when you leave the screen. It is never saved or sent anywhere.",
+    "ar": "الرسالة التي تلصقها في أداة الفحص تُفحص على جهازك وتُهمل حين تغادر الشاشة، فلا تُحفظ ولا تُرسل إلى أي مكان."
+  },
+  "pv_h3": { "en": "Permissions", "ar": "الأذونات" },
+  "pv_p3": {
+    "en": "The app asks for no access to your contacts, location, camera, microphone, photos or notifications. It uses vibration for feedback, which you can turn off in the settings.",
+    "ar": "لا يطلب التطبيق الوصول إلى جهات الاتصال ولا الموقع ولا الكاميرا ولا الميكروفون ولا الصور ولا الإشعارات، ويستخدم الاهتزاز للتنبيه اللمسي وتستطيع إيقافه من الإعدادات."
+  },
+  "pv_h4": { "en": "This website and the web version", "ar": "هذا الموقع ونسخة الويب" },
+  "pv_p4": {
+    "en": "This site is hosted on GitHub Pages. It sets no cookies and loads no scripts or fonts from anyone else. GitHub may record visitors’ IP addresses in its server logs for security, as its privacy statement explains. The web version of the game keeps your progress in your browser’s local storage, on your device only.",
+    "ar": "يُستضاف هذا الموقع على GitHub Pages، ولا يضع ملفات تعريف ارتباط ولا يحمّل نصوصاً برمجية أو خطوطاً من أي جهة أخرى، وقد تسجل GitHub عناوين IP للزوار في سجلات خوادمها لأغراض أمنية كما يوضح بيان الخصوصية لديها، بينما تحفظ نسخة الويب من اللعبة تقدمك في التخزين المحلي لمتصفحك على جهازك وحده."
+  },
+  "pv_h5": { "en": "Children", "ar": "الأطفال" },
+  "pv_p5": {
+    "en": "The game collects no personal information from anyone, children included.",
+    "ar": "لا تجمع اللعبة أي معلومات شخصية من أي شخص، ومن ذلك الأطفال."
+  },
+  "pv_h6": { "en": "Changes", "ar": "التغييرات" },
+  "pv_p6": {
+    "en": "If this policy changes, the new version will be published on this page with a new date.",
+    "ar": "إذا تغيرت هذه السياسة فستُنشر نسختها الجديدة في هذه الصفحة مع تاريخ جديد."
+  },
+  "pv_h7": { "en": "Contact", "ar": "التواصل" },
+  "pv_p7": { "en": "Questions about privacy go to {email}.", "ar": "أرسل أسئلتك عن الخصوصية إلى {email}." },
+
+  "su_title": { "en": "Support", "ar": "الدعم" },
+  "su_desc": { "en": "Get help with the game, suggest a card or report a problem.", "ar": "احصل على المساعدة في اللعبة أو اقترح بطاقة أو أبلغ عن مشكلة." },
+  "su_lead": {
+    "en": "Something not working, or a scam you think the game should include? Write to {email}.",
+    "ar": "إن واجهتك مشكلة أو وصلتك رسالة احتيال ترى أنها تستحق مكاناً في اللعبة فاكتب إلى {email}."
+  },
+  "su_h1": { "en": "When you write", "ar": "حين تكتب" },
+  "su_p1": {
+    "en": "Include the version shown under About in the settings and your phone model. A screenshot helps.",
+    "ar": "اذكر رقم الإصدار الظاهر في «عن اللعبة» ضمن الإعدادات مع طراز هاتفك، وأرفق لقطة شاشة إن أمكن."
+  },
+  "su_h2": { "en": "Suggest a card", "ar": "اقترح بطاقة" },
+  "su_p2": {
+    "en": "Send the message that fooled someone you know, with names, numbers and links removed. If it teaches something new, it may become a card.",
+    "ar": "أرسل الرسالة التي خدعت شخصاً تعرفه بعد أن تحذف منها الأسماء والأرقام والروابط، فإن كانت تعلّم شيئاً جديداً فقد تصبح بطاقة في اللعبة."
+  },
+  "su_h3": { "en": "Quick fixes", "ar": "حلول سريعة" },
+  "su_f1": {
+    "en": "No sound: check Sound effects and Music in the settings, and your phone’s silent switch.",
+    "ar": "لا يوجد صوت: تأكد من تفعيل المؤثرات الصوتية والموسيقى في الإعدادات ومن أن هاتفك ليس على الوضع الصامت."
+  },
+  "su_f2": {
+    "en": "Calls wait for a tap: turn on Play calls automatically in the settings.",
+    "ar": "المكالمات لا تبدأ وحدها: فعّل خيار «شغّل المكالمات تلقائياً» من الإعدادات."
+  },
+  "su_f3": { "en": "Text too small: choose a larger Text size in the settings.", "ar": "النص صغير: اختر حجماً أكبر من «حجم النص» في الإعدادات." },
+  "su_f4": { "en": "Start again from zero: Erase my progress in the settings.", "ar": "تريد البدء من الصفر: اختر «امسح تقدمي» من الإعدادات." },
+  "su_f5": { "en": "Wrong language: change it under Language in the settings.", "ar": "اللغة غير مناسبة: غيّرها من «اللغة» في الإعدادات." },
+  "su_h4": { "en": "Accessibility", "ar": "سهولة الاستخدام" },
+  "su_p4": {
+    "en": "The game offers larger text, reduced motion, a light and a dark theme, and a written transcript for every call. If anything gets in your way, please tell me.",
+    "ar": "تتيح اللعبة نصاً أكبر وتقليلاً للحركة ومظهرين فاتحاً وداكناً ونصاً مكتوباً لكل مكالمة، وإن أعاقك أي شيء فأخبرني."
+  },
+
+  "pr_title": { "en": "Press kit", "ar": "للإعلام" },
+  "pr_desc": { "en": "Facts, descriptions, screenshots and the app icon, free to use when writing about the game.", "ar": "حقائق وأوصاف ولقطات شاشة وأيقونة التطبيق، يمكنك استخدامها بحرية حين تكتب عن اللعبة." },
+  "pr_lead": {
+    "en": "A free swipe game that trains people to spot scams in texts, calls, emails, chats, web pages and QR codes, in Arabic and English.",
+    "ar": "لعبة سحب مجانية تدرّب الناس على كشف الاحتيال في الرسائل والمكالمات والبريد والمحادثات والصفحات ورموز QR، بالعربية والإنجليزية."
+  },
+  "pr_h_facts": { "en": "Facts", "ar": "حقائق" },
+  "pr_k_name": { "en": "Name", "ar": "الاسم" },
+  "pr_k_dev": { "en": "Made by", "ar": "من صنع" },
+  "pr_v_dev": { "en": "Ali AlEnezi, Kuwait", "ar": "علي العنزي، الكويت" },
+  "pr_k_platforms": { "en": "Platforms", "ar": "المنصات" },
+  "pr_v_platforms": { "en": "iPhone, Android and the web", "ar": "آيفون وأندرويد والويب" },
+  "pr_k_langs": { "en": "Languages", "ar": "اللغات" },
+  "pr_v_langs": { "en": "Arabic and English", "ar": "العربية والإنجليزية" },
+  "pr_k_price": { "en": "Price", "ar": "السعر" },
+  "pr_v_price": { "en": "Free, with no ads and no purchases", "ar": "مجانية بلا إعلانات ولا مشتريات" },
+  "pr_k_content": { "en": "Inside", "ar": "المحتوى" },
+  "pr_v_content": { "en": "{cards} cards in nine channels, eight chapters, five ways to play", "ar": "{cards} بطاقة في تسع قنوات وثمانية فصول وخمس طرق للعب" },
+  "pr_k_privacy": { "en": "Privacy", "ar": "الخصوصية" },
+  "pr_v_privacy": { "en": "Collects no data and works offline", "ar": "لا تجمع أي بيانات وتعمل دون إنترنت" },
+  "pr_k_contact": { "en": "Contact", "ar": "التواصل" },
+  "pr_h_about": { "en": "About the game", "ar": "عن اللعبة" },
+  "pr_about_1": {
+    "en": "Every card is a realistic message on a phone screen. Players swipe left for scam and right for legit, and a debrief then highlights the exact words that gave it away, with a lesson for next time.",
+    "ar": "كل بطاقة رسالة تحاكي ما يظهر على شاشة الهاتف، فيسحبها اللاعب يساراً إن رآها احتيالاً ويميناً إن رآها سليمة، ثمّ يظلل الشرح الكلمات التي كشفتها ويقدم درساً للمرة القادمة."
+  },
+  "pr_about_2": {
+    "en": "The game has a daily case shared by everyone, a journey of eight chapters, a 60 second rush, a flag hunt, a party mode for one phone and an offline checker for messages players actually receive. Calls are voiced and every example is fictional.",
+    "ar": "تضم اللعبة ملفاً يومياً يلعبه الجميع ومساراً من ثمانية فصول وسباقاً مدته ستون ثانية وصيداً للعلامات وتحدياً جماعياً على هاتف واحد وأداة فحص تعمل دون إنترنت للرسائل التي تصل اللاعبين فعلاً، والمكالمات فيها مسموعة وكل أمثلتها وهمية."
+  },
+  "pr_h_assets": { "en": "Downloads", "ar": "التنزيلات" },
+  "pr_icon": { "en": "App icon, PNG, 1024 pixels", "ar": "أيقونة التطبيق، PNG بحجم 1024 بكسل" },
+  "pr_mark": { "en": "Logo mark, SVG", "ar": "شعار اللعبة، SVG" },
+  "pr_shots_en": { "en": "Screenshots in English", "ar": "لقطات الشاشة بالإنجليزية" },
+  "pr_shots_ar": { "en": "Screenshots in Arabic", "ar": "لقطات الشاشة بالعربية" },
+  "pr_h_trailer": { "en": "Trailer", "ar": "العرض الترويجي" },
+  "pr_trailer_p": { "en": "Half a minute of the real game, narrated in Arabic and English.", "ar": "نصف دقيقة من اللعبة نفسها بتعليق صوتي بالعربية والإنجليزية." },
+  "pr_trailer_en": { "en": "Trailer in English, MP4", "ar": "العرض الترويجي بالإنجليزية، MP4" },
+  "pr_trailer_ar": { "en": "Trailer in Arabic, MP4", "ar": "العرض الترويجي بالعربية، MP4" },
+  "pr_trailer_label": { "en": "The trailer, with sound", "ar": "العرض الترويجي مع الصوت" },
+  "pr_h_credits": { "en": "Credits", "ar": "الشكر والمصادر" },
+  "pr_credits": {
+    "en": "Voices, music, sound effects and the trailer's opening shot were made with ElevenLabs. Fonts are Alexandria and IBM Plex Sans Arabic under the SIL Open Font License, and icons come from Lucide under the ISC licence.",
+    "ar": "صُنعت الأصوات والموسيقى والمؤثرات الصوتية واللقطة الافتتاحية للعرض الترويجي عبر ElevenLabs، والخطوط هي Alexandria و IBM Plex Sans Arabic برخصة SIL Open Font License، والأيقونات من Lucide برخصة ISC."
+  },
+
+  "nf_title": { "en": "This link leads nowhere", "ar": "هذا الرابط لا يقود إلى أي مكان" },
+  "nf_p": { "en": "Just like the links in the game.", "ar": "تماماً مثل الروابط في اللعبة." },
+  "nf_btn": { "en": "Back to the home page", "ar": "ارجع إلى الصفحة الرئيسية" }
+}

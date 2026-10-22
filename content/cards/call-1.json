@@ -1,0 +1,586 @@
+[
+  {
+    "id": "call-bank-fraud-otp",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["otp", "impersonation", "urgency", "verify-independently"],
+    "ar": {
+      "card": {
+        "caller": "+965 2••• ••80",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "مساء الخير، معاك نورة من قسم مكافحة الاحتيال في البنك، عندنا عملية شراء من الخارج على بطاقتك بقيمة ثلاث مية وعشرين دينار، إنت اللي سويتها؟"},
+          {"who": "you", "text": "لا والله، ما سويت شي"},
+          {"who": "caller", "text": "لا تشيل هم، بنوقفها الحين، بيوصلك رمز تحقق على تلفونك، قول لي الرمز بسرعة عشان نلغي العملية قبل لا ينخصم المبلغ من حسابك"},
+          {"who": "you", "text": "لحظة، وصلني المسج الحين"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "قول لي الرمز", "why": "البنك لا يطلب منك رمز التحقق أبداً، لأنّ الرمز يصلك أنت وحدك لتأكيد العمليات، فمن يطلبه منك يريد تنفيذ عملية باسمك."},
+        {"kind": "red", "mark": "بسرعة عشان نلغي العملية", "why": "الاستعجال وإيهامك بأن الرمز يلغي العملية خدعة، لأنّ الرمز في الحقيقة يؤكد العملية ولا يلغيها."},
+        {"kind": "trap", "mark": "قسم مكافحة الاحتيال", "why": "ذكر قسم مكافحة الاحتيال يمنح المكالمة طابعاً رسمياً لكنه لا يثبت شيئاً، لأنّ أي شخص يستطيع انتحال صفة موظف البنك."},
+        {"kind": "trap", "mark": "+965 2••• ••80", "why": "ظهور رقم محلي لا يثبت هوية من يتصل بك، لأنّ أرقام المتصلين يمكن انتحالها بسهولة."}
+      ],
+      "lesson": "إذا اتصل بك أحد باسم البنك بشأن عملية مشبوهة فلا تقرأ له أي رمز، بل أغلق الخط واتصل بالرقم المدوّن خلف بطاقتك."
+    },
+    "en": {
+      "card": {
+        "caller": "+965 2••• ••80",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "Good evening, this is Noura from the bank's fraud department. We're seeing a purchase abroad on your card for three hundred and twenty dinars. Did you make it?"},
+          {"who": "you", "text": "No, I didn't."},
+          {"who": "caller", "text": "Don't worry, we'll stop it now. You'll get a verification code by text. Just read it to me quickly so we can cancel it before it goes through."},
+          {"who": "you", "text": "Hang on, it just came in."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "read it to me", "why": "A real bank never asks you to read out a verification code. The code approves a payment, so whoever has it can complete one in your name."},
+        {"kind": "red", "mark": "quickly so we can cancel it", "why": "The rush and the idea that the code cancels the payment are the trick. In reality the code confirms it."},
+        {"kind": "trap", "mark": "fraud department", "why": "Naming the fraud department sounds official but proves nothing, since anyone can claim to work for the bank."},
+        {"kind": "trap", "mark": "+965 2••• ••80", "why": "A local number proves nothing, because caller ID is easy to spoof."}
+      ],
+      "lesson": "If someone calls about a suspicious payment, never read out any code. Hang up and call the number on the back of your card."
+    }
+  },
+  {
+    "id": "call-card-pin-unblock",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": ["credentials", "threat", "urgency", "impersonation"],
+    "ar": {
+      "card": {
+        "caller": "Unknown",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "urgent"},
+        "lines": [
+          {"who": "caller", "text": "ألو، معاك قسم البطاقات في البنك، بطاقتك انوقفت بسبب خلل في النظام، وإذا ما فعّلناها الحين بتنلغي نهائي"},
+          {"who": "you", "text": "طيب، شنو المطلوب؟"},
+          {"who": "caller", "text": "بس عطني الرقم السري للبطاقة، الأربع أرقام، وأنا أفتحها لك على طول"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "عطني الرقم السري", "why": "لا يطلب أي موظف في البنك الرقم السري لبطاقتك تحت أي ظرف، فمن يطلبه يريد سحب أموالك."},
+        {"kind": "red", "mark": "بتنلغي نهائي", "why": "التهديد بإلغاء البطاقة نهائياً أسلوب ضغط يدفعك إلى تسليم بياناتك قبل أن تفكر."},
+        {"kind": "trap", "mark": "قسم البطاقات في البنك", "why": "ادعاء الاتصال من قسم البطاقات لا يثبت هوية المتصل، لأنّ انتحال صفة موظفي البنك أسهل خطوة في الاحتيال الهاتفي."}
+      ],
+      "lesson": "الرقم السري لبطاقتك لا يعرفه غيرك ولا يطلبه البنك أبداً، وإذا توقفت بطاقتك فعلاً فتواصل مع البنك عبر تطبيقه الرسمي أو الرقم المدوّن خلف البطاقة."
+    },
+    "en": {
+      "card": {
+        "caller": "Unknown",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "urgent"},
+        "lines": [
+          {"who": "caller", "text": "Hello, this is the card department at the bank. Your card has been blocked because of a system error, and if we don't reactivate it right now, it will be cancelled for good."},
+          {"who": "you", "text": "Okay, what do you need?"},
+          {"who": "caller", "text": "Just give me your card PIN, the four digits, and I'll unblock it straight away."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "give me your card PIN", "why": "No bank employee will ever ask for your PIN. Anyone who does is trying to take your money."},
+        {"kind": "red", "mark": "cancelled for good", "why": "The threat of losing your card is pressure to make you hand over details before you think."},
+        {"kind": "trap", "mark": "the card department at the bank", "why": "Claiming to be from the bank proves nothing. Posing as bank staff is the easiest part of a phone scam."}
+      ],
+      "lesson": "Your PIN is yours alone and the bank never asks for it. If your card really stops working, contact the bank through its official app or the number on the back of the card."
+    }
+  },
+  {
+    "id": "call-police-travel-ban",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": ["threat", "payment", "urgency", "impersonation"],
+    "ar": {
+      "card": {
+        "caller": "+965 9••• ••27",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "السلام عليكم، معاك الملازم خالد من مخفر الشرطة، عليك قضية مسجلة ومنع سفر، وإذا ما سددت الغرامة اليوم بيطلع عليك ضبط وإحضار"},
+          {"who": "you", "text": "قضية؟ شنو القضية؟"},
+          {"who": "caller", "text": "ما أقدر أتكلم بالتفاصيل على التلفون، حوّل مية وخمسين دينار خلال ساعة على الحساب اللي بنرسله لك بمسج، وبعدها نشيل المنع"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "حوّل مية وخمسين دينار", "why": "الجهات الأمنية لا تحصّل الغرامات بتحويل إلى حساب يصلك في رسالة، بل تسدد المخالفات الرسمية عبر القنوات الحكومية المعروفة فقط."},
+        {"kind": "red", "mark": "بيطلع عليك ضبط وإحضار", "why": "التهديد بالقبض عليك يهدف إلى إخافتك حتى تدفع قبل أن تتحقق من وجود أي قضية."},
+        {"kind": "red", "mark": "خلال ساعة", "why": "المهلة القصيرة تمنعك من التفكير ومن مراجعة الجهة المختصة بنفسك."},
+        {"kind": "trap", "mark": "الملازم خالد", "why": "الرتبة والاسم يوحيان بالرسمية لكنهما لا يثبتان شيئاً، لأنّ انتحال صفة رجال الأمن من أكثر أساليب الاحتيال شيوعاً."}
+      ],
+      "lesson": "إذا هددك متصل بقضية أو منع سفر فأغلق الخط وتحقق من وضعك عبر القنوات الحكومية الرسمية، ولا تحوّل أي مبلغ بناءً على مكالمة."
+    },
+    "en": {
+      "card": {
+        "caller": "+965 9••• ••27",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "Good morning, this is Lieutenant Khalid from the police station. You have a case registered and a travel ban. If the fine isn't paid today, we'll issue an arrest order."},
+          {"who": "you", "text": "A case? What case?"},
+          {"who": "caller", "text": "I can't discuss details over the phone. Transfer a hundred and fifty dinars within the hour to the account I'll text you, and we'll lift the ban."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "Transfer a hundred and fifty dinars", "why": "Police never collect fines by transfer to an account sent by text. Official fines are paid only through known government channels."},
+        {"kind": "red", "mark": "we'll issue an arrest order", "why": "Threatening arrest is meant to scare you into paying before you check whether any case exists."},
+        {"kind": "red", "mark": "within the hour", "why": "The short deadline stops you from thinking or checking with the authority yourself."},
+        {"kind": "trap", "mark": "Lieutenant Khalid", "why": "A rank and a name sound official but prove nothing. Posing as police is one of the most common phone scams."}
+      ],
+      "lesson": "If a caller threatens you with a case or a travel ban, hang up and check your status through official government channels. Never transfer money because of a call."
+    }
+  },
+  {
+    "id": "call-tech-support-remote",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "tech-support",
+    "region": "global",
+    "difficulty": 2,
+    "tags": ["remote-access", "app-install", "unknown-number", "impersonation"],
+    "ar": {
+      "card": {
+        "caller": "+1 202 555 0187",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "هلا، أتصل فيك من فريق الدعم الفني، نظامنا يبين إن جهاز الكمبيوتر حقك فيه فيروس ويرسل لنا رسائل خطأ من الصبح"},
+          {"who": "you", "text": "صدق؟ شلون عرفتوا؟"},
+          {"who": "caller", "text": "لا تخاف، بنصلحه لك ببلاش، بس نزّل برنامج الدعم عن بعد اللي بقول لك اسمه، وعطني رقم الدخول عشان أدخل جهازك وأنظفه"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "نظامنا يبين", "why": "لا توجد شركة تقنية تراقب جهازك الشخصي ثمّ تتصل بك لتخبرك بوجود فيروس، لذا فهذه المكالمة التي لم تطلبها بداية احتيال الدعم الفني."},
+        {"kind": "red", "mark": "نزّل برنامج الدعم عن بعد", "why": "برامج التحكم عن بعد تمنح المتصل سيطرة كاملة على جهازك، فيستطيع رؤية حساباتك وكلمات المرور وتنفيذ عمليات باسمك."},
+        {"kind": "red", "mark": "عطني رقم الدخول", "why": "رقم الدخول هو مفتاح شاشتك، ومن يحصل عليه يرى كل ما تراه ويفعل كل ما تستطيع فعله."},
+        {"kind": "trap", "mark": "ببلاش", "why": "عرض المساعدة المجانية يبدو كرماً لكنه طُعم يخفّض حذرك، لأنّ الثمن الحقيقي بياناتك وأموالك."}
+      ],
+      "lesson": "إذا اتصل بك أحد ليخبرك بأن جهازك مصاب فأغلق الخط، ولا تثبّت أي برنامج تحكم عن بعد بطلب من متصل لا تعرفه."
+    },
+    "en": {
+      "card": {
+        "caller": "+1 202 555 0187",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Hi there, I'm calling from technical support. Our system shows your computer has a virus and it's been sending us error reports all morning."},
+          {"who": "you", "text": "Really? How do you know that?"},
+          {"who": "caller", "text": "Don't worry, we'll fix it for free. Just download the remote support app I'll tell you about, then give me the access code so I can get in and clean it up."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "Our system shows", "why": "No tech company watches your home computer and then calls you about a virus. An unrequested call like this is how tech support scams begin."},
+        {"kind": "red", "mark": "download the remote support app", "why": "A remote access app gives the caller full control of your computer, including your accounts and passwords."},
+        {"kind": "red", "mark": "give me the access code", "why": "The access code is the key to your screen. Whoever has it can see and do everything you can."},
+        {"kind": "trap", "mark": "for free", "why": "Free help sounds generous, but it is bait to lower your guard. The real price is your data and your money."}
+      ],
+      "lesson": "If someone calls to say your computer is infected, hang up. Never install a remote access app because a caller asked you to."
+    }
+  },
+  {
+    "id": "call-courier-delivery-code",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["otp", "urgency", "impersonation"],
+    "ar": {
+      "context": "أنت تنتظر طلبية اشتريتها من متجر إلكتروني هذا الأسبوع.",
+      "card": {
+        "caller": "+965 5••• ••36",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "هلا والله، معاك مندوب التوصيل، عندي لك طلبية وبوصلها لك اليوم العصر إن شاء الله"},
+          {"who": "you", "text": "هلا، إي أنا منتظرها"},
+          {"who": "caller", "text": "تمام، الحين بيوصلك مسج فيه رمز من ست أرقام، قول لي إياه عشان أأكد التوصيل بالسيستم وأحطك أول واحد بالخط"},
+          {"who": "you", "text": "رمز؟ شدخل الرمز بالتوصيل؟"},
+          {"who": "caller", "text": "عادي، هذا نظام الشركة الجديد، بسرعة لو سمحت لأن السيارة بتطلع الحين"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "قول لي إياه", "why": "المندوب لا يحتاج إلى أن تقرأ له رمزاً عبر الهاتف، لأنّ هذه الرموز تصلك لتأكيد الدخول إلى حساباتك أو عملياتك المصرفية، فمن يحصل على الرمز يستولي على الحساب."},
+        {"kind": "red", "mark": "نظام الشركة الجديد", "why": "تبرير الطلب الغريب بنظام جديد حيلة لإسكات شكّك، بينما لا يتطلب أي نظام توصيل حقيقي أن تقرأ رمزاً لشخص على الهاتف."},
+        {"kind": "red", "mark": "بسرعة لو سمحت", "why": "الاستعجال يهدف إلى أن تقرأ الرمز قبل أن تفتح الرسالة وتلاحظ أنها تخص حساباً آخر لا علاقة له بالتوصيل."},
+        {"kind": "trap", "mark": "عندي لك طلبية", "why": "معرفة المتصل بأن لديك طلبية لا تثبت أنه مندوب حقيقي، لأنّ أغلب الناس ينتظرون طلبية في أي وقت فيبدو التخمين صادقاً."}
+      ],
+      "lesson": "لا تقرأ أي رمز يصلك لمن يتصل بك ولو قال إنه مندوب التوصيل، بل اقرأ نص الرسالة كاملاً لتعرف الجهة التي أرسلته."
+    },
+    "en": {
+      "context": "You are expecting an online order this week.",
+      "card": {
+        "caller": "+965 5••• ••36",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Hi, it's the delivery driver. I've got your order and I'll bring it over this afternoon."},
+          {"who": "you", "text": "Great, I've been waiting for it."},
+          {"who": "caller", "text": "You'll get a text with a six digit code in a second. Read it out so I can confirm the delivery and put you first on my route."},
+          {"who": "you", "text": "A code? What's that got to do with delivery?"},
+          {"who": "caller", "text": "That's the company's new system. Quick please, the van's about to leave."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "Read it out", "why": "A driver never needs you to read out a code over the phone. Those codes unlock your accounts or approve payments, so whoever gets one can take them over."},
+        {"kind": "red", "mark": "the company's new system", "why": "Blaming a new system is a way to quiet your doubts. No real delivery process needs you to read a code to someone on the phone."},
+        {"kind": "red", "mark": "Quick please", "why": "The rush is meant to get the code out of you before you open the text and see it belongs to a different account."},
+        {"kind": "trap", "mark": "I've got your order", "why": "Knowing you have an order proves nothing. Most people are waiting for a parcel at any given time, so the guess sounds true."}
+      ],
+      "lesson": "Never read a code out to a caller, even one who says they are the courier. Read the full text instead to see who really sent it."
+    }
+  },
+  {
+    "id": "call-car-prize-fee",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "prize",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": ["too-good", "advance-fee", "payment", "urgency"],
+    "ar": {
+      "card": {
+        "caller": "+965 6••• ••53",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "ألف مبروك! معاك لجنة سحوبات المهرجان، رقمك فاز بسيارة جديدة وتقدر تستلمها هالأسبوع"},
+          {"who": "you", "text": "صدق؟ بس أنا ما شاركت بأي سحب"},
+          {"who": "caller", "text": "السحب كان على كل أرقام التلفونات، بس لازم تدفع رسوم التسجيل والتأمين، تسعين دينار بس، تحوّلها اليوم وإلا تروح الجايزة لغيرك"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "تسعين دينار بس", "why": "الجوائز الحقيقية لا تتطلب منك دفع أي رسوم لاستلامها، فطلب المال مقابل الجائزة هو جوهر الاحتيال."},
+        {"kind": "red", "mark": "على كل أرقام التلفونات", "why": "لا يمكن أن تفوز في سحب لم تشارك فيه، لذا فادعاء أن السحب شمل كل الأرقام مجرد غطاء لمكالمة عشوائية."},
+        {"kind": "red", "mark": "وإلا تروح الجايزة لغيرك", "why": "التهديد بخسارة الجائزة يهدف إلى دفعك إلى التحويل اليوم قبل أن تسأل أو تتحقق."}
+      ],
+      "lesson": "إذا أخبرك متصل بأنك ربحت جائزة في سحب لم تشارك فيه ثمّ طلب رسوماً فأغلق الخط، لأنّ الجائزة الحقيقية لا يُدفع مقابلها شيء."
+    },
+    "en": {
+      "card": {
+        "caller": "+965 6••• ••53",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Congratulations! This is the festival prize draw office. Your number has won a brand new car, and you can collect it this week."},
+          {"who": "you", "text": "Really? But I never entered any draw."},
+          {"who": "caller", "text": "The draw covered every phone number. You just need to pay the registration and insurance fee, only ninety dinars, today, or the prize goes to someone else."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "only ninety dinars", "why": "Real prizes never ask you to pay to collect them. Paying for a prize is the whole scam."},
+        {"kind": "red", "mark": "covered every phone number", "why": "You cannot win a draw you never entered. The claim that it covered every number just explains away a random call."},
+        {"kind": "red", "mark": "the prize goes to someone else", "why": "The threat of losing the prize is there to make you pay today before you ask anyone."}
+      ],
+      "lesson": "If a caller says you won a draw you never entered and then asks for a fee, hang up. A real prize never costs you money."
+    }
+  },
+  {
+    "id": "call-family-voice-clone",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "family",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": ["voice-clone", "new-number", "secrecy", "urgency", "emotional", "payment"],
+    "ar": {
+      "context": "صوت المتصل يشبه صوت أخيك فهد تماماً.",
+      "card": {
+        "caller": "+965 5••• ••19",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "urgent"},
+        "lines": [
+          {"who": "caller", "text": "ألو، هلا خوي، أنا فهد، تلفوني انكسر وأكلمك من تلفون واحد من ربعي"},
+          {"who": "you", "text": "هلا فهد، شصاير؟"},
+          {"who": "caller", "text": "صدمت سيارة وصاحبها يبي ست مية دينار الحين وإلا بيفتح بلاغ، حوّلها على حساب ربيعي وبرجعها لك باجر"},
+          {"who": "you", "text": "طيب، بس خلني أتصل على رقمك أول"},
+          {"who": "caller", "text": "لا تتصل، تلفوني خربان، وتكفى لا تقول لأحد، خصوصاً أمي"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "حوّلها على حساب ربيعي", "why": "طلب التحويل إلى حساب شخص لا تعرفه علامة خطر، لأنّ المال سيذهب إلى حساب لا صلة له بأخيك ولن تستطيع استرداده."},
+        {"kind": "red", "mark": "لا تتصل", "why": "رفضه أن تعاود الاتصال به على رقمه المعروف علامة خطر، لأنّ هذه الخطوة البسيطة كانت ستكشف الخدعة فوراً."},
+        {"kind": "red", "mark": "لا تقول لأحد", "why": "طلب الكتمان يمنعك من سؤال بقية العائلة، لأنّ أي اتصال بهم كان سيكشف أن فهد بخير."},
+        {"kind": "trap", "mark": "أنا فهد", "why": "الصوت المألوف وذكر الاسم لا يثبتان هوية المتصل، لأنّ تقنيات استنساخ الصوت تقلّد أي صوت من مقطع قصير منشور على الإنترنت."}
+      ],
+      "lesson": "إذا طلب منك قريب مالاً عاجلاً من رقم جديد فأغلق الخط واتصل به على رقمه المحفوظ لديك، أو اسأله سؤالاً لا يعرف جوابه غيره قبل أن تحوّل أي مبلغ."
+    },
+    "en": {
+      "context": "The voice sounds exactly like your brother Fahad.",
+      "card": {
+        "caller": "+965 5••• ••19",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "urgent"},
+        "lines": [
+          {"who": "caller", "text": "Hello? Hey, it's me, Fahad. My phone broke, so I'm calling from a friend's phone."},
+          {"who": "you", "text": "Fahad? What's going on?"},
+          {"who": "caller", "text": "I hit someone's car and he wants six hundred dinars right now or he's calling the police. Send it to my friend's account and I'll pay you back tomorrow."},
+          {"who": "you", "text": "Okay, but let me call you on your number first."},
+          {"who": "caller", "text": "Don't call, my phone's dead. And please, don't tell anyone, especially Mum."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "Send it to my friend's account", "why": "Paying into a stranger's account is a warning sign. The money goes somewhere that has nothing to do with your brother, and you cannot get it back."},
+        {"kind": "red", "mark": "Don't call", "why": "Refusing a call back on his usual number is the giveaway, because that one simple step would expose the trick at once."},
+        {"kind": "red", "mark": "don't tell anyone", "why": "Secrecy stops you from checking with the rest of the family, who would tell you Fahad is fine."},
+        {"kind": "trap", "mark": "it's me, Fahad", "why": "A familiar voice and the right name prove nothing. Voice cloning can copy anyone from a short clip posted online."}
+      ],
+      "lesson": "When a relative urgently asks for money from a new number, hang up and call them on the number you have saved, or ask something only they would know, before you send anything."
+    }
+  },
+  {
+    "id": "call-charity-personal-account",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "charity",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["emotional", "payment", "unknown-number", "off-platform"],
+    "ar": {
+      "context": "نحن في العشر الأواخر من رمضان.",
+      "card": {
+        "caller": "+965 6••• ••08",
+        "saved": false,
+        "voice": {"gender": "male", "age": "older", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "السلام عليكم ورحمة الله، معاك أبو عبدالله، نجمع تبرعات لعائلة محتاجة عليها إيجار متأخر وأطفالها بدون أكل"},
+          {"who": "you", "text": "الله يعينهم، شلون أقدر أساعد؟"},
+          {"who": "caller", "text": "جزاك الله خير، حوّل على حسابي الشخصي مباشرة وأنا أوصلها لهم بيدي، ولا تدفعها عن طريق الجمعيات لأن إجراءاتهم طويلة، والأجر كله لك"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "حسابي الشخصي", "why": "جمع التبرعات في حساب شخصي مخالف للأنظمة، فالتبرع الآمن يكون عبر الجهات الخيرية المرخّصة وقنواتها الرسمية فقط."},
+        {"kind": "red", "mark": "لا تدفعها عن طريق الجمعيات", "why": "إبعادك عن الجهات الخيرية المرخّصة يكشف أن المتصل يريد تجنب أي جهة تستطيع التحقق من الحالة أو تتبّع المال."},
+        {"kind": "red", "mark": "أطفالها بدون أكل", "why": "القصة المؤثرة عن أطفال جائعين تهدف إلى تحريك عاطفتك حتى تتبرع دون أن تسأل أو تتحقق."},
+        {"kind": "trap", "mark": "جزاك الله خير", "why": "العبارات الدينية تبعث الطمأنينة لكنها لا تثبت صدق المتصل، لأنّ المحتالين يستغلون مواسم الخير والعاطفة الدينية تحديداً."}
+      ],
+      "lesson": "تبرّع عبر الجهات الخيرية المرخّصة وقنواتها الرسمية فقط، ولا تحوّل أي مبلغ إلى حساب شخصي يطلبه منك متصل مهما كانت قصته مؤثرة."
+    },
+    "en": {
+      "context": "It is the last ten days of Ramadan.",
+      "card": {
+        "caller": "+965 6••• ••08",
+        "saved": false,
+        "voice": {"gender": "male", "age": "older", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "Assalamu alaikum. I'm Abu Abdullah, collecting donations for a family in need. They're behind on rent and the children have nothing to eat."},
+          {"who": "you", "text": "May God help them. How can I help?"},
+          {"who": "caller", "text": "God reward you. Transfer straight to my personal account and I'll hand it to them myself. Don't go through the charities, their paperwork takes too long."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "my personal account", "why": "Collecting donations into a personal account breaks the rules. Safe giving goes through licensed charities and their official channels only."},
+        {"kind": "red", "mark": "Don't go through the charities", "why": "Steering you away from licensed charities shows the caller wants to avoid anyone who could check the story or trace the money."},
+        {"kind": "red", "mark": "the children have nothing to eat", "why": "A heartbreaking story about hungry children is meant to make you give before you ask questions."},
+        {"kind": "trap", "mark": "God reward you", "why": "Religious phrases feel reassuring but prove nothing. Scammers target giving seasons and religious feeling on purpose."}
+      ],
+      "lesson": "Give only through licensed charities and their official channels, and never transfer money to a personal account a caller gives you, however moving the story."
+    }
+  },
+  {
+    "id": "call-investment-guaranteed-returns",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 2,
+    "tags": ["too-good", "crypto", "urgency", "unknown-number"],
+    "ar": {
+      "card": {
+        "caller": "+44 7700 900853",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "مساء الخير، معاك سامي، مستشار أول في شركة تداول عالمية، اخترنا عدد محدود من العملاء لصندوق عملات رقمية خاص يعطيك عشرين بالمية ربح مضمون كل شهر"},
+          {"who": "you", "text": "مضمون؟ شلون يعني؟"},
+          {"who": "caller", "text": "عندنا خبراء يتكفلون بكل شي، تبدأ بس بمتين وخمسين دولار، والعرض يسكر الليلة"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "ربح مضمون", "why": "لا يوجد تداول أو استثمار في العملات الرقمية يضمن ربحاً، لأنّ الأسعار ترتفع وتنخفض، لذا فوعد الربح المضمون علامة احتيال واضحة."},
+        {"kind": "red", "mark": "عشرين بالمية", "why": "عائد قدره عشرون بالمئة كل شهر يفوق أي عائد واقعي بكثير، وهذا وحده سبب كافٍ للشك في العرض."},
+        {"kind": "red", "mark": "العرض يسكر الليلة", "why": "المهلة القصيرة تمنعك من سؤال أحد أو التحقق من ترخيص الشركة قبل أن تدفع."},
+        {"kind": "trap", "mark": "مستشار أول", "why": "المسمّى الوظيفي الفخم يوحي بالخبرة لكنه لا يثبت شيئاً، علاوة على أن الجهات المرخّصة لا تتصل بالناس عشوائياً لتبيعهم استثمارات."}
+      ],
+      "lesson": "تجاهل أي مكالمة لم تطلبها تعرض عليك استثماراً بربح مضمون، وتحقق من ترخيص أي جهة استثمارية لدى الجهة الرقابية قبل أن تدفع أي مبلغ."
+    },
+    "en": {
+      "card": {
+        "caller": "+44 7700 900853",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Good evening! I'm Daniel, a senior advisor at an international trading firm. We've picked a few people for a private crypto fund that pays a guaranteed twenty percent every month."},
+          {"who": "you", "text": "Guaranteed? How does that work?"},
+          {"who": "caller", "text": "Our experts handle everything. You start with just two hundred and fifty dollars, but the offer closes tonight."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "guaranteed", "why": "No real trading or crypto fund can guarantee a profit, because prices go up and down. A promise of guaranteed profit is a clear scam sign."},
+        {"kind": "red", "mark": "twenty percent every month", "why": "Twenty percent a month is far beyond any realistic return. It is too good to be true."},
+        {"kind": "red", "mark": "the offer closes tonight", "why": "The deadline stops you from asking anyone or checking whether the firm is licensed."},
+        {"kind": "trap", "mark": "senior advisor", "why": "An impressive job title proves nothing. Licensed firms do not cold call strangers to sell them investments."}
+      ],
+      "lesson": "Ignore any cold call offering guaranteed returns, and check that a firm is licensed with the financial regulator before you invest anything."
+    }
+  },
+  {
+    "id": "call-telecom-sim-upgrade",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "telecom",
+    "region": "global",
+    "difficulty": 4,
+    "tags": ["otp", "impersonation", "too-good", "verify-independently"],
+    "ar": {
+      "card": {
+        "caller": "+1 202 555 0126",
+        "saved": false,
+        "voice": {"gender": "female", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "هلا، معاك سارة من خدمة العملاء بخصوص خط تلفونك، عندي لك خبر حلو، خطك مؤهل لترقية مجانية للشريحة الإلكترونية الجديدة مع إنترنت أسرع"},
+          {"who": "you", "text": "أوكي، شنو المطلوب مني؟"},
+          {"who": "caller", "text": "أرسلت لك الحين مسج فيه رمز، اقرا لي الرمز عشان أتأكد إنه إنت، والترقية تتفعل خلال ساعة"},
+          {"who": "you", "text": "بس المسج مكتوب فيه لا تشارك الرمز مع أحد"},
+          {"who": "caller", "text": "عادي، هذي جملة ثابتة بكل الرسايل، ما تشملنا لأننا الشركة نفسها"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "اقرا لي الرمز", "why": "الرمز الذي يصلك يخصك وحدك، وقراءته للمتصل قد تمكّنه من نقل رقمك إلى شريحة عنده فتصله رموز التحقق الخاصة ببنكك وحساباتك."},
+        {"kind": "red", "mark": "ما تشملنا", "why": "الرسالة نفسها حذّرتك من مشاركة الرمز مع أي أحد، ومن يحاول إقناعك بتجاهل هذا التحذير هو الشخص الذي تحذّرك منه."},
+        {"kind": "red", "mark": "ترقية مجانية", "why": "الترقية التي لم تطلبها طُعم، أما الترقية الحقيقية فتطلبها بنفسك في فرع الشركة أو تطبيقها الرسمي ولا تحتاج إلى رمز تقرؤه على الهاتف."},
+        {"kind": "trap", "mark": "+1 202 555 0126", "why": "الرقم الذي يبدو عادياً لا يدل على شيء، لأنّ المحتال يستطيع إظهار أي رقم يريده على شاشتك."}
+      ],
+      "lesson": "لا تقرأ أي رمز يصلك لمن يتصل بك حتى لو ادعى أنه من مزوّد خدمة الهاتف، وإذا أردت ترقية فاطلبها بنفسك من الفرع أو التطبيق الرسمي."
+    },
+    "en": {
+      "card": {
+        "caller": "+1 202 555 0126",
+        "saved": false,
+        "voice": {"gender": "female", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Hi, this is Emma from customer care at your mobile network. Good news, your line qualifies for a free upgrade to the new eSIM with faster data."},
+          {"who": "you", "text": "Oh, okay. What do I need to do?"},
+          {"who": "caller", "text": "I've just texted you a code. Read it back so I can confirm it's you, and you're all set."},
+          {"who": "you", "text": "But the text says not to share this code with anyone."},
+          {"who": "caller", "text": "That's standard wording, it doesn't apply to us. We're your network."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "Read it back", "why": "A code sent to your phone is for you alone. Reading it out can let someone move your number to their own SIM and receive your bank codes."},
+        {"kind": "red", "mark": "it doesn't apply to us", "why": "The text itself warned you not to share the code. A caller who talks you out of that warning is exactly who it warns about."},
+        {"kind": "red", "mark": "free upgrade", "why": "An upgrade you never asked for is the bait. Real upgrades happen in a store or the official app and never need a code read over the phone."},
+        {"kind": "trap", "mark": "+1 202 555 0126", "why": "An ordinary looking number proves nothing, because a scammer can make any number appear on your screen."}
+      ],
+      "lesson": "Never read a code to a caller, even one who says they are your mobile network. If you want an upgrade, ask for it yourself in a store or the official app."
+    }
+  },
+  {
+    "id": "call-bank-safe-account",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "global",
+    "difficulty": 4,
+    "tags": ["impersonation", "urgency", "payment", "secrecy", "threat"],
+    "ar": {
+      "card": {
+        "caller": "+44 7700 900861",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "معاك فريق الأمن في البنك، رصدنا إن واحد من داخل البنك دخل على حسابك، وفلوسك الحين في خطر"},
+          {"who": "you", "text": "شنو؟ طيب شسوي؟"},
+          {"who": "caller", "text": "حوّل رصيدك كله على حساب أمان مؤقت فتحناه باسمك، وبعطيك تفاصيله الحين، ولا تقول لموظفين الفرع، يمكن لهم يد بالموضوع"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "حساب أمان مؤقت", "why": "لا يطلب البنك أبداً نقل أموالك إلى ما يسمى حساب أمان، فأي حساب يعطيك إياه المتصل يملكه المحتال."},
+        {"kind": "red", "mark": "لا تقول لموظفين الفرع", "why": "طلب إخفاء الأمر عن موظفي الفرع يهدف إلى قطع أقصر طريق كان سيكشف الاحتيال فوراً."},
+        {"kind": "red", "mark": "فلوسك الحين في خطر", "why": "إثارة الخوف على مدخراتك تهدف إلى أن تتصرف بسرعة قبل أن تتحقق بنفسك."},
+        {"kind": "trap", "mark": "فتحناه باسمك", "why": "قوله إن الحساب باسمك لا يثبت شيئاً، لأنّك لا تستطيع معرفة من يتحكم فعلاً في الحساب الذي ستحوّل إليه."}
+      ],
+      "lesson": "من يطلب منك نقل أموالك إلى حساب آمن محتال مهما بدا رسمياً، لذا أغلق الخط ثمّ تواصل مع بنكك عبر الرقم المدوّن خلف بطاقتك أو زر الفرع بنفسك."
+    },
+    "en": {
+      "card": {
+        "caller": "+44 7700 900861",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "This is the bank's security team. We've detected that someone inside the bank has accessed your account, so your savings are at risk right now."},
+          {"who": "you", "text": "What? What should I do?"},
+          {"who": "caller", "text": "Move your balance to a temporary safe account we've opened in your name. I'll give you the details. Don't mention this to branch staff, they may be involved."}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "temporary safe account", "why": "Banks never ask you to move money to a safe account. Any account a caller gives you belongs to the scammer."},
+        {"kind": "red", "mark": "Don't mention this to branch staff", "why": "Keeping it from branch staff cuts you off from the people who would spot the scam straight away."},
+        {"kind": "red", "mark": "at risk right now", "why": "Fear for your savings is meant to make you act before you check for yourself."},
+        {"kind": "trap", "mark": "in your name", "why": "Being told the account is in your name proves nothing, since you cannot see who really controls it."}
+      ],
+      "lesson": "Anyone who asks you to move money to a safe account is a scammer, however official they sound. Hang up, then call the number on your card or visit a branch."
+    }
+  },
+  {
+    "id": "call-bank-knows-card-digits",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": ["credentials", "impersonation", "verify-independently"],
+    "ar": {
+      "card": {
+        "caller": "+965 2••• ••15",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "مساء الخير، أستاذ يوسف؟ معاك مريم من البنك، بخصوص بطاقتك اللي آخرها أربعة أربعة واحد سبعة"},
+          {"who": "you", "text": "إي نعم، تفضلي"},
+          {"who": "caller", "text": "عندنا محاولة شراء مشبوهة على البطاقة، وعشان نتأكد إنك صاحبها ونوقفها، عطني تاريخ انتهاء البطاقة والثلاث أرقام اللي ورا"},
+          {"who": "you", "text": "بس إنتوا عندكم هالمعلومات"},
+          {"who": "caller", "text": "صح، بس النظام يطلبها منك للتحقق، وهذا إجراء روتيني"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "أستاذ يوسف", "why": "معرفة المتصل باسمك لا تثبت أنه من البنك، لأنّ الأسماء تتسرّب بسهولة من قواعد البيانات المسروقة ومواقع التواصل."},
+        {"kind": "trap", "mark": "أربعة أربعة واحد سبعة", "why": "آخر أربعة أرقام من البطاقة تظهر في الإيصالات ورسائل الشراء وتتسرّب كثيراً، لذا فمعرفتها لا تثبت أن المتصل من البنك."},
+        {"kind": "red", "mark": "الثلاث أرقام اللي ورا", "why": "الرمز الموجود خلف البطاقة وتاريخ انتهائها هما ما ينقص المحتال ليشتري ببطاقتك عبر الإنترنت، والبنك لا يطلبهما منك في أي مكالمة."},
+        {"kind": "red", "mark": "النظام يطلبها منك", "why": "البنك يملك بيانات بطاقتك أصلاً، فإذا قال المتصل إن النظام يحتاجها منك فهو يجمعها لنفسه."}
+      ],
+      "lesson": "لا تذكر تاريخ انتهاء بطاقتك ولا الرمز الموجود خلفها لأي متصل مهما عرف من بياناتك، بل أغلق الخط واتصل بالبنك على الرقم المدوّن خلف البطاقة."
+    },
+    "en": {
+      "card": {
+        "caller": "+965 2••• ••15",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "Good evening, is this Mr Yousef? This is Maryam from the bank, about your card ending in four four one seven."},
+          {"who": "you", "text": "Yes, go ahead."},
+          {"who": "caller", "text": "There's a suspicious purchase on it. To confirm you're the cardholder and block it, I need the expiry date and the three digits on the back."},
+          {"who": "you", "text": "Doesn't the bank already have those?"},
+          {"who": "caller", "text": "We do, but the system needs you to confirm them. It's routine."}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "Mr Yousef", "why": "Knowing your name proves nothing. Names leak easily from stolen databases and social media."},
+        {"kind": "trap", "mark": "four four one seven", "why": "The last four digits appear on receipts and purchase texts and leak often, so knowing them proves nothing."},
+        {"kind": "red", "mark": "the three digits on the back", "why": "The code on the back and the expiry date are what a scammer still needs to shop online with your card. Your bank never asks for them on a call."},
+        {"kind": "red", "mark": "the system needs you to confirm them", "why": "Your bank already has these details. A caller who needs them from you is collecting them."}
+      ],
+      "lesson": "Never give a caller your card's expiry date or the code on the back, however much they already know about you. Hang up and call the number on your card."
+    }
+  }
+]

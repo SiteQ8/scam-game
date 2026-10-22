@@ -1,0 +1,380 @@
+[
+  {
+    "id": "call-bank-fraud-alert-callback",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": ["no-link", "official-channel", "verify-independently"],
+    "ar": {
+      "context": "لم تستخدم بطاقتك في أي عملية شراء اليوم.",
+      "card": {
+        "caller": "+965 2••• ••00",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "مساء الخير، معاك دلال من قسم مكافحة الاحتيال في البنك، رصدنا عملية على بطاقتك بقيمة مية وثمانين دينار في متجر إلكتروني، وأوقفنا البطاقة احتياطاً"},
+          {"who": "you", "text": "طيب، شنو المطلوب مني؟"},
+          {"who": "caller", "text": "ولا شي، أنا ما بطلب منك أي رقم أو رمز، سكّر الخط واتصل على الرقم اللي ورا بطاقتك، أو افتح تطبيق البنك وراجع العملية بنفسك"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "ما بطلب منك أي رقم أو رمز", "why": "الموظفة لا تطلب منك رمزاً ولا رقماً سرياً ولا تحويلاً، بل تكتفي بإبلاغك بالعملية، وهذا ما تفعله البنوك فعلاً."},
+        {"kind": "green", "mark": "اتصل على الرقم اللي ورا بطاقتك", "why": "توجيهك إلى الرقم المدوّن خلف البطاقة يعني أنها تدعوك إلى التحقق بنفسك عبر قناة رسمية لا تتحكم فيها المتصلة."},
+        {"kind": "green", "mark": "افتح تطبيق البنك", "why": "إحالتك إلى تطبيق البنك الرسمي تتيح لك رؤية العملية بعينك بدلاً من أن تعتمد على كلام المتصلة."},
+        {"kind": "trap", "mark": "قسم مكافحة الاحتيال", "why": "ذكر قسم مكافحة الاحتيال لا يثبت صدق المكالمة وحده لأنّ المحتالين يرددونه أيضاً، لكن ما يجعلها آمنة أنها لم تطلب منك شيئاً وأحالتك إلى قناة رسمية."}
+      ],
+      "lesson": "المكالمة الحقيقية من البنك تبلغك بالعملية ولا تطلب منك أي بيانات، لكن الأسلم دائماً أن تغلق الخط ثمّ تتصل بنفسك بالرقم المدوّن خلف بطاقتك."
+    },
+    "en": {
+      "context": "You have not used your card for any purchase today.",
+      "card": {
+        "caller": "+965 2••• ••00",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "Good evening, this is Dalal from the bank's fraud team. We've stopped a one hundred and eighty dinar online payment on your card and frozen the card for now."},
+          {"who": "you", "text": "Okay, what do you need from me?"},
+          {"who": "caller", "text": "I won't ask you for any number or code. Just hang up and call the number on the back of your card, or check it in the bank's app."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "I won't ask you for any number or code", "why": "She asks for no code, PIN or transfer. She only tells you what happened, which is exactly what real banks do."},
+        {"kind": "green", "mark": "call the number on the back of your card", "why": "Sending you to the number on your card means checking through an official line the caller does not control."},
+        {"kind": "green", "mark": "check it in the bank's app", "why": "Pointing you to the official app lets you see the payment with your own eyes instead of trusting the caller."},
+        {"kind": "trap", "mark": "fraud team", "why": "The words fraud team prove nothing by themselves, because scammers use them too. What makes this call safe is that it asks for nothing and sends you to an official channel."}
+      ],
+      "lesson": "A real bank call tells you what happened and asks for nothing. Even then, the safest move is to hang up and call the number on the back of your card yourself."
+    }
+  },
+  {
+    "id": "call-driver-asks-directions",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": ["expected", "no-link"],
+    "ar": {
+      "context": "طلبت عشاء عبر تطبيق توصيل الطعام قبل نصف ساعة.",
+      "card": {
+        "caller": "+965 5••• ••71",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "مساء الخير، أنا مندوب المطعم ومعاي طلبك، أنا الحين عند الجمعية بس ما لقيت البيت، تقدر توصف لي؟"},
+          {"who": "you", "text": "إي، ادخل الشارع اللي بعد المسجد، ثالث بيت على اليمين"},
+          {"who": "caller", "text": "تمام، الطلب مدفوع من التطبيق، دقيقتين وأكون عندك"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "تقدر توصف لي", "why": "المندوب يطلب وصف الطريق فقط، وهي معلومة يحتاجها فعلاً لتوصيل طلبك ولا تمس بياناتك المصرفية أو حساباتك."},
+        {"kind": "green", "mark": "الطلب مدفوع من التطبيق", "why": "تأكيده أن الطلب مدفوع عبر التطبيق يطابق ما فعلته بنفسك، أي أنه لا يطلب منك أي مبلغ إضافي."},
+        {"kind": "trap", "mark": "مندوب المطعم", "why": "قوله إنه مندوب المطعم لا يثبت شيئاً وحده، لكن المكالمة آمنة لأنّك طلبت قبل قليل ولأنه لا يطلب سوى وصف العنوان."}
+      ],
+      "lesson": "المندوب الحقيقي قد يتصل من رقم غير محفوظ ليسأل عن العنوان، فساعده بوصف الطريق، لكن لا تقرأ له أي رمز ولا تدفع له عبر رابط."
+    },
+    "en": {
+      "context": "You ordered dinner through a food delivery app half an hour ago.",
+      "card": {
+        "caller": "+965 5••• ••71",
+        "saved": false,
+        "voice": {"gender": "male", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Hi, I'm the driver with your food order. I'm by the co-op but I can't find your house. Can you guide me?"},
+          {"who": "you", "text": "Sure, take the street after the mosque, third house on the right."},
+          {"who": "caller", "text": "Got it. The order's already paid in the app, so see you in two minutes."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "Can you guide me?", "why": "He only asks for directions, which he really needs to reach you, and nothing about your bank or your accounts."},
+        {"kind": "green", "mark": "already paid in the app", "why": "He confirms the order was paid in the app, just as you did, so he asks you for no extra money."},
+        {"kind": "trap", "mark": "the driver with your food order", "why": "Saying he is your driver proves nothing on its own. The call is safe because you just ordered and he only wants directions."}
+      ],
+      "lesson": "A real driver may call from an unsaved number to ask the way. Help with directions, but never read out a code or pay through a link."
+    }
+  },
+  {
+    "id": "call-school-early-pickup",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "education",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["no-link", "verify-independently"],
+    "ar": {
+      "context": "ابنتك نورة في المدرسة اليوم.",
+      "card": {
+        "caller": "مدرسة نورة",
+        "saved": true,
+        "voice": {"gender": "female", "age": "older", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "صباح الخير، معاك الأستاذة منى من إدارة المدرسة، بنتك نورة حرارتها مرتفعة شوي، وهي الحين عند الممرضة وبخير"},
+          {"who": "you", "text": "يا ساتر، جاي الحين"},
+          {"who": "caller", "text": "الله يحفظها، لما توصل مر على استقبال المدرسة، وجيب معاك البطاقة المدنية عشان نسلمك إياها"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "جيب معاك البطاقة المدنية", "why": "طلب إحضار البطاقة المدنية يعني أن المدرسة ستتحقق من هويتك قبل تسليم ابنتك، وهو إجراء حماية تتبعه الجهات الحقيقية."},
+        {"kind": "green", "mark": "عند الممرضة وبخير", "why": "المتصلة تطمئنك بهدوء ولا تستغل خوفك لتطلب مالاً أو بيانات، بينما يعتمد المحتال على الذعر والاستعجال."},
+        {"kind": "trap", "mark": "مدرسة نورة", "why": "ظهور اسم المدرسة المحفوظ لا يكفي وحده لأنّ أرقام المتصلين يمكن انتحالها، لكن المكالمة لا تطلب منك شيئاً سوى أن تحضر بنفسك."}
+      ],
+      "lesson": "المكالمة الحقيقية من المدرسة تطلب حضورك بنفسك ولا تطلب تحويل مال ولا رمزاً، وإذا ساورك شك فاتصل برقم المدرسة الرسمي قبل أن تخرج."
+    },
+    "en": {
+      "context": "Your daughter Noura is at school today.",
+      "card": {
+        "caller": "Noura's School",
+        "saved": true,
+        "voice": {"gender": "female", "age": "older", "tone": "calm"},
+        "lines": [
+          {"who": "caller", "text": "Good morning, this is Ms Mona from the school office. Noura has a bit of a temperature. She's with the nurse now and she's fine."},
+          {"who": "you", "text": "Oh no, I'm on my way."},
+          {"who": "caller", "text": "Don't worry. When you arrive, come to reception and bring your Civil ID so we can hand her over to you."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "bring your Civil ID", "why": "Asking for your ID means the school will check who you are before handing over your child. Real schools do this to protect children."},
+        {"kind": "green", "mark": "with the nurse now and she's fine", "why": "She calmly reassures you and does not use your worry to ask for money or details. Scammers rely on panic and rush."},
+        {"kind": "trap", "mark": "Noura's School", "why": "A saved name alone is not proof, since caller ID can be spoofed. What makes this safe is that it only asks you to come in person."}
+      ],
+      "lesson": "A real school call asks you to come in person and never asks for a transfer or a code. If in doubt, call the school's official number before you leave."
+    }
+  },
+  {
+    "id": "call-clinic-appointment-confirm",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "business",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["expected", "no-link"],
+    "ar": {
+      "context": "حجزت موعداً لدى طبيب الأسنان يوم الأحد عبر الاتصال بالعيادة.",
+      "card": {
+        "caller": "+965 2••• ••64",
+        "saved": false,
+        "voice": {"gender": "female", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "مساء الخير، معاك ريم من عيادة الأسنان، متصلة أأكد معاك موعدك يوم الأحد الساعة أربع العصر مع الدكتور أحمد"},
+          {"who": "you", "text": "إي نعم، أنا حاجز"},
+          {"who": "caller", "text": "حلو، ياليت تكون موجود قبل الموعد بربع ساعة، والدفع يكون في العيادة، وإذا تبي تغير الموعد كلمنا على رقم العيادة"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "يوم الأحد الساعة أربع العصر", "why": "الموعد يطابق الحجز الذي أجريته بنفسك، أي أن المكالمة متوقعة ولها سبب واضح."},
+        {"kind": "green", "mark": "الدفع يكون في العيادة", "why": "العيادة لا تطلب منك أي دفع أو بيانات عبر الهاتف، بل تترك الدفع لزيارتك الفعلية."},
+        {"kind": "green", "mark": "كلمنا على رقم العيادة", "why": "توجيهك إلى رقم العيادة المعروف لأي تعديل يعني أنها لا تطلب منك أن تثق بالمتصلة وحدها."}
+      ],
+      "lesson": "مكالمة تأكيد الموعد الحقيقية تذكر تفاصيل حجزك ولا تطلب دفعاً ولا بيانات، فإذا طلب منك متصل باسم العيادة رسوماً أو رمزاً فأغلق الخط واتصل بالعيادة بنفسك."
+    },
+    "en": {
+      "context": "You booked a dentist appointment for Sunday by phoning the clinic.",
+      "card": {
+        "caller": "+965 2••• ••64",
+        "saved": false,
+        "voice": {"gender": "female", "age": "young", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Good evening, this is Reem from the dental clinic. I'm calling to confirm your appointment on Sunday at four in the afternoon with Dr Ahmad."},
+          {"who": "you", "text": "Yes, that's right."},
+          {"who": "caller", "text": "Lovely. Please come fifteen minutes early. Payment is at the clinic, and if you need to change the time, just call the clinic's number."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "Sunday at four in the afternoon", "why": "The appointment matches the booking you made yourself, so the call is expected."},
+        {"kind": "green", "mark": "Payment is at the clinic", "why": "The clinic asks for no payment or details over the phone. You pay when you actually visit."},
+        {"kind": "green", "mark": "call the clinic's number", "why": "Sending you to the clinic's known number for any change means you never have to trust the caller alone."}
+      ],
+      "lesson": "A real appointment call matches your booking and asks for no payment or details. If a caller from the clinic wants a fee or a code, hang up and call the clinic yourself."
+    }
+  },
+  {
+    "id": "call-airline-schedule-change",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "travel",
+    "region": "global",
+    "difficulty": 4,
+    "tags": ["expected", "official-channel", "no-link", "verify-independently"],
+    "ar": {
+      "context": "لديك رحلة محجوزة يوم الخميس القادم.",
+      "card": {
+        "caller": "+1 202 555 0126",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "مرحبا، معاك سارة من خدمة عملاء شركة الطيران، رحلتك يوم الخميس الجاي تغير موعدها من الساعة تسع الصبح إلى ثنتين الظهر"},
+          {"who": "you", "text": "أوه، لازم أسوي شي؟"},
+          {"who": "caller", "text": "ولا شي على التلفون، الموعد الجديد صار في حجزك، شيّك عليه من تطبيق شركة الطيران، وإذا ما ناسبك تقدر تغيره من هناك ببلاش"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "من تطبيق شركة الطيران", "why": "توجيهك إلى تطبيق الشركة الذي تستخدمه أصلاً يتيح لك رؤية التغيير بنفسك دون أن تعتمد على كلام المتصلة."},
+        {"kind": "green", "mark": "ولا شي على التلفون", "why": "المتصلة لا تطلب منك دفعاً ولا بيانات بطاقة ولا رمزاً خلال المكالمة، بل تكتفي بإبلاغك."},
+        {"kind": "green", "mark": "رحلتك يوم الخميس الجاي", "why": "الرحلة المذكورة تطابق حجزك الفعلي، أي أن المكالمة متوقعة ولها سبب تعرفه."}
+      ],
+      "lesson": "إذا أخبرتك شركة الطيران بتغيير في رحلتك فتحقق منه في تطبيقها الرسمي أو موقعها، ولا تدفع رسوم تعديل لأي متصل على الهاتف."
+    },
+    "en": {
+      "context": "You have a flight booked for next Thursday.",
+      "card": {
+        "caller": "+1 202 555 0126",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "Hello, this is Sarah from the airline's customer service. Your flight next Thursday has been moved from nine in the morning to two in the afternoon."},
+          {"who": "you", "text": "Oh. Do I need to do anything?"},
+          {"who": "caller", "text": "Nothing over the phone. The new time is already in your booking. Please check it in the airline's app, and if it doesn't suit you, you can change it there for free."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "check it in the airline's app", "why": "She sends you to the app you already use, so you can see the change yourself instead of trusting the call."},
+        {"kind": "green", "mark": "Nothing over the phone", "why": "She asks for no payment, card details or code during the call. She only informs you."},
+        {"kind": "green", "mark": "Your flight next Thursday", "why": "The flight matches your real booking, so the call is expected and has a reason you know."}
+      ],
+      "lesson": "When an airline tells you about a change, confirm it in its official app or website, and never pay a change fee to someone on the phone."
+    }
+  },
+  {
+    "id": "call-recruiter-interview-invite",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 4,
+    "tags": ["expected", "official-channel", "no-link"],
+    "ar": {
+      "context": "تقدمت قبل أسبوعين لوظيفة محاسب عبر موقع الشركة.",
+      "card": {
+        "caller": "+44 7700 900539",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "هلا، معاك لمى من قسم الموارد البشرية، شكراً على تقديمك على وظيفة المحاسب، حابين نحدد لك مقابلة في مكتبنا يوم الثلاثاء الجاي الساعة عشر"},
+          {"who": "you", "text": "حلو، أحتاج أدفع أو أرسل شي؟"},
+          {"who": "caller", "text": "لا أبد، ماكو أي رسوم، برسل لك التفاصيل على إيميلك من بريد الشركة الرسمي، وجيب معاك نسخة من سيرتك الذاتية"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "ماكو أي رسوم", "why": "صاحب العمل الحقيقي لا يطلب منك أي رسوم للتقديم أو المقابلة، لذا فنفي الرسوم بوضوح سمة التوظيف الحقيقي."},
+        {"kind": "green", "mark": "وظيفة المحاسب", "why": "الوظيفة المذكورة هي نفسها التي تقدمت لها بنفسك، أي أن المكالمة متوقعة ولها سبب واضح."},
+        {"kind": "green", "mark": "من بريد الشركة الرسمي", "why": "إرسال التفاصيل من بريد الشركة الرسمي يتيح لك التحقق من الجهة كتابياً بدلاً من الاعتماد على المكالمة وحدها."}
+      ],
+      "lesson": "المقابلة الحقيقية لا تكلفك شيئاً، فإذا طلب منك متصل مالاً مقابل وظيفة أو مقابلة أو تأشيرة عمل فاعلم أنه احتيال."
+    },
+    "en": {
+      "context": "Two weeks ago you applied for an accountant job on the company's website.",
+      "card": {
+        "caller": "+44 7700 900539",
+        "saved": false,
+        "voice": {"gender": "female", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Hi, this is Laura from the HR team. Thanks for applying for the accountant role. We'd like to invite you to an interview at our office next Tuesday at ten."},
+          {"who": "you", "text": "That's great. Do I need to pay or send anything?"},
+          {"who": "caller", "text": "No, there's no fee at all. I'll email you the details from our company address. Just bring a copy of your CV."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "there's no fee at all", "why": "Real employers never charge you to apply or interview. Saying plainly that there is no fee is what a genuine recruiter does."},
+        {"kind": "green", "mark": "the accountant role", "why": "It is the job you applied for yourself, so the call is expected and has a clear reason."},
+        {"kind": "green", "mark": "from our company address", "why": "Details sent from the company's official email let you check the employer in writing, not just on a call."}
+      ],
+      "lesson": "A real interview never costs you anything. If a caller asks for money for a job, an interview or a work permit, it is a scam."
+    }
+  },
+  {
+    "id": "call-water-planned-maintenance",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "utilities",
+    "region": "global",
+    "difficulty": 3,
+    "tags": ["no-link", "official-channel"],
+    "ar": {
+      "context": "فاتورة الماء لمنزلك مسددة بالكامل.",
+      "card": {
+        "caller": "+1 202 555 0109",
+        "saved": false,
+        "voice": {"gender": "male", "age": "older", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "مساء الخير، أتصل فيك من شركة المياه، عندنا صيانة مجدولة على الخطوط في شارعكم يوم السبت، والماي بينقطع من الساعة ثمان الصبح لين ثنتين الظهر"},
+          {"who": "you", "text": "أوكي، مشكور، لازم أسوي شي؟"},
+          {"who": "caller", "text": "لا أبد، بس خزّن لك شوية ماي لذاك اليوم، والتفاصيل موجودة بعد في موقعنا الرسمي"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "بس خزّن لك شوية ماي", "why": "النصيحة الوحيدة أن تحتفظ ببعض الماء، أي أن المكالمة لا تطلب منك دفعاً ولا رقم حساب ولا رمزاً."},
+        {"kind": "green", "mark": "في موقعنا الرسمي", "why": "إحالتك إلى الموقع الرسمي تتيح لك التأكد من أعمال الصيانة بنفسك دون الاعتماد على المكالمة."},
+        {"kind": "trap", "mark": "شركة المياه", "why": "ذكر اسم شركة المياه لا يثبت شيئاً وحده، فما يجعل المكالمة آمنة أنها لم تطلب منك أي شيء."}
+      ],
+      "lesson": "مكالمات الإبلاغ عن الصيانة الحقيقية تقدم لك معلومة فقط، فإذا طلب منك متصل دفع فاتورة لتجنب قطع الخدمة فلا تدفع له، بل تحقق من حسابك عبر التطبيق أو الموقع الرسمي."
+    },
+    "en": {
+      "context": "Your home's water bill is fully paid.",
+      "card": {
+        "caller": "+1 202 555 0109",
+        "saved": false,
+        "voice": {"gender": "male", "age": "older", "tone": "official"},
+        "lines": [
+          {"who": "caller", "text": "Good afternoon, I'm calling from the water company. There's planned maintenance on the pipes in your street this Saturday, so the water will be off from eight in the morning until two."},
+          {"who": "you", "text": "Okay, thanks. Do I need to do anything?"},
+          {"who": "caller", "text": "No, just keep some water aside for the day. The details are also on our official website."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "just keep some water aside", "why": "The only advice is to store some water. The caller asks for no payment, account number or code."},
+        {"kind": "green", "mark": "on our official website", "why": "Pointing you to the official website lets you confirm the work yourself instead of relying on the call."},
+        {"kind": "trap", "mark": "the water company", "why": "Naming the company proves nothing on its own. What makes this call safe is that nothing is asked of you."}
+      ],
+      "lesson": "Real maintenance calls only give you information. If a caller demands payment to avoid a cutoff, do not pay on the call and check your account in the official app or website instead."
+    }
+  },
+  {
+    "id": "call-telecom-plan-change-confirm",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "telecom",
+    "region": "global",
+    "difficulty": 3,
+    "tags": ["expected", "no-link", "official-channel"],
+    "ar": {
+      "context": "غيّرت باقة هاتفك بنفسك أمس في فرع مزوّد الخدمة.",
+      "card": {
+        "caller": "+1 202 555 0164",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "هلا، معاك جاسم من الفرع اللي غيرت فيه باقتك أمس، حبيت أقول لك إن الباقة الجديدة بعشرين جيجا صارت شغالة من اليوم"},
+          {"who": "you", "text": "حلو، مشكور، تحتاج مني شي؟"},
+          {"who": "caller", "text": "لا، ما أحتاج منك شي، أول فاتورة بتطلع بالسعر الجديد ثلاثين دولار، وتقدر تشوف كل التفاصيل في التطبيق الرسمي"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "غيرت فيه باقتك أمس", "why": "المكالمة تتحدث عن تغيير أجريته بنفسك أمس في الفرع، أي أنها متوقعة ولها سبب تعرفه."},
+        {"kind": "green", "mark": "ما أحتاج منك شي", "why": "الموظف لا يطلب منك رمزاً ولا دفعاً ولا بيانات، بل يكتفي بإبلاغك بتفعيل الباقة."},
+        {"kind": "green", "mark": "في التطبيق الرسمي", "why": "إحالتك إلى التطبيق الرسمي تتيح لك التحقق من الباقة والسعر بنفسك."}
+      ],
+      "lesson": "المكالمة التي تؤكد خدمة طلبتها بنفسك ولا تطلب منك شيئاً آمنة غالباً، لكن إن طلب المتصل رمزاً لإتمام التغيير فأغلق الخط وراجع الفرع أو التطبيق الرسمي."
+    },
+    "en": {
+      "context": "Yesterday you changed your phone plan in person at your mobile network's store.",
+      "card": {
+        "caller": "+1 202 555 0164",
+        "saved": false,
+        "voice": {"gender": "male", "age": "adult", "tone": "friendly"},
+        "lines": [
+          {"who": "caller", "text": "Hi, it's John from the store where you changed your plan yesterday. Just letting you know your new twenty gigabyte plan is active from today."},
+          {"who": "you", "text": "Great, thanks. Do you need anything from me?"},
+          {"who": "caller", "text": "No, nothing needed. Your first bill will show the new price of thirty dollars, and you can see all the details in the official app."}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "where you changed your plan yesterday", "why": "The call is about a change you made yourself in the store, so it is expected."},
+        {"kind": "green", "mark": "nothing needed", "why": "He asks for no code, payment or details. He only tells you the plan is active."},
+        {"kind": "green", "mark": "in the official app", "why": "Sending you to the official app lets you check the plan and the price yourself."}
+      ],
+      "lesson": "A call confirming a change you made yourself, asking for nothing, is usually safe. If the caller wants a code to finish the change, hang up and check in the store or the official app."
+    }
+  }
+]

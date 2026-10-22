@@ -1,0 +1,1 @@
+(function(){try{if(localStorage.getItem("site.lang"))return;var a=navigator.languages&&navigator.languages[0]||navigator.language||"";/^ar(-|$)/i.test(a)&&location.replace("ar/"+location.search+location.hash)}catch(t){}})();

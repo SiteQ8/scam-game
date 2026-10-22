@@ -1,0 +1,536 @@
+[
+  {
+    "id": "sms-tax-refund-card-details",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "government",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "too-good",
+      "credentials",
+      "lookalike-domain",
+      "unknown-number"
+    ],
+    "ar": {
+      "card": {
+        "sender": "+1 202 555 0143",
+        "time": "10:41",
+        "body": "مكتب الضرائب: بعد المراجعة السنوية تبين أن لك مبلغاً مسترداً قدره 412.60 دولار، أدخل بيانات بطاقتك عبر tax-refund-claims.org قبل يوم الجمعة لاستلام المبلغ"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "أدخل بيانات بطاقتك",
+          "why": "الجهة الضريبية تعيد المبالغ إلى الحساب المسجل لديها، ولا تحتاج إلى بيانات بطاقتك المصرفية عبر رابط."
+        },
+        {
+          "kind": "red",
+          "mark": "tax-refund-claims.org",
+          "why": "الرابط ينتهي بنطاق عادي لا بنطاق حكومي، فلا علاقة له بأي جهة ضريبية رسمية."
+        },
+        {
+          "kind": "trap",
+          "mark": "412.60 دولار",
+          "why": "المبلغ الدقيق بالسنتات يبدو محسوباً بعناية، لكنه رقم اختاره المحتال ليبدو مقنعاً."
+        },
+        {
+          "kind": "red",
+          "mark": "+1 202 555 0143",
+          "why": "الجهات الضريبية لا تراسلك من أرقام هواتف عادية، فوصول الرسالة من رقم مجهول علامة احتيال."
+        }
+      ],
+      "lesson": "الاسترداد الضريبي الحقيقي يصلك دون أن تدخل بيانات بطاقتك في أي رابط، وإذا شككت فادخل إلى الموقع الحكومي الرسمي بكتابة عنوانه بنفسك."
+    },
+    "en": {
+      "card": {
+        "sender": "+1 202 555 0143",
+        "time": "10:41",
+        "body": "Tax Office: after the annual review you are owed a refund of 412.60 USD. Submit your card details at tax-refund-claims.org by Friday to receive the payment."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Submit your card details",
+          "why": "A tax office pays refunds into the account it already has on file. It never needs your card details through a link."
+        },
+        {
+          "kind": "red",
+          "mark": "tax-refund-claims.org",
+          "why": "The address ends in an ordinary domain, not a government one."
+        },
+        {
+          "kind": "trap",
+          "mark": "412.60 USD",
+          "why": "An exact amount with cents looks carefully calculated, but the scammer simply picked it to seem real."
+        },
+        {
+          "kind": "red",
+          "mark": "+1 202 555 0143",
+          "why": "Tax offices do not text you from ordinary phone numbers."
+        }
+      ],
+      "lesson": "Real tax refunds never need your card details in a link. If in doubt, visit the official government site by typing its address yourself."
+    }
+  },
+  {
+    "id": "sms-stock-tips-private-group",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "too-good",
+      "off-platform",
+      "unknown-number"
+    ],
+    "ar": {
+      "card": {
+        "sender": "+44 7700 900731",
+        "time": "11:17",
+        "body": "مرحباً، معك سارة من فريق الأبحاث، أعضاؤنا حققوا أرباحاً بنسبة 38% الشهر الماضي من سهمين فقط، وتوصية الغد مجانية للأعضاء الجدد، انضم إلى مجموعتنا الخاصة من هنا invest-signals-club.com/join"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "38% الشهر الماضي",
+          "why": "الأرباح العالية في وقت قصير وعد غير واقعي، ولا يستطيع أي مستشار حقيقي أن يضمن لك عائداً كهذا."
+        },
+        {
+          "kind": "trap",
+          "mark": "توصية الغد مجانية",
+          "why": "التوصية المجانية الأولى طُعم لكسب ثقتك، ثمّ يأتي لاحقاً طلب أكبر بكثير."
+        },
+        {
+          "kind": "red",
+          "mark": "مجموعتنا الخاصة",
+          "why": "نقلك إلى مجموعة خاصة يبعدك عن أعين الجهات الرقابية، وهناك سيُطلب منك تحويل أموالك إلى منصة وهمية."
+        },
+        {
+          "kind": "red",
+          "mark": "+44 7700 900731",
+          "why": "نصيحة استثمارية من رقم أجنبي لم تتعامل معه من قبل تعني أنك مستهدف عشوائياً."
+        }
+      ],
+      "lesson": "لا تستثمر بناءً على رسالة من شخص لا تعرفه، وتأكد أن الشركة مرخصة من الجهة الرقابية على الأسواق المالية في بلدك قبل أن تحوّل إليها أي مبلغ."
+    },
+    "en": {
+      "card": {
+        "sender": "+44 7700 900731",
+        "time": "11:17",
+        "body": "Hi, this is Sara from the research team. Our members made 38% last month on just two stocks. Tomorrow's pick is free for new members. Join our private group here: invest-signals-club.com/join"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "made 38% last month",
+          "why": "Huge gains in a short time are an unrealistic promise. No genuine adviser can guarantee returns like that."
+        },
+        {
+          "kind": "trap",
+          "mark": "Tomorrow's pick is free",
+          "why": "The free first tip is bait to win your trust. The real ask comes later and is much bigger."
+        },
+        {
+          "kind": "red",
+          "mark": "private group",
+          "why": "Moving you to a private group keeps you away from regulators. That is where you will be told to send money to a fake platform."
+        },
+        {
+          "kind": "red",
+          "mark": "+44 7700 900731",
+          "why": "An investment tip from a foreign number you never dealt with means you were picked at random."
+        }
+      ],
+      "lesson": "Never invest because a stranger texted you, and check that any firm is licensed by your country's market regulator before you send money."
+    }
+  },
+  {
+    "id": "sms-new-login-reply-code",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "otp",
+      "impersonation",
+      "credentials"
+    ],
+    "ar": {
+      "context": "لم تحاول تسجيل الدخول إلى أي حساب اليوم.",
+      "card": {
+        "sender": "Security",
+        "time": "07:58",
+        "body": "تنبيه أمني: هناك محاولة لتسجيل الدخول إلى حسابك من جهاز جديد، وإذا لم تكن أنت فأرسل رمز التحقق المكون من 6 أرقام الذي وصلك للتو رداً على هذه الرسالة لنتمكن من حظر المحاولة"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Security",
+          "why": "اسم المرسل الذي يوحي بالأمان لا يثبت شيئاً، فأي شخص يستطيع أن يرسل بهذا الاسم."
+        },
+        {
+          "kind": "red",
+          "mark": "رمز التحقق المكون من 6 أرقام",
+          "why": "هذا الرمز وصلك لأنّ المحتال نفسه يحاول الدخول إلى حسابك الآن، فإذا أعطيته إياه دخل الحساب."
+        },
+        {
+          "kind": "red",
+          "mark": "رداً على هذه الرسالة",
+          "why": "لا توجد خدمة حقيقية تطلب منك إعادة رمز التحقق في رد على رسالة، فالرمز يُكتب فقط في الصفحة التي فتحتها بنفسك."
+        }
+      ],
+      "lesson": "إذا وصلك رمز تحقق لم تطلبه فلا ترسله لأحد، بل افتح التطبيق بنفسك وغيّر كلمة المرور ثمّ فعّل التحقق بخطوتين."
+    },
+    "en": {
+      "context": "You have not tried to sign in anywhere today.",
+      "card": {
+        "sender": "Security",
+        "time": "07:58",
+        "body": "Warning: someone is trying to sign in to your account from a new device. If this was not you, reply to this message with the 6-digit code we just sent you so we can block the attempt."
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "Security",
+          "why": "A reassuring sender name like Security proves nothing. Anyone can send under it."
+        },
+        {
+          "kind": "red",
+          "mark": "the 6-digit code we just sent you",
+          "why": "That code arrived because the scammer is trying to sign in right now. Hand it over and they are in."
+        },
+        {
+          "kind": "red",
+          "mark": "reply to this message",
+          "why": "No real service asks you to send a code back by text. Codes are only typed into a page you opened yourself."
+        }
+      ],
+      "lesson": "If a code arrives that you did not ask for, never pass it on. Open the app yourself, change your password and turn on two-step verification."
+    }
+  },
+  {
+    "id": "sms-part-time-job-offer",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 1,
+    "tags": [
+      "too-good",
+      "off-platform",
+      "unknown-number"
+    ],
+    "ar": {
+      "card": {
+        "sender": "+1 202 555 0178",
+        "time": "14:26",
+        "body": "مرحباً! نبحث عن موظفين بدوام جزئي عن بعد، اربح من 200 إلى 500 دولار يومياً بمجرد الإعجاب بمقاطع فيديو من هاتفك ودون أي خبرة، راسل مدير التوظيف الآن على تطبيق المحادثة"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "من 200 إلى 500 دولار يومياً",
+          "why": "الأجر الكبير مقابل مهمة سهلة جداً وعد غير واقعي، وهو الطُعم المعتاد في احتيال الوظائف."
+        },
+        {
+          "kind": "red",
+          "mark": "+1 202 555 0178",
+          "why": "عرض العمل يصلك من رقم أجنبي مع أنك لم تتقدم لأي وظيفة، والشركات الحقيقية لا توظف الناس عشوائياً عبر الرسائل."
+        },
+        {
+          "kind": "red",
+          "mark": "على تطبيق المحادثة",
+          "why": "نقل الحديث إلى تطبيق محادثة يبعدك عن أي جهة رسمية، وهناك يُطلب منك لاحقاً إيداع مبلغ لفتح المهام."
+        }
+      ],
+      "lesson": "الوظيفة الحقيقية لا تصلك برسالة من رقم مجهول ولا تطلب منك إيداع أي مبلغ، لذا تجاهل هذه العروض وابحث عن العمل عبر جهات توظيف موثوقة."
+    },
+    "en": {
+      "card": {
+        "sender": "+1 202 555 0178",
+        "time": "14:26",
+        "body": "Hello! We are hiring part-time remote staff. Earn 200 to 500 USD a day just by liking videos on your phone, no experience needed. Message our hiring manager now on the chat app."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "200 to 500 USD a day",
+          "why": "Big pay for a trivial task is unrealistic. It is the usual bait in job scams."
+        },
+        {
+          "kind": "red",
+          "mark": "+1 202 555 0178",
+          "why": "You never applied, yet the offer comes from a foreign number. Real employers do not hire people at random by text."
+        },
+        {
+          "kind": "red",
+          "mark": "on the chat app",
+          "why": "Moving you to a chat app takes you away from any official channel. There you will be asked to deposit money to unlock tasks."
+        }
+      ],
+      "lesson": "Real jobs do not arrive by text from strangers or ask you to deposit money. Ignore these offers and look for work through trusted channels."
+    }
+  },
+  {
+    "id": "sms-password-reset-requested",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "accounts",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "otp",
+      "expected",
+      "no-link"
+    ],
+    "ar": {
+      "context": "ضغطت قبل لحظات على خيار «نسيت كلمة المرور» في موقع تسوق.",
+      "card": {
+        "sender": "Store",
+        "time": "17:12",
+        "body": "رمز إعادة تعيين كلمة المرور هو 739104 وتنتهي صلاحيته خلال 10 دقائق، وإذا لم تطلب إعادة التعيين فتجاهل هذه الرسالة وستبقى كلمة المرور كما هي"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "رمز إعادة تعيين كلمة المرور",
+          "why": "الرسالة وصلت مباشرة بعد أن طلبت إعادة التعيين بنفسك، أي أنها متوقعة ولها سبب واضح."
+        },
+        {
+          "kind": "green",
+          "mark": "فتجاهل هذه الرسالة",
+          "why": "الرسالة الحقيقية تطمئنك ولا تضغط عليك، فلا تهديد فيها ولا رابط ولا طلب لإرسال الرمز إلى أحد."
+        }
+      ],
+      "lesson": "لا تكتب رمز إعادة التعيين إلا في الصفحة التي طلبته منها بنفسك، وإذا وصلك رمز لم تطلبه فتجاهله ثمّ غيّر كلمة المرور من التطبيق."
+    },
+    "en": {
+      "context": "You just tapped “Forgot password” on a shopping site.",
+      "card": {
+        "sender": "Store",
+        "time": "17:12",
+        "body": "Your password reset code is 739104. It expires in 10 minutes. If you did not ask for a reset, ignore this message and your password will stay the same."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "password reset code",
+          "why": "It arrived right after you asked for a reset yourself, so it is expected."
+        },
+        {
+          "kind": "green",
+          "mark": "ignore this message",
+          "why": "A real message reassures you rather than pressuring you. No threat, no link and no request to send the code anywhere."
+        }
+      ],
+      "lesson": "Type a reset code only into the page where you asked for it. If one arrives that you did not request, ignore it and change your password in the app."
+    }
+  },
+  {
+    "id": "sms-order-shipped-expected",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "shopping",
+    "region": "global",
+    "difficulty": 1,
+    "tags": [
+      "expected",
+      "no-link"
+    ],
+    "ar": {
+      "context": "طلبت حذاءً رياضياً من متجر إلكتروني قبل يومين.",
+      "card": {
+        "sender": "Store",
+        "time": "09:47",
+        "body": "أخبار سارة، شُحن طلبك الذي يضم حذاءً رياضياً ومن المتوقع وصوله يوم الخميس، ويمكنك متابعته من التطبيق، ولن يُطلب منك أي مبلغ عند الاستلام"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "حذاءً رياضياً",
+          "why": "الرسالة تذكر المنتج الذي طلبته فعلاً، أي أنّ المرسل يعرف طلبك ولا يكتب صيغة عامة."
+        },
+        {
+          "kind": "green",
+          "mark": "يمكنك متابعته من التطبيق",
+          "why": "الرسالة لا تحمل رابطاً بل توجهك إلى التطبيق الذي اشتريت منه."
+        },
+        {
+          "kind": "green",
+          "mark": "لن يُطلب منك أي مبلغ عند الاستلام",
+          "why": "لا يوجد طلب لدفع أي رسوم، لذا لا تحمل الرسالة ما يستفيد منه محتال."
+        }
+      ],
+      "lesson": "رسالة الشحن التي تذكر طلبك الحقيقي ولا تطلب مالاً ولا تحمل رابطاً رسالة طبيعية، فتابع شحنتك دائماً من التطبيق الذي اشتريت منه."
+    },
+    "en": {
+      "context": "You ordered running shoes online two days ago.",
+      "card": {
+        "sender": "Store",
+        "time": "09:47",
+        "body": "Good news! Your order with the running shoes has shipped and should arrive on Thursday. You can follow it in the app. There is nothing to pay on delivery."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "running shoes",
+          "why": "It names the item you actually ordered, so the sender knows your order rather than guessing."
+        },
+        {
+          "kind": "green",
+          "mark": "follow it in the app",
+          "why": "There is no link. It sends you to the app you bought from."
+        },
+        {
+          "kind": "green",
+          "mark": "nothing to pay on delivery",
+          "why": "No fee is requested, so there is nothing in it for a scammer."
+        }
+      ],
+      "lesson": "A shipping text that names your real order, asks for nothing and has no link is normal. Track parcels in the app you bought from."
+    }
+  },
+  {
+    "id": "sms-flight-time-change",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "travel",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "no-link",
+      "verify-independently",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "لديك حجز على رحلة تغادر يوم الجمعة الساعة 10:15.",
+      "card": {
+        "sender": "Airline",
+        "time": "20:03",
+        "body": "تغيير في الموعد: تغادر رحلتك يوم الجمعة الساعة 8:40 صباحاً بدلاً من 10:15، ولا تغيير على مقعدك وأمتعتك، يرجى مراجعة الموعد الجديد في تطبيقنا أو لدى وكيل السفر، ولا يلزمك أي إجراء للاحتفاظ بحجزك"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "بدلاً من 10:15",
+          "why": "معرفة المرسل بموعد رحلتك الأصلي مطمئنة لكنها لا تكفي دليلاً، فما يحسم الأمر هو التحقق من التطبيق."
+        },
+        {
+          "kind": "green",
+          "mark": "مراجعة الموعد الجديد في تطبيقنا",
+          "why": "الرسالة تدعوك إلى التحقق بنفسك من التطبيق دون رابط، فتستطيع تأكيد التغيير من مصدر تعرفه."
+        },
+        {
+          "kind": "green",
+          "mark": "لا يلزمك أي إجراء",
+          "why": "الرسالة لا تطلب دفعاً ولا بيانات بطاقة ولا تأكيداً عبر رابط، فلا شيء فيها يستفيد منه محتال."
+        }
+      ],
+      "lesson": "إذا وصلتك رسالة بتغيير موعد رحلتك فافتح تطبيق شركة الطيران بنفسك وتأكد من الموعد الجديد، ولا تدفع أي رسوم ولا تُدخل بياناتك عبر رابط في رسالة."
+    },
+    "en": {
+      "context": "You are booked on a flight leaving Friday at 10:15.",
+      "card": {
+        "sender": "Airline",
+        "time": "20:03",
+        "body": "Schedule change: your flight on Friday now departs at 08:40 instead of 10:15. Your seat and baggage are unchanged. Please check the new time in our app or with your travel agent. No action is needed to keep your booking."
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "instead of 10:15",
+          "why": "Knowing your original time is reassuring but not proof on its own. Checking the app is what settles it."
+        },
+        {
+          "kind": "green",
+          "mark": "check the new time in our app",
+          "why": "It invites you to confirm in the app, with no link, so you can check the change at a source you trust."
+        },
+        {
+          "kind": "green",
+          "mark": "No action is needed",
+          "why": "It asks for no payment, card details or confirmation link, so there is nothing in it for a scammer."
+        }
+      ],
+      "lesson": "When a flight change arrives, open the airline app yourself to confirm it, and never pay or enter details through a link in a text."
+    }
+  },
+  {
+    "id": "sms-replacement-card-courier",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "ar": {
+      "context": "أبلغت البنك يوم الاثنين بفقدان بطاقتك وطلبت بطاقة بديلة.",
+      "card": {
+        "sender": "Bank",
+        "time": "11:50",
+        "body": "بطاقتك البديلة المنتهية بـ 7730 في الطريق إليك، وسيتصل بك المندوب قبل التوصيل ويطلب رؤية هويتك الشخصية عند التسليم، وبعد استلامها فعّل البطاقة من تطبيق البنك، علماً بأننا لن نطلب منك أبداً الرقم السري أو الرمز المطبوع خلف البطاقة"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "بطاقتك البديلة",
+          "why": "الرسالة متابعة متوقعة لطلب البطاقة البديلة الذي قدمته بنفسك يوم الاثنين."
+        },
+        {
+          "kind": "green",
+          "mark": "يطلب رؤية هويتك الشخصية عند التسليم",
+          "why": "إبراز الهوية للمندوب وجهاً لوجه إجراء طبيعي عند تسليم البطاقات، وهو يختلف تماماً عن قراءة بياناتك لشخص عبر الهاتف."
+        },
+        {
+          "kind": "green",
+          "mark": "فعّل البطاقة من تطبيق البنك",
+          "why": "الرسالة توجهك إلى تطبيق البنك الرسمي ولا تحمل رابطاً ولا رقماً تتصل به."
+        },
+        {
+          "kind": "green",
+          "mark": "لن نطلب منك أبداً الرقم السري",
+          "why": "التذكير بأن البنك لا يطلب الرقم السري أبداً سمة الرسائل المصرفية الحقيقية."
+        }
+      ],
+      "lesson": "عند استلام بطاقتك الجديدة أبرز هويتك للمندوب إذا طلبها، لكن لا تعطه الرقم السري ولا أي رمز، ثمّ فعّل البطاقة بنفسك من تطبيق البنك الرسمي."
+    },
+    "en": {
+      "context": "You reported your card lost on Monday and asked for a new one.",
+      "card": {
+        "sender": "Bank",
+        "time": "11:50",
+        "body": "Your replacement card ending 7730 is on its way. Our courier will call before delivery and will ask to see your photo ID at the door. Once it arrives, activate the card in the bank app. We will never ask for your PIN or the code on the back."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "replacement card",
+          "why": "This is the follow-up you expected after asking for a new card on Monday."
+        },
+        {
+          "kind": "green",
+          "mark": "ask to see your photo ID at the door",
+          "why": "Showing ID face to face is a normal check for card delivery. It is very different from reading out details on the phone."
+        },
+        {
+          "kind": "green",
+          "mark": "activate the card in the bank app",
+          "why": "It sends you to the official bank app, with no link and no number to call."
+        },
+        {
+          "kind": "green",
+          "mark": "We will never ask for your PIN",
+          "why": "Real bank messages remind you that your PIN is never needed."
+        }
+      ],
+      "lesson": "When a new card is delivered, show your ID if asked but never give a PIN or code, then activate the card yourself in the bank app."
+    }
+  }
+]

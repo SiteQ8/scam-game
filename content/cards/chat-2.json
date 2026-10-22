@@ -1,0 +1,378 @@
+[
+  {
+    "id": "chat-romance-off-app",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "romance",
+    "region": "global",
+    "difficulty": 3,
+    "tags": ["off-platform", "gift-cards", "secrecy", "emotional", "payment"],
+    "ar": {
+      "context": "رامي شخص تعرفت عليه في تطبيق للتواصل الاجتماعي قبل شهر وتتحدثان كل يوم.",
+      "card": {
+        "contact": "رامي",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "خلينا نكمل كلامنا هنا، التطبيق مليان حسابات وهمية وما أرتاح فيه 😅", "time": "22:05"},
+          {"from": "them", "text": "عقدي على المنصة البحرية خلص أخيراً، وحجزت عشان أجي أشوفك الشهر الجاي ❤️", "time": "22:07"},
+          {"from": "them", "text": "بس صارت مشكلة، الجمارك حاجزة أغراضي وتطلب 1,800 دولار، وحسابي البنكي مجمد لين أرجع", "time": "22:09"},
+          {"from": "them", "text": "تقدرين تدفعينها ببطاقات هدايا وترسلين لي صور الأكواد؟ أرجعها لك أول ما نلتقي، وخليها بيننا 🤍", "time": "22:10"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "خلينا نكمل كلامنا هنا", "why": "نقل المحادثة من التطبيق الذي تعارفتما فيه خطوة مقصودة، لأنها تبعدك عن أدوات الحماية والإبلاغ في ذلك التطبيق."},
+        {"kind": "trap", "mark": "حجزت عشان أجي أشوفك", "why": "وعد اللقاء القريب يوحي بأن العلاقة حقيقية، لكنه وعد يتأجل كل مرة بحجة جديدة ولا يتحقق أبداً."},
+        {"kind": "red", "mark": "ببطاقات هدايا", "why": "لا أحد يدفع رسوم الجمارك ببطاقات الهدايا، والمحتالون يختارونها لأنها لا تُسترجع ويصعب تتبعها."},
+        {"kind": "red", "mark": "وخليها بيننا", "why": "طلب الكتمان يمنعك من استشارة أهلك وأصدقائك، وهم أول من سينبهك إلى الاحتيال."}
+      ],
+      "lesson": "لا ترسل مالاً ولا بطاقات هدايا لشخص لم تقابله وجهاً لوجه مهما طالت المحادثة، واستشر شخصاً تثق به عند أول طلب مالي."
+    },
+    "en": {
+      "context": "You met Rami on a social app a month ago and you chat every day.",
+      "card": {
+        "contact": "Rami",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "Let's keep talking here, that app is full of fake profiles and I don't trust it 😅", "time": "22:05"},
+          {"from": "them", "text": "My contract on the offshore rig finally ended, and I've booked to come and see you next month ❤️", "time": "22:07"},
+          {"from": "them", "text": "But there's a problem. Customs are holding my things and want $1,800, and my bank account is frozen until I'm back", "time": "22:09"},
+          {"from": "them", "text": "Could you pay it with gift cards and send me photos of the codes? I'll pay you back the moment we meet. Keep this between us 🤍", "time": "22:10"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "Let's keep talking here", "why": "Moving the chat off the app where you met is deliberate. It takes you away from that app's safety and reporting tools."},
+        {"kind": "trap", "mark": "booked to come and see you", "why": "A promise to meet soon makes it feel real, but the visit is always delayed by a new problem and never happens."},
+        {"kind": "red", "mark": "gift cards", "why": "Nobody pays customs with gift cards. Scammers choose them because they cannot be reversed and are hard to trace."},
+        {"kind": "red", "mark": "Keep this between us", "why": "Secrecy stops you from asking family or friends, who would be the first to spot the scam."}
+      ],
+      "lesson": "Never send money or gift cards to someone you have not met in person, however long you have talked. Tell someone you trust at the first money request."
+    }
+  },
+  {
+    "id": "chat-fake-bank-support",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["otp", "impersonation", "urgency", "threat", "unknown-number"],
+    "ar": {
+      "card": {
+        "contact": "+965 9••• ••06",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "مرحباً، معك فريق خدمة العملاء في البنك، رصدنا عملية شراء مشبوهة على بطاقتك بقيمة 245.000 د.ك من متجر خارجي", "time": "16:22"},
+          {"from": "them", "text": "لإلغاء العملية فوراً سيصلك الآن رمز تحقق برسالة نصية، يرجى إرساله لنا هنا لتأكيد هويتك", "time": "16:22"},
+          {"from": "me", "text": "ما سويت أي عملية شراء!", "time": "16:24"},
+          {"from": "them", "text": "لا تقلق، لهذا تواصلنا معك، أرسل الرمز خلال دقيقتين وإلا ستكتمل العملية ولن نتمكن من استرجاع المبلغ", "time": "16:24"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "فريق خدمة العملاء في البنك", "why": "ادعاء المرسل أنه من البنك لا يثبت شيئاً، فأي شخص يستطيع كتابة هذه العبارة في رسالة."},
+        {"kind": "red", "mark": "يرجى إرساله لنا هنا", "why": "البنك لا يطلب منك رمز التحقق أبداً، ومن يطلبه يريد أن يُتم به العملية نفسها التي يزعم أنه سيلغيها."},
+        {"kind": "red", "mark": "خلال دقيقتين", "why": "المهلة القصيرة والتهديد بضياع المبلغ يدفعانك إلى الاستجابة قبل أن تتصل بالبنك بنفسك."},
+        {"kind": "red", "mark": "+965 9••• ••06", "why": "الرسالة جاءت من رقم شخصي غير محفوظ على تطبيق دردشة، والبنك لا يتواصل معك بهذه الطريقة لإلغاء العمليات."}
+      ],
+      "lesson": "إذا وصلتك رسالة عن عملية مشبوهة فأغلق المحادثة واتصل بالبنك على الرقم المطبوع خلف بطاقتك، ولا تعطِ رمز التحقق لأي شخص مهما قال إنه موظف في البنك."
+    },
+    "en": {
+      "card": {
+        "contact": "+965 9••• ••06",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Hello, this is the customer care team at your bank. We have detected a suspicious purchase of 245.000 KWD on your card from an overseas store", "time": "16:22"},
+          {"from": "them", "text": "To cancel it right away, you will now receive a verification code by text. Please send it to us here to confirm your identity", "time": "16:22"},
+          {"from": "me", "text": "I didn't make any purchase!", "time": "16:24"},
+          {"from": "them", "text": "Don't worry, that's why we contacted you. Send the code within 2 minutes or the payment will go through and we won't be able to recover it", "time": "16:24"}
+        ]
+      },
+      "signals": [
+        {"kind": "trap", "mark": "customer care team at your bank", "why": "Saying they are from the bank proves nothing. Anyone can type that line."},
+        {"kind": "red", "mark": "Please send it to us here", "why": "Your bank never asks for your code. Whoever asks wants it to approve the very payment they claim to cancel."},
+        {"kind": "red", "mark": "within 2 minutes", "why": "The tight deadline and the threat of losing the money push you to act before you call the bank yourself."},
+        {"kind": "red", "mark": "+965 9••• ••06", "why": "It comes from an unsaved personal number on a chat app. Banks do not cancel payments this way."}
+      ],
+      "lesson": "If you get a message about a suspicious payment, close the chat and call the number on the back of your card. Never give a verification code to anyone who says they work for the bank."
+    }
+  },
+  {
+    "id": "chat-mistaken-transfer-refund",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": ["payment", "urgency", "emotional", "unknown-number", "verify-independently"],
+    "ar": {
+      "card": {
+        "contact": "+965 6••• ••19",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "السلام عليكم، اسمح لي حولت لك 85 د.ك بالغلط، كنت أبي أحولها لأخوي ورقمه يشبه رقمك", "time": "14:03"},
+          {"from": "them", "text": "هذا إيصال التحويل: تم تحويل 85.000 د.ك بنجاح إلى المستفيد صاحب الرقم •••• ••52", "time": "14:03"},
+          {"from": "me", "text": "لحظة خلني أشيك", "time": "14:06"},
+          {"from": "them", "text": "الله يخليك بسرعة، أمي في المستشفى ومحتاج المبلغ، رجّعه على حساب أخوي مباشرة KW•• •••• •••• 3390", "time": "14:06"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "حولت لك 85 د.ك بالغلط", "why": "طلب شخص غريب استرجاع تحويل خاطئ أسلوب احتيال معروف، لأنّ التحويل الخاطئ الحقيقي يعالجه البنك لا محادثة مع شخص لا تعرفه."},
+        {"kind": "trap", "mark": "هذا إيصال التحويل", "why": "الإيصال المنسوخ أو صورة الشاشة يسهل تزويرهما، والدليل الوحيد هو رصيدك كما يظهر في تطبيق البنك الرسمي."},
+        {"kind": "red", "mark": "على حساب أخوي", "why": "طلب الإرجاع إلى حساب غير الذي حوّل منه علامة احتيال واضحة، فحتى لو وصلك مال حقيقي فقد يكون مسروقاً وتحويله إلى طرف ثالث يجعلك جزءاً من الجريمة."},
+        {"kind": "red", "mark": "أمي في المستشفى", "why": "القصة المؤثرة مع الاستعجال تضغط عليك لتحوّل قبل أن تتحقق من رصيدك."}
+      ],
+      "lesson": "إذا ادعى شخص أنه حوّل لك مالاً بالخطأ فتحقق من رصيدك في تطبيق البنك الرسمي، ثمّ اطلب منه مراجعة بنكه ليتولى البنك إرجاع المبلغ."
+    },
+    "en": {
+      "card": {
+        "contact": "+965 6••• ••19",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Hi, sorry to bother you. I sent you 85 KWD by mistake, it was meant for my brother and your numbers are similar", "time": "14:03"},
+          {"from": "them", "text": "Here's the transfer receipt: 85.000 KWD sent successfully to beneficiary •••• ••52", "time": "14:03"},
+          {"from": "me", "text": "Hang on, let me check", "time": "14:06"},
+          {"from": "them", "text": "Please be quick, my mother is in hospital and I need it. Send it straight to my brother's account KW•• •••• •••• 3390", "time": "14:06"}
+        ]
+      },
+      "signals": [
+        {"kind": "red", "mark": "I sent you 85 KWD by mistake", "why": "A stranger asking you to return a mistaken transfer is a known trick. Real mistakes are fixed by the bank, not by chatting with strangers."},
+        {"kind": "trap", "mark": "Here's the transfer receipt", "why": "Pasted receipts and screenshots are easy to fake. The only proof is your balance in your official banking app."},
+        {"kind": "red", "mark": "my brother's account", "why": "A refund to a different account is a clear warning. Even if real money arrived, it may be stolen, and passing it on makes you part of the crime."},
+        {"kind": "red", "mark": "my mother is in hospital", "why": "A sad story plus urgency pushes you to pay before you check your balance."}
+      ],
+      "lesson": "If someone says they sent you money by mistake, check your balance in your official banking app and ask them to go through their bank, which can reverse it properly."
+    }
+  },
+  {
+    "id": "chat-colleague-meeting-confirm",
+    "channel": "chat",
+    "verdict": "legit",
+    "category": "business",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": ["expected", "no-link"],
+    "ar": {
+      "context": "اتفقت أمس مع زميلتك نورة على اجتماع يوم الأحد لمناقشة الميزانية.",
+      "card": {
+        "contact": "نورة (العمل)",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "صباح الخير، حبيت أأكد موعد اجتماعنا يوم الأحد الساعة 10 الصبح بقاعة الاجتماعات في الدور الثالث", "time": "09:12"},
+          {"from": "them", "text": "بجيب معي أرقام الربع الثالث، وإذا عندك ملاحظات على العرض أرسلها على إيميل العمل", "time": "09:13"},
+          {"from": "me", "text": "تمام، مشكورة نورة، أشوفك الأحد", "time": "09:20"},
+          {"from": "them", "text": "العفو 🌷", "time": "09:21"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "موعد اجتماعنا يوم الأحد", "why": "الرسالة تؤكد اجتماعاً اتفقت عليه بنفسك أمس، فهي متوقعة ولها سبب واضح."},
+        {"kind": "green", "mark": "إيميل العمل", "why": "زميلتك توجهك إلى قناة العمل الرسمية، ولا تطلب مالاً ولا بيانات ولا تضغط عليك بأي شكل."},
+        {"kind": "trap", "mark": "نورة (العمل)", "why": "الاسم المحفوظ لا يكفي وحده دليلاً، لكنّ الرسالة آمنة لأنها تطابق ما اتفقتما عليه ولا تطلب منك شيئاً."}
+      ],
+      "lesson": "رسالة العمل المتوقعة التي لا تطلب شيئاً رسالة طبيعية، أما الطلب المفاجئ لتحويل مال أو شراء بطاقات هدايا باسم زميل أو مدير فيستحق مكالمة للتأكد."
+    },
+    "en": {
+      "context": "Yesterday you set up a Sunday budget meeting with your colleague Noura.",
+      "card": {
+        "contact": "Noura (Work)",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "Morning! Just confirming our meeting on Sunday at 10 am in the third floor meeting room", "time": "09:12"},
+          {"from": "them", "text": "I'll bring the Q3 numbers. If you have comments on the slides, send them to my work email", "time": "09:13"},
+          {"from": "me", "text": "Perfect, thanks Noura. See you Sunday", "time": "09:20"},
+          {"from": "them", "text": "👍", "time": "09:21"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "our meeting on Sunday", "why": "It confirms a meeting you set up yourself, so it is expected and makes sense."},
+        {"kind": "green", "mark": "my work email", "why": "She points you to the official work channel and asks for no money, details or links."},
+        {"kind": "trap", "mark": "Noura (Work)", "why": "A saved name alone is not proof. This message is safe because it matches what you arranged and asks for nothing."}
+      ],
+      "lesson": "An expected work message that asks for nothing is normal. A sudden request for money or gift cards in a colleague's or manager's name always deserves a call."
+    }
+  },
+  {
+    "id": "chat-voice-delivery-driver",
+    "channel": "chat",
+    "verdict": "legit",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": ["expected", "no-link"],
+    "ar": {
+      "context": "طلبت العشاء من تطبيق توصيل قبل نصف ساعة والتطبيق يُظهر أن المندوب في الطريق.",
+      "card": {
+        "contact": "+965 9••• ••58",
+        "saved": false,
+        "messages": [
+          {"from": "them", "voice": true, "duration": "0:10", "text": "السلام عليكم، أنا مندوب التوصيل، معاي طلبك من المطعم، أنا الحين في القطعة خمسة جنب الجمعية، ممكن ترسل لي اللوكيشن بالضبط؟", "time": "20:41"},
+          {"from": "me", "text": "هلا، أرسلت لك الموقع، البيت الثالث يمين والباب أسود", "time": "20:42"},
+          {"from": "them", "text": "تمام، دقيقتين وأكون عندك، الطلب مدفوع بالتطبيق ما عليك شي", "time": "20:43"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "معاي طلبك من المطعم", "why": "الرسالة وصلت وأنت تنتظر طلباً فعلياً، أي أنها متوقعة ومرتبطة بشيء فعلته بنفسك."},
+        {"kind": "green", "mark": "الطلب مدفوع بالتطبيق", "why": "المندوب يؤكد أنك لا تدين بشيء، ولا يطلب منك مبلغاً ولا رمزاً ولا يرسل رابطاً."},
+        {"kind": "trap", "mark": "أنا مندوب التوصيل", "why": "قول المرسل إنه المندوب لا يثبت شيئاً بنفسه، لكنّ ما يجعل الرسالة آمنة أنها تطابق طلبك ولا تطلب منك أي شيء حساس."}
+      ],
+      "lesson": "من الطبيعي أن يسألك مندوب طلب تنتظره عن موقعك، لكن إذا طلب مبلغاً إضافياً أو رمز تحقق أو أرسل رابطاً للدفع فتوقف وتواصل مع الدعم من داخل التطبيق."
+    },
+    "en": {
+      "context": "You ordered dinner on a delivery app 30 minutes ago and it shows the driver on the way.",
+      "card": {
+        "contact": "+965 9••• ••58",
+        "saved": false,
+        "messages": [
+          {"from": "them", "voice": true, "duration": "0:10", "text": "Hi, I'm the delivery driver, I have your order from the restaurant. I'm in block five now, next to the co-op. Can you send me your exact location?", "time": "20:41"},
+          {"from": "me", "text": "Hi, just sent it. Third house on the right, black gate", "time": "20:42"},
+          {"from": "them", "text": "Okay, two minutes. The order is paid in the app, nothing to pay", "time": "20:43"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "I have your order from the restaurant", "why": "It arrives while you are waiting for a real order, so it is expected and tied to something you did."},
+        {"kind": "green", "mark": "The order is paid in the app", "why": "The driver confirms you owe nothing and asks for no money, code or link."},
+        {"kind": "trap", "mark": "I'm the delivery driver", "why": "Saying they are the driver proves nothing on its own. What makes this safe is that it matches your order and asks for nothing sensitive."}
+      ],
+      "lesson": "It is normal for the driver of an order you are expecting to ask for your location. If they ask for extra money or a code, or send a payment link, stop and contact support inside the app."
+    }
+  },
+  {
+    "id": "chat-dinner-bill-split",
+    "channel": "chat",
+    "verdict": "legit",
+    "category": "family",
+    "region": "global",
+    "difficulty": 3,
+    "tags": ["expected", "no-link", "payment"],
+    "ar": {
+      "context": "تعشيت أمس مع أصدقائك في رحلتكم ودفع أحمد الحساب عن الجميع.",
+      "card": {
+        "contact": "أحمد",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "صباح الخير، استانست أمس على العشا 😄", "time": "10:15"},
+          {"from": "them", "text": "قسمت الفاتورة وطلع نصيب كل واحد 24 دولار، حولها لي بتطبيق البنك على حسابي المعتاد متى ما فضيت، ما في عجلة", "time": "10:16"},
+          {"from": "me", "text": "تم، حولتها الحين 👍", "time": "10:30"},
+          {"from": "them", "text": "وصلت، مشكور 🙏", "time": "10:31"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "نصيب كل واحد 24 دولار", "why": "المبلغ هو نصيبك من عشاء حضرته بنفسك، فالطلب متوقع وتعرف سببه."},
+        {"kind": "green", "mark": "حسابي المعتاد", "why": "تحوّل المبلغ من تطبيق البنك إلى حساب صديقك الذي تعرفه، لا إلى حساب جديد ولا عبر رابط."},
+        {"kind": "green", "mark": "ما في عجلة", "why": "لا ضغط ولا مهلة، فالمحتال يستعجلك بينما الصديق الحقيقي يترك لك الوقت."}
+      ],
+      "lesson": "ليس كل طلب مالي احتيالاً، فإذا طابق موقفاً تعرفه وذهب إلى حساب معتاد دون ضغط فهو طلب طبيعي، أما الطلب المفاجئ إلى حساب جديد فيستحق مكالمة."
+    },
+    "en": {
+      "context": "Last night you had dinner with friends on your trip and Ahmad paid the whole bill.",
+      "card": {
+        "contact": "Ahmad",
+        "saved": true,
+        "messages": [
+          {"from": "them", "text": "Morning! Great dinner last night 😄", "time": "10:15"},
+          {"from": "them", "text": "I split the bill and it's $24 each. Send it to my usual account through your banking app whenever, no rush", "time": "10:16"},
+          {"from": "me", "text": "Done, just sent it 👍", "time": "10:30"},
+          {"from": "them", "text": "Got it, thanks 🙏", "time": "10:31"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "$24 each", "why": "It is your share of a dinner you were at, so the request is expected and you know why."},
+        {"kind": "green", "mark": "my usual account", "why": "You pay a friend's account you already know from your banking app, not a new account or a link."},
+        {"kind": "green", "mark": "no rush", "why": "No pressure and no deadline. Scammers rush you, friends give you time."}
+      ],
+      "lesson": "Not every money request is a scam. If it matches something you know, goes to an account you already use and has no pressure, it is normal, while a sudden request to a new account deserves a call."
+    }
+  },
+  {
+    "id": "chat-hotel-arrival-confirm",
+    "channel": "chat",
+    "verdict": "legit",
+    "category": "travel",
+    "region": "global",
+    "difficulty": 4,
+    "tags": ["expected", "no-link", "unknown-number"],
+    "ar": {
+      "context": "حجزت ليلتين في فندق في روما للأسبوع القادم وأعطيتهم رقمك عند الحجز.",
+      "card": {
+        "contact": "+39 3•• ••• ••47",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "صباح الخير، معك الاستقبال في فندقك في روما، نؤكد حجزك لليلتين ابتداءً من يوم الثلاثاء، رقم الحجز R4471", "time": "11:02"},
+          {"from": "them", "text": "متى تتوقع وصولك؟ تسجيل الدخول من الساعة 2 ظهراً، والدفع يكون في مكتب الاستقبال عند وصولك", "time": "11:02"},
+          {"from": "me", "text": "شكراً، طيارتنا توصل الساعة 1 فبنكون عندكم تقريباً الساعة 3", "time": "11:15"},
+          {"from": "them", "text": "ممتاز، نراك يوم الثلاثاء، رحلة سعيدة", "time": "11:16"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "لليلتين ابتداءً من يوم الثلاثاء", "why": "التفاصيل تطابق الحجز الذي أجريته بنفسك، فالرسالة متوقعة ولها سبب واضح."},
+        {"kind": "green", "mark": "الدفع يكون في مكتب الاستقبال", "why": "الفندق لا يطلب بيانات بطاقتك ولا عربوناً عبر رابط، بل تدفع بنفسك عند الوصول."},
+        {"kind": "trap", "mark": "رقم الحجز R4471", "why": "رقم الحجز يبدو رسمياً لكنه لا يثبت شيئاً لأنّ بيانات الحجوزات قد تتسرب إلى المحتالين، وما يجعل الرسالة آمنة أنها لا تطلب منك شيئاً."}
+      ],
+      "lesson": "رسالة الفندق التي تطابق حجزك ولا تطلب دفعاً ولا بيانات بطاقة رسالة طبيعية، أما إذا طُلب منك تأكيد بطاقتك عبر رابط فادخل إلى حجزك من التطبيق أو الموقع الذي حجزت منه."
+    },
+    "en": {
+      "context": "You booked two nights at a hotel in Rome next week and gave your number when booking.",
+      "card": {
+        "contact": "+39 3•• ••• ••47",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Good morning, this is reception at your hotel in Rome. We're confirming your booking for 2 nights from Tuesday, reference R4471", "time": "11:02"},
+          {"from": "them", "text": "What time do you expect to arrive? Check-in is from 2 pm, and payment is taken at the front desk when you arrive", "time": "11:02"},
+          {"from": "me", "text": "Thanks! We land at 1, so around 3", "time": "11:15"},
+          {"from": "them", "text": "Perfect, see you on Tuesday. Safe travels!", "time": "11:16"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "2 nights from Tuesday", "why": "The details match the booking you made yourself, so the message is expected."},
+        {"kind": "green", "mark": "payment is taken at the front desk", "why": "They ask for no card details, deposit or link. You pay in person when you arrive."},
+        {"kind": "trap", "mark": "reference R4471", "why": "A booking reference looks official but proves nothing, because booking data can leak to scammers. This message is safe because it asks you for nothing."}
+      ],
+      "lesson": "A hotel message that matches your booking and asks for no payment or card details is normal. If one asks you to confirm your card through a link, check your booking in the app or site you booked with."
+    }
+  },
+  {
+    "id": "chat-cousin-new-number",
+    "channel": "chat",
+    "verdict": "legit",
+    "category": "family",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": ["new-number", "expected", "no-link"],
+    "ar": {
+      "context": "أخبرك ابن عمك يوسف على الغداء اليوم أنه سيغيّر رقم هاتفه.",
+      "card": {
+        "contact": "+965 6••• ••84",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "هلا، هذا يوسف، وهذا رقمي الجديد اللي قلت لك عنه على الغدا", "time": "18:20"},
+          {"from": "them", "text": "احفظه عندك، والقديم بيظل شغال لين آخر الشهر", "time": "18:21"},
+          {"from": "me", "text": "هلا يوسف، حفظته 👍", "time": "18:30"},
+          {"from": "them", "text": "تسلم، نشوفك الخميس بالديوانية 👋", "time": "18:31"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "اللي قلت لك عنه على الغدا", "why": "الرقم الجديد يطابق ما أخبرك به يوسف وجهاً لوجه، لذا فالرسالة متوقعة وتعرف سببها."},
+        {"kind": "green", "mark": "بيظل شغال لين آخر الشهر", "why": "يوسف يترك لك رقمه القديم متاحاً للتأكد بدلاً من أن يطلب منك حذفه، وهذا عكس ما يفعله المحتال تماماً."},
+        {"kind": "trap", "mark": "هذا يوسف", "why": "ذكر الاسم لا يثبت هوية المرسل، لكنّ الرسالة آمنة لأنها لا تطلب مالاً ولا رمزاً، ويمكنك التأكد عبر رقمه القديم."}
+      ],
+      "lesson": "الرقم الجديد الذي يطابق ما تعرفه ولا يطلب شيئاً يمكن حفظه بأمان، وإذا جاءك منه لاحقاً طلب مالي فتأكد عبر الرقم القديم أو بمكالمة قبل أن تستجيب."
+    },
+    "en": {
+      "context": "At lunch today your cousin Yousef told you he is switching to a new number.",
+      "card": {
+        "contact": "+965 6••• ••84",
+        "saved": false,
+        "messages": [
+          {"from": "them", "text": "Hey, it's Yousef. This is the new number I told you about at lunch", "time": "18:20"},
+          {"from": "them", "text": "Save it. The old one keeps working until the end of the month", "time": "18:21"},
+          {"from": "me", "text": "Hey Yousef, saved 👍", "time": "18:30"},
+          {"from": "them", "text": "Cheers, see you Thursday at the diwaniya 👋", "time": "18:31"}
+        ]
+      },
+      "signals": [
+        {"kind": "green", "mark": "the new number I told you about at lunch", "why": "It matches what Yousef told you face to face, so the message is expected."},
+        {"kind": "green", "mark": "The old one keeps working", "why": "He leaves his old number open for you to check instead of asking you to delete it. A scammer does the opposite."},
+        {"kind": "trap", "mark": "it's Yousef", "why": "A name proves nothing on its own. This is safe because it asks for no money or codes, and you can check with his old number."}
+      ],
+      "lesson": "A new number that matches what you know and asks for nothing is fine to save. If it later asks for money, check through the old number or with a call first."
+    }
+  }
+]
