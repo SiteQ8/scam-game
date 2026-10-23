@@ -17,7 +17,7 @@ import { CardView } from '../cards/CardView';
 import { SwipeCard, type SwipeApi } from '../components/SwipeCard';
 import { Debrief, SignalList } from '../components/Debrief';
 import { Icon } from '../components/Icon';
-import { Confirm, Pips, Stars, announce, toast } from '../components/common';
+import { Confirm, Pearls, Strand, announce, toast } from '../components/common';
 import { sfx, stopVoice, setMusic } from '../../platform/audio';
 import { impact, notify } from '../../platform/haptics';
 import { shareText } from '../../platform/share';
@@ -283,7 +283,7 @@ export function Play({ route }: { route: PlayRoute }) {
           </div>
         ) : (
           <>
-            <Pips total={total} results={results} current={idx} />
+            <Strand total={total} results={results} current={idx} />
             <span class="sr-only">{t('progress', { i: idx + 1, n: total })}</span>
           </>
         )}
@@ -314,8 +314,8 @@ export function Play({ route }: { route: PlayRoute }) {
         </div>
       ) : (
         <div class="verdicts">
-          <button class="verdict-btn scam" disabled={phase !== 'judge'} onClick={() => api.current?.decide('scam')}><Icon name="x" />{t('scam')}</button>
-          <button class="verdict-btn legit" disabled={phase !== 'judge'} onClick={() => api.current?.decide('legit')}><Icon name="check" />{t('legit')}</button>
+          <button class="verdict-btn scam" disabled={phase !== 'judge'} onClick={() => api.current?.decide('scam')}><span class="vd"><Icon name="x" /></span>{t('scam')}</button>
+          <button class="verdict-btn legit" disabled={phase !== 'judge'} onClick={() => api.current?.decide('legit')}><span class="vd"><Icon name="check" /></span>{t('legit')}</button>
         </div>
       )}
       {quit && <Confirm title={t('quitTitle')} body={t('quitBody')} confirm={t('leave')} cancel={t('keepPlaying')} danger onConfirm={() => { setQuit(false); stopVoice(); back(); }} onCancel={() => setQuit(false)} />}
@@ -387,7 +387,8 @@ function Results(p: ResultsProps) {
               <span class="lbl">{p.mode === 'rush' ? t('rightCalls') : t('score')}</span>
               <div class="big num">{big}</div>
               {sub && <p>{sub}</p>}
-              {(p.mode === 'chapter' || p.mode === 'pack') && <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}><Stars n={stars} /></div>}
+              {(p.mode === 'chapter' || p.mode === 'pack') && <Pearls n={stars} />}
+              {p.mode !== 'rush' && n > 0 && n <= 16 && <Strand total={n} results={p.results} size="lg" label={t('rightOf', { x: right, y: n })} />}
             </div>
             <div class="stat-row">
               <div class="stat"><b class="num">{right}/{n}</b><span>{t('rightCalls')}</span></div>
@@ -399,13 +400,12 @@ function Results(p: ResultsProps) {
 
         {p.mode === 'daily' && (
           <>
-            <div class="grid-share" aria-hidden="true">{p.results.map((r) => <i class={r ? 'ok' : 'no'} />)}</div>
             <button class="btn btn-primary" onClick={share}><Icon name="share-2" />{t('shareResult')}</button>
             <div class="toast-line">{copied ? t('copied') : t('nextIn', { t: duration(msToNextDay(new Date(now))) })}</div>
           </>
         )}
         {p.newBest && <div class="celebrate"><Icon name="trophy" /><div><b>{t('newBest')}</b><span class="num">{right}</span></div></div>}
-        {p.streak >= 2 && <div class="celebrate streak"><Icon name="flame" /><div><b>{t('streakDays', { days: count(p.streak, 'day') })}</b><span>{t('streakDone')}</span></div></div>}
+        {p.streak >= 2 && <div class="celebrate streak"><i class="bead ok" /><div><b>{t('streakDays', { days: count(p.streak, 'day') })}</b><span>{t('streakDone')}</span></div></div>}
         {p.levelUp && <div class="celebrate"><Icon name="medal" /><div><b>{t('levelUp')}</b><span>{t('levelN', { n: p.levelUp })}</span></div></div>}
         {p.rankUp && <div class="celebrate"><Icon name="award" /><div><b>{t('newRank')}</b><span>{p.rankUp}</span></div></div>}
         {p.unlocked.map((a) => <div class="celebrate badge-won"><Medal a={a} on /><div><b>{t('achievementUnlocked')}: {a[L].title}</b><span>{a[L].body}</span></div></div>)}
@@ -413,7 +413,7 @@ function Results(p: ResultsProps) {
         {p.mode !== 'party' && p.judged.length > 0 && (
           <>
             <h2 class="section-title">{missed.length ? t('reviewMissed') : t('reviewAll')}</h2>
-            {!missed.length && <p style={{ color: 'var(--text-2)', marginBottom: '10px' }}>{t('allRight')}</p>}
+            {!missed.length && <p class="lead-text">{t('allRight')}</p>}
             <div class="review">
               {(missed.length ? missed : p.judged).slice(0, 30).map((j) => {
                 const b = j.card[L] as LangBlock;

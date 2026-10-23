@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Card, Lang, SmsBody, NotificationBody, ChatBody, EmailBody, CallBody, WebBody, QrBody, SocialBody, MarketBody, ChatMsg, LangBlock } from '../../content/types';
 import { Icon } from '../components/Icon';
 import type { IconName } from '../icons.generated';
-import { createMarker, type Marker } from './marker';
+import { createMarker, markNumbers, type Marker } from './marker';
 import { S, CHANNEL_NAMES } from '../../i18n/strings';
 import { settings } from '../../state/store';
 import { playVoice, stopVoice, type VoiceHandle } from '../../platform/audio';
@@ -27,7 +27,8 @@ const tr = (lang: Lang, key: keyof typeof S) => S[key][lang];
 
 export function CardView({ card, lang, mode, active = null, huntFound, marksOn, onHuntTap, scrollRef }: Props) {
   const block = card[lang] as LangBlock;
-  const marker = createMarker(block.signals, { on: mode === 'debrief', active, hunt: mode === 'hunt' ? huntFound : undefined });
+  const numbers = useMemo(() => markNumbers(card, lang), [card, lang]);
+  const marker = createMarker(block.signals, { on: mode === 'debrief', active, hunt: mode === 'hunt' ? huntFound : undefined, numbers });
   const kind = (
     <div class="msg-kind">
       <Icon name={CHANNEL_ICON[card.channel]} />

@@ -16,6 +16,7 @@ export const S = {
   closedStamp: { en: 'CLOSED', ar: 'مغلق' },
   dailyResume: { en: 'Continue the case', ar: 'أكمل الملف' },
   dailyBlurb: { en: 'Ten cards, the same for everyone today.', ar: 'عشر بطاقات يلعبها الجميع اليوم.' },
+  dailyProgress: { en: '{x} of {n} done', ar: 'أنجزت {x} من {n}' },
   nextIn: { en: 'Next case in {t}', ar: 'الملف التالي بعد {t}' },
   share: { en: 'Share', ar: 'شارك' },
   shareResult: { en: 'Share result', ar: 'شارك نتيجتك' },
@@ -163,6 +164,7 @@ export const S = {
   // Hunt
   huntGoal: { en: 'Tap the warning signs', ar: 'المس علامات التحذير' },
   found: { en: '{x} of {y} found', ar: 'وجدت {x} من {y}' },
+  rightOf: { en: 'Right on {x} of {y}', ar: 'أصبت في {x} من {y}' },
   notAFlag: { en: 'Not a warning sign', ar: 'ليست علامة تحذير' },
   trapFound: { en: 'Reassuring, but not proof', ar: 'تطمئنك لكنها ليست دليلاً' },
   reveal: { en: 'Show me', ar: 'أظهر العلامات' },
@@ -242,7 +244,7 @@ export const S = {
   certAwardedTo: { en: 'Awarded to', ar: 'تُمنح هذه الشهادة إلى' },
   certBody: { en: 'for completing all eight chapters of the scam spotting journey.', ar: 'تقديراً لإتمام فصول المسار الثمانية في كشف علامات الاحتيال.' },
   certBodyNoName: { en: 'Awarded for completing all eight chapters of the scam spotting journey.', ar: 'تُمنح هذه الشهادة تقديراً لإتمام فصول المسار الثمانية في كشف علامات الاحتيال.' },
-  certStars: { en: 'Stars', ar: 'النجوم' },
+  certStars: { en: 'Pearls', ar: 'اللؤلؤ' },
   certSerial: { en: 'No. {n}', ar: 'الرقم {n}' },
   certStamp: { en: 'CERTIFIED', ar: 'معتمد' },
   certShareText: { en: 'I completed the scam spotting journey in {game}.', ar: 'أتممت مسار كشف الاحتيال في لعبة {game}.' },
@@ -303,7 +305,7 @@ export const S = {
   sourceCode: { en: 'Source code', ar: 'الشيفرة المصدرية' },
   version: { en: 'Version', ar: 'الإصدار' },
   contact: { en: 'Contact', ar: 'تواصل' },
-  licences: { en: 'Fonts: Alexandria and IBM Plex Sans Arabic (OFL). Icons: Lucide (ISC).', ar: 'الخطوط Alexandria و IBM Plex Sans Arabic برخصة OFL، والأيقونات Lucide برخصة ISC.' },
+  licences: { en: 'Fonts: Aref Ruqaa and Readex Pro (OFL). Icons: Lucide (ISC).', ar: 'الخطان Aref Ruqaa و Readex Pro برخصة OFL، والأيقونات Lucide برخصة ISC.' },
 
   // Onboarding
   ob1Title: { en: "You're the investigator", ar: 'أنت المحقق' },

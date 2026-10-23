@@ -19,9 +19,9 @@ export function Medal({ a, on, ratio, size = 'md' }: { a: Achievement; on: boole
   );
 }
 
-/** The level as a number inside a ring that fills toward the next level; it can fill up when it first appears. */
-export function LevelRing({ n, pct, animate = false }: { n: number; pct: number; animate?: boolean }) {
-  const r = 34;
+/** The level as a pearl that grows with it, in a brass ring that fills toward the next level; it can fill when it first appears. */
+export function LevelPearl({ n, pct, animate = false, size }: { n: number; pct: number; animate?: boolean; size?: 'lg' }) {
+  const r = 22;
   const len = 2 * Math.PI * r;
   const [shown, setShown] = useState(animate ? 0 : pct);
   useEffect(() => {
@@ -29,12 +29,15 @@ export function LevelRing({ n, pct, animate = false }: { n: number; pct: number;
     const id = requestAnimationFrame(() => requestAnimationFrame(() => setShown(pct)));
     return () => cancelAnimationFrame(id);
   }, [pct]);
+  // From two fifths of the ring at level 1 to four fifths by level 30.
+  const grow = 0.4 + 0.42 * Math.min(1, Math.max(0, n - 1) / 29);
   return (
-    <span class="level-ring" aria-hidden="true">
-      <svg viewBox="0 0 80 80">
-        <circle cx="40" cy="40" r={r} />
-        <circle class="fill" cx="40" cy="40" r={r} style={{ strokeDasharray: `${len}`, strokeDashoffset: `${len * (1 - shown)}` }} />
+    <span class={`level-pearl ${size || ''}`} style={{ '--p': grow.toFixed(3) }} aria-hidden="true">
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r={r} />
+        <circle class="fill" cx="24" cy="24" r={r} style={{ strokeDasharray: `${len}`, strokeDashoffset: `${len * (1 - shown)}` }} />
       </svg>
+      <i class="bead ok" />
       <b class="num">{n}</b>
     </span>
   );

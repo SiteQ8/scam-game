@@ -62,7 +62,7 @@ export const ACHIEVEMENTS: Achievement[] = [
 
   // Journey and packs
   counted({ id: 'chapters', icon: 'route', group: 'journey', tier: 'silver', en: { title: 'Journey complete', body: 'Pass every chapter.' }, ar: { title: 'أكملت المسار', body: 'اجتز كل الفصول.' } }, (p) => CHAPTERS.filter((c) => stars(p.journey, c.id) >= 1).length, CHAPTERS.length),
-  counted({ id: 'allStars', icon: 'trophy', group: 'journey', tier: 'gold', en: { title: 'Top of the class', body: 'Three stars on every chapter.' }, ar: { title: 'الأول على الدفعة', body: 'ثلاث نجوم في كل فصل.' } }, (p) => CHAPTERS.filter((c) => stars(p.journey, c.id) >= 3).length, CHAPTERS.length),
+  counted({ id: 'allStars', icon: 'trophy', group: 'journey', tier: 'gold', en: { title: 'Top of the class', body: 'Three pearls on every chapter.' }, ar: { title: 'الأول على الدفعة', body: 'ثلاث لؤلؤات في كل فصل.' } }, (p) => CHAPTERS.filter((c) => stars(p.journey, c.id) >= 3).length, CHAPTERS.length),
   { id: 'expert', icon: 'award', group: 'journey', tier: 'gold', en: { title: 'Expert', body: 'Pass the expert chapter.' }, ar: { title: 'خبير', body: 'اجتز فصل الخبراء.' }, check: (p) => stars(p.journey, 'expert') >= 1 },
   { id: 'certified', icon: 'file-badge', group: 'journey', tier: 'gold', en: { title: 'Certified', body: 'Get your journey certificate.' }, ar: { title: 'معتمد', body: 'احصل على شهادة المسار.' }, check: (p) => Boolean(p.certificate) },
   ...PACKS.map((pk): Achievement => {
@@ -70,7 +70,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     return { id: `pack-${pk.id}`, icon: b.icon, group: 'journey', tier: 'bronze', en: { title: b.en, body: b.enBody }, ar: { title: b.ar, body: b.arBody }, check: (p) => stars(p.packs, pk.id) >= 1 };
   }),
   counted({ id: 'allPacks', icon: 'medal', group: 'journey', tier: 'silver', en: { title: 'Collector', body: 'Complete all six packs.' }, ar: { title: 'جامع الحزم', body: 'أكمل الحزم الست كلها.' } }, (p) => PACKS.filter((pk) => stars(p.packs, pk.id) >= 1).length, PACKS.length),
-  counted({ id: 'packStars', icon: 'trophy', group: 'journey', tier: 'gold', en: { title: 'Pack master', body: 'Three stars on every pack.' }, ar: { title: 'سيد الحزم', body: 'ثلاث نجوم في كل حزمة.' } }, (p) => PACKS.filter((pk) => stars(p.packs, pk.id) >= 3).length, PACKS.length),
+  counted({ id: 'packStars', icon: 'trophy', group: 'journey', tier: 'gold', en: { title: 'Pack master', body: 'Three pearls on every pack.' }, ar: { title: 'سيد الحزم', body: 'ثلاث لؤلؤات في كل حزمة.' } }, (p) => PACKS.filter((pk) => stars(p.packs, pk.id) >= 3).length, PACKS.length),
 
   // Other ways to play
   counted({ id: 'rush15', icon: 'timer', group: 'modes', tier: 'silver', en: { title: 'Quick eye', body: 'Get 15 right in the 60 second rush.' }, ar: { title: 'عين سريعة', body: 'احكم على خمس عشرة بطاقة حكماً صحيحاً في سباق الستين ثانية.' } }, (p) => p.rushBest, 15),

@@ -6,7 +6,7 @@ import { ACHIEVEMENTS, type Achievement, type BadgeGroup } from '../../engine/ac
 import { levelFor } from '../../engine/levels';
 import { CARDS } from '../../content/cards';
 import { TopBar } from '../components/common';
-import { Medal, LevelRing } from '../components/Medal';
+import { Medal, LevelPearl } from '../components/Medal';
 import { sfx } from '../../platform/audio';
 
 const GROUPS: BadgeGroup[] = ['skill', 'daily', 'journey', 'modes'];
@@ -25,10 +25,10 @@ export function Badges() {
       <TopBar title={t('badges')} onBack={back} />
       <div class="scroll"><div class="wrap">
         <div class="level-card">
-          <LevelRing n={lv.n} pct={lv.pct} animate />
+          <LevelPearl n={lv.n} pct={lv.pct} animate size="lg" />
           <div class="txt">
-            <span class="label">{t('levelN', { n: lv.n })}</span>
             <b>{rank.name}</b>
+            <span class="label">{t('levelN', { n: lv.n })}</span>
             <span class="num">{lv.next ? t('xpToLevel', { n: lv.next - p.xp, level: lv.n + 1 }) : `${fmtNum(p.xp)} ${t('xp')}`}</span>
           </div>
         </div>
@@ -61,8 +61,8 @@ export function Badges() {
               return (
                 <>
                   <Medal a={open} on={on} ratio={pr && pr[1] > 0 ? pr[0] / pr[1] : undefined} size="lg" />
-                  <span class="label">{t(open.tier === 'gold' ? 'tierGold' : open.tier === 'silver' ? 'tierSilver' : 'tierBronze')}</span>
                   <h3 id="badge-h">{open[L].title}</h3>
+                  <span class="label">{t(open.tier === 'gold' ? 'tierGold' : open.tier === 'silver' ? 'tierSilver' : 'tierBronze')}</span>
                   <p>{open[L].body}</p>
                   {on ? (
                     <p class="when">{t('earnedOn', { date: date(p.achievements[open.id]) })}</p>

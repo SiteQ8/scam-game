@@ -4,7 +4,7 @@ import { push } from '../../state/nav';
 import { lang, t, fmtNum, rankFor, duration, count } from '../../i18n/i18n';
 import { dayIndex, caseNumber, msToNextDay, shareGrid, dateOfDay, DAILY_SIZE } from '../../engine/daily';
 import { levelFor, lastWeek } from '../../engine/levels';
-import { LevelRing } from '../components/Medal';
+import { LevelPearl } from '../components/Medal';
 import { tipFor } from '../../content/tips';
 import { TIP_TOPICS } from '../../i18n/strings';
 import { CHAPTERS } from '../../engine/deck';
@@ -13,7 +13,7 @@ import { CARDS } from '../../content/cards';
 import { S } from '../../i18n/strings';
 import type { PackId } from '../../content/types';
 import { Icon } from '../components/Icon';
-import { Mark, Pips, Stars, toast } from '../components/common';
+import { Mark, Pearls, Strand, toast } from '../components/common';
 import { shareText } from '../../platform/share';
 import { setMusic, sfx } from '../../platform/audio';
 import { siteUrl } from './Play';
@@ -52,22 +52,19 @@ export function Home() {
     <div class="screen">
       <div class="home-head">
         <div class="wordmark"><Mark />{name && <b>{name}</b>}</div>
-        {streak > 0 && <span class="chip flame" aria-label={`${t('dailyStreak')}: ${count(streak, 'day')}`}><Icon name="flame" /><span class="num">{streak}</span></span>}
+        {streak > 0 && <span class="chip streak" aria-label={`${t('dailyStreak')}: ${count(streak, 'day')}`}><i class="bead ok" /><span class="num">{streak}</span></span>}
         <button class="icon-btn" onClick={() => go({ name: 'settings' })} aria-label={t('settings')}><Icon name="settings" /></button>
       </div>
       <div class="scroll"><div class="home-wrap">
-        <section class="case-file" aria-labelledby="case-h">
-          <div class="case-top">
-            <span class="label">{t('dailyTitle')} · {edition === 'gcc' ? t('dailyEditionGcc') : t('dailyEditionGlobal')}</span>
-          </div>
-          {rec?.done && <span class="stamp-mini">{t('closedStamp')}</span>}
+        <section class="cloth" aria-labelledby="case-h">
+          {rec?.done && <span class="seal">{t('closedStamp')}</span>}
           <h2 id="case-h" class="num">{t('dailyNumber', { n: caseNumber(day) })}</h2>
-          <p>{rec?.done ? `${right}/${rec.results.length} · ${count(rec.score, 'point')}` : t('dailyBlurb')}</p>
-          <Pips total={DAILY_SIZE} results={rec ? rec.results : []} current={rec && !rec.done ? rec.results.length : -1} />
+          <p class="sub num">
+            {rec?.done ? `${right}/${rec.results.length} · ${count(rec.score, 'point')}` : rec && rec.results.length ? t('dailyProgress', { x: rec.results.length, n: DAILY_SIZE }) : t('dailyBlurb')}
+          </p>
+          <Strand total={DAILY_SIZE} results={rec ? rec.results : []} current={rec?.done ? -1 : rec ? rec.results.length : 0} />
           {rec?.done ? (
-            <div class="btn-row">
-              <button class="btn btn-primary" onClick={shareDaily}><Icon name="share-2" />{t('shareResult')}</button>
-            </div>
+            <button class="btn btn-primary" onClick={shareDaily}><Icon name="share-2" />{t('shareResult')}</button>
           ) : (
             <button class="btn btn-primary" onClick={() => go({ name: 'play', mode: 'daily' })}>
               {rec && rec.results.length ? t('dailyResume') : t('dailyCta')}
@@ -75,27 +72,47 @@ export function Home() {
             </button>
           )}
           <div class="case-meta">
-            <span>{rec?.done ? t('dailyDone') : count(DAILY_SIZE, 'card')}</span>
+            <span>{rec?.done ? t('dailyDone') : edition === 'gcc' ? t('dailyEditionGcc') : t('dailyEditionGlobal')}</span>
             <span class="num">{t('nextIn', { t: duration(msToNextDay(new Date(now))) })}</span>
           </div>
         </section>
 
-        <section class={`streak-panel ${streak > 0 ? 'live' : ''}`} aria-label={t('dailyStreak')}>
-          <span class="flame"><Icon name="flame" /></span>
-          <span class="txt">
-            <b>{streak > 0 ? t('streakDays', { days: count(streak, 'day') }) : t('streakStart')}</b>
-            {streak > 0 && <span>{rec?.done ? t('streakDone') : t('streakKeep')}</span>}
-          </span>
-          <span class="week" aria-hidden="true">
-            {week.map((w) => <span class={`d ${w.done ? 'on' : ''} ${w.day === day ? 'today' : ''}`}><i>{w.done && <Icon name="check" />}</i>{weekday.format(dateOfDay(w.day))}</span>)}
-          </span>
-        </section>
+        <div class="home-tiles">
+          <button class="tile" onClick={() => go({ name: 'badges' })} aria-label={`${t('levelN', { n: lv.n })}, ${rank.name}. ${t('badges')}`}>
+            <span class="lv">
+              <LevelPearl n={lv.n} pct={lv.pct} />
+              <span><b>{rank.name}</b><span class="s">{t('levelN', { n: lv.n })}</span></span>
+            </span>
+            <span class="s num">{lv.next ? t('xpToLevel', { n: lv.next - p.xp, level: lv.n + 1 }) : `${fmtNum(p.xp)} ${t('xp')}`}</span>
+          </button>
+          <section class="tile" aria-label={t('dailyStreak')}>
+            <span>
+              <b>{streak > 0 ? t('streakDays', { days: count(streak, 'day') }) : t('dailyStreak')}</b>
+              <span class="s">{streak > 0 ? (rec?.done ? t('streakDone') : t('streakKeep')) : t('streakStart')}</span>
+            </span>
+            <span class="week" aria-hidden="true">
+              {week.map((w) => <span class={`d ${w.day === day ? 'today' : ''}`}><i class={`bead ${w.done ? 'ok' : 'seat'}`} />{weekday.format(dateOfDay(w.day))}</span>)}
+            </span>
+          </section>
+        </div>
 
-        <button class="rank-strip" style={{ width: '100%', textAlign: 'start' }} onClick={() => go({ name: 'badges' })} aria-label={`${t('levelN', { n: lv.n })}, ${rank.name}. ${t('badges')}`}>
-          <LevelRing n={lv.n} pct={lv.pct} />
-          <span class="rank-name"><b>{rank.name}</b><span class="num">{lv.next ? t('xpToLevel', { n: lv.next - p.xp, level: lv.n + 1 }) : `${fmtNum(p.xp)} ${t('xp')}`}</span></span>
-          <span class="bar"><i style={{ transform: `scaleX(${lv.pct})` }} /></span>
-        </button>
+        {packs.length > 0 && (
+          <>
+            <h2 class="section-title">{t('packs')}</h2>
+            <div class="pack-grid">
+              {packs.map((pk) => {
+                const st = p.packs[pk.id]?.stars || 0;
+                return (
+                  <button class={`pack-tile pk-${pk.id}`} onClick={() => { void sfx('tap'); setOpenPack(pk.id); }}>
+                    <span class="glyph"><Icon name={pk.icon} /></span>
+                    <b>{packText(pk.id)}</b>
+                    {st ? <Pearls n={st} /> : <span class="meta">{count(pk.size, 'card')}</span>}
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
 
         <section class="tip-card" aria-labelledby="tip-h">
           <div class="tip-head">
@@ -110,30 +127,12 @@ export function Home() {
           </div>
         </section>
 
-        {packs.length > 0 && (
-          <>
-            <h2 class="section-title">{t('packs')}</h2>
-            <div class="pack-grid">
-              {packs.map((pk) => {
-                const st = p.packs[pk.id]?.stars || 0;
-                return (
-                  <button class={`pack-tile pk-${pk.id}`} onClick={() => { void sfx('tap'); setOpenPack(pk.id); }}>
-                    <span class="glyph"><Icon name={pk.icon} /></span>
-                    <b>{packText(pk.id)}</b>
-                    {st ? <Stars n={st} /> : <span class="meta">{count(pk.size, 'card')}</span>}
-                  </button>
-                );
-              })}
-            </div>
-          </>
-        )}
-
         <h2 class="section-title">{t('modes')}</h2>
         <div class="mode-list">
           <button class="mode" onClick={() => go({ name: 'journey' })}>
             <span class="glyph g-journey"><Icon name="route" /></span>
             <span class="txt"><b>{t('journey')}</b><span>{t('journeySub')}</span>
-              <span class="journey-dots" aria-hidden="true">{CHAPTERS.map((c) => <i class={(p.journey[c.id]?.stars || 0) > 0 ? 'on' : ''} />)}</span>
+              <span class="journey-dots" aria-hidden="true">{CHAPTERS.map((c) => <i class={`bead ${(p.journey[c.id]?.stars || 0) > 0 ? 'ok' : 'seat'}`} />)}</span>
             </span>
             <span class="meta"><b class="num">{passed}/{CHAPTERS.length}</b></span>
           </button>
@@ -165,11 +164,11 @@ export function Home() {
         <div class="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) setOpenPack(null); }}>
           <div class={`modal chapter-sheet pack-sheet pk-${sel.id}`} role="dialog" aria-modal="true" aria-labelledby="pack-h">
             <span class="glyph"><Icon name={sel.icon} /></span>
-            <span class="label" style={{ color: 'var(--text-3)', fontSize: '0.85rem' }}>{t('packs')} · {count(sel.size, 'card')}</span>
-            <h3 id="pack-h" style={{ marginTop: '4px' }}>{packText(sel.id)}</h3>
+            <h3 id="pack-h">{packText(sel.id)}</h3>
+            <span class="sheet-meta">{count(sel.size, 'card')}</span>
             <p class="lead">{packText(sel.id, true)}</p>
-            <p style={{ fontSize: '0.92rem' }}>{t('packRule')}</p>
-            {(p.packs[sel.id]?.stars || 0) > 0 && <div style={{ margin: '0 0 16px' }}><Stars n={p.packs[sel.id].stars} /></div>}
+            <p class="rule">{t('packRule')}</p>
+            {(p.packs[sel.id]?.stars || 0) > 0 && <div class="sheet-pearls"><Pearls n={p.packs[sel.id].stars} /></div>}
             <div class="btn-row">
               <button class="btn btn-secondary" onClick={() => setOpenPack(null)}>{t('cancel')}</button>
               <button class="btn btn-primary" onClick={() => { setOpenPack(null); go({ name: 'play', mode: 'pack', pack: sel.id }); }}>{(p.packs[sel.id]?.stars || 0) > 0 ? t('replayChapter') : t('start')}</button>

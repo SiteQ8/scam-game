@@ -8,7 +8,7 @@ import { newlyUnlocked } from '../../engine/achievements';
 import { CARDS } from '../../content/cards';
 import { drawCertificate, CERT_W, CERT_H } from '../certificate/draw';
 import { Icon } from '../components/Icon';
-import { TopBar, toast } from '../components/common';
+import { Strand, TopBar, toast } from '../components/common';
 import { shareImage } from '../../platform/share';
 import { sfx } from '../../platform/audio';
 import { notify } from '../../platform/haptics';
@@ -99,7 +99,7 @@ export function Certificate() {
           <span class="seal"><Icon name="file-badge" /></span>
           <h2>{t('certificate')}</h2>
           <p>{t('certLocked')}</p>
-          <div class="bar"><i style={{ transform: `scaleX(${passed / CHAPTERS.length})` }} /></div>
+          <Strand total={CHAPTERS.length} results={Array.from({ length: passed }, () => true)} current={passed} />
           <p class="num count">{t('certProgress', { x: passed, y: CHAPTERS.length })}</p>
           <button class="btn btn-primary" onClick={() => push({ name: 'journey' })}>{t('goJourney')}<Icon name="arrow-right" class="flip-rtl" /></button>
         </div></div>

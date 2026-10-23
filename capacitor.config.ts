@@ -5,15 +5,15 @@ const config: CapacitorConfig = {
   appId: brand.appId,
   appName: brand.nameEn || 'Game',
   webDir: 'dist',
-  backgroundColor: '#0C111B',
+  backgroundColor: '#0D1D22',
   ios: {
     contentInset: 'never',
-    backgroundColor: '#0C111B',
+    backgroundColor: '#0D1D22',
     scrollEnabled: false,
     allowsLinkPreview: false,
   },
   android: {
-    backgroundColor: '#0C111B',
+    backgroundColor: '#0D1D22',
     allowMixedContent: false,
     captureInput: true,
     webContentsDebuggingEnabled: false,
@@ -22,7 +22,7 @@ const config: CapacitorConfig = {
     SplashScreen: {
       launchShowDuration: 0,
       launchAutoHide: false,
-      backgroundColor: '#0C111B',
+      backgroundColor: '#0D1D22',
       showSpinner: false,
     },
   },

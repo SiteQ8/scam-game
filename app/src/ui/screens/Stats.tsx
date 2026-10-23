@@ -4,7 +4,7 @@ import { lang, t, fmtNum, rankFor } from '../../i18n/i18n';
 import { CATEGORY_NAMES } from '../../i18n/strings';
 import { ACHIEVEMENTS } from '../../engine/achievements';
 import { levelFor } from '../../engine/levels';
-import { LevelRing } from '../components/Medal';
+import { LevelPearl } from '../components/Medal';
 import { Icon } from '../components/Icon';
 import { TopBar } from '../components/common';
 
@@ -24,12 +24,12 @@ export function Stats() {
     <div class="screen">
       <TopBar title={t('stats')} onBack={back} />
       <div class="scroll"><div class="wrap">
-        <button class="rank-strip" style={{ marginTop: '6px', width: '100%', textAlign: 'start' }} onClick={() => push({ name: 'badges' })} aria-label={t('badges')}>
-          <LevelRing n={lv.n} pct={lv.pct} />
-          <span class="rank-name"><b>{rank.name}</b><span class="num">{fmtNum(p.xp)} {t('xp')}</span></span>
-          <span class="bar"><i style={{ transform: `scaleX(${lv.pct})` }} /></span>
+        <button class="rank-strip" onClick={() => push({ name: 'badges' })} aria-label={`${t('levelN', { n: lv.n })}, ${rank.name}. ${t('badges')}`}>
+          <LevelPearl n={lv.n} pct={lv.pct} />
+          <span class="txt"><b>{rank.name}</b><span class="num">{t('levelN', { n: lv.n })} · {fmtNum(p.xp)} {t('xp')}</span></span>
+          <Icon name="chevron-right" class="flip-rtl" />
         </button>
-        {p.judged === 0 && <p style={{ color: 'var(--text-2)', margin: '16px 2px' }}>{t('noStatsYet')}</p>}
+        {p.judged === 0 && <p class="lead-text" style={{ marginTop: '16px' }}>{t('noStatsYet')}</p>}
         <div class="big-stats">
           <div class="stat"><b class="num">{fmtNum(p.judged)}</b><span>{t('cardsJudged')}</span></div>
           <div class="stat"><b class="num">{accuracy.value}%</b><span>{t('accuracy')}</span></div>
@@ -39,7 +39,7 @@ export function Stats() {
           <div class="stat"><b class="num">{p.rushBest}</b><span>{t('rush')}</span></div>
         </div>
         {weakest && (
-          <div class="celebrate" style={{ background: 'color-mix(in srgb, var(--scam) 12%, transparent)' }}>
+          <div class="celebrate weak">
             <Icon name="target" />
             <div><b>{t('weakest')}</b><span>{CATEGORY_NAMES[weakest.k][L]} · <span class="num">{weakest.acc}%</span></span></div>
           </div>

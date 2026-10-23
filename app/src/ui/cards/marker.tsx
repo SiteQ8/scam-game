@@ -1,5 +1,5 @@
 import type { ComponentChildren } from 'preact';
-import type { Signal } from '../../content/types';
+import type { Card, Lang, LangBlock, Signal, SmsBody, NotificationBody, ChatBody, EmailBody, CallBody, WebBody, QrBody, SocialBody, MarketBody } from '../../content/types';
 
 const URLISH = /((?:https?:\/\/)?(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}(?:\/[^\s،,]*)?|[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,})/gi;
 
@@ -10,6 +10,8 @@ export interface MarkerOptions {
   active?: number | null;
   /** Flag hunt: which marks were found so far (they stay hidden until found). */
   hunt?: Set<number>;
+  /** The number each signal shows, from markNumbers; the signal's index plus one when absent. */
+  numbers?: number[];
 }
 
 export interface Marker {
@@ -77,6 +79,57 @@ export function bidi(text: string): ComponentChildren[] {
   return out;
 }
 
+/** The card's texts in the order the card shows them. CardView marks them in this same order. */
+export function fieldsInOrder(card: Card, lang: Lang): string[] {
+  const body = (card[lang] as LangBlock).card;
+  switch (card.channel) {
+    case 'sms': { const b = body as SmsBody; return [b.sender, b.body]; }
+    case 'notification': { const b = body as NotificationBody; return [b.app, b.title, b.body]; }
+    case 'chat': { const b = body as ChatBody; return [b.contact, ...b.messages.map((m) => m.text)]; }
+    case 'email': { const b = body as EmailBody; return [b.subject, b.fromName, b.fromAddress, b.body, b.button?.label || '', b.button?.url || '', b.attachment || '']; }
+    case 'call': { const b = body as CallBody; return [b.caller, ...b.lines.map((l) => l.text)]; }
+    case 'web': { const b = body as WebBody; return [b.url, b.title, b.heading, b.text, ...b.fields, b.button]; }
+    case 'qr': { const b = body as QrBody; return [b.place, b.title, b.text, b.opens]; }
+    case 'social': { const b = body as SocialBody; return [b.displayName, b.handle, b.text]; }
+    case 'market': { const b = body as MarketBody; return [b.item, b.price, ...b.messages.map((m) => m.text)]; }
+  }
+  return [];
+}
+
+/** Finds the next mark in a run of text, the earliest one not yet used: the rule the card and the numbers share. */
+function nextMark(signals: Signal[], used: Set<number>, rest: string): { i: number; at: number } | null {
+  let best: { i: number; at: number } | null = null;
+  signals.forEach((s, i) => {
+    if (used.has(i)) return;
+    const at = rest.indexOf(s.mark);
+    if (at >= 0 && (!best || at < best.at)) best = { i, at };
+  });
+  return best;
+}
+
+/**
+ * The number each signal carries: its place in reading order on the card, so the marks read 1, 2, 3
+ * from the top in either language. A signal whose words are not on the card comes after the rest.
+ */
+export function markNumbers(card: Card, lang: Lang): number[] {
+  const signals = (card[lang] as LangBlock).signals;
+  const num = signals.map(() => 0);
+  const used = new Set<number>();
+  let n = 0;
+  for (const text of fieldsInOrder(card, lang)) {
+    let rest = text || '';
+    let guard = 0;
+    while (rest && guard++ < 12) {
+      const hit = nextMark(signals, used, rest);
+      if (!hit) break;
+      used.add(hit.i);
+      num[hit.i] = ++n;
+      rest = rest.slice(hit.at + signals[hit.i].mark.length);
+    }
+  }
+  return num.map((v) => v || ++n);
+}
+
 /**
  * Splits card text so each signal's mark is wrapped once, in reading order, across the whole card.
  * A mark is used the first time it appears; later fields show it as plain text.
@@ -91,14 +144,10 @@ export function createMarker(signals: Signal[] | null, opts: MarkerOptions): Mar
     let rest = text;
     let guard = 0;
     while (rest && guard++ < 12) {
-      let best: { i: number; at: number } | null = null;
-      signals.forEach((s, i) => {
-        if (used.has(i)) return;
-        const at = rest.indexOf(s.mark);
-        if (at >= 0 && (!best || at < best.at)) best = { i, at };
-      });
+      const best = nextMark(signals, used, rest);
       if (!best) break;
-      const { i, at } = best as { i: number; at: number };
+      const { i, at } = best;
+      const no = opts.numbers?.[i] || i + 1;
       const s = signals[i];
       used.add(i);
       if (at > 0) parts.push(...linkify(rest.slice(0, at), `s${n++}`));
@@ -108,14 +157,14 @@ export function createMarker(signals: Signal[] | null, opts: MarkerOptions): Mar
         parts.push(
           <span key={`m${i}`} data-i={i} dir={isLtrRun(s.mark) ? 'ltr' : undefined} class={`${found ? `mk ${s.kind} on` : 'mk-hidden'} ${isLink ? 'link' : ''}`}>
             {s.mark}
-            {found && <span class="mk-n">{i + 1}</span>}
+            {found && <span class="mk-n">{no}</span>}
           </span>,
         );
       } else if (opts.on) {
         parts.push(
-          <span key={`m${i}`} data-i={i} dir={isLtrRun(s.mark) ? 'ltr' : undefined} class={`mk ${s.kind} ${isLink ? 'link' : ''} ${opts.active === i ? 'pulse' : ''}`} style={{ transitionDelay: `${120 + i * 110}ms` }}>
+          <span key={`m${i}`} data-i={i} dir={isLtrRun(s.mark) ? 'ltr' : undefined} class={`mk ${s.kind} ${isLink ? 'link' : ''} ${opts.active === i ? 'pulse' : ''}`} style={{ transitionDelay: `${120 + (no - 1) * 110}ms` }}>
             {s.mark}
-            <span class="mk-n" aria-hidden="true">{i + 1}</span>
+            <span class="mk-n" aria-hidden="true">{no}</span>
           </span>,
         );
       } else {

@@ -80,7 +80,7 @@ export function Onboarding() {
         )}
         {step === 4 && (
           <>
-            <div class="art"><div class="glyph g-check" style={{ width: '120px', height: '120px', borderRadius: '36px', display: 'grid', placeItems: 'center' }}><Icon name="shield-check" class="hero-icon" /></div></div>
+            <div class="art"><div class="hero-glyph"><Icon name="shield-check" class="hero-icon" /></div></div>
             <h2>{t('ob4Title')}</h2>
             <p>{t('ob4Body')}</p>
             <div class="panel onb-family">
@@ -88,11 +88,11 @@ export function Onboarding() {
             </div>
           </>
         )}
-        <div class="dots" aria-hidden="true">{Array.from({ length: steps - first }, (_, i) => <i class={i + first === step ? 'on' : ''} />)}</div>
+        <div class="dots" aria-hidden="true">{Array.from({ length: steps - first }, (_, i) => <i class={`bead ${i + first <= step ? 'ok' : 'seat'}`} />)}</div>
         {step === 2 && !said ? (
           <div class="verdicts" style={{ padding: 0 }}>
-            <button class="verdict-btn scam" onClick={() => api.current?.decide('scam')}><Icon name="x" />{t('scam')}</button>
-            <button class="verdict-btn legit" onClick={() => api.current?.decide('legit')}><Icon name="check" />{t('legit')}</button>
+            <button class="verdict-btn scam" onClick={() => api.current?.decide('scam')}><span class="vd"><Icon name="x" /></span>{t('scam')}</button>
+            <button class="verdict-btn legit" onClick={() => api.current?.decide('legit')}><span class="vd"><Icon name="check" /></span>{t('legit')}</button>
           </div>
         ) : (
           <button class="btn btn-primary" onClick={nextStep}>{step >= steps - 1 ? t('letsGo') : t('continue')}<Icon name="arrow-right" class="flip-rtl" /></button>
