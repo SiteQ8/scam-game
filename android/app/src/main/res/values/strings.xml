@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Game</string>
-    <string name="title_activity_main">Game</string>
-    <string name="package_name">com.eworldq8.game</string>
-    <string name="custom_url_scheme">com.eworldq8.game</string>
+    <string name="app_name">Scam Detective</string>
+    <string name="title_activity_main">Scam Detective</string>
+    <string name="package_name">com.eworldq8.scamgame</string>
+    <string name="custom_url_scheme">com.eworldq8.scamgame</string>
 </resources>

@@ -36,5 +36,25 @@ describe('brand', () => {
     expect(left, 'run: npm run brand').toEqual([]);
     expect(read('android/app/src/main/res/values/strings.xml')).toContain(`<string name="app_name">${brand.nameEn.replace(/'/g, "\\'")}</string>`);
     expect(read('ios/App/App/Info.plist')).toMatch(new RegExp(`<key>CFBundleDisplayName</key>\\s*<string>${escape(brand.nameEn)}</string>`));
+    // On an Arabic phone the icon carries the Arabic name.
+    expect(read('android/app/src/main/res/values-ar/strings.xml')).toContain(`<string name="app_name">${brand.nameAr}</string>`);
+    expect(read('ios/App/App/ar.lproj/InfoPlist.strings')).toContain(`"CFBundleDisplayName" = "${brand.nameAr}";`);
+    expect(read('ios/App/App/en.lproj/InfoPlist.strings')).toContain(`"CFBundleDisplayName" = "${brand.nameEn}";`);
+    expect(read('ios/App/App.xcodeproj/project.pbxproj')).toContain('path = ar.lproj/InfoPlist.strings;');
+  });
+
+  it('keeps the Android namespace and main activity in the package of the app id', () => {
+    expect(read('android/app/build.gradle')).toContain(`namespace = "${brand.appId}"`);
+    expect(read(`android/app/src/main/java/${brand.appId.split('.').join('/')}/MainActivity.java`)).toContain(`package ${brand.appId};`);
+  });
+
+  it('shows store links only once an app is live', () => {
+    expect(typeof brand.appStoreLive, 'brand.json needs appStoreLive').toBe('boolean');
+    expect(typeof brand.playLive, 'brand.json needs playLive').toBe('boolean');
+    const home = existsSync(join(root, 'docs/index.html')) ? read('docs/index.html') : '';
+    if (home) {
+      expect(home.includes('apps.apple.com'), 'App Store link on the site').toBe(Boolean(brand.appStoreLive && brand.appStoreId));
+      expect(home.includes('play.google.com'), 'Google Play link on the site').toBe(Boolean(brand.playLive));
+    }
   });
 });

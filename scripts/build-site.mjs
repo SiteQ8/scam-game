@@ -97,7 +97,8 @@ const exampleCards = pickExamples();
 
 function stores(lang) {
   const list = [];
-  if (brand.appStoreId) list.push({ label: 'App Store', url: `https://apps.apple.com/app/id${brand.appStoreId}` });
+  // The App Store record exists before the app is out, so its link waits for appStoreLive, as Play waits for playLive.
+  if (brand.appStoreId && brand.appStoreLive) list.push({ label: 'App Store', url: `https://apps.apple.com/app/id${brand.appStoreId}` });
   if (brand.playLive) list.push({ label: 'Google Play', url: `https://play.google.com/store/apps/details?id=${brand.appId}&hl=${lang}` });
   return list;
 }

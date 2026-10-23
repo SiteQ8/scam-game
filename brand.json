@@ -1,10 +1,11 @@
 {
-  "nameEn": "",
-  "nameAr": "",
+  "nameEn": "Scam Detective",
+  "nameAr": "محقق الاحتيال",
   "slug": "",
   "domain": "",
-  "appId": "com.eworldq8.game",
+  "appId": "com.eworldq8.scamgame",
   "repo": "SiteQ8/scam-game",
-  "appStoreId": "",
+  "appStoreId": "6826254487",
+  "appStoreLive": false,
   "playLive": false
 }

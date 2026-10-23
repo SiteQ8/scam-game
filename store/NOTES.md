@@ -9,33 +9,33 @@ Listing copy for the App Store and Google Play in English and Arabic, one field 
 * `app-store/review-notes.txt`: for App Review Information, Notes, in App Store Connect.
 * `answers.md`: every questionnaire in App Store Connect and Play Console, with the answer to pick and why.
 
-## Tokens
+## Name and address
 
-The game's name and web address are not chosen yet, so `{{NAME_EN}}`, `{{NAME_AR}}` and `siteq8.github.io/scam-game` mark where they go, and a script fills them in later. **Every limit below counts each token as 20 characters.** Run the length check again once the real values are in.
+The game is **Scam Detective** in English and **محقق الاحتيال** in Arabic. Its pages are at `siteq8.github.io/scam-game` until a subdomain on 3li.info is chosen. `npm run brand` writes both from `brand.json` into these files, the apps and the documents; `npm test` then checks every limit below.
 
 ## Measured lengths
 
-Measured by a script in Unicode characters, with each token counted as 20.
+Measured by a script in Unicode characters.
 
 | Field | Limit | English | Arabic |
 |---|---|---|---|
-| App Store name | 30 | 20 | 20 |
+| App Store name | 30 | 14 | 13 |
 | App Store subtitle | 30 | 19 | 19 |
 | App Store promotional text | 170 | 134 | 141 |
 | App Store description | 4000 | 3229 | 3099 |
 | App Store keywords | 100 | 97 | 96 |
 | App Store release notes | 4000 | 188 | 200 |
-| Google Play title | 30 | 20 | 20 |
+| Google Play title | 30 | 14 | 13 |
 | Google Play short description | 80 | 79 | 72 |
 | Google Play full description | 4000 | 3169 | 3002 |
 | Google Play release notes | 500 | 289 | 200 |
-| App Review notes (Apple counts bytes) | 4000 bytes | 2889 bytes | |
+| App Review notes (Apple counts bytes) | 4000 bytes | 2883 bytes | |
 
 The same script also checked: no dash characters (U+2012 to U+2015, U+2212) and no hyphen used as a dash; an Arabic period only at the end of a sentence (each Arabic sentence sits on its own line); Arabic punctuation; none of يتم, تتم, قام بـ, بشكل or فقط; no exclamation marks, hype words, emoji or requests for ratings; no other store's or platform's name in either listing; no price word in the Play short description; keywords with no space after a comma, no term under three characters, and no word from the subtitle or a category name.
 
 ## Decisions for the author
 
-1. **Name and address.** Choose them and fill in the tokens. Then remove from each keyword field any word that also appears in that language's name (Apple asks not to repeat words from the name or subtitle), and make sure each name fits in 30 characters.
+1. **Address.** Choose the subdomain on 3li.info, set `domain` in `brand.json`, then run `npm run brand` and `npm run build:site`. Keywords no longer repeat any word of the name or subtitle, and a test keeps it that way.
 2. **Categories.** Recommended: App Store Games with the subcategories Trivia and Casual, and Education as the secondary category; Google Play Game, Trivia. `answers.md` gives the alternatives.
 3. **Play target audience.** Recommended: 13 and over. Adding 9 to 12 is possible because the app already meets the technical Families rules, but the romance card and the calls that threaten arrest need a content decision first (see `answers.md`).
 4. **ElevenLabs rights.** Confirm that the plan used for the voices, music and sound effects allows publishing them in an app; the content rights answer assumes it does.
