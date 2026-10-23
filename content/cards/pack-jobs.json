@@ -1,0 +1,919 @@
+[
+  {
+    "id": "notification-jobs-interview-reminder",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 1,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "تقدمت لوظيفة مصمم جرافيك وحجزت عبر تطبيق الوظائف مقابلة غداً الساعة 10:00.",
+      "card": {
+        "app": "Jobs",
+        "title": "تذكير بموعد مقابلتك",
+        "body": "موعد مقابلتك لوظيفة مصمم جرافيك مبتدئ غداً الساعة 10:00 في مقر الاستوديو، والاستقبال في الطابق الثاني، ويمكنك إحضار نماذج مطبوعة من أعمالك، ولتغيير الموعد ادخل إلى قسم «مقابلاتي» في التطبيق",
+        "time": "18:00"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "غداً الساعة 10:00",
+          "why": "الموعد يطابق المقابلة التي حجزتها بنفسك، أي أن التذكير يصف أمراً قمت به أنت."
+        },
+        {
+          "kind": "green",
+          "mark": "مصمم جرافيك مبتدئ",
+          "why": "التنبيه يذكر الوظيفة نفسها التي تقدمت إليها، وهذا ما لا تعرفه رسالة احتيال عشوائية."
+        },
+        {
+          "kind": "green",
+          "mark": "قسم «مقابلاتي» في التطبيق",
+          "why": "التنبيه يحيلك إلى التطبيق الذي تستخدمه أصلاً، فلا رابط فيه ولا رسوم ولا طلب لبياناتك."
+        }
+      ],
+      "lesson": "التذكير الحقيقي بالمقابلة يطابق ما حجزته بنفسك ولا يطلب منك مالاً ولا بيانات، وإن أردت تغيير الموعد فغيّره من التطبيق نفسه لا من رابط في رسالة."
+    },
+    "en": {
+      "context": "You applied for a designer job and booked tomorrow's 10:00 interview in the jobs app.",
+      "card": {
+        "app": "Jobs",
+        "title": "Interview reminder",
+        "body": "Your interview for Junior Graphic Designer is tomorrow at 10:00 at the studio, with reception on the second floor. You may bring printed samples of your work. To change the time, go to My interviews in the app.",
+        "time": "18:00"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "tomorrow at 10:00",
+          "why": "The time matches the interview you booked yourself, so the reminder describes something you did."
+        },
+        {
+          "kind": "green",
+          "mark": "Junior Graphic Designer",
+          "why": "It names the exact job you applied for, which a random scam message would not know."
+        },
+        {
+          "kind": "green",
+          "mark": "go to My interviews in the app",
+          "why": "It sends you to the app you already use, with no link, no fee and no request for your details."
+        }
+      ],
+      "lesson": "A real interview reminder matches the booking you made and asks for nothing, so make any change inside the app itself and never through a link in a message."
+    }
+  },
+  {
+    "id": "call-jobs-overseas-visa-medical",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "advance-fee",
+      "payment",
+      "urgency",
+      "too-good"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "تبحث عن عمل في الخارج ونشرت سيرتك الذاتية في موقع للوظائف.",
+      "card": {
+        "caller": "+965 5••• ••81",
+        "saved": false,
+        "voice": {
+          "gender": "male",
+          "age": "adult",
+          "tone": "friendly"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "هلا والله، معاك فهد من مكتب توظيف للعمل بالخارج، مبروك انقبلت موظف استقبال في فندق بأوروبا، الراتب ألفين وخمسمية يورو والسكن والتذاكر علينا"
+          },
+          {
+            "who": "you",
+            "text": "صج؟ طيب شنو المطلوب مني؟"
+          },
+          {
+            "who": "caller",
+            "text": "بس رسوم الفيزا والفحص الطبي، مية وثمانين دينار، والفيزا مضمونة مية بالمية، حوّلها اليوم عشان نحجز لك موعد السفارة قبل لا يروح مكانك لغيرك"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "رسوم الفيزا والفحص الطبي",
+          "why": "صاحب العمل الحقيقي يتحمل تكاليف تأشيرة العمل والفحص الطبي بنفسه، لذا فأي رسوم تحوّلها إلى وسيط هي جوهر الاحتيال."
+        },
+        {
+          "kind": "red",
+          "mark": "مضمونة مية بالمية",
+          "why": "لا يستطيع أي مكتب أن يضمن التأشيرة لأنّ قرارها بيد السفارة وحدها، لذا فهذا الوعد غرضه أن تدفع."
+        },
+        {
+          "kind": "red",
+          "mark": "قبل لا يروح مكانك لغيرك",
+          "why": "الضغط عليك لتحوّل المبلغ اليوم يمنعك من التحقق من وجود المكتب والفندق أصلاً."
+        },
+        {
+          "kind": "trap",
+          "mark": "+965 5••• ••81",
+          "why": "الرقم المحلي لا يثبت شيئاً، لأنّ أي شخص يستطيع شراء شريحة محلية ليتصل منها."
+        }
+      ],
+      "lesson": "لا تدفع أي رسوم مقابل وظيفة أو تأشيرة عمل في الخارج، وتحقق من صاحب العمل نفسه عبر موقعه الرسمي قبل أن ترسل جوازك أو أي مبلغ."
+    },
+    "en": {
+      "context": "You are looking for work abroad and posted your CV on a jobs website.",
+      "card": {
+        "caller": "+965 5••• ••81",
+        "saved": false,
+        "voice": {
+          "gender": "male",
+          "age": "adult",
+          "tone": "friendly"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "Hi, this is Fahad from an overseas recruitment agency. Congratulations, you've been accepted as a hotel receptionist in Europe, with 2,500 euros a month and free housing and flights."
+          },
+          {
+            "who": "you",
+            "text": "Really? So what do I need to do?"
+          },
+          {
+            "who": "caller",
+            "text": "Just the visa and medical fee, 180 dinars, and the visa is a hundred percent guaranteed. Transfer it today so we can book your embassy slot before someone takes your place."
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "visa and medical fee",
+          "why": "Real employers pay for work visas and medical checks themselves, so any fee you send to an agent is the scam."
+        },
+        {
+          "kind": "red",
+          "mark": "a hundred percent guaranteed",
+          "why": "No agent can guarantee a visa because only the embassy decides, so the promise is there to make you pay."
+        },
+        {
+          "kind": "red",
+          "mark": "before someone takes your place",
+          "why": "The rush to pay today stops you from checking whether the agency or the hotel even exists."
+        },
+        {
+          "kind": "trap",
+          "mark": "+965 5••• ••81",
+          "why": "A local number proves nothing, because anyone can buy a local SIM card to make these calls."
+        }
+      ],
+      "lesson": "Never pay a fee for a job or a work visa abroad, and check the employer itself through its official website before you send your passport or any money."
+    }
+  },
+  {
+    "id": "chat-jobs-money-mule",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "secrecy",
+      "too-good",
+      "unknown-number"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "رددت قبل يومين على إعلان في الإنترنت عن عمل من البيت.",
+      "card": {
+        "contact": "+965 9••• ••26",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "مساء الخير، معاك يوسف من شركة استيراد وتصدير، عندنا وظيفة مساعد مدفوعات عن بعد، ساعة باليوم من البيت وتطلع لك لين 300 دينار بالأسبوع 💼",
+            "time": "16:10"
+          },
+          {
+            "from": "them",
+            "text": "الشغل بسيط، توصلك تحويلات من عملائنا على حسابك البنكي، وتحوّل المبلغ نفسه لحساب الشركة بنفس اليوم، ولك عمولة 10% من كل تحويل",
+            "time": "16:11"
+          },
+          {
+            "from": "me",
+            "text": "ليش العملاء ما يحولون لحساب الشركة على طول؟",
+            "time": "16:20"
+          },
+          {
+            "from": "them",
+            "text": "حساب الشركة فيه تحديثات هالأيام 😅 وإذا سألك البنك عن التحويلات قل إنها من أهلك، ولا تقول لأحد عن الشغل",
+            "time": "16:21"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "توصلك تحويلات من عملائنا على حسابك البنكي",
+          "why": "مرور أموال الغرباء عبر حسابك يجعلك وسيطاً في غسل الأموال، وصاحب الحساب هو من يتحمل المسؤولية أمام البنك والجهات المختصة."
+        },
+        {
+          "kind": "red",
+          "mark": "قل إنها من أهلك",
+          "why": "صاحب العمل الحقيقي لا يطلب منك أبداً أن تكذب على بنكك، لذا فهذا الطلب يكشف أن الأموال مسروقة."
+        },
+        {
+          "kind": "red",
+          "mark": "ولا تقول لأحد عن الشغل",
+          "why": "طلب الكتمان يمنع أي شخص من تحذيرك قبل أن يجمّد البنك حسابك."
+        },
+        {
+          "kind": "trap",
+          "mark": "شركة استيراد وتصدير",
+          "why": "وصف الشركة بنشاط عام دون اسم يبدو تجارياً، لكنه لا يعطيك شيئاً تستطيع التحقق منه."
+        }
+      ],
+      "lesson": "لا تقبل أي عمل يمرّر أموال الآخرين عبر حسابك مهما كانت العمولة، لأنّ صاحب الحساب يتحمل المسؤولية القانونية وقد يخسر حسابه."
+    },
+    "en": {
+      "context": "Two days ago you replied to an online ad for work from home.",
+      "card": {
+        "contact": "+965 9••• ••26",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Good evening, this is Yousef from an import and export company. We have a remote Payments Assistant job, just one hour a day from home, and you can earn up to 300 KWD a week 💼",
+            "time": "16:10"
+          },
+          {
+            "from": "them",
+            "text": "The work is simple. Our customers send transfers to your bank account, you send the same amount to the company account on the same day, and you keep 10% of every transfer",
+            "time": "16:11"
+          },
+          {
+            "from": "me",
+            "text": "Why don't the customers pay the company account directly?",
+            "time": "16:20"
+          },
+          {
+            "from": "them",
+            "text": "The company account is being updated these days 😅 If your bank asks about the transfers, say they are from family, and don't tell anyone about this job",
+            "time": "16:21"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Our customers send transfers to your bank account",
+          "why": "Letting strangers' money pass through your account makes you a money mule, and the account holder is the one the bank and the police hold responsible."
+        },
+        {
+          "kind": "red",
+          "mark": "say they are from family",
+          "why": "A real employer never asks you to lie to your bank, so this request shows the money is stolen."
+        },
+        {
+          "kind": "red",
+          "mark": "don't tell anyone about this job",
+          "why": "Keeping it secret stops anyone from warning you before your account is frozen."
+        },
+        {
+          "kind": "trap",
+          "mark": "import and export company",
+          "why": "A business type with no name sounds real but gives you nothing you can check."
+        }
+      ],
+      "lesson": "Never take a job that moves other people's money through your account, whatever the commission, because the account holder carries the legal blame and can lose the account."
+    }
+  },
+  {
+    "id": "sms-jobs-interview-confirm-portal",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "تقدمت قبل أسبوعين لوظيفة إدارية عبر بوابة التوظيف في موقع إحدى الشركات.",
+      "card": {
+        "sender": "Careers",
+        "time": "09:15",
+        "body": "شكراً لتقدمك لوظيفة مساعد إداري (المرجع 3318)، ويسعدنا دعوتك إلى مقابلة يوم الثلاثاء 3 نوفمبر الساعة 11:00، ونرجو تأكيد الموعد من حسابك في بوابة التوظيف لدينا وإحضار بطاقتك المدنية يوم المقابلة، علماً أن التوظيف مجاني ولا نطلب أي مبالغ أو بيانات مصرفية"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "وظيفة مساعد إداري",
+          "why": "الرسالة تذكر الوظيفة نفسها التي تقدمت إليها، وهذا ما لا تعرفه رسالة احتيال عشوائية."
+        },
+        {
+          "kind": "green",
+          "mark": "من حسابك في بوابة التوظيف",
+          "why": "الرسالة تحيلك إلى البوابة التي قدمت منها طلبك دون أي رابط، فتدخلها بنفسك كما تفعل عادة."
+        },
+        {
+          "kind": "green",
+          "mark": "ولا نطلب أي مبالغ أو بيانات مصرفية",
+          "why": "صاحب العمل الحقيقي يبقي التوظيف مجانياً ويصرّح بذلك، وهذا عكس ما يفعله المحتالون."
+        }
+      ],
+      "lesson": "الدعوة الحقيقية تذكر الوظيفة التي تقدمت إليها وتطلب منك التأكيد من البوابة التي تستخدمها، لذا ادخل إليها بنفسك ولا ترسل بياناتك رداً على رسالة."
+    },
+    "en": {
+      "context": "Two weeks ago you applied for an admin job on a company's careers portal.",
+      "card": {
+        "sender": "Careers",
+        "time": "09:15",
+        "body": "Thank you for applying for the Administrative Assistant role (ref 3318). You are invited to an interview on Tuesday 3 November at 11:00. Please confirm the slot in your applicant account on our careers portal and bring your Civil ID on the day. Hiring with us is free, and we never ask for money or bank details."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Administrative Assistant role",
+          "why": "It names the exact job you applied for, which a random scam text would not know."
+        },
+        {
+          "kind": "green",
+          "mark": "your applicant account on our careers portal",
+          "why": "It sends you to the portal where you applied, with no link to tap, so you sign in the way you always do."
+        },
+        {
+          "kind": "green",
+          "mark": "we never ask for money or bank details",
+          "why": "A real employer keeps hiring free and says so, which is the opposite of what job scams do."
+        }
+      ],
+      "lesson": "A real invitation names the job you applied for and lets you confirm in the portal you already use, so sign in there yourself and never reply with your details."
+    }
+  },
+  {
+    "id": "email-jobs-reshipping-home",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "too-good",
+      "urgency"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "بحثت الأسبوع الماضي في الإنترنت عن وظائف يمكن أداؤها من المنزل.",
+      "card": {
+        "fromName": "دانيال، توظيف الخدمات اللوجستية",
+        "fromAddress": "logistics.hiring@freemail-box.net",
+        "subject": "فرصة دخل إضافي من البيت: وظيفة فاحص طرود براتب 2,500 دولار شهرياً",
+        "body": "مرحباً،\n\nشكراً لاهتمامك بالعمل عن بعد، ويسعدنا اختيارك لوظيفة فاحص الطرود\n\nمهامك:\n• استلام الطرود على عنوان منزلك وباسمك الشخصي\n• إزالة الصناديق الأصلية والفواتير منها\n• إعادة شحن كل طرد إلى الخارج بالملصقات المدفوعة مسبقاً التي نرسلها إليك بالبريد\n\nالأجر: 2,500 دولار شهرياً و40 دولاراً عن كل طرد، ويبدأ صرفه بعد أول 30 يوماً من العمل\n\nأرسل اسمك الكامل وعنوان منزلك خلال 24 ساعة لتستلم أول الطرود هذا الأسبوع\n\nدانيال\nتوظيف الخدمات اللوجستية"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "إزالة الصناديق الأصلية والفواتير",
+          "why": "إزالة الفواتير تخفي أن البضائع مشتراة ببطاقات مسروقة، بينما تكون أنت من يشحنها باسمه."
+        },
+        {
+          "kind": "red",
+          "mark": "وباسمك الشخصي",
+          "why": "الطرود المرسلة باسمك إلى عنوانك تجعلك أنت من تصل إليه جهات التحقيق، لا من يقفون خلف الوظيفة."
+        },
+        {
+          "kind": "red",
+          "mark": "بعد أول 30 يوماً",
+          "why": "الأجر الذي يبدأ بعد شهر يعني أنك تعمل مجاناً طوال مدة الاحتيال، ثمّ لا يصلك شيء."
+        },
+        {
+          "kind": "trap",
+          "mark": "فاحص الطرود",
+          "why": "المسمى الوظيفي الذي يبدو حقيقياً لا يكلف المحتال شيئاً ولا يثبت شيئاً."
+        }
+      ],
+      "lesson": "ارفض أي عمل يطلب منك استلام طرود باسمك وإعادة شحنها إلى الخارج، لأنّ البضائع غالباً مشتراة ببطاقات مسروقة وأنت من سيتحمل المسؤولية."
+    },
+    "en": {
+      "context": "Last week you searched online for jobs you can do from home.",
+      "card": {
+        "fromName": "Daniel, Logistics Hiring",
+        "fromAddress": "logistics.hiring@freemail-box.net",
+        "subject": "Extra income from home: Package Inspector role, 2,500 USD a month",
+        "body": "Hello,\n\nThank you for your interest in remote work. You have been selected for our Package Inspector role.\n\nYour tasks:\n• Receive parcels at your home address in your own name\n• Remove the original boxes and invoices\n• Reship each parcel abroad with the prepaid labels we email you\n\nPay: 2,500 USD a month plus 40 USD per parcel, paid after your first 30 days.\n\nReply within 24 hours with your full name and home address to receive your first parcels this week.\n\nDaniel\nLogistics Hiring"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Remove the original boxes and invoices",
+          "why": "Stripping the invoices hides that the goods were bought with stolen cards, while you are the one who ships them."
+        },
+        {
+          "kind": "red",
+          "mark": "in your own name",
+          "why": "Parcels in your name at your address make you the person investigators trace, not the people behind the job."
+        },
+        {
+          "kind": "red",
+          "mark": "paid after your first 30 days",
+          "why": "Pay that only starts after a month means you work for free while the scam runs, and the money never arrives."
+        },
+        {
+          "kind": "trap",
+          "mark": "Package Inspector",
+          "why": "A real sounding job title costs nothing to invent and proves nothing."
+        }
+      ],
+      "lesson": "Turn down any job that has parcels sent to your home in your name for reshipping abroad, because the goods are usually bought with stolen cards and you carry the blame."
+    }
+  },
+  {
+    "id": "email-jobs-offer-after-interviews",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "أجريت مقابلتين مع هذه الشركة هذا الشهر وتنتظر ردها.",
+      "card": {
+        "fromName": "نورة، الموارد البشرية",
+        "fromAddress": "noura.hr@careers.example.com",
+        "subject": "عرض العمل: منسق مبيعات",
+        "body": "عزيزي خالد،\n\nشكراً لحضورك المقابلتين هذا الشهر معي ومع سارة، ويسعدنا أن نعرض عليك وظيفة منسق مبيعات بالراتب الذي اتفقنا عليه، وهو 900 د.ك شهرياً\n\nتتحمل الشركة تكلفة الفحص الطبي، ولن نطلب منك دفع أي مبلغ في أي مرحلة\n\nنرجو حضورك إلى مكتبنا يوم الأحد الساعة 10:00 لتوقيع العقد مع إحضار شهاداتك الأصلية، ولأي استفسار اتصل بي على رقم المكتب المنشور في موقعنا\n\nمع أطيب التحيات\nنورة\nالموارد البشرية"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "المقابلتين هذا الشهر",
+          "why": "العرض يأتي بعد مقابلتين حضرتهما فعلاً، أي أنه الخطوة التي كنت تنتظرها."
+        },
+        {
+          "kind": "green",
+          "mark": "ولن نطلب منك دفع أي مبلغ",
+          "why": "صاحب العمل الحقيقي يتحمل تكاليف التوظيف بنفسه ويصرّح بذلك، بينما تطلب العروض المزيفة رسوماً."
+        },
+        {
+          "kind": "green",
+          "mark": "إلى مكتبنا يوم الأحد",
+          "why": "التوقيع يتم حضورياً في المكتب الذي زرته من قبل، فلا رابط ولا تحويل في أي خطوة."
+        }
+      ],
+      "lesson": "العرض الحقيقي يأتي بعد مقابلات حقيقية ومن الشركة التي قابلتها ولا يطلب منك أي مبلغ، لذا احذر من أي عرض يتجاوز هذه الخطوات."
+    },
+    "en": {
+      "context": "You had two interviews with this company this month and are waiting to hear back.",
+      "card": {
+        "fromName": "Noura, Human Resources",
+        "fromAddress": "noura.hr@careers.example.com",
+        "subject": "Your job offer: Sales Coordinator",
+        "body": "Dear Khalid,\n\nThank you for meeting Sara and me in your two interviews this month. We are pleased to offer you the Sales Coordinator position at the salary we discussed, 900 KWD a month.\n\nThe company covers the cost of your medical check, and there is nothing for you to pay at any stage.\n\nPlease come to our office on Sunday at 10:00 to sign your contract, and bring your original certificates. If you have any questions, call me on the office number listed on our website.\n\nKind regards,\nNoura\nHuman Resources"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "your two interviews this month",
+          "why": "The offer follows interviews you actually attended, so it is the step you were waiting for."
+        },
+        {
+          "kind": "green",
+          "mark": "nothing for you to pay at any stage",
+          "why": "A real employer covers hiring costs and says so, unlike fake offers that ask for a fee."
+        },
+        {
+          "kind": "green",
+          "mark": "come to our office on Sunday",
+          "why": "You sign in person at the office you already visited, so nothing depends on a link or a transfer."
+        }
+      ],
+      "lesson": "A real offer comes after real interviews, from the company you met, and never asks you to pay, so be wary of any offer that skips those steps."
+    }
+  },
+  {
+    "id": "social-jobs-recruiter-move-chat",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "off-platform",
+      "too-good",
+      "unknown-number"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "لديك ملف على موقع للتواصل المهني وأعلنت فيه أنك تبحث عن عمل.",
+      "card": {
+        "displayName": "إيما | استقطاب المواهب",
+        "handle": "@emma.talent.partner",
+        "verified": false,
+        "followers": "312",
+        "kind": "dm",
+        "text": "مرحباً أحمد، اطلعت على ملفك وأراك مناسباً لوظيفة خدمة عملاء عن بعد لدى أحد عملائنا، والأجر 45 دولاراً في الساعة مع ساعات عمل مرنة، ومدير التوظيف يجري المقابلات عبر الكتابة فقط، لذا لننقل حديثنا إلى تطبيق المحادثة، وراسله فوراً على الرقم +1 202 555 0147 واذكر الرمز HR27"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "لننقل حديثنا إلى تطبيق المحادثة",
+          "why": "نقلك من الموقع المهني يبعدك عن أدوات الحماية فيه وعن أي سجل يثبت مع من تتحدث."
+        },
+        {
+          "kind": "red",
+          "mark": "يجري المقابلات عبر الكتابة فقط",
+          "why": "صاحب العمل الحقيقي يريد أن يراك ويسمعك، أما المقابلة بالكتابة وحدها فتتيح للمحتال أن يخفي هويته."
+        },
+        {
+          "kind": "red",
+          "mark": "45 دولاراً في الساعة",
+          "why": "الأجر المرتفع لوظيفة بسيطة عن بعد هو الطُعم الذي يجعلك تتجاهل بقية العلامات."
+        },
+        {
+          "kind": "trap",
+          "mark": "استقطاب المواهب",
+          "why": "المسمى الوظيفي في اسم الحساب لا يكلف شيئاً ولا يثبت من يقف خلفه."
+        }
+      ],
+      "lesson": "تحقق من أي مسؤول توظيف عبر الموقع الرسمي للشركة التي يدّعي تمثيلها، وتوقف إذا أصر على نقل الحديث إلى تطبيق محادثة أو إجراء المقابلة بالكتابة فقط."
+    },
+    "en": {
+      "context": "You have a profile on a professional networking site and are open to work.",
+      "card": {
+        "displayName": "Emma | Talent Acquisition",
+        "handle": "@emma.talent.partner",
+        "verified": false,
+        "followers": "312",
+        "kind": "dm",
+        "text": "Hi Ahmad, I came across your profile and think you'd be a great fit for a remote Customer Support role with one of our clients. You can earn $45 per hour with flexible hours. Our hiring manager interviews by text only, so let's move this conversation to the chat app. Message him right away at +1 202 555 0147 and quote code HR27."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "let's move this conversation to the chat app",
+          "why": "Moving you off the professional site takes you away from its safety checks and from any record of who you are talking to."
+        },
+        {
+          "kind": "red",
+          "mark": "interviews by text only",
+          "why": "A real employer wants to see and hear you, while a text only interview lets a scammer hide who they are."
+        },
+        {
+          "kind": "red",
+          "mark": "$45 per hour",
+          "why": "High pay for a simple remote job is the bait that makes the other warning signs easy to ignore."
+        },
+        {
+          "kind": "trap",
+          "mark": "Talent Acquisition",
+          "why": "A recruiter title in a profile name costs nothing to type and proves nothing about who is behind it."
+        }
+      ],
+      "lesson": "Check any recruiter through the official website of the company they claim to represent, and stop if they insist on moving to a chat app or interviewing by text only."
+    }
+  },
+  {
+    "id": "chat-jobs-interview-equipment-cheque",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "payment",
+      "urgency",
+      "unknown-number"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "تقدمت لوظيفة عن بعد، وجرت المقابلة كلها بالكتابة في تطبيق محادثة.",
+      "card": {
+        "contact": "+1 202 555 0164",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "مبروك يا جون، اجتزت المقابلة بنجاح، وأهلاً بك معنا في وظيفة محلل بيانات عن بعد 🎉",
+            "time": "10:05"
+          },
+          {
+            "from": "them",
+            "text": "سنرسل إليك اليوم شيكاً بقيمة 3,800 دولار لتجهيز مكتبك المنزلي، فأودعه في تطبيق بنكك",
+            "time": "10:06"
+          },
+          {
+            "from": "them",
+            "text": "بعدها حوّل 3,200 دولار إلى مورد الأجهزة المعتمد لدينا ليشحن حاسوبك هذا الأسبوع، واحتفظ بالباقي لمصاريف أسبوعك الأول",
+            "time": "10:07"
+          },
+          {
+            "from": "me",
+            "text": "ليش ما تطلب الشركة الجهاز لي مباشرة؟",
+            "time": "10:15"
+          },
+          {
+            "from": "them",
+            "text": "المورد يتعامل مع الموظفين الجدد مباشرة حسب سياسة الشركة، ونرجو أن تحوّل المبلغ اليوم قبل انتهاء مهلة الشيك",
+            "time": "10:16"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "شيكاً بقيمة 3,800 دولار",
+          "why": "الشيك المزيف قد يظهر في رصيدك أياماً قبل أن يرتد، ثمّ يسترد البنك قيمته كاملة منك."
+        },
+        {
+          "kind": "red",
+          "mark": "حوّل 3,200 دولار إلى مورد الأجهزة",
+          "why": "صاحب العمل لا يرسل إليك مالاً لتدفعه لطرف آخر، والمورد المعتمد هنا هو المحتال نفسه."
+        },
+        {
+          "kind": "red",
+          "mark": "قبل انتهاء مهلة الشيك",
+          "why": "المهلة غرضها أن تحوّل المال قبل أن يرتد الشيك ويتضح الاحتيال."
+        },
+        {
+          "kind": "trap",
+          "mark": "اجتزت المقابلة بنجاح",
+          "why": "المقابلة التي جرت بالكتابة وحدها لا تثبت شيئاً، لأنّك لم تر ولم تسمع من كان يحاورك."
+        }
+      ],
+      "lesson": "لا تودع شيكاً من صاحب عمل جديد ثمّ تحوّل جزءاً منه إلى أي جهة، فالشركة الحقيقية تشتري أجهزتها بنفسها ولا توظف أحداً بمحادثة مكتوبة وحدها."
+    },
+    "en": {
+      "context": "You applied for a remote job, and the whole interview was done by chat.",
+      "card": {
+        "contact": "+1 202 555 0164",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Congratulations John, you passed the interview! Welcome to the team as a Remote Data Analyst 🎉",
+            "time": "10:05"
+          },
+          {
+            "from": "them",
+            "text": "Today we will send you a cheque for $3,800 to set up your home office. Deposit it in your bank app",
+            "time": "10:06"
+          },
+          {
+            "from": "them",
+            "text": "Then send $3,200 to our approved equipment vendor by bank transfer so your laptop ships this week. Keep the rest for your first week's expenses",
+            "time": "10:07"
+          },
+          {
+            "from": "me",
+            "text": "Can't the company just order the laptop for me?",
+            "time": "10:15"
+          },
+          {
+            "from": "them",
+            "text": "Our vendor deals with new staff directly, it's company policy. Please send it today before the cheque window closes",
+            "time": "10:16"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "a cheque for $3,800",
+          "why": "A fake cheque can show in your balance for days before it bounces, and then the bank takes the full amount back from you."
+        },
+        {
+          "kind": "red",
+          "mark": "send $3,200 to our approved equipment vendor",
+          "why": "An employer never sends you money so that you can pay someone else, and the vendor is the scammer."
+        },
+        {
+          "kind": "red",
+          "mark": "before the cheque window closes",
+          "why": "The deadline is there so you send the money before the cheque bounces."
+        },
+        {
+          "kind": "trap",
+          "mark": "you passed the interview",
+          "why": "An interview held only by chat proves nothing, because you never saw or heard who was on the other side."
+        }
+      ],
+      "lesson": "Never deposit a cheque from a new employer and send part of it on, because real companies buy their own equipment and do not hire through a text chat alone."
+    }
+  },
+  {
+    "id": "call-jobs-hr-medical-check",
+    "channel": "call",
+    "verdict": "legit",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "no-link"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "قبلت الأسبوع الماضي عرض عمل من هذه الشركة بعد مقابلتين.",
+      "card": {
+        "caller": "+965 2••• ••30",
+        "saved": false,
+        "voice": {
+          "gender": "female",
+          "age": "adult",
+          "tone": "friendly"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "مساء الخير، معاك مريم من الموارد البشرية، مبروك الوظيفة، متصلة أرتب معاك موعد الفحص الطبي قبل المباشرة، يناسبك الأحد الساعة تسع الصبح؟"
+          },
+          {
+            "who": "you",
+            "text": "يناسبني، بس الفحص أنا أدفعه؟"
+          },
+          {
+            "who": "caller",
+            "text": "لا أبد، الشركة تتكفل فيه بالكامل، والعيادة عندها اسمك، وبرسل لك عنوانها من إيميلي في الشركة"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "الشركة تتكفل فيه بالكامل",
+          "why": "صاحب العمل الحقيقي يتحمل تكلفة الفحص الطبي، والمتصلة لا تطلب منك أي مبلغ أو بيانات."
+        },
+        {
+          "kind": "green",
+          "mark": "موعد الفحص الطبي قبل المباشرة",
+          "why": "الاتصال هو الخطوة المعتادة بعد العرض الذي قبلته، أي أنه متوقع وله سبب واضح."
+        },
+        {
+          "kind": "green",
+          "mark": "من إيميلي في الشركة",
+          "why": "إرسال التفاصيل من بريد الشركة يمنحك سجلاً مكتوباً تتحقق منه بدلاً من الاعتماد على صوت في الهاتف."
+        }
+      ],
+      "lesson": "مكالمة الموارد البشرية الحقيقية تأتي في سياق تعرفه ولا تطلب منك مالاً، فإذا طلب متصل رسوماً للفحص أو التأشيرة فأغلق الخط واتصل بالشركة على رقمها الرسمي."
+    },
+    "en": {
+      "context": "Last week you accepted a job offer from this company after two interviews.",
+      "card": {
+        "caller": "+965 2••• ••30",
+        "saved": false,
+        "voice": {
+          "gender": "female",
+          "age": "adult",
+          "tone": "friendly"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "Good evening, this is Maryam from Human Resources. Congratulations on the job! I'm calling to book your medical check before you start. Does Sunday at nine work for you?"
+          },
+          {
+            "who": "you",
+            "text": "Sunday works. Do I need to pay for the medical check?"
+          },
+          {
+            "who": "caller",
+            "text": "Not at all, the company covers it in full. The clinic already has your name, and I'll send you its address from my work email."
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "the company covers it in full",
+          "why": "A real employer pays for the medical check, and the caller asks you for no money or details."
+        },
+        {
+          "kind": "green",
+          "mark": "book your medical check before you start",
+          "why": "It is the usual next step after the offer you accepted, so the call is expected and has a clear reason."
+        },
+        {
+          "kind": "green",
+          "mark": "from my work email",
+          "why": "Details sent from the company's email give you a written record to check instead of a voice on the phone."
+        }
+      ],
+      "lesson": "A real HR call fits a process you already know and asks you for no money, so if a caller wants a fee for a medical check or a visa, hang up and call the company's official number."
+    }
+  },
+  {
+    "id": "web-jobs-cloned-careers-page",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "jobs",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "lookalike-domain",
+      "payment",
+      "small-fee",
+      "impersonation",
+      "urgency"
+    ],
+    "pack": "jobs",
+    "ar": {
+      "context": "موقع الوظائف الحقيقي للشركة هو careers.example.com، ووصلت إلى هنا من إعلان وظيفة.",
+      "card": {
+        "url": "careers-example.com/apply",
+        "secure": true,
+        "title": "الوظائف | انضم إلى فريقنا",
+        "heading": "مهندس مشاريع، الكويت",
+        "text": "شكراً لاهتمامك بهذه الوظيفة، ويدفع المرشحون في القائمة المختصرة رسوم تقديم مستردة قدرها 5 د.ك لحجز موعد المقابلة، لذا أدخل بيانات بطاقتك أدناه علماً أن المواعيد تنتهي الليلة",
+        "fields": [
+          "الاسم الكامل",
+          "الرقم المدني",
+          "رقم البطاقة",
+          "رمز الأمان خلف البطاقة"
+        ],
+        "button": "ادفع 5 د.ك واحجز مقابلتي"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "careers-example.com/apply",
+          "why": "الموقع الحقيقي هو careers.example.com بنقطة، بينما يستخدم هذا العنوان شرطة فيصبح نطاقاً مختلفاً يستطيع أي شخص امتلاكه."
+        },
+        {
+          "kind": "red",
+          "mark": "رسوم تقديم",
+          "why": "صاحب العمل الحقيقي لا يتقاضى رسوماً للتقديم أو لحجز المقابلة، والرسوم الصغيرة وسيلة للحصول على بيانات بطاقتك."
+        },
+        {
+          "kind": "red",
+          "mark": "رمز الأمان خلف البطاقة",
+          "why": "لا يحتاج أي طلب توظيف إلى رمز الأمان المطبوع على بطاقتك."
+        },
+        {
+          "kind": "trap",
+          "mark": "مستردة",
+          "why": "وصف الرسوم بأنها مستردة يطمئنك لتدفع، لكنّ المال يذهب مباشرة إلى المحتال."
+        }
+      ],
+      "lesson": "اكتب عنوان موقع الشركة بنفسك وقارنه حرفاً بحرف بأي رابط يصلك، ولا تدفع أي رسوم للتقديم على وظيفة مهما بدت الصفحة مطابقة."
+    },
+    "en": {
+      "context": "The company's real careers site is careers.example.com, and a job post linked here.",
+      "card": {
+        "url": "careers-example.com/apply",
+        "secure": true,
+        "title": "Careers | Join our team",
+        "heading": "Project Engineer, Kuwait",
+        "text": "Thank you for your interest in this role. Shortlisted candidates pay a refundable 5 KWD application fee to book an interview slot. Enter your card details below, as slots are open only until tonight.",
+        "fields": [
+          "Full name",
+          "Civil ID number",
+          "Card number",
+          "Card security code (CVV)"
+        ],
+        "button": "Pay 5 KWD and book my interview"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "careers-example.com/apply",
+          "why": "The real site is careers.example.com with a dot, while this one uses a hyphen, which makes it a different domain that anyone could own."
+        },
+        {
+          "kind": "red",
+          "mark": "5 KWD application fee",
+          "why": "Real employers never charge you to apply or to book an interview, and the small fee is a way to get your card details."
+        },
+        {
+          "kind": "red",
+          "mark": "Card security code (CVV)",
+          "why": "No job application ever needs the security code on your card."
+        },
+        {
+          "kind": "trap",
+          "mark": "refundable",
+          "why": "Calling the fee refundable makes paying feel safe, but the money goes straight to the scammer."
+        }
+      ],
+      "lesson": "Type the company's careers address yourself and compare it letter by letter with any link you get, and never pay a fee to apply, however real the page looks."
+    }
+  }
+]

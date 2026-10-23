@@ -27,7 +27,7 @@ Every card is a realistic message on a phone screen, in one of nine channels: a 
 * **Signs it is genuine**, in green, show what a real message looks like.
 * **Traps**, in violet, feel reassuring but prove nothing: a padlock, a verified badge, a familiar sender name.
 
-The game holds 112 cards, 66 scams and 46 genuine messages, with examples from the Arabian Gulf and from around the world. Every name, number and link on the cards is fictional: the links lead nowhere and the QR codes only say that they are a training example.
+The game holds 172 cards, 102 scams and 70 genuine messages, with examples from the Arabian Gulf and from around the world: 112 make up the daily case and the journey, and six themed card packs add ten each. Every name, number and link on the cards is fictional: the links lead nowhere and the QR codes only say that they are a training example.
 
 ## Features
 
@@ -234,7 +234,7 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 * **علامات الثقة** بالأخضر، وهي ما يميز الرسالة السليمة.
 * **الفخاخ** بالبنفسجي، أي التفاصيل التي تطمئنك ولا تثبت شيئاً مثل القفل في شريط العنوان أو علامة التوثيق أو اسم مرسل مألوف.
 
-تضم اللعبة 112 بطاقة، منها 66 بطاقة احتيال و46 بطاقة سليمة، بأمثلة من الخليج العربي ومن حول العالم.
+تضم اللعبة 172 بطاقة، منها 102 بطاقة احتيال و70 بطاقة سليمة، بأمثلة من الخليج العربي ومن حول العالم، وتتوزع بين 112 بطاقة في ملف اليوم والرحلة وست حزم موضوعية في كل منها عشر بطاقات.
 
 كل الأسماء والأرقام والروابط في البطاقات وهمية، فالروابط لا تقود إلى أي مكان ورموز QR لا تحمل إلا عبارة تقول إنها مثال للتدريب.
 

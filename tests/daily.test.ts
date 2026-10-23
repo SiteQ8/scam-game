@@ -3,8 +3,10 @@ import type { Card } from '../app/src/content/types';
 import { dailyDeck, dayIndex, caseNumber, shareGrid, DAILY_SIZE } from '../app/src/engine/daily';
 import { chapterDeck, starsFor, CHAPTERS } from '../app/src/engine/deck';
 import data from '../app/src/content/cards.json';
+import { isCore } from '../app/src/engine/packs';
 
-const CARDS = data as unknown as Card[];
+// The daily case and the journey are built from the cards outside the packs, as in the game.
+const CARDS = (data as unknown as Card[]).filter(isCore);
 const fake = (n: number): Card[] => Array.from({ length: n }, (_, i) => ({
   id: `sms-fake-${i}`, channel: (['sms', 'email', 'chat', 'web', 'call', 'qr'] as const)[i % 6], verdict: i % 5 < 3 ? 'scam' : 'legit',
   category: 'delivery', region: i % 3 ? 'gcc' : 'global', difficulty: (i % 5) + 1, ar: {} as never, en: { signals: [], card: { messages: [] } } as never,

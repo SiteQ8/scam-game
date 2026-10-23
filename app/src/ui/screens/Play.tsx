@@ -5,10 +5,11 @@ import { CARDS } from '../../content/cards';
 import { settings, progress, updateProgress } from '../../state/store';
 import { back, reset, replace, setBackInterceptor, type Route } from '../../state/nav';
 import { lang, t, fmtNum, count, rankFor, duration } from '../../i18n/i18n';
-import { CATEGORY_NAMES, CHANNEL_NAMES } from '../../i18n/strings';
+import { CATEGORY_NAMES, CHANNEL_NAMES, S } from '../../i18n/strings';
 import { byRegion, chapterDeck, randomDeck, starsFor, CHAPTERS } from '../../engine/deck';
 import { dailyDeck, dayIndex, caseNumber, shareGrid, msToNextDay, type Edition } from '../../engine/daily';
 import { pointsFor, recordJudgement, type Judgement } from '../../engine/scoring';
+import { PACKS, packDeck, isCore } from '../../engine/packs';
 import { newlyUnlocked, type Achievement } from '../../engine/achievements';
 import { CardView } from '../cards/CardView';
 import { SwipeCard, type SwipeApi } from '../components/SwipeCard';
@@ -41,8 +42,9 @@ export function Play({ route }: { route: PlayRoute }) {
 
   const deck = useMemo<Card[]>(() => {
     const pool = byRegion(CARDS, settings.value.region);
-    if (mode === 'daily') return dailyDeck(day, edition, CARDS);
-    if (mode === 'chapter') return chapterDeck(route.chapter || 'basics', pool);
+    if (mode === 'daily') return dailyDeck(day, edition, CARDS.filter(isCore));
+    if (mode === 'chapter') return chapterDeck(route.chapter || 'basics', pool.filter(isCore));
+    if (mode === 'pack') return route.pack ? packDeck(route.pack, CARDS) : [];
     if (mode === 'party') return randomDeck(pool, Math.max(1, players.length) * (route.party?.cardsEach || 5));
     if (mode === 'practice') return (route.ids || []).map((id) => CARDS.find((c) => c.id === id)).filter((c): c is Card => !!c);
     return randomDeck(pool, 400);
@@ -203,6 +205,11 @@ export function Play({ route }: { route: PlayRoute }) {
         const prev = p.journey[route.chapter] || { stars: 0, best: 0 };
         p.journey[route.chapter] = { stars: Math.max(prev.stars, stars), best: Math.max(prev.best, right) };
       }
+      if (mode === 'pack' && route.pack) {
+        const stars = starsFor(right, deck.length);
+        const prev = p.packs[route.pack] || { stars: 0, best: 0 };
+        p.packs[route.pack] = { stars: Math.max(prev.stars, stars), best: Math.max(prev.best, right) };
+      }
       if (mode === 'rush') { best = right > p.rushBest; p.rushBest = Math.max(p.rushBest, right); }
       if (mode === 'party') p.partyGames += 1;
     });
@@ -341,10 +348,12 @@ function Results(p: ResultsProps) {
   let big: string = fmtNum(p.score);
   let sub = '';
   const chapterIdx = p.chapter ? CHAPTERS.findIndex((c) => c.id === p.chapter) : -1;
-  const stars = p.mode === 'chapter' ? starsFor(right, n) : 0;
+  const stars = p.mode === 'chapter' || p.mode === 'pack' ? starsFor(right, n) : 0;
+  const packIdx = p.route.pack ? PACKS.findIndex((x) => x.id === p.route.pack) : -1;
   if (p.mode === 'daily') { title = t('caseClosed'); sub = `${t('dailyNumber', { n: caseNumber(p.day) })} · ${p.edition === 'gcc' ? t('dailyEditionGcc') : t('dailyEditionGlobal')}`; }
   if (p.mode === 'rush') { title = t('timeUp'); big = fmtNum(right); sub = t('rightCalls'); }
   if (p.mode === 'chapter') { title = stars ? t('chapterPassed') : t('chapter', { n: chapterIdx + 1 }); sub = stars ? '' : t('chapterFailed'); }
+  if (p.mode === 'pack' && p.route.pack) { title = stars ? t('packPassed') : S[`pack_${p.route.pack}` as keyof typeof S][L]; sub = stars ? S[`pack_${p.route.pack}` as keyof typeof S][L] : t('packFailed'); }
 
   const ranking = p.players.map((name, i) => ({ name, score: p.partyScores[i] })).sort((a, b) => b.score - a.score);
   const tie = ranking.length > 1 && ranking[0].score === ranking[1].score;
@@ -366,7 +375,7 @@ function Results(p: ResultsProps) {
               <span class="lbl">{p.mode === 'rush' ? t('rightCalls') : t('score')}</span>
               <div class="big num">{big}</div>
               {sub && <p>{sub}</p>}
-              {p.mode === 'chapter' && <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}><Stars n={stars} /></div>}
+              {(p.mode === 'chapter' || p.mode === 'pack') && <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}><Stars n={stars} /></div>}
             </div>
             <div class="stat-row">
               <div class="stat"><b class="num">{right}/{n}</b><span>{t('rightCalls')}</span></div>
@@ -411,6 +420,10 @@ function Results(p: ResultsProps) {
             <button class="btn btn-primary" onClick={() => replace({ name: 'play', mode: 'chapter', chapter: CHAPTERS[chapterIdx + 1].id })}>{t('nextChapter')}</button>
           )}
           {p.mode === 'chapter' && <button class={`btn ${stars ? 'btn-secondary' : 'btn-primary'}`} onClick={() => replace(stripKey(p.route))}>{stars ? t('replayChapter') : t('tryAgain')}</button>}
+          {p.mode === 'pack' && stars > 0 && packIdx >= 0 && packIdx < PACKS.length - 1 && (
+            <button class="btn btn-primary" onClick={() => replace({ name: 'play', mode: 'pack', pack: PACKS[packIdx + 1].id })}>{t('nextPack')}</button>
+          )}
+          {p.mode === 'pack' && <button class={`btn ${stars ? 'btn-secondary' : 'btn-primary'}`} onClick={() => replace(stripKey(p.route))}>{stars ? t('replayChapter') : t('tryAgain')}</button>}
           {(p.mode === 'rush' || p.mode === 'party') && <button class="btn btn-primary" onClick={() => replace(stripKey(p.route))}>{t('playAgain')}</button>}
           <button class="btn btn-secondary" onClick={() => reset()}>{t('home')}</button>
         </div>
