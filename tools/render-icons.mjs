@@ -21,5 +21,8 @@ const splash = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2732 2732">
 await sharp(Buffer.from(splash), { density: 150 }).resize(2732, 2732).png().toFile('assets/splash.png');
 await sharp(Buffer.from(splash), { density: 150 }).resize(2732, 2732).png().toFile('assets/splash-dark.png');
 for (const s of [192, 512, 180, 32]) await png(svg, s, `app/public/img/icon-${s}.png`, '#0F1624');
+// The Google Play listing icon: 512 pixels, 32 bit PNG.
+mkdirSync('store/graphics', { recursive: true });
+await sharp(Buffer.from(svg), { density: 300 }).resize(512, 512).flatten({ background: '#0F1624' }).ensureAlpha().png().toFile('store/graphics/icon-512.png');
 writeFileSync('app/public/img/mark.svg', markOnly.replace('viewBox="0 0 1024 1024"', 'viewBox="140 140 740 740"'));
 console.log('icons rendered');

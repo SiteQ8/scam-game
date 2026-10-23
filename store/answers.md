@@ -7,7 +7,7 @@ The answer to pick for each question in App Store Connect and Play Console, with
 * **Do you or your third-party partners collect data from this app?** No, we do not collect data from this app. Apple counts data as collected only when it leaves the device, and the app makes no network requests, so the product page shows "Data Not Collected".
 * **Privacy Policy URL:** https://siteq8.github.io/scam-game/privacy/ (Arabic localization: https://siteq8.github.io/scam-game/ar/privacy/). Apple requires it even when nothing is collected.
 * **Privacy Choices URL:** leave empty. There is nothing to opt out of.
-* The bundled privacy manifest (`ios/App/App/PrivacyInfo.xcprivacy`) already agrees: no tracking, no collected data types, and the UserDefaults reason CA92.1 for progress kept on the device.
+* The bundled privacy manifest (`ios/App/App/PrivacyInfo.xcprivacy`) already agrees: no tracking, no collected data types, the UserDefaults reason CA92.1 for progress kept on the device, and the file timestamp reason C617.1 for the certificate image written to the app's cache before it is shared.
 
 ## Apple: Age rating
 
@@ -83,7 +83,8 @@ Google Play: one category only, plus up to five tags.
 ## Google Play: Data safety
 
 * **Does your app collect or share any of the required user data types?** No. Google counts data as collected only when it leaves the device; the app makes no network requests, the checker works on the device, and progress stays on the device.
-* Sharing a result opens the system share sheet only when the player taps Share, and it carries the score grid and nothing personal; Google exempts transfers that the user starts and expects.
+* Sharing a result, a tip or the certificate opens the system share sheet only when the player taps Share, and goes where the player picks; Google exempts transfers that the user starts and expects. The name on the certificate stays on the device.
+* `google-play/data-safety.md` walks through the form screen by screen.
 * The INTERNET permission in the Android manifest (a Capacitor default) does not change these answers, because nothing is sent.
 * The questions about encryption in transit and deletion requests appear only after Yes, so they are skipped. The listing will show "No data collected" and "No data shared with third parties".
 * **Privacy policy URL:** https://siteq8.github.io/scam-game/privacy/

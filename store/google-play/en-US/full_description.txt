@@ -2,11 +2,12 @@ Swipe left on scams. Each card is a realistic message on a phone screen: swipe l
 
 After each swipe, the debrief highlights the exact words that gave the message away and explains each one, with warning signs in red and signs it is genuine in green. It marks the traps too: details that feel reassuring but prove nothing, like a familiar sender name. Every card ends with a lesson for next time.
 
-There are 112 cards in nine kinds of message: text messages, app notifications, chats, emails, phone calls, web pages, QR codes, social posts and marketplace chats. Of these, 66 are scams and 46 are genuine, because real life is mixed and knowing when to trust matters too. Every scam card follows a trick that scammers really use in the Arabian Gulf and around the world, from parcel fees, verification codes and fines to prizes, job and investment offers, fake support, romance and family emergencies.
+There are 172 cards in nine kinds of message: text messages, app notifications, chats, emails, phone calls, web pages, QR codes, social posts and marketplace chats. Of these, 102 are scams and 70 are genuine, because real life is mixed and knowing when to trust matters too. Every scam card follows a trick that scammers really use in the Arabian Gulf and around the world, from parcel fees, verification codes and fines to prizes, job and investment offers, fake support, romance and family emergencies.
 
 Ways to play
 • Daily case: ten cards, the same for everyone that day, from the easiest to the hardest, with a result grid you can share without spoiling the answers.
 • Journey: eight chapters, from first steps to expert. Get seven of ten right to open the next one.
+• Card packs: six themed packs of ten cards, on bank fraud, deliveries, fake jobs, investment and crypto, fake government services in the Arabian Gulf, and AI fakes such as cloned voices and deepfake videos.
 • 60 second rush: make as many right calls as you can before the clock runs out. A wrong one costs three seconds.
 • Flag hunt: tap every warning sign in the message before time runs out.
 • Play together: pass one phone around the room. Each player judges their own cards and the game keeps the score.
@@ -18,10 +19,16 @@ Check a message you received
 Paste a text, email or link and the checker looks for common warning signs, right on your phone. Nothing you paste is saved or sent. It cannot prove that a message is safe, so when in doubt, contact the sender through a number you already trust.
 
 Learn from what fooled you
-Your stats show your accuracy, the scams you caught and the topic that fools you most. A practice round brings back the cards you got wrong, and ranks and achievements mark your progress.
+Your stats show your accuracy, the scams you caught and the topic that fools you most. A practice round brings back the cards you got wrong. Points lift you through the levels, badges mark what you have mastered, and a streak counts the days in a row you play the daily case.
+
+A certificate to share
+Finish all eight chapters of the journey and the game makes you a certificate with your name on it, ready to share with family and friends. Your name stays on your phone.
+
+A tip every day
+The home screen shows a new tip each day, and the earlier ones stay a tap away.
 
 Play your way
-Play in Arabic or English, with examples from the Gulf, from around the world, or both. Pick a dark or light look and a larger text size, let calls play automatically, reduce motion, and turn sound effects, music and vibration on or off.
+Play in Arabic or English, with examples from the Arabian Gulf, from around the world, or both. Family and seniors mode makes the text and buttons larger, calms the motion and leaves out the timed challenges. Pick a dark or light look and a larger text size, let calls play automatically, reduce motion, and turn sound effects, music and vibration on or off.
 
 Nothing leaves your phone
 No account, no ads, no tracking, no analytics and no purchases. The cards, voices and music are all inside the app and it never connects to the internet, so it plays anywhere, even on a plane. Your progress stays on your device, and you can erase it from the settings.
