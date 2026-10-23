@@ -4,6 +4,8 @@ A free swipe game that trains people to spot scams in texts, calls, emails, chat
 
 **[Play in your browser](https://siteq8.github.io/scam-game/play/)** · [Website](https://siteq8.github.io/scam-game/) · [العربية](#arabic)
 
+The full game plays in the browser today. The iPhone and Android apps are coming soon.
+
 <table>
   <tr>
     <td><img src="docs/img/en/card.webp" width="240" alt="A text message waiting to be judged"></td>
@@ -207,6 +209,8 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 لعبة سحب مجانية تدرّب الناس على كشف الاحتيال في الرسائل والمكالمات والبريد والمحادثات والصفحات ورموز QR، بالعربية والإنجليزية.
 
 **[العب الآن في متصفحك](https://siteq8.github.io/scam-game/play/?lang=ar)** · [الموقع](https://siteq8.github.io/scam-game/ar/)
+
+تعمل اللعبة كاملة في المتصفح اليوم، وتطبيقا آيفون وأندرويد قريباً.
 
 <table>
   <tr>
