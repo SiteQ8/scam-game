@@ -11,7 +11,8 @@ const [capture = '.work/capture', out = 'site/img'] = process.argv.slice(2);
 const root = resolve('.');
 const copy = JSON.parse(readFileSync(join(root, 'site/copy.json'), 'utf8'));
 const fonts = join(root, 'docs/assets/fonts');
-const LINE = { en: 'Arabic and English · iPhone, Android and the web · Free', ar: 'بالعربية والإنجليزية · آيفون وأندرويد والويب · مجانية' };
+// True before and after the store release: the line names no platform.
+const LINE = { en: 'Arabic and English · Free, with no ads and no account', ar: 'بالعربية والإنجليزية · مجانية بلا إعلانات ولا حساب' };
 
 function page(lang) {
   const ar = lang === 'ar';

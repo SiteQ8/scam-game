@@ -4,7 +4,7 @@
 // Writes <outdir>/<lang>/<name>.png at 440x956 CSS pixels, 3x, plus small crops for the website.
 import { launch } from '../lib/env.mjs';
 import { spawn } from 'node:child_process';
-import { mkdirSync, existsSync } from 'node:fs';
+import { mkdirSync, existsSync, writeFileSync } from 'node:fs';
 
 const OUT = process.argv[2] || '.work/capture';
 const LANGS = process.argv[3] ? [process.argv[3]] : ['en', 'ar'];
@@ -26,14 +26,29 @@ function progress() {
   const d = today();
   return {
     xp: 2350, judged: 64, right: 51, scamsCaught: 33, legitTrusted: 18, bestRun: 9,
-    daily: { [d - 1]: { results: [true, true, false, true, true, true, true, false, true, true], score: 1240, done: true, edition: 'gcc' } },
+    daily: {
+      [d - 4]: { results: [true, true, true, false, true, true, true, true, false, true], score: 1180, done: true, edition: 'gcc' },
+      [d - 3]: { results: [true, true, true, true, true, false, true, true, true, true], score: 1320, done: true, edition: 'gcc' },
+      [d - 2]: { results: [true, false, true, true, true, true, false, true, true, true], score: 1150, done: true, edition: 'gcc' },
+      [d - 1]: { results: [true, true, false, true, true, true, true, false, true, true], score: 1240, done: true, edition: 'gcc' },
+    },
     dailyStreak: { current: 4, best: 6, lastDay: d - 1 },
     journey: { basics: { stars: 3, best: 10 }, delivery: { stars: 2, best: 8 }, banks: { stars: 1, best: 7 } },
-    rushBest: 14, huntPerfect: 1, huntsPlayed: 4, partyGames: 1, checkerUses: 2,
+    packs: { banking: { stars: 3, best: 9 }, delivery: { stars: 2, best: 8 }, ai: { stars: 1, best: 7 } },
+    rushBest: 14, huntPerfect: 1, huntsPlayed: 4, partyGames: 1, checkerUses: 2, familyRounds: 0,
     cards: { 'sms-traffic-fine-gov-lookalike': { right: 0, wrong: 2 }, 'email-supplier-bank-details-change': { right: 0, wrong: 1 }, 'chat-voice-son-trip-abroad': { right: 0, wrong: 1 } },
     categories: { banking: { right: 9, wrong: 3 }, delivery: { right: 7, wrong: 1 }, family: { right: 3, wrong: 2 }, prize: { right: 4, wrong: 0 }, government: { right: 5, wrong: 2 }, jobs: { right: 2, wrong: 2 }, accounts: { right: 6, wrong: 1 } },
-    achievements: { first: Date.now() - 4e8, streak3: Date.now() - 2e8, hunt: Date.now() - 1e8, party: Date.now() - 9e7, checker: Date.now() - 5e7 },
+    achievements: { first: Date.now() - 4e8, streak3: Date.now() - 2e8, hunt: Date.now() - 1e8, party: Date.now() - 9e7, checker: Date.now() - 5e7, 'pack-banking': Date.now() - 3e7, 'pack-delivery': Date.now() - 2e7, 'pack-ai': Date.now() - 1e7 },
   };
+}
+// The same player some weeks on, with every chapter of the journey passed and the certificate issued.
+function graduate(lang) {
+  const p = progress();
+  const chapters = ['basics', 'delivery', 'banks', 'official', 'calls', 'offers', 'social', 'expert'];
+  p.journey = Object.fromEntries(chapters.map((id, i) => [id, { stars: [3, 2, 3, 2, 3, 2, 2, 1][i], best: [10, 8, 9, 8, 10, 9, 8, 7][i] }]));
+  p.xp = 9800; p.judged = 210; p.right = 176;
+  p.certificate = { name: lang === 'ar' ? 'نورة الأحمد' : 'Noura Al-Ahmad', issued: Date.now() - 864e5, serial: 'SD-K7QA-M9XR' };
+  return p;
 }
 
 for (const lang of LANGS) {
@@ -64,6 +79,38 @@ for (const lang of LANGS) {
     console.log(lang, 'crop', name);
   };
   const practice = (ids) => go({ name: 'play', mode: 'practice', ids }, 1100);
+  // A screen with a line that holds today's case number: shot as it is, then once more with that line left out,
+  // with where the line sits and how it is set, so the website can write in the number of the day it is seen.
+  const liveShot = async (name, sel) => {
+    await shot(name);
+    const live = await page.evaluate((sel) => {
+      const el = document.querySelector(sel);
+      if (!el) return null;
+      const cs = getComputedStyle(el);
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const r = range.getBoundingClientRect();
+      const probe = document.createElement('span');
+      probe.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline';
+      el.appendChild(probe);
+      const baseline = probe.getBoundingClientRect().bottom;
+      probe.remove();
+      const rtl = cs.direction === 'rtl';
+      const centred = cs.textAlign === 'center';
+      const line = {
+        text: el.textContent, tpl: el.textContent.replace(/\d+/, '{n}'), rtl, anchor: centred ? 'middle' : 'start',
+        x: centred ? (r.left + r.right) / 2 : rtl ? r.right : r.left, y: baseline,
+        family: cs.fontFamily, size: parseFloat(cs.fontSize), weight: Number(cs.fontWeight), spacing: parseFloat(cs.letterSpacing) || 0, color: cs.color,
+      };
+      el.style.color = 'transparent';
+      return line;
+    }, sel);
+    if (!live) { console.log('no case line for', name, sel); return; }
+    await sleep(100);
+    await shot(`${name}-live`);
+    writeFileSync(`${dir}/${name}-live.json`, JSON.stringify(live));
+    await page.evaluate((sel) => { document.querySelector(sel).style.color = ''; }, sel);
+  };
 
   // First screen of a new player who came from the website in their language (the link carries ?lang=).
   await page.goto(BASE, { waitUntil: 'domcontentloaded' });
@@ -74,7 +121,24 @@ for (const lang of LANGS) {
 
   await boot(settings(lang), progress());
   await go({ name: 'home' });
-  await shot('home');
+  await liveShot('home', '#case-h');
+
+  // The card packs, further down the home screen.
+  await page.evaluate(() => {
+    const scroll = document.querySelector('.scroll');
+    const title = [...document.querySelectorAll('.section-title')].find((h) => h.nextElementSibling?.classList.contains('pack-grid'));
+    if (scroll && title) scroll.scrollTo({ top: title.offsetTop - 84 });
+  });
+  await sleep(500);
+  await shot('packs');
+  await crop('f4', '.pack-grid', 200, 2);
+
+  // Badges and the level.
+  await go({ name: 'badges' }, 1100);
+  await shot('badges');
+  await crop('f5', '.medal-grid', 196, 4);
+  await go({ name: 'tips' });
+  await shot('tips');
 
   // A card, the swipe in progress, and the verdict with its marks.
   await practice(['sms-parcel-redelivery-fee']);
@@ -113,7 +177,6 @@ for (const lang of LANGS) {
 
   await go({ name: 'journey' });
   await shot('journey');
-  await crop('f4', '.route', 200, 4);
 
   await go({ name: 'hunt' }, 1200);
   const marks = page.locator('[data-i]');
@@ -131,7 +194,7 @@ for (const lang of LANGS) {
   await page.locator('.player-row input').nth(2).blur();
   await sleep(400);
   await shot('party');
-  await crop('f5', '.players', 196, 6);
+  await crop('f6', '.players', 196, 6);
 
   await go({ name: 'checker' });
   const sample = lang === 'ar'
@@ -150,11 +213,24 @@ for (const lang of LANGS) {
   await shot('settings');
   await go({ name: 'about' });
   await shot('about');
-  await crop('f6', '.panel.prose', 168, 2);
+  await crop('f8', '.panel.prose', 168, 2);
+
+  // Family mode: larger text and calmer motion on the same home screen.
+  await boot(settings(lang, { family: true }), progress());
+  await go({ name: 'home' });
+  await liveShot('family', '#case-h');
+  await crop('f7', '.tip-card', 230, 4);
+
+  // The certificate after the whole journey, with the player's name on it.
+  await boot(settings(lang), graduate(lang));
+  await go({ name: 'certificate' }, 2600);
+  await shot('certificate');
+
+  await boot(settings(lang), progress());
 
   // The daily case played through, so the closed case and its share grid show.
   await go({ name: 'home' });
-  const plan = await page.evaluate(() => window.__daily.dailyDeck(window.__daily.dayIndex(), 'gcc', window.__cards).map((c) => c.verdict));
+  const plan = await page.evaluate(() => window.__daily.dailyDeck(window.__daily.dayIndex(), 'gcc', window.__cards.filter((c) => !c.pack)).map((c) => c.verdict));
   await go({ name: 'play', mode: 'daily' }, 1100);
   for (let i = 0; i < plan.length; i++) {
     const wrong = i === 2 || i === 7;
@@ -165,7 +241,7 @@ for (const lang of LANGS) {
     await sleep(900);
   }
   await sleep(1200);
-  await shot('results');
+  await liveShot('results', '.results-hero p');
 
   if (errors.length) console.log(lang, 'page errors:', errors.join('\n'));
   await ctx.close();

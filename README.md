@@ -32,19 +32,23 @@ The game holds 172 cards, 102 scams and 70 genuine messages, with examples from 
 ## Features
 
 * **Daily case**: ten cards a day, the same for everyone on the same edition, from the easiest to the hardest, with a share grid that gives no answers away.
-* **Journey**: eight chapters from first steps to expert. Get seven of ten right to open the next one.
+* **Journey**: eight chapters from first steps to expert. Get seven of ten right to open the next one, and pass them all for a certificate with your name on it, drawn on the device and ready to share.
+* **Card packs**: six themed packs of ten cards: bank fraud, deliveries, fake jobs, investment and crypto, fake government services in the Arabian Gulf, and AI fakes such as cloned voices and deepfake videos.
 * **60 second rush**: as many right calls as you can make before the clock runs out. A wrong call costs three seconds.
 * **Flag hunt**: tap every warning sign on a scam before time runs out.
 * **Play together**: one phone passed around the room. Each player judges their own cards and the game keeps the score.
 * **Message checker**: paste a text, an email or a link you received and see the warning signs in it. The check runs on your device.
-* **Stats**: accuracy by topic, a day streak, ranks and achievements, and *Practise what fooled you* to replay the cards you got wrong.
+* **Stats**: accuracy by topic, ranks, and *Practise what fooled you* to replay the cards you got wrong.
+* **Levels, badges and a streak**: points from every right call raise your level, 31 badges in three tiers mark what you have mastered, and the streak counts the days in a row you play the daily case.
+* **Tip of the day**: a short tip on the home screen each day, with the earlier ones a tap away.
 * **Voiced calls**: some cards ring. Answer and listen to the caller while the words appear on screen.
-* **Two languages**: Arabic and English, with examples from the Gulf, from around the world, or both.
+* **Two languages**: Arabic and English, with examples from the Arabian Gulf, from around the world, or both.
+* **Family and seniors mode**: larger text and buttons, calmer motion and no timed modes, switched on in the settings or on the last intro screen.
 * **Accessibility**: larger text, reduced motion, light and dark themes, and a written transcript for every call.
 
 ## Privacy
 
-No account, no ads, no tracking and no analytics. The app never connects to the internet: the built app carries a Content Security Policy that allows only the files bundled with it, and it asks for no access to contacts, location, camera, microphone, photos or notifications. Settings, scores and streaks stay on the device and can be erased from the settings. A message pasted into the checker is examined on the device and discarded when you leave the screen. The website sets no cookies and loads nothing from other sites. The full policy is on the [privacy page](https://siteq8.github.io/scam-game/privacy/).
+No account, no ads, no tracking and no analytics. The app never connects to the internet: the built app carries a Content Security Policy that allows only the files bundled with it, and it asks for no access to contacts, location, camera, microphone, photos or notifications. Settings, scores, streaks, badges and the name on the certificate stay on the device and can be erased from the settings. Sharing a result, a tip or the certificate goes through the system share sheet, only when you tap Share. A message pasted into the checker is examined on the device and discarded when you leave the screen. The website sets no cookies and loads nothing from other sites. The full policy is on the [privacy page](https://siteq8.github.io/scam-game/privacy/).
 
 ## How it works
 
@@ -241,14 +245,18 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 ## المزايا
 
 * **ملف اليوم**: عشر بطاقات جديدة كل يوم يلعبها الجميع في النسخة نفسها، مرتبة من الأسهل إلى الأصعب، ومعها شبكة نتيجة تشاركها دون أن تكشف الإجابات.
-* **المسار**: ثمانية فصول تبدأ بالخطوات الأولى وتنتهي بمستوى الخبراء، وتفتح الفصل التالي حين تصيب في سبع بطاقات من عشر.
+* **المسار**: ثمانية فصول تبدأ بالخطوات الأولى وتنتهي بمستوى الخبراء، وتفتح الفصل التالي حين تصيب في سبع بطاقات من عشر، فإذا اجتزتها كلها حصلت على شهادة باسمك ترسمها اللعبة على جهازك وتشاركها.
+* **حزم البطاقات**: ست حزم في كل منها عشر بطاقات عن الاحتيال المصرفي والتوصيل والوظائف الوهمية والاستثمار والعملات الرقمية وانتحال الجهات الحكومية في الخليج العربي والتزييف بالذكاء الاصطناعي مثل الأصوات المستنسخة والمقاطع المزيفة.
 * **سباق الستين ثانية**: أكبر عدد من الأحكام الصحيحة قبل نفاد الوقت، وكل حكم خاطئ يخصم ثلاث ثوانٍ.
 * **صيد العلامات**: تلمس كل علامة تحذير في بطاقة الاحتيال قبل أن ينفد الوقت.
 * **تحدٍّ جماعي**: هاتف واحد يتنقل بين اللاعبين، فيحكم كل لاعب على بطاقاته وتحسب اللعبة النقاط.
 * **أداة الفحص**: تلصق رسالة أو بريداً أو رابطاً وصلك فتعرف علامات التحذير فيه، والفحص يجري على جهازك.
-* **الإحصاءات**: دقتك في كل موضوع وسلسلة أيامك ورتبتك وإنجازاتك، مع خيار «تدرّب على ما خدعك» لتعيد البطاقات التي أخطأت فيها.
+* **الإحصاءات**: دقتك في كل موضوع ورتبتك، مع خيار «تدرّب على ما خدعك» لتعيد البطاقات التي أخطأت فيها.
+* **المستويات والشارات وسلسلة الأيام**: ترفع النقاط مستواك مع كل حكم صائب، وتشهد 31 شارة في ثلاث درجات على ما أتقنته، بينما تعدّ السلسلة الأيام المتتالية التي لعبت فيها ملف اليوم.
+* **نصيحة اليوم**: نصيحة قصيرة جديدة في الشاشة الرئيسية كل يوم، والنصائح السابقة على بعد لمسة.
 * **مكالمات تسمعها**: بعض البطاقات ترن، فترد وتستمع إلى المتصل بينما تظهر كلماته على الشاشة.
-* **لغتان**: العربية والإنجليزية، وتختار من الإعدادات أمثلة من الخليج أو من حول العالم أو من الاثنين معاً.
+* **لغتان**: العربية والإنجليزية، وتختار من الإعدادات أمثلة من الخليج العربي أو من حول العالم أو من الاثنين معاً.
+* **وضع العائلة وكبار السن**: خط وأزرار أكبر وحركة أهدأ بلا تحديات مؤقتة، وتفعّله من الإعدادات أو من آخر شاشة في التعريف باللعبة.
 * **سهولة الاستخدام**: نص أكبر وتقليل للحركة ومظهران فاتح وداكن ونص مكتوب لكل مكالمة.
 
 ## الخصوصية
@@ -257,7 +265,7 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 
 لا يطلب التطبيق الوصول إلى جهات الاتصال ولا الموقع ولا الكاميرا ولا الميكروفون ولا الصور ولا الإشعارات، ويستخدم الاهتزاز للتنبيه اللمسي وتستطيع إيقافه من الإعدادات.
 
-تُحفظ إعداداتك ونقاطك وسلاسلك وإنجازاتك على جهازك لتكمل من حيث توقفت، ولا تغادره أبداً، وتستطيع أن تمسحها متى شئت عبر خيار «امسح تقدمي» في الإعدادات أو بحذف التطبيق.
+تُحفظ إعداداتك ونقاطك وسلاسلك وشاراتك والاسم الذي تكتبه على شهادتك على جهازك لتكمل من حيث توقفت، ولا تغادره أبداً، وتستطيع أن تمسحها متى شئت عبر خيار «امسح تقدمي» في الإعدادات أو بحذف التطبيق، أما مشاركة النتيجة أو النصيحة أو الشهادة فتمر عبر قائمة المشاركة في جهازك حين تضغط «شارك» فقط.
 
 الرسالة التي تلصقها في أداة الفحص تُفحص على جهازك وتُهمل حين تغادر الشاشة، فلا تُحفظ ولا تُرسل إلى أي مكان.
 
