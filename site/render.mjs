@@ -210,8 +210,9 @@ export function homePage(ctx) {
   const { t, root, lang } = ctx;
   const play = `${root}play/?lang=${lang}`;
   const frag = fragments(ctx);
-  const faqs = Array.from({ length: 12 }, (_, i) => i + 1)
-    .map((i) => `<div class="qa rv" style="--d:${(i - 1) % 2}"><h3>${t(`q${i}`)}</h3><p>${i === 12 ? t(ctx.storesLive ? 'a12_live' : 'a12_soon') : t(`a${i}`)}</p></div>`)
+  // The question a scam's victim needs comes first, then cost and data; on a phone the rest fold.
+  const faqs = [11, 1, 3, 2, 4, 5, 6, 7, 8, 9, 10, 12]
+    .map((i, k) => `<details class="qa rv" style="--d:${k % 2}" open><summary><h3>${t(`q${i}`)}</h3></summary><p>${i === 12 ? t(ctx.storesLive ? 'a12_live' : 'a12_soon') : t(`a${i}`)}</p></details>`)
     .join('\n    ');
   const k2 = ctx.stages?.k2;
   const headline = (tag, attrs) => `<${tag} class="wl-t"${attrs}><span class="ln"><span>${t('hero_l1')}</span></span><span class="ln"><span>${t('hero_l2')}</span></span></${tag}>`;
@@ -254,9 +255,10 @@ ${PEARL_DEFS}
     <p class="note">${t('sc_note')}</p>
   </div>
   <div class="answer">
-    <div class="chk" data-ui id="sc-result" aria-label="${esc(t.raw('sc_fragment'))}" role="region">${ctx.checkerHtml}</div>
+    <div class="chk" data-ui id="sc-result" aria-label="${esc(t.raw('sc_fragment'))}" role="region">${ctx.checker.html}</div>
     <p class="sr-only" aria-live="polite" id="sc-live"></p>
   </div>
+  <div class="signs chk" data-ui id="sc-signs">${ctx.checker.list}</div>
 </section>
 <script type="application/json" id="sc-examples">${JSON.stringify(ctx.examples.map((e) => e.text)).replace(/</g, '\\u003c')}</script>
 
@@ -266,7 +268,7 @@ ${PEARL_DEFS}
     ${stagePicture(ctx, 'k1', t.raw('k1_alt'))}
     <p class="clause rv" style="--d:1">${t('hw1')}</p>
   </div>
-  <div class="fld f-mist">
+  <div class="fld f-pearl">
     ${stageLoop(ctx) || stagePicture(ctx, 'k2', t.raw('k2_alt'))}
     <p class="clause rv" style="--d:1">${t('hw2')}</p>
   </div>
@@ -311,7 +313,7 @@ ${PEARL_DEFS}
   </div>
 </section>
 
-<section id="faq" class="faq f-sea2" aria-labelledby="faq-h">
+<section id="faq" class="faq f-mist" aria-labelledby="faq-h">
   <h2 id="faq-h" class="rv">${t('faq_h2')}</h2>
   <div class="qas">
     ${faqs}

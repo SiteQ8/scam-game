@@ -1,5 +1,5 @@
 // Draws the swipe for the website's second stage: the real card, dragged towards Scam, back, towards Genuine and
-// back again, on the website's own mist so it sits in its field without an edge. The card is drawn flat, with no
+// back again, on the website's own nacre so it sits in its field without an edge. The card is drawn flat, with no
 // shadow, the way the website shows every card. It starts and ends at rest, so it loops without a seam. Each frame is a screenshot of the game with the card posed by the game's own drag rules
 // (tilt and label strength); the card travels less than a finger would, so the whole card stays in the picture.
 // Build the capture variant first:  npx vite build --mode capture
@@ -13,7 +13,7 @@ import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 
 const OUT = resolve(process.argv[2] || 'site/img');
-const MIST = '#e7edec';
+const NACRE = '#f5efe4'; // the field the second stage sits on (.f-pearl in site/assets/site.css)
 const W = 720, H = 900, Z = 2; // the layout in CSS pixels, drawn twice as large
 const PORT = 8899, FPS = 30;
 const CARD = 408; // the card's width on a phone, as in the other three stages
@@ -55,8 +55,8 @@ for (const lang of ['en', 'ar']) {
   await page.waitForFunction(() => window.__nav);
   await page.evaluate(() => window.__nav.reset({ name: 'play', mode: 'practice', ids: ['sms-parcel-redelivery-fee'] }));
   await sleep(1600);
-  // Only the card is drawn, on the website's mist, flat with a hairline edge; nothing moves on its own.
-  await page.addStyleTag({ content: `html, body { background: ${MIST} !important; } body * { visibility: hidden !important; } .stage .card-pos, .stage .card-pos * { visibility: visible !important; } .stage .msg { max-width: ${CARD}px !important; box-shadow: 0 0 0 1px rgba(16, 37, 43, 0.12) !important; } *, *::before, *::after { transition: none !important; animation: none !important; }` });
+  // Only the card is drawn, on the website's nacre, flat with a hairline edge; nothing moves on its own.
+  await page.addStyleTag({ content: `html, body { background: ${NACRE} !important; } body * { visibility: hidden !important; } .stage .card-pos, .stage .card-pos * { visibility: visible !important; } .stage .msg { max-width: ${CARD}px !important; box-shadow: 0 0 0 1px rgba(16, 37, 43, 0.12) !important; } *, *::before, *::after { transition: none !important; animation: none !important; }` });
   await sleep(400);
   const box = await page.evaluate(() => { const r = document.querySelector('.stage .msg').getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height }; });
 
@@ -92,7 +92,7 @@ for (const lang of ['en', 'ar']) {
   const outW = 720, outH = even((clip.height * outW) / clip.width);
   const dir = join(OUT, lang);
   mkdirSync(dir, { recursive: true });
-  // Tagged as BT.709 so browsers turn it back into the same mist the page is painted with.
+  // Tagged as BT.709 so browsers turn it back into the same nacre the page is painted with.
   const vf = `scale=${outW}:${outH}:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p`;
   const tags = ['-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv'];
   const input = ['-framerate', String(FPS), '-i', join(frames, 'f%04d.png')];

@@ -1,4 +1,5 @@
-// Website behaviour: today's case number, entrances, the live checker, the moving swipe, the time in Kuwait City and the language choice.
+// Website behaviour: today's case number, entrances, the live checker, the moving swipe, the questions on a phone,
+// the time in Kuwait City and the language choice.
 import { render, type Lang } from './checker-view';
 import { dayIndex, caseNumber } from '../../app/src/engine/daily';
 
@@ -38,6 +39,7 @@ function reveals() {
 function checker() {
   const input = $<HTMLTextAreaElement>('#sc-input');
   const out = $('#sc-result');
+  const signs = $('#sc-signs');
   const live = $('#sc-live');
   const data = $('#sc-examples');
   if (!input || !out) return;
@@ -56,6 +58,7 @@ function checker() {
     last = text;
     const view = render(text, lang, empty);
     out.innerHTML = view.html;
+    if (signs) signs.innerHTML = view.list;
     if (live) live.textContent = view.summary;
   };
   input.addEventListener('input', () => {
@@ -118,6 +121,22 @@ function loops() {
   }
 }
 
+/* On a phone each question opens on a tap and only the first three start open. On a wider screen every answer stays
+   open, so there the questions are not controls, and a phone turned sideways opens them all. */
+function questions() {
+  const qs = $$<HTMLDetailsElement>('details.qa');
+  if (!qs.length) return;
+  const phone = window.matchMedia('(max-width: 700px)');
+  const apply = () => qs.forEach((d, i) => {
+    d.open = phone.matches ? i < 3 : true;
+    const s = $('summary', d);
+    if (s) s.tabIndex = phone.matches ? 0 : -1;
+  });
+  for (const d of qs) $('summary', d)?.addEventListener('click', (e) => { if (!phone.matches) e.preventDefault(); });
+  apply();
+  phone.addEventListener?.('change', apply);
+}
+
 /* Remember an explicit language choice so the English home page stops suggesting Arabic. */
 function languageChoice() {
   for (const a of $$<HTMLAnchorElement>('[data-lang-switch]')) {
@@ -129,5 +148,6 @@ stampToday();
 reveals();
 checker();
 loops();
+questions();
 clock();
 languageChoice();

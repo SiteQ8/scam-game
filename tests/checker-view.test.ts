@@ -13,9 +13,9 @@ describe('the website checker', () => {
       const bad: string[] = [];
       let marked = 0;
       for (const card of CARDS.filter((c) => c.verdict === 'scam')) {
-        const html = render(cardText(card, lang), lang, '').html;
-        const inText = numbers(html, 'm-n');
-        const inList = numbers(html, 'chk-n');
+        const view = render(cardText(card, lang), lang, '');
+        const inText = numbers(view.html, 'm-n');
+        const inList = numbers(view.list, 'chk-n');
         marked += inText.length;
         if (!inText.every((v, k) => v === k + 1)) bad.push(`${card.id}: text ${inText.join(' ')}`);
         if (!inList.every((v, k) => v === k + 1)) bad.push(`${card.id}: list ${inList.join(' ')}`);
