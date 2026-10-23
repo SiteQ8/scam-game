@@ -18,7 +18,7 @@ export interface CertificateData {
 export const CERT_W = 1080;
 export const CERT_H = 1350;
 
-const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g transform="rotate(-8 30 32)"><rect x="12" y="9" width="36" height="46" rx="8" fill="#FBFAF7"/><rect x="18" y="19" width="22" height="3.6" rx="1.8" fill="#A3ABB8"/><rect x="16" y="27" width="27" height="8" rx="2.2" fill="#FFD43B"/><rect x="18" y="29.2" width="21" height="3.6" rx="1.8" fill="#141820"/><rect x="18" y="40" width="15" height="3.6" rx="1.8" fill="#A3ABB8"/></g><g transform="rotate(-14 45 46)"><circle cx="45" cy="46" r="11.5" fill="none" stroke="#E5484D" stroke-width="3.4"/><circle cx="45" cy="46" r="7.4" fill="none" stroke="#E5484D" stroke-width="1.6"/><path d="M42 43 48 49M48 43 42 49" stroke="#E5484D" stroke-width="2.4" stroke-linecap="round"/></g></svg>`;
+const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="140 140 740 740"><g transform="translate(512 512) scale(0.92) translate(-552 -512)"><g transform="rotate(-8 470 490)"><rect x="228" y="150" width="486" height="660" rx="90" fill="#FBFAF7"/><rect x="318" y="300" width="300" height="48" rx="24" fill="#A3ABB8"/><rect x="286" y="408" width="370" height="118" rx="32" fill="#FFD43B"/><rect x="318" y="443" width="300" height="48" rx="24" fill="#141820"/><rect x="318" y="586" width="200" height="48" rx="24" fill="#A3ABB8"/></g><g transform="rotate(-14 712 724)"><circle cx="712" cy="724" r="168" fill="none" stroke="#E5484D" stroke-width="54"/><path d="M660 672 764 776 M764 672 660 776" stroke="#E5484D" stroke-width="50" stroke-linecap="round"/></g></g></svg>`;
 
 const DISPLAY = "'Alexandria Variable', 'Alexandria', sans-serif";
 const BODY = "'IBM Plex Sans Arabic', sans-serif";

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'preact/hooks';
 import type { Achievement } from '../../engine/achievements';
 import { Icon } from './Icon';
 
@@ -18,15 +19,21 @@ export function Medal({ a, on, ratio, size = 'md' }: { a: Achievement; on: boole
   );
 }
 
-/** The level as a number inside a ring that fills toward the next level. */
-export function LevelRing({ n, pct }: { n: number; pct: number }) {
+/** The level as a number inside a ring that fills toward the next level; it can fill up when it first appears. */
+export function LevelRing({ n, pct, animate = false }: { n: number; pct: number; animate?: boolean }) {
   const r = 34;
   const len = 2 * Math.PI * r;
+  const [shown, setShown] = useState(animate ? 0 : pct);
+  useEffect(() => {
+    if (!animate) { setShown(pct); return; }
+    const id = requestAnimationFrame(() => requestAnimationFrame(() => setShown(pct)));
+    return () => cancelAnimationFrame(id);
+  }, [pct]);
   return (
     <span class="level-ring" aria-hidden="true">
       <svg viewBox="0 0 80 80">
         <circle cx="40" cy="40" r={r} />
-        <circle class="fill" cx="40" cy="40" r={r} style={{ strokeDasharray: `${len}`, strokeDashoffset: `${len * (1 - pct)}` }} />
+        <circle class="fill" cx="40" cy="40" r={r} style={{ strokeDasharray: `${len}`, strokeDashoffset: `${len * (1 - shown)}` }} />
       </svg>
       <b class="num">{n}</b>
     </span>
