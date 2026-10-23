@@ -1,9 +1,12 @@
 name: release
 
-# A version tag such as v1.0.0 publishes a GitHub release with the notes written in
-# .github/release-notes/<tag>.md: the first line is the title, the rest is the body.
+# Every note in .github/release-notes/ becomes a GitHub release: the file name is the version,
+# the first line is the title and the rest is the body. Merging a new note into main tags the
+# merged commit and publishes its release; a version tag pushed by hand publishes that one.
 on:
   push:
+    branches: [main]
+    paths: ['.github/release-notes/**', '.github/workflows/release.yml']
     tags: ['v*']
 
 permissions:
@@ -14,17 +17,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Publish the release
+      - name: Publish the releases
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG: ${{ github.ref_name }}
         run: |
-          notes=".github/release-notes/$TAG.md"
-          [ -f "$notes" ] || { echo "Write $notes before tagging $TAG."; exit 1; }
-          title=$(head -n 1 "$notes" | sed 's/^# *//')
-          tail -n +2 "$notes" > "$RUNNER_TEMP/notes.md"
-          if gh release view "$TAG" > /dev/null 2>&1; then
-            gh release edit "$TAG" --title "$title" --notes-file "$RUNNER_TEMP/notes.md"
-          else
-            gh release create "$TAG" --title "$title" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag
+          if [ "$GITHUB_REF_TYPE" = tag ] && [ ! -f ".github/release-notes/$GITHUB_REF_NAME.md" ]; then
+            echo "Write .github/release-notes/$GITHUB_REF_NAME.md before tagging $GITHUB_REF_NAME."; exit 1
           fi
+          for notes in .github/release-notes/v*.md; do
+            tag=$(basename "$notes" .md)
+            if [ "$GITHUB_REF_TYPE" = tag ] && [ "$tag" != "$GITHUB_REF_NAME" ]; then continue; fi
+            title=$(head -n 1 "$notes" | sed 's/^# *//')
+            tail -n +2 "$notes" | sed '/./,$!d' > "$RUNNER_TEMP/notes.md"
+            if gh release view "$tag" > /dev/null 2>&1; then
+              gh release edit "$tag" --title "$title" --notes-file "$RUNNER_TEMP/notes.md"
+              echo "updated $tag"
+            elif [ "$GITHUB_REF_TYPE" = tag ]; then
+              gh release create "$tag" --title "$title" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag
+              echo "published $tag"
+            else
+              gh release create "$tag" --title "$title" --notes-file "$RUNNER_TEMP/notes.md" --target "$GITHUB_SHA"
+              echo "published $tag at $GITHUB_SHA"
+            fi
+          done
