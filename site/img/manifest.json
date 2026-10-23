@@ -1,151 +1,75 @@
 {
  "en": {
-  "f1": {
-   "w": 360,
-   "h": 176
-  },
-  "f2": {
-   "w": 360,
-   "h": 176
-  },
-  "f3": {
-   "w": 360,
-   "h": 176
-  },
-  "f4": {
-   "w": 360,
-   "h": 175
-  },
-  "f5": {
-   "w": 360,
-   "h": 170
-  },
-  "f6": {
-   "w": 360,
-   "h": 168
-  },
-  "f7": {
-   "w": 360,
-   "h": 199
-  },
-  "f8": {
-   "w": 360,
-   "h": 147
-  },
-  "live": {
-   "home": {
-    "text": "Case #8",
-    "tpl": "Case #{n}",
-    "rtl": false,
-    "anchor": "start",
-    "x": 36,
-    "y": 168.34375,
-    "family": "\"Alexandria Variable\", ui-sans-serif, system-ui, sans-serif",
-    "size": 39.6,
-    "weight": 800,
-    "spacing": -1.188,
-    "color": "rgb(42, 32, 16)"
+  "stages": {
+   "k1": {
+    "w": 408,
+    "h": 312,
+    "cut": true
    },
-   "results": {
-    "text": "Case #8 \u00b7 Gulf edition",
-    "tpl": "Case #{n} \u00b7 Gulf edition",
-    "rtl": false,
-    "anchor": "middle",
-    "x": 219.9921875,
-    "y": 209,
-    "family": "\"IBM Plex Sans Arabic\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
-    "size": 16,
-    "weight": 400,
-    "spacing": 0,
-    "color": "rgb(170, 180, 195)"
+   "k2": {
+    "w": 420,
+    "h": 345,
+    "cut": true
    },
-   "family": {
-    "text": "Case #8",
-    "tpl": "Case #{n}",
-    "rtl": false,
-    "anchor": "start",
-    "x": 36,
-    "y": 186.4375,
-    "family": "\"Alexandria Variable\", ui-sans-serif, system-ui, sans-serif",
-    "size": 43.68,
-    "weight": 800,
-    "spacing": -1.3104,
-    "color": "rgb(42, 32, 16)"
+   "k3": {
+    "w": 408,
+    "h": 345,
+    "cut": true
+   },
+   "k4": {
+    "w": 408,
+    "h": 332,
+    "cut": true,
+    "live": {
+     "text": "Case #8",
+     "tpl": "Case #{n}",
+     "rtl": false,
+     "anchor": "middle",
+     "x": 203.9921875,
+     "y": 70,
+     "family": "\"Aref Ruqaa\", \"Readex Pro\", ui-serif, Georgia, serif",
+     "size": 41.36,
+     "weight": 700,
+     "spacing": 0,
+     "color": "rgb(245, 239, 228)"
+    }
    }
   }
  },
  "ar": {
-  "f1": {
-   "w": 360,
-   "h": 176
-  },
-  "f2": {
-   "w": 360,
-   "h": 176
-  },
-  "f3": {
-   "w": 360,
-   "h": 176
-  },
-  "f4": {
-   "w": 360,
-   "h": 175
-  },
-  "f5": {
-   "w": 360,
-   "h": 170
-  },
-  "f6": {
-   "w": 360,
-   "h": 168
-  },
-  "f7": {
-   "w": 360,
-   "h": 199
-  },
-  "f8": {
-   "w": 360,
-   "h": 147
-  },
-  "live": {
-   "home": {
-    "text": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 8",
-    "tpl": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 {n}",
-    "rtl": true,
-    "anchor": "start",
-    "x": 404,
-    "y": 168.34375,
-    "family": "\"Alexandria Variable\", ui-sans-serif, system-ui, sans-serif",
-    "size": 39.6,
-    "weight": 800,
-    "spacing": -1.188,
-    "color": "rgb(42, 32, 16)"
+  "stages": {
+   "k1": {
+    "w": 408,
+    "h": 289,
+    "cut": true
    },
-   "results": {
-    "text": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 8 \u00b7 \u0646\u0633\u062e\u0629 \u0627\u0644\u062e\u0644\u064a\u062c",
-    "tpl": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 {n} \u00b7 \u0646\u0633\u062e\u0629 \u0627\u0644\u062e\u0644\u064a\u062c",
-    "rtl": true,
-    "anchor": "middle",
-    "x": 219.9921875,
-    "y": 209,
-    "family": "\"IBM Plex Sans Arabic\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
-    "size": 16,
-    "weight": 400,
-    "spacing": 0,
-    "color": "rgb(170, 180, 195)"
+   "k2": {
+    "w": 418,
+    "h": 326,
+    "cut": true
    },
-   "family": {
-    "text": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 8",
-    "tpl": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 {n}",
-    "rtl": true,
-    "anchor": "start",
-    "x": 404,
-    "y": 186.4375,
-    "family": "\"Alexandria Variable\", ui-sans-serif, system-ui, sans-serif",
-    "size": 43.68,
-    "weight": 800,
-    "spacing": -1.3104,
-    "color": "rgb(42, 32, 16)"
+   "k3": {
+    "w": 408,
+    "h": 345,
+    "cut": true
+   },
+   "k4": {
+    "w": 408,
+    "h": 332,
+    "cut": true,
+    "live": {
+     "text": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 8",
+     "tpl": "\u0627\u0644\u0645\u0644\u0641 \u0631\u0642\u0645 {n}",
+     "rtl": true,
+     "anchor": "middle",
+     "x": 204,
+     "y": 70,
+     "family": "\"Aref Ruqaa\", \"Readex Pro\", ui-serif, Georgia, serif",
+     "size": 41.36,
+     "weight": 700,
+     "spacing": 0,
+     "color": "rgb(245, 239, 228)"
+    }
    }
   }
  }

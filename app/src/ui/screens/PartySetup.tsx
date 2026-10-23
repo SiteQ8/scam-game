@@ -16,7 +16,7 @@ export function PartySetup() {
     <div class="screen">
       <TopBar title={t('party')} onBack={back} />
       <div class="scroll"><div class="wrap">
-        <p style={{ color: 'var(--text-2)', margin: '4px 2px 16px' }}>{t('partyRule')}</p>
+        <p class="lead-text">{t('partyRule')}</p>
         <div class="group" style={{ marginTop: 0 }}>
           <h2>{t('players')}</h2>
           <div class="players">

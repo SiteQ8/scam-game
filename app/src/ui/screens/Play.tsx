@@ -12,12 +12,12 @@ import { pointsFor, recordJudgement, type Judgement } from '../../engine/scoring
 import { PACKS, packDeck, isCore } from '../../engine/packs';
 import { newlyUnlocked, type Achievement } from '../../engine/achievements';
 import { levelFor } from '../../engine/levels';
-import { Medal } from '../components/Medal';
+import { Medal, LevelPearl } from '../components/Medal';
 import { CardView } from '../cards/CardView';
 import { SwipeCard, type SwipeApi } from '../components/SwipeCard';
 import { Debrief, SignalList } from '../components/Debrief';
 import { Icon } from '../components/Icon';
-import { Confirm, Pips, Stars, announce, toast } from '../components/common';
+import { Confirm, Pearls, Strand, announce, toast } from '../components/common';
 import { sfx, stopVoice, setMusic } from '../../platform/audio';
 import { impact, notify } from '../../platform/haptics';
 import { shareText } from '../../platform/share';
@@ -283,11 +283,13 @@ export function Play({ route }: { route: PlayRoute }) {
           </div>
         ) : (
           <>
-            <Pips total={total} results={results} current={idx} />
+            <Strand total={total} results={results} current={idx} />
             <span class="sr-only">{t('progress', { i: idx + 1, n: total })}</span>
           </>
         )}
-        <div class="score num" aria-live="off">{fmtNum(score)}<small>{mode === 'rush' ? t('rightCalls') : t('score')}</small></div>
+        {mode === 'rush'
+          ? <div class="score num" aria-live="off">{fmtNum(score)}<small>{t('rightCalls')}</small></div>
+          : <span class="balance" aria-hidden="true" />}
       </div>
       {mode === 'party' && <Scoreline players={players} scores={partyScores} current={player} />}
       <div class="play-body">
@@ -314,8 +316,8 @@ export function Play({ route }: { route: PlayRoute }) {
         </div>
       ) : (
         <div class="verdicts">
-          <button class="verdict-btn scam" disabled={phase !== 'judge'} onClick={() => api.current?.decide('scam')}><Icon name="x" />{t('scam')}</button>
-          <button class="verdict-btn legit" disabled={phase !== 'judge'} onClick={() => api.current?.decide('legit')}><Icon name="check" />{t('legit')}</button>
+          <button class="verdict-btn scam" disabled={phase !== 'judge'} onClick={() => api.current?.decide('scam')}><span class="vd"><Icon name="x" /></span>{t('scam')}</button>
+          <button class="verdict-btn legit" disabled={phase !== 'judge'} onClick={() => api.current?.decide('legit')}><span class="vd"><Icon name="check" /></span>{t('legit')}</button>
         </div>
       )}
       {quit && <Confirm title={t('quitTitle')} body={t('quitBody')} confirm={t('leave')} cancel={t('keepPlaying')} danger onConfirm={() => { setQuit(false); stopVoice(); back(); }} onCancel={() => setQuit(false)} />}
@@ -342,7 +344,6 @@ function Results(p: ResultsProps) {
   const L = lang.value;
   const right = p.results.filter(Boolean).length;
   const n = p.results.length;
-  const acc = n ? Math.round((right / n) * 100) : 0;
   const [review, setReview] = useState<Card | null>(null);
   const [copied, setCopied] = useState(false);
   const missed = p.judged.filter((j) => !j.correct);
@@ -356,16 +357,18 @@ function Results(p: ResultsProps) {
     if (res === 'copied') { setCopied(true); toast(t('copied'), 'copy'); }
   }
 
+  // The top bar says what happened; the cloth names the case and lays out its finished strand.
   let title = t('roundDone');
-  let big: string = fmtNum(p.score);
+  let head = p.mode === 'practice' ? t('practice') : t('roundDone');
   let sub = '';
   const chapterIdx = p.chapter ? CHAPTERS.findIndex((c) => c.id === p.chapter) : -1;
   const stars = p.mode === 'chapter' || p.mode === 'pack' ? starsFor(right, n) : 0;
   const packIdx = p.route.pack ? PACKS.findIndex((x) => x.id === p.route.pack) : -1;
-  if (p.mode === 'daily') { title = t('caseClosed'); sub = `${t('dailyNumber', { n: caseNumber(p.day) })} · ${p.edition === 'gcc' ? t('dailyEditionGcc') : t('dailyEditionGlobal')}`; }
-  if (p.mode === 'rush') { title = t('timeUp'); big = fmtNum(right); sub = t('rightCalls'); }
-  if (p.mode === 'chapter') { title = stars ? t('chapterPassed') : t('chapter', { n: chapterIdx + 1 }); sub = stars ? '' : t('chapterFailed'); }
-  if (p.mode === 'pack' && p.route.pack) { title = stars ? t('packPassed') : S[`pack_${p.route.pack}` as keyof typeof S][L]; sub = stars ? S[`pack_${p.route.pack}` as keyof typeof S][L] : t('packFailed'); }
+  if (p.mode === 'daily') { title = t('caseClosed'); head = t('dailyNumber', { n: caseNumber(p.day) }); sub = p.edition === 'gcc' ? t('dailyEditionGcc') : t('dailyEditionGlobal'); }
+  if (p.mode === 'rush') { title = t('timeUp'); head = t('rush'); }
+  if (p.mode === 'chapter' && p.chapter) { title = stars ? t('chapterPassed') : t('chapter', { n: chapterIdx + 1 }); head = S[`ch_${p.chapter}` as keyof typeof S][L]; sub = stars ? '' : t('chapterFailed'); }
+  if (p.mode === 'pack' && p.route.pack) { title = stars ? t('packPassed') : t('roundDone'); head = S[`pack_${p.route.pack}` as keyof typeof S][L]; sub = stars ? '' : t('packFailed'); }
+  const tally = p.mode === 'rush' ? t('rightOf', { x: right, y: n }) : `${t('rightOf', { x: right, y: n })} · ${count(p.score, 'point')}`;
 
   const ranking = p.players.map((name, i) => ({ name, score: p.partyScores[i] })).sort((a, b) => b.score - a.score);
   const tie = ranking.length > 1 && ranking[0].score === ranking[1].score;
@@ -382,38 +385,32 @@ function Results(p: ResultsProps) {
             </div>
           </>
         ) : (
-          <>
-            <div class="results-hero">
-              <span class="lbl">{p.mode === 'rush' ? t('rightCalls') : t('score')}</span>
-              <div class="big num">{big}</div>
-              {sub && <p>{sub}</p>}
-              {(p.mode === 'chapter' || p.mode === 'pack') && <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}><Stars n={stars} /></div>}
-            </div>
-            <div class="stat-row">
-              <div class="stat"><b class="num">{right}/{n}</b><span>{t('rightCalls')}</span></div>
-              <div class="stat"><b class="num">{acc}%</b><span>{t('accuracy')}</span></div>
-              <div class="stat"><b class="num">{p.bestStreak}</b><span>{t('bestStreak')}</span></div>
-            </div>
-          </>
-        )}
-
-        {p.mode === 'daily' && (
-          <>
-            <div class="grid-share" aria-hidden="true">{p.results.map((r) => <i class={r ? 'ok' : 'no'} />)}</div>
-            <button class="btn btn-primary" onClick={share}><Icon name="share-2" />{t('shareResult')}</button>
-            <div class="toast-line">{copied ? t('copied') : t('nextIn', { t: duration(msToNextDay(new Date(now))) })}</div>
-          </>
+          <section class="cloth result-cloth" aria-labelledby="res-h">
+            <h2 id="res-h" class="num">{head}</h2>
+            {sub && <p class="sub">{sub}</p>}
+            {p.mode === 'rush'
+              ? <p class="haul"><b class="num">{fmtNum(right)}</b><span>{t('rightCalls')}</span></p>
+              : n > 0 && n <= 16 && <Strand total={n} results={p.results} size="lg" graduated label={t('rightOf', { x: right, y: n })} />}
+            {(p.mode === 'chapter' || p.mode === 'pack') && <Pearls n={stars} />}
+            <p class="tally num">{tally}</p>
+            {p.mode === 'daily' && (
+              <>
+                <button class="btn btn-primary" onClick={share}><Icon name="share-2" />{t('shareResult')}</button>
+                <div class="case-meta"><span class="num">{copied ? t('copied') : t('nextIn', { t: duration(msToNextDay(new Date(now))) })}</span></div>
+              </>
+            )}
+          </section>
         )}
         {p.newBest && <div class="celebrate"><Icon name="trophy" /><div><b>{t('newBest')}</b><span class="num">{right}</span></div></div>}
-        {p.streak >= 2 && <div class="celebrate streak"><Icon name="flame" /><div><b>{t('streakDays', { days: count(p.streak, 'day') })}</b><span>{t('streakDone')}</span></div></div>}
-        {p.levelUp && <div class="celebrate"><Icon name="medal" /><div><b>{t('levelUp')}</b><span>{t('levelN', { n: p.levelUp })}</span></div></div>}
+        {p.streak >= 2 && <div class="celebrate streak"><i class="bead ok" /><div><b>{t('streakDays', { days: count(p.streak, 'day') })}</b><span>{t('streakDone')}</span></div></div>}
+        {p.levelUp && <div class="celebrate"><LevelPearl n={p.levelUp} size="sm" animate /><div><b>{t('levelUp')}</b><span>{t('levelN', { n: p.levelUp })}</span></div></div>}
         {p.rankUp && <div class="celebrate"><Icon name="award" /><div><b>{t('newRank')}</b><span>{p.rankUp}</span></div></div>}
-        {p.unlocked.map((a) => <div class="celebrate badge-won"><Medal a={a} on /><div><b>{t('achievementUnlocked')}: {a[L].title}</b><span>{a[L].body}</span></div></div>)}
+        {p.unlocked.map((a) => <div class="celebrate badge-won"><Medal a={a} on size="sm" /><div><b>{t('achievementUnlocked')}: {a[L].title}</b><span>{a[L].body}</span></div></div>)}
 
         {p.mode !== 'party' && p.judged.length > 0 && (
           <>
             <h2 class="section-title">{missed.length ? t('reviewMissed') : t('reviewAll')}</h2>
-            {!missed.length && <p style={{ color: 'var(--text-2)', marginBottom: '10px' }}>{t('allRight')}</p>}
+            {!missed.length && <p class="lead-text">{t('allRight')}</p>}
             <div class="review">
               {(missed.length ? missed : p.judged).slice(0, 30).map((j) => {
                 const b = j.card[L] as LangBlock;

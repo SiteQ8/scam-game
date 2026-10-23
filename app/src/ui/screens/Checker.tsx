@@ -47,7 +47,7 @@ export function Checker() {
     <div class="screen">
       <TopBar title={t('checkerTitle')} onBack={back} />
       <div class="scroll"><div class="wrap">
-        <p style={{ color: 'var(--text-2)', margin: '2px 2px 14px' }}>{t('checkerIntro')}</p>
+        <p class="lead-text">{t('checkerIntro')}</p>
         <div class="checker-input">
           <textarea ref={area} value={text} placeholder={t('pastePlaceholder')} onInput={(e) => setText((e.target as HTMLTextAreaElement).value)} autoComplete="off" autoCorrect="off" spellcheck={false} dir="auto" aria-label={t('pastePlaceholder')} />
         </div>
@@ -63,7 +63,7 @@ export function Checker() {
                 <Icon name={res.level === 'high' ? 'shield-alert' : res.level === 'medium' ? 'triangle-alert' : 'info'} />
                 <b>{res.level === 'high' ? t('levelHigh') : res.level === 'medium' ? t('levelMedium') : t('levelLow')}</b>
               </div>
-              {negatives.length === 0 && <p style={{ color: 'var(--text-2)', marginBottom: '12px' }}>{t('noFlags')}</p>}
+              {negatives.length === 0 && <p class="lead-text">{t('noFlags')}</p>}
               {negatives.length > 0 && <h2 class="section-title" style={{ marginTop: '6px' }}>{t('flagsFound')}</h2>}
               {negatives.map((f) => (
                 <div class="finding"><Icon name="flag" /><div><b>{f[L].title}</b><p>{f[L].body}</p>{evidence(f.evidence)}</div></div>

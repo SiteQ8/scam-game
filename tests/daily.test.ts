@@ -38,7 +38,7 @@ describe('daily case', () => {
     expect(dailyDeck(3, 'global', fake(120)).every((c) => c.region === 'global')).toBe(true);
   });
   it('builds a spoiler free share grid', () => {
-    expect(shareGrid([true, false, true])).toBe('🟩🟥🟩');
+    expect(shareGrid([true, false, true])).toBe('⚪⚫⚪');
   });
   it('works on the real content', () => {
     const deck = dailyDeck(0, 'gcc', CARDS);

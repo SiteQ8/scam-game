@@ -10,7 +10,7 @@ import { newlyUnlocked } from '../../engine/achievements';
 import { CardView } from '../cards/CardView';
 import { SignalList } from '../components/Debrief';
 import { Icon } from '../components/Icon';
-import { Confirm, Pips, toast } from '../components/common';
+import { Confirm, Strand, toast } from '../components/common';
 import { sfx } from '../../platform/audio';
 import { impact, notify } from '../../platform/haptics';
 
@@ -94,11 +94,14 @@ export function Hunt() {
 
   if (done) {
     return (
-      <div class="screen">
-        <div class="topbar"><span class="spacer" /><h1>{t('hunt')}</h1><button class="icon-btn" onClick={() => reset()} aria-label={t('home')}><Icon name="house" /></button></div>
+      <div class="screen results">
+        <div class="topbar"><span class="spacer" /><h1>{t('roundDone')}</h1><button class="icon-btn" onClick={() => reset()} aria-label={t('home')}><Icon name="house" /></button></div>
         <div class="scroll"><div class="wrap">
-          <div class="results-hero"><span class="lbl">{t('found', { x: totals.found, y: totals.all })}</span><div class="big num">{totals.found}/{totals.all}</div></div>
-          <div class="grid-share" aria-hidden="true">{results.map((r) => <i class={r ? 'ok' : 'no'} />)}</div>
+          <section class="cloth result-cloth" aria-labelledby="hunt-h">
+            <h2 id="hunt-h">{t('hunt')}</h2>
+            <Strand total={results.length} results={results} size="lg" graduated label={t('found', { x: totals.found, y: totals.all })} />
+            <p class="tally num">{t('found', { x: totals.found, y: totals.all })}</p>
+          </section>
           <div style={{ display: 'grid', gap: '10px', marginTop: '18px' }}>
             <button class="btn btn-primary" onClick={() => replace({ name: 'hunt' })}>{t('playAgain')}</button>
             <button class="btn btn-secondary" onClick={() => reset()}>{t('home')}</button>
@@ -115,7 +118,7 @@ export function Hunt() {
         <div class={`timer ${time <= 8 ? 'low' : ''}`} role="timer"><div class="bar"><i style={{ transform: `scaleX(${Math.max(0, time) / SECONDS})` }} /></div><span class="t num">{Math.max(0, time)}</span></div>
         <div class="score num">{found.size}/{reds.length}<small>{t('huntGoal')}</small></div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '0 0 6px' }}><Pips total={deck.length} results={results} current={i} /></div>
+      <div class="hunt-strand"><Strand total={deck.length} results={results} current={i} /></div>
       <div class="scroll" style={{ paddingTop: '6px' }}><div class="wrap">
         <div class="context" style={{ margin: '0 0 10px' }}><Icon name="crosshair" /><span>{i === 0 && !revealed ? t('huntRule') : block.context ? bidi(block.context) : t('huntGoal')}</span></div>
         <CardView card={card} lang={L} mode={revealed ? 'debrief' : 'hunt'} huntFound={found} marksOn={revealed} onHuntTap={onTap} />

@@ -31,7 +31,7 @@ function applyTheme() {
   el.style.setProperty('--scale', String(s.family ? Math.max(1.3, s.textScale + 0.18) : s.textScale));
   el.classList.toggle('family', s.family);
   el.classList.toggle('reduce-motion', s.reduceMotion || s.family || motion.matches);
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0c111b' : '#ece7de');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0d1d22' : '#e7edec');
   void setStatusBar(dark);
 }
 

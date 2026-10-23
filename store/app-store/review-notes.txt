@@ -1,7 +1,7 @@
 Scam Detective: notes for App Review
 
 What the app is
-A free game that teaches people to spot scams. Each card shows a realistic message on a phone screen: a text message, app notification, chat, email, phone call, web page, QR code, social post or marketplace chat. The player swipes left for scam or right for legit, then a debrief highlights the words that gave it away, with a short lesson. The game is in Arabic and English.
+A free game that teaches people to spot scams. Each card shows a realistic message on a phone screen: a text message, app notification, chat, email, phone call, web page, QR code, social post or marketplace chat. The player swipes left for scam or right for legit, then a debrief marks and numbers the words that gave it away, with a short lesson. The game is in Arabic and English.
 
 Sign in
 There is no login and no account, so no demo account is needed.

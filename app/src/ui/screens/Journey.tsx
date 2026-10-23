@@ -7,7 +7,7 @@ import { CHAPTERS, chapterDeck, byRegion } from '../../engine/deck';
 import { isCore } from '../../engine/packs';
 import { CARDS } from '../../content/cards';
 import { Icon } from '../components/Icon';
-import { Stars, TopBar } from '../components/common';
+import { Pearls, TopBar } from '../components/common';
 import { sfx } from '../../platform/audio';
 
 export function Journey() {
@@ -44,7 +44,7 @@ export function Journey() {
               <button class={`stop ${st ? 'done' : ''} ${i === firstOpen ? 'open' : ''} ${isUnlocked ? '' : 'locked'}`} onClick={() => { void sfx('tap'); if (isUnlocked) setOpen(c.id); }} aria-disabled={!isUnlocked}>
                 <span class="node num">{isUnlocked ? (st ? <Icon name="check" /> : i + 1) : <Icon name="lock" />}</span>
                 <span class="txt"><b>{title}</b><span>{isUnlocked ? sub : t('locked')}</span></span>
-                {isUnlocked && <Stars n={st} />}
+                {isUnlocked && <Pearls n={st} />}
               </button>
             );
           })}
@@ -52,12 +52,12 @@ export function Journey() {
       </div></div>
       {sel && (
         <div class="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) setOpen(null); }}>
-          <div class="modal chapter-sheet" role="dialog" aria-modal="true">
-            <span class="label" style={{ color: 'var(--text-3)', fontSize: '0.85rem' }}>{t('chapter', { n: chapters.indexOf(sel) + 1 })} · {count(sel.size, 'card')}</span>
-            <h3 style={{ marginTop: '4px' }}>{S[`ch_${sel.id}` as keyof typeof S][L]}</h3>
+          <div class="modal chapter-sheet" role="dialog" aria-modal="true" aria-labelledby="chapter-h">
+            <h3 id="chapter-h">{S[`ch_${sel.id}` as keyof typeof S][L]}</h3>
+            <span class="sheet-meta">{t('chapter', { n: chapters.indexOf(sel) + 1 })} · {count(sel.size, 'card')}</span>
             <p class="lead">{S[`ch_${sel.id}_sub` as keyof typeof S][L]}</p>
-            <p style={{ fontSize: '0.92rem' }}>{t('passRule')}</p>
-            {(p.journey[sel.id]?.stars || 0) > 0 && <div style={{ margin: '0 0 16px' }}><Stars n={p.journey[sel.id].stars} /></div>}
+            <p class="rule">{t('passRule')}</p>
+            {(p.journey[sel.id]?.stars || 0) > 0 && <div class="sheet-pearls"><Pearls n={p.journey[sel.id].stars} /></div>}
             <div class="btn-row">
               <button class="btn btn-secondary" onClick={() => setOpen(null)}>{t('cancel')}</button>
               <button class="btn btn-primary" onClick={() => { setOpen(null); push({ name: 'play', mode: 'chapter', chapter: sel.id }); }}>{(p.journey[sel.id]?.stars || 0) > 0 ? t('replayChapter') : t('start')}</button>

@@ -97,7 +97,8 @@ export function SwipeCard({ children, locked, said, truth, lang, reduceMotion, p
   const settle = () => {
     const el = wrap.current;
     if (!el) return;
-    el.style.transition = 'transform 460ms cubic-bezier(0.3, 1.35, 0.5, 1)';
+    // A released card returns along the same curve it entered on; with reduced motion it is simply back.
+    el.style.transition = reduceMotion ? 'none' : 'transform 260ms cubic-bezier(0.23, 1, 0.32, 1)';
     el.style.transform = '';
     for (const st of [stScam.current, stLegit.current]) if (st) { st.style.transition = 'opacity 200ms ease'; st.style.opacity = '0'; setTimeout(() => { st.style.transition = ''; st.style.opacity = ''; st.style.transform = ''; }, 220); }
   };

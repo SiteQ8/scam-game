@@ -6,17 +6,17 @@ This game is released under the MIT License, © 2026 Ali AlEnezi (see [LICENSE](
 
 The font files are used unchanged, as published in their Fontsource packages. They are redistributed in `app/src/assets/fonts/`, inside the iPhone and Android apps, and on the website in `docs/assets/fonts/` and `docs/play/assets/`.
 
-### Alexandria
+### Aref Ruqaa
 
-* Package: `@fontsource-variable/alexandria` 5.3.0
+* Package: `@fontsource/aref-ruqaa` 5.3.0
 * License: SIL Open Font License, Version 1.1
-* Copyright 2022 The Alexandria Project Authors (https://github.com/Gue3bara/Alexandria)
+* Copyright 2015-2021 The Aref Ruqaa Project Authors (https://github.com/alif-type/aref-ruqaa), with Reserved Font Name EURM10.
 
-### IBM Plex Sans Arabic
+### Readex Pro
 
-* Package: `@fontsource/ibm-plex-sans-arabic` 5.3.0
+* Package: `@fontsource-variable/readex-pro` 5.3.0
 * License: SIL Open Font License, Version 1.1
-* Copyright 2019 IBM Corp. All rights reserved.
+* Copyright 2019 The Readex Pro Project Authors (https://github.com/ThomasJockin/readexpro)
 
 ## Icons
 
@@ -53,6 +53,13 @@ The iPhone and Android apps also contain code that comes with Capacitor under th
 * Two files of Capacitor for Android: `UriMatcher.java`, Copyright (C) 2006 The Android Open Source Project, and `WebViewLocalServer.java`, Copyright 2015 Google Inc. All rights reserved.
 * The AndroidX libraries that Capacitor uses and their dependencies, such as the Kotlin standard library, Copyright The Android Open Source Project and their other authors.
 
+## Photographs on the website
+
+The website (`site/img/world/`, published in `docs/img/world/`) shows two photographs from Wikimedia Commons, both from 1911, each cropped and levelled. Their credits are in `site/img/world/credits.json` and on the pages themselves.
+
+* Pearl diver ready to dive, Muharraq, March 1911. Unknown photographer. Public domain. https://commons.wikimedia.org/wiki/File:%D8%B7%D9%88%D8%A7%D8%B4%D8%A96.jpg
+* Pearlers working on their diving gear, Muharraq, March 1911. Unknown photographer. Public domain. https://commons.wikimedia.org/wiki/File:%D8%B7%D9%88%D8%A7%D8%B4%D8%A9.jpg
+
 ## Audio
 
 The call voices, music and sound effects were generated with ElevenLabs for this project.
@@ -63,7 +70,7 @@ Tools used only to build and test the project, such as esbuild, TypeScript, Vite
 
 ## SIL Open Font License 1.1
 
-This text applies to Alexandria and IBM Plex Sans Arabic, with the copyright lines given above.
+This text applies to Aref Ruqaa and Readex Pro, with the copyright lines given above.
 
 ```text
 -----------------------------------------------------------

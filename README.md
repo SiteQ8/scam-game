@@ -21,7 +21,7 @@ The full game plays in the browser today. The iPhone and Android apps are coming
 
 ## How it plays
 
-Every card is a realistic message on a phone screen, in one of nine channels: a text message, an app notification, a chat, an email, a phone call, a web page, a QR code, a social post or a marketplace chat. Swipe left for scam and right for legit. The debrief then highlights the exact words that gave the message away and ends with a lesson for next time:
+Every card is a realistic message on a phone screen, in one of nine channels: a text message, an app notification, a chat, an email, a phone call, a web page, a QR code, a social post or a marketplace chat. Swipe left for scam and right for legit. The debrief then marks and numbers the exact words that gave the message away and ends with a lesson for next time:
 
 * **Warning signs**, in red, give a scam away.
 * **Signs it is genuine**, in green, show what a real message looks like.
@@ -31,7 +31,7 @@ The game holds 172 cards, 102 scams and 70 genuine messages, with examples from 
 
 ## Features
 
-* **Daily case**: ten cards a day, the same for everyone on the same edition, from the easiest to the hardest, with a share grid that gives no answers away.
+* **Daily case**: ten cards a day, the same for everyone on the same edition, from the easiest to the hardest, with a strand of pearls to share that gives no answers away.
 * **Journey**: eight chapters from first steps to expert. Get seven of ten right to open the next one, and pass them all for a certificate with your name on it, drawn on the device and ready to share.
 * **Card packs**: six themed packs of ten cards: bank fraud, deliveries, fake jobs, investment and crypto, fake government services in the Arabian Gulf, and AI fakes such as cloned voices and deepfake videos.
 * **60 second rush**: as many right calls as you can make before the clock runs out. A wrong call costs three seconds.
@@ -72,7 +72,7 @@ Each finding has a weight, and the total sets the level: strong signs of a scam,
 
 ### The daily case
 
-`app/src/engine/daily.ts` numbers the cases from Case #1 on 16 October 2026, one per local calendar day. Each day's ten cards come from a shuffle seeded with the day and the edition, so every device picks the same cards without a server. Cards are drawn in cycles through the whole pool, so the same card does not keep coming back. The ten are then balanced, with at least three genuine cards, at least four scams and no more than two from one channel, and sorted from easiest to hardest. The Gulf edition draws from every card and the Global edition from the global ones; players who choose worldwide examples get the Global edition. The share grid is one green or red square per card.
+`app/src/engine/daily.ts` numbers the cases from Case #1 on 16 October 2026, one per local calendar day. Each day's ten cards come from a shuffle seeded with the day and the edition, so every device picks the same cards without a server. Cards are drawn in cycles through the whole pool, so the same card does not keep coming back. The ten are then balanced, with at least three genuine cards, at least four scams and no more than two from one channel, and sorted from easiest to hardest. The Gulf edition draws from every card and the Global edition from the global ones; players who choose worldwide examples get the Global edition. The shared result is the case's strand: a white pearl for each right call and a dark bead for each miss.
 
 ## Develop
 
@@ -135,7 +135,10 @@ Capacitor and its plugins come in through Swift Package Manager (`ios/App/CapApp
 ### Tools
 
 * `tools/marketing/capture.mjs` captures real screens of the game from a capture build (`npx vite build --mode capture`), and `tools/marketing/site-images.py` turns them into the website's pictures in `site/img/`.
-* `tools/marketing/og.mjs` draws the link preview images from those screens.
+* `tools/marketing/loop.mjs` draws the moving swipe of the website's second stage, frame by frame, from the same capture build.
+* `tools/marketing/og.mjs` draws the link preview images from those screens, and `tools/marketing/store-shots.mjs` the store screenshots and the Google Play feature graphic.
+* `tools/marketing/record.mjs` records game footage and `tools/marketing/trailer.mjs` builds the two trailers from it. All of them share the colours and typefaces in `tools/marketing/look.mjs`.
+* `tools/marketing/provenance.mjs` records where every shipping picture comes from, inside each PNG and in a JSON file beside each WebP. Run it after the pictures are made.
 * `tools/render-icons.mjs` renders the app icons, splash images and web icons from `art/icon.svg`.
 * `scripts/build-fonts.mjs` and `scripts/build-icons.mjs` copy the font files and the Lucide icons the app uses out of their packages.
 * `tools/voice_plan.mjs`, `tools/voice_pick.py`, `tools/voice_post.py` and the `tools/audio_*.py` scripts plan the call voices, pick the best takes and give them the sound of a phone line, with line timings.
@@ -195,7 +198,7 @@ Please report security issues privately, as [SECURITY.md](SECURITY.md) describes
 
 * Made by Ali AlEnezi, Kuwait.
 * Call voices, music and sound effects generated with ElevenLabs.
-* Fonts: Alexandria and IBM Plex Sans Arabic, under the SIL Open Font License 1.1.
+* Fonts: Aref Ruqaa and Readex Pro, under the SIL Open Font License 1.1.
 * Icons: Lucide, under the ISC License.
 * Built with Preact, @preact/signals, Vite and Capacitor.
 
@@ -228,7 +231,7 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 
 ## طريقة اللعب
 
-كل بطاقة رسالة تحاكي ما يظهر على شاشة الهاتف، فتسحبها يساراً إن رأيتها احتيالاً ويميناً إن رأيتها سليمة، ثمّ يظلل الشرح الكلمات التي كشفتها ويقدم لك درساً للمرة القادمة.
+كل بطاقة رسالة تحاكي ما يظهر على شاشة الهاتف، فتسحبها يساراً إن رأيتها احتيالاً ويميناً إن رأيتها سليمة، ثمّ يحدد الشرح الكلمات التي كشفتها ويرقّمها ويقدم لك درساً للمرة القادمة.
 
 تأتي البطاقات من تسع قنوات هي الرسائل النصية وإشعارات التطبيقات والمحادثات والبريد الإلكتروني والمكالمات وصفحات الويب ورموز QR ومنشورات التواصل الاجتماعي ومحادثات البيع والشراء.
 
@@ -244,7 +247,7 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 
 ## المزايا
 
-* **ملف اليوم**: عشر بطاقات جديدة كل يوم يلعبها الجميع في النسخة نفسها، مرتبة من الأسهل إلى الأصعب، ومعها شبكة نتيجة تشاركها دون أن تكشف الإجابات.
+* **ملف اليوم**: عشر بطاقات جديدة كل يوم يلعبها الجميع في النسخة نفسها، مرتبة من الأسهل إلى الأصعب، ومعها عقد من اللؤلؤ تشاركه دون أن تكشف الإجابات.
 * **المسار**: ثمانية فصول تبدأ بالخطوات الأولى وتنتهي بمستوى الخبراء، وتفتح الفصل التالي حين تصيب في سبع بطاقات من عشر، فإذا اجتزتها كلها حصلت على شهادة باسمك ترسمها اللعبة على جهازك وتشاركها.
 * **حزم البطاقات**: ست حزم في كل منها عشر بطاقات عن الاحتيال المصرفي والتوصيل والوظائف الوهمية والاستثمار والعملات الرقمية وانتحال الجهات الحكومية في الخليج العربي والتزييف بالذكاء الاصطناعي مثل الأصوات المستنسخة والمقاطع المزيفة.
 * **سباق الستين ثانية**: أكبر عدد من الأحكام الصحيحة قبل نفاد الوقت، وكل حكم خاطئ يخصم ثلاث ثوانٍ.
@@ -308,7 +311,7 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 
 تشمل نسخة الخليج كل البطاقات، بينما تقتصر النسخة العالمية على الأمثلة العالمية ويلعبها من يختار أمثلة «حول العالم» في الإعدادات.
 
-أما شبكة النتيجة فمربع أخضر أو أحمر لكل بطاقة، لذا تشاركها دون أن تكشف أي إجابة.
+أما النتيجة التي تشاركها فعقد الملف نفسه، لؤلؤة بيضاء لكل حكم صحيح وخرزة داكنة لكل خطأ، لذا تشاركها دون أن تكشف أي إجابة.
 
 ## التطوير والبناء
 
@@ -393,7 +396,10 @@ npx cap open ios
 ### الأدوات
 
 * يلتقط `tools/marketing/capture.mjs` شاشات حقيقية من نسخة خاصة بالتصوير تبنيها بالأمر `npx vite build --mode capture`، ثمّ يحوّلها `tools/marketing/site-images.py` إلى صور الموقع في المجلد `site/img`.
-* يرسم `tools/marketing/og.mjs` صور معاينة الروابط من تلك الشاشات.
+* يرسم `tools/marketing/loop.mjs` السحبة المتحركة في المرحلة الثانية من الموقع إطاراً بعد إطار من نسخة التصوير نفسها.
+* يرسم `tools/marketing/og.mjs` صور معاينة الروابط من تلك الشاشات، ويرسم `tools/marketing/store-shots.mjs` صور المتجرين وصورة العرض في Google Play.
+* يسجل `tools/marketing/record.mjs` لقطات من اللعبة ثمّ يبني منها `tools/marketing/trailer.mjs` العرضين الترويجيين، وكلها تأخذ الألوان والخطوط من `tools/marketing/look.mjs`.
+* يدوّن `tools/marketing/provenance.mjs` مصدر كل صورة تُنشر، داخل ملف PNG نفسه أو في ملف JSON بجانب كل صورة WebP، لذا شغّله بعد إنتاج الصور.
 * يرسم `tools/render-icons.mjs` أيقونات التطبيق وصور شاشة البداية وأيقونات الويب من `art/icon.svg`.
 * ينسخ `scripts/build-fonts.mjs` و `scripts/build-icons.mjs` ملفات الخطوط وأيقونات Lucide التي يستخدمها التطبيق من حزمها.
 * تخطط أدوات الصوت في المجلد `tools` لأصوات المكالمات وتختار أفضل التسجيلات ثمّ تمنحها صوت خط الهاتف وتوقيت السطور.
@@ -458,7 +464,7 @@ npx cap open ios
 
 * صنع اللعبة علي العنزي من الكويت.
 * صُنعت أصوات المكالمات والموسيقى والمؤثرات الصوتية عبر ElevenLabs.
-* الخطوط Alexandria و IBM Plex Sans Arabic برخصة SIL Open Font License 1.1.
+* الخطوط Aref Ruqaa و Readex Pro برخصة SIL Open Font License 1.1.
 * الأيقونات من Lucide برخصة ISC.
 * تعتمد اللعبة على Preact و Preact Signals و Vite و Capacitor.
 
