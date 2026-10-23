@@ -31,8 +31,11 @@ export const CHANNEL_GLYPH: Record<string, IconName> = { sms: 'message-square', 
 
 function stripKey(r: PlayRoute): PlayRoute { const { k: _k, ...rest } = r as PlayRoute & { k?: number }; return rest as PlayRoute; }
 
+/** The game's web address: its own domain once chosen, the repository's GitHub Pages address until then. */
 export function siteUrl() {
-  return __BRAND__.domain ? `https://${__BRAND__.domain}` : '';
+  if (__BRAND__.domain) return `https://${__BRAND__.domain}`;
+  const [owner, repo] = (__BRAND__.repo || '').split('/');
+  return owner && repo ? `https://${owner.toLowerCase()}.github.io/${repo}` : '';
 }
 
 export function Play({ route }: { route: PlayRoute }) {
@@ -427,6 +430,9 @@ function Results(p: ResultsProps) {
         )}
 
         <div style={{ display: 'grid', gap: '10px', marginTop: '22px' }}>
+          {p.mode === 'chapter' && stars > 0 && CHAPTERS.every((c) => (progress.value.journey[c.id]?.stars || 0) > 0) && !progress.value.certificate && (
+            <button class="btn btn-primary" onClick={() => replace({ name: 'certificate' })}><Icon name="file-badge" />{t('certGet')}</button>
+          )}
           {p.mode === 'chapter' && stars > 0 && chapterIdx >= 0 && chapterIdx < CHAPTERS.length - 1 && (
             <button class="btn btn-primary" onClick={() => replace({ name: 'play', mode: 'chapter', chapter: CHAPTERS[chapterIdx + 1].id })}>{t('nextChapter')}</button>
           )}
