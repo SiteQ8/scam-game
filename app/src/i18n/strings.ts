@@ -204,6 +204,29 @@ export const S = {
   scamsCaught: { en: 'Scams caught', ar: 'احتيالات كشفتها' },
   legitTrusted: { en: 'Genuine ones trusted', ar: 'رسائل سليمة وثقت بها' },
 
+  // Badges and levels
+  badges: { en: 'Badges', ar: 'الشارات' },
+  levelN: { en: 'Level {n}', ar: 'المستوى {n}' },
+  xpToLevel: { en: '{n} XP to level {level}', ar: '{n} نقطة حتى المستوى {level}' },
+  levelUp: { en: 'Level up', ar: 'مستوى جديد' },
+  badgesEarned: { en: '{x} of {y} badges', ar: 'شاراتك {x} من {y}' },
+  bg_skill: { en: 'A sharp eye', ar: 'العين الفاحصة' },
+  bg_daily: { en: 'Daily case', ar: 'ملف اليوم' },
+  bg_journey: { en: 'Journey and packs', ar: 'المسار والحزم' },
+  bg_modes: { en: 'Other ways to play', ar: 'طرق اللعب الأخرى' },
+  earnedOn: { en: 'Earned on {date}', ar: 'حصلت عليها في {date}' },
+  notYet: { en: 'Not earned yet', ar: 'لم تحصل عليها بعد' },
+  tierBronze: { en: 'Bronze', ar: 'برونزية' },
+  tierSilver: { en: 'Silver', ar: 'فضية' },
+  tierGold: { en: 'Gold', ar: 'ذهبية' },
+
+  // Streak
+  streakDays: { en: '{days} in a row', ar: '{days} على التوالي' },
+  streakKeep: { en: "Play today's case to keep it going", ar: 'العب ملف اليوم لتحافظ على سلسلتك' },
+  streakDone: { en: 'Today is done, see you tomorrow', ar: 'أنجزت ملف اليوم، ونلقاك غداً' },
+  streakStart: { en: 'Close a daily case to start a streak', ar: 'أغلق ملف اليوم لتبدأ سلسلة أيامك' },
+  streakBest: { en: 'Best {days}', ar: 'الأطول {days}' },
+
   // Settings
   language: { en: 'Language', ar: 'اللغة' },
   langSystem: { en: 'Device', ar: 'لغة الجهاز' },
