@@ -220,6 +220,27 @@ export const S = {
   tierSilver: { en: 'Silver', ar: 'فضية' },
   tierGold: { en: 'Gold', ar: 'ذهبية' },
 
+  // Certificate
+  certificate: { en: 'Certificate', ar: 'الشهادة' },
+  certReady: { en: 'Your certificate is ready', ar: 'شهادتك جاهزة' },
+  certReadySub: { en: 'You passed all eight chapters. Put your name on it and share it.', ar: 'اجتزت فصول المسار الثمانية، فاكتب اسمك عليها وشاركها.' },
+  certLocked: { en: 'Pass all eight chapters of the journey to earn your certificate.', ar: 'اجتز فصول المسار الثمانية لتحصل على شهادتك.' },
+  certProgress: { en: '{x} of {y} chapters passed', ar: 'اجتزت {x} من {y} فصول' },
+  certName: { en: 'Name on the certificate', ar: 'الاسم على الشهادة' },
+  certNameHint: { en: 'Optional, and it stays on this device', ar: 'اختياري، ويبقى على هذا الجهاز' },
+  certShare: { en: 'Share certificate', ar: 'شارك الشهادة' },
+  certSaved: { en: 'Certificate saved', ar: 'حُفظت الشهادة' },
+  certGet: { en: 'Get your certificate', ar: 'احصل على شهادتك' },
+  certTitle: { en: 'Certificate of completion', ar: 'شهادة إتمام' },
+  certAwardedTo: { en: 'Awarded to', ar: 'تُمنح هذه الشهادة إلى' },
+  certBody: { en: 'for completing all eight chapters of the scam spotting journey.', ar: 'تقديراً لإتمام فصول المسار الثمانية في كشف علامات الاحتيال.' },
+  certBodyNoName: { en: 'Awarded for completing all eight chapters of the scam spotting journey.', ar: 'تُمنح هذه الشهادة تقديراً لإتمام فصول المسار الثمانية في كشف علامات الاحتيال.' },
+  certStars: { en: 'Stars', ar: 'النجوم' },
+  certSerial: { en: 'No. {n}', ar: 'الرقم {n}' },
+  certStamp: { en: 'CERTIFIED', ar: 'معتمد' },
+  certShareText: { en: 'I completed the scam spotting journey in {game}.', ar: 'أتممت مسار كشف الاحتيال في لعبة {game}.' },
+  goJourney: { en: 'Go to the journey', ar: 'اذهب إلى المسار' },
+
   // Streak
   streakDays: { en: '{days} in a row', ar: '{days} على التوالي' },
   streakKeep: { en: "Play today's case to keep it going", ar: 'العب ملف اليوم لتحافظ على سلسلتك' },
