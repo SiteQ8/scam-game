@@ -9,7 +9,7 @@
 //
 // usage: node scripts/apply-brand.mjs          apply it
 //        node scripts/apply-brand.mjs --check  only list what is still missing
-import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, mkdirSync, unlinkSync, rmdirSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -68,6 +68,27 @@ edit('android/app/src/main/res/values/strings.xml', (s) => s
 edit('android/app/build.gradle', (s) => s.replace(/applicationId "[^"]+"/, `applicationId "${brand.appId}"`));
 edit('ios/App/App.xcodeproj/project.pbxproj', (s) => s.replace(/PRODUCT_BUNDLE_IDENTIFIER = [^;]+;/g, `PRODUCT_BUNDLE_IDENTIFIER = ${brand.appId};`));
 
+// The Android namespace and the Java package of the main activity follow the id, so the code reads like the app it builds.
+const gradlePath = join(root, 'android/app/build.gradle');
+const oldNs = readFileSync(gradlePath, 'utf8').match(/namespace = "([^"]+)"/)?.[1];
+if (oldNs && oldNs !== brand.appId) {
+  edit('android/app/build.gradle', (s) => s.replace(/namespace = "[^"]+"/, `namespace = "${brand.appId}"`));
+  const javaRoot = join(root, 'android/app/src/main/java');
+  const from = join(javaRoot, ...oldNs.split('.'));
+  const to = join(javaRoot, ...brand.appId.split('.'));
+  if (existsSync(from)) {
+    mkdirSync(to, { recursive: true });
+    for (const f of readdirSync(from).filter((x) => x.endsWith('.java'))) {
+      const src = readFileSync(join(from, f), 'utf8').replace(/^package [^;]+;/m, `package ${brand.appId};`);
+      writeFileSync(join(to, f), src);
+      unlinkSync(join(from, f));
+      console.log('moved', relative(root, join(from, f)), 'to', relative(root, join(to, f)));
+    }
+    // Remove the folders the old package leaves empty.
+    for (let d = from; d.startsWith(javaRoot) && d !== javaRoot && readdirSync(d).length === 0; d = dirname(d)) rmdirSync(d);
+  }
+}
+
 // 3. The name under the icon, once there is one: English and Arabic on Android, English on iPhone
 if (named) {
   edit('android/app/src/main/res/values/strings.xml', (s) => s
@@ -78,6 +99,14 @@ if (named) {
   const arPath = join(root, 'android/app/src/main/res/values-ar/strings.xml');
   if (!existsSync(arPath) || readFileSync(arPath, 'utf8') !== arStrings) { writeFileSync(arPath, arStrings); console.log('updated', relative(root, arPath)); }
   edit('ios/App/App/Info.plist', (s) => s.replace(/(<key>CFBundleDisplayName<\/key>\s*<string>)[^<]*(<\/string>)/, `$1${plistText(brand.nameEn)}$2`));
+  // iPhone shows the name in the phone's language: English by default, Arabic on an Arabic phone.
+  const stringsText = (s) => s.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  for (const [dir, value] of [['en.lproj', brand.nameEn], ['ar.lproj', brand.nameAr]]) {
+    const p = join(root, 'ios/App/App', dir, 'InfoPlist.strings');
+    const text = `/* The app's name under its icon. Written by scripts/apply-brand.mjs from brand.json. */\n"CFBundleDisplayName" = "${stringsText(value)}";\n`;
+    mkdirSync(dirname(p), { recursive: true });
+    if (!existsSync(p) || readFileSync(p, 'utf8') !== text) { writeFileSync(p, text); console.log('updated', relative(root, p)); }
+  }
 }
 
 console.log(`applied: https://${host}/, github.com/${brand.repo}, ${brand.appId}${named ? `, ${brand.nameEn} / ${brand.nameAr}` : ', name not chosen yet'}`);

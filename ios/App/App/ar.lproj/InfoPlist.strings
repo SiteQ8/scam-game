@@ -1,0 +1,2 @@
+/* The app's name under its icon. Written by scripts/apply-brand.mjs from brand.json. */
+"CFBundleDisplayName" = "محقق الاحتيال";

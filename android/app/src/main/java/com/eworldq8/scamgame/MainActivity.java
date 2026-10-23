@@ -1,4 +1,4 @@
-package com.eworldq8.game;
+package com.eworldq8.scamgame;
 
 import com.getcapacitor.BridgeActivity;
 
