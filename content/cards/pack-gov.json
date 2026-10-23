@@ -1,0 +1,862 @@
+[
+  {
+    "id": "sms-gov-health-appointment",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "حجزت الأسبوع الماضي موعداً في المركز الصحي القريب من بيتك في مسقط.",
+      "card": {
+        "sender": "Health",
+        "time": "16:20",
+        "body": "تذكير بموعدك في المركز الصحي يوم الأحد 1 نوفمبر الساعة 9:30 صباحاً، يرجى الحضور قبل الموعد بعشر دقائق ومعك بطاقتك الشخصية، ولتغيير الموعد أو إلغائه استخدم التطبيق الحكومي الرسمي"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "يوم الأحد 1 نوفمبر",
+          "why": "التذكير يطابق الموعد الذي حجزته بنفسك في يومه وساعته، لذا فالرسالة متوقعة ولها سبب تعرفه."
+        },
+        {
+          "kind": "green",
+          "mark": "استخدم التطبيق الحكومي الرسمي",
+          "why": "الرسالة لا تحمل أي رابط، بل توجهك إلى التطبيق الحكومي الذي تعرفه لتعدّل موعدك بنفسك."
+        },
+        {
+          "kind": "green",
+          "mark": "ومعك بطاقتك الشخصية",
+          "why": "كل ما تطلبه الرسالة أن تحضر ومعك بطاقتك، فلا دفع ولا بيانات ولا رمز تحقق."
+        },
+        {
+          "kind": "trap",
+          "mark": "Health",
+          "why": "اسم المرسل يمكن انتحاله فلا يثبت شيئاً وحده، لكنّ الرسالة آمنة لأنها تطابق حجزك ولا تطلب منك شيئاً."
+        }
+      ],
+      "lesson": "رسالة التذكير التي تطابق موعدك ولا تحمل رابطاً ولا تطلب دفعاً رسالة طبيعية، وإذا أردت تعديل الموعد فافتح التطبيق الحكومي الرسمي بنفسك."
+    },
+    "en": {
+      "context": "Last week you booked an appointment at your local health centre in Muscat.",
+      "card": {
+        "sender": "Health",
+        "time": "16:20",
+        "body": "Reminder: your appointment at the health centre is on Sunday 1 November at 9:30 AM. Please arrive ten minutes early with your ID card. To change or cancel it, use the official government app."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Sunday 1 November",
+          "why": "The reminder matches the day and time you booked yourself, so it is expected."
+        },
+        {
+          "kind": "green",
+          "mark": "use the official government app",
+          "why": "There is no link. It points you to the government app you already know, so you change the booking yourself."
+        },
+        {
+          "kind": "green",
+          "mark": "with your ID card",
+          "why": "All it asks is that you bring your ID. There is no payment, no details and no code."
+        },
+        {
+          "kind": "trap",
+          "mark": "Health",
+          "why": "A sender name can be faked, so it proves nothing alone. This text is safe because it matches your booking and asks for nothing."
+        }
+      ],
+      "lesson": "A reminder that matches your booking, carries no link and asks for no payment is normal. To change the time, open the official government app yourself."
+    }
+  },
+  {
+    "id": "social-gov-customs-auction",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "too-good",
+      "small-fee",
+      "payment",
+      "lookalike-domain",
+      "urgency",
+      "impersonation"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "تبحث عن سيارة مستعملة بسعر مناسب في مسقط.",
+      "card": {
+        "displayName": "مزادات الجمارك | سيارات محجوزة",
+        "handle": "@customs.auction.oman",
+        "verified": false,
+        "followers": "12.8K",
+        "kind": "post",
+        "text": "🚗 مزاد الجمارك للسيارات المحجوزة 🚗 سيارات موديل 2023 تبدأ من 1,900 ر.ع فقط، والمزاد إلكتروني بالكامل، وللمشاركة ادفع عبر customs-auction-om.com رسوم تأمين قدرها 25 ر.ع تُسترد بعد المزاد، والتسجيل مفتوح حتى الليلة فقط والمقاعد محدودة"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "customs-auction-om.com",
+          "why": "المزادات الحكومية الحقيقية تُعلن عبر القنوات الرسمية للجهة ومواقعها الحكومية، أما هذا الرابط فموقع تجاري لا صلة له بالجمارك."
+        },
+        {
+          "kind": "red",
+          "mark": "تبدأ من 1,900 ر.ع فقط",
+          "why": "سعر سيارة حديثة بهذا الانخفاض طُعم يجعلك تتجاهل بقية العلامات، والمحتال لا يملك أي سيارة ليبيعها أصلاً."
+        },
+        {
+          "kind": "red",
+          "mark": "رسوم تأمين قدرها 25 ر.ع",
+          "why": "رسوم التأمين الصغيرة هي ما يجمعه المحتال من آلاف المتابعين، ووعد استردادها بعد المزاد يجعل الدفع يبدو بلا مخاطرة."
+        },
+        {
+          "kind": "trap",
+          "mark": "مزادات الجمارك",
+          "why": "اسم الحساب الذي يوحي بالجمارك لا يثبت شيئاً، لأنّ أي شخص يستطيع أن يسمي حسابه باسم جهة حكومية."
+        }
+      ],
+      "lesson": "تابع مزادات الجمارك عبر الموقع الرسمي للجهة أو تطبيقها الذي تصل إليه بنفسك، ولا تدفع أي رسوم أو تأمين عبر رابط في منشور مهما بدت الأسعار مغرية."
+    },
+    "en": {
+      "context": "You are looking for a well priced used car in Muscat.",
+      "card": {
+        "displayName": "Customs Auctions | Seized Cars",
+        "handle": "@customs.auction.oman",
+        "verified": false,
+        "followers": "12.8K",
+        "kind": "post",
+        "text": "🚗 Customs auction of seized cars 🚗 2023 models from just 1,900 OMR, fully online. To take part, pay a refundable 25 OMR entry deposit at customs-auction-om.com. Registration is open only until tonight and places are limited"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "customs-auction-om.com",
+          "why": "Real government auctions are announced through the authority's own official channels and sites. This link is a commercial site with no tie to Customs."
+        },
+        {
+          "kind": "red",
+          "mark": "from just 1,900 OMR",
+          "why": "A nearly new car at that price is bait that makes you ignore everything else. The scammer has no car to sell."
+        },
+        {
+          "kind": "red",
+          "mark": "25 OMR entry deposit",
+          "why": "A small deposit from thousands of followers is what the scammer is after, and calling it refundable makes paying feel safe."
+        },
+        {
+          "kind": "trap",
+          "mark": "Customs Auctions",
+          "why": "An account name that sounds like Customs proves nothing. Anyone can name an account after a government body."
+        }
+      ],
+      "lesson": "Follow customs auctions only on the authority's official site or app that you open yourself, and never pay a fee or deposit through a link in a post, however good the prices look."
+    }
+  },
+  {
+    "id": "call-gov-residency-fine",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "threat",
+      "urgency",
+      "payment",
+      "credentials",
+      "impersonation",
+      "unknown-number"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "تقيم وتعمل في دبي منذ ثلاث سنوات.",
+      "card": {
+        "caller": "+971 5• ••• ••29",
+        "saved": false,
+        "voice": {
+          "gender": "male",
+          "age": "adult",
+          "tone": "official"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "مساء الخير، معاك الضابط سعيد من إدارة شؤون الإقامة، عليك مخالفة لأن جهة عملك ما حدّثت بياناتك، وإذا ما انسدت الغرامة اليوم بتنلغي إقامتك وبيطلع عليك قرار ترحيل"
+          },
+          {
+            "who": "you",
+            "text": "ترحيل؟ بس أنا مجدد إقامتي من شهرين"
+          },
+          {
+            "who": "caller",
+            "text": "أدري، المخالفة جديدة، الغرامة ألف ومية درهم، عطني رقم البطاقة وتاريخ الانتهاء وأنا أسددها لك من النظام عندي"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "رقم البطاقة وتاريخ الانتهاء",
+          "why": "الجهات الحكومية لا تطلب بيانات بطاقتك في مكالمة، فمن يطلب رقمها وتاريخ انتهائها يريد أن يدفع بها لنفسه."
+        },
+        {
+          "kind": "red",
+          "mark": "بيطلع عليك قرار ترحيل",
+          "why": "التهديد بالترحيل وإلغاء الإقامة في اليوم نفسه يهدف إلى إخافتك حتى تدفع قبل أن تراجع وضعك بنفسك."
+        },
+        {
+          "kind": "red",
+          "mark": "أسددها لك من النظام عندي",
+          "why": "لا يسدد أي موظف حكومي غرامتك من جهازه، بل تسدد أنت المخالفات الرسمية عبر التطبيق الحكومي الرسمي أو مراكز خدمة الجهة."
+        },
+        {
+          "kind": "trap",
+          "mark": "إدارة شؤون الإقامة",
+          "why": "اسم الإدارة والرتبة يمنحان المكالمة طابعاً رسمياً لكنهما لا يثبتان شيئاً، لأنّ أي متصل يستطيع انتحال صفة موظف حكومي."
+        }
+      ],
+      "lesson": "إذا هددك متصل بإلغاء إقامتك أو ترحيلك فأغلق الخط وتحقق من وضعك عبر التطبيق الحكومي الرسمي أو مركز خدمة الجهة، ولا تذكر بيانات بطاقتك لأي متصل."
+    },
+    "en": {
+      "context": "You have lived and worked in Dubai for three years.",
+      "card": {
+        "caller": "+971 5• ••• ••29",
+        "saved": false,
+        "voice": {
+          "gender": "male",
+          "age": "adult",
+          "tone": "official"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "Good evening, Officer Saeed from Residency Affairs. Your residency has a violation because your employer didn't update your file. Pay the fine today or your residency is cancelled and you'll be deported."
+          },
+          {
+            "who": "you",
+            "text": "Deported? But I renewed my residency two months ago."
+          },
+          {
+            "who": "caller",
+            "text": "I know, it's new. The fine is eleven hundred dirhams. Give me your card number and expiry date and I'll pay it from my system."
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "card number and expiry date",
+          "why": "No government office takes card details on a call. Whoever asks for your card number and expiry date wants to pay with your card."
+        },
+        {
+          "kind": "red",
+          "mark": "you'll be deported",
+          "why": "Threatening deportation on the same day is meant to scare you into paying before you check your status yourself."
+        },
+        {
+          "kind": "red",
+          "mark": "I'll pay it from my system",
+          "why": "No official pays your fine from their own computer. Real fines are paid by you in the official government app or at a service centre."
+        },
+        {
+          "kind": "trap",
+          "mark": "Residency Affairs",
+          "why": "A department name and a rank sound official but prove nothing, because anyone can claim to work for a government office."
+        }
+      ],
+      "lesson": "If a caller threatens to cancel your residency or deport you, hang up and check your status in the official government app or at a service centre. Never give a caller your card details."
+    }
+  },
+  {
+    "id": "web-gov-housing-allowance",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "too-good",
+      "credentials",
+      "lookalike-domain",
+      "urgency",
+      "impersonation"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "وصلت إلى هذه الصفحة من رابط في رسالة نصية عن مستحقات سكنية.",
+      "card": {
+        "url": "bh-housing-support.com/claim",
+        "secure": true,
+        "title": "بدل السكن | صرف المستحقات",
+        "heading": "تمت الموافقة على صرف بدل السكن المتأخر لك",
+        "text": "لك مستحقات بدل سكن متأخرة قدرها 600.000 د.ب عن الأشهر الستة الماضية، ولاستلامها اليوم أدخل بيانات بطاقتك المصرفية والرقم السري للبطاقة، وتنتهي مهلة الصرف خلال 48 ساعة",
+        "fields": [
+          "رقم البطاقة",
+          "تاريخ الانتهاء",
+          "الرقم السري للبطاقة",
+          "رمز التحقق"
+        ],
+        "button": "استلم 600.000 د.ب"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "bh-housing-support.com/claim",
+          "why": "العنوان ليس نطاقاً حكومياً بل كلمات مركّبة عن السكن والدعم، بينما تنتهي المواقع الحكومية البحرينية بـ gov.bh."
+        },
+        {
+          "kind": "red",
+          "mark": "الرقم السري للبطاقة",
+          "why": "لا يحتاج أي إيداع في حسابك إلى الرقم السري لبطاقتك، فمن يطلبه مع بيانات البطاقة يريد أن يسحب منها لا أن يودع فيها."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 48 ساعة",
+          "why": "المهلة القصيرة تدفعك إلى إدخال بياناتك بسرعة خوفاً من ضياع مبلغ كبير، فلا تجد وقتاً للتحقق من الجهة."
+        },
+        {
+          "kind": "trap",
+          "mark": "تمت الموافقة",
+          "why": "عبارة الموافقة تبعث الفرح والثقة لكنها لا تثبت شيئاً، لأنّ المستحقات الحقيقية تُصرف إلى حسابك المسجل لدى الجهة دون أن تُدخل بيانات بطاقتك."
+        }
+      ],
+      "lesson": "الدعم الحكومي الحقيقي يُصرف إلى حسابك المسجل لدى الجهة دون أن تُدخل بيانات بطاقتك، لذا تحقق من أي مستحقات عبر التطبيق الحكومي الرسمي أو موقع ينتهي بـ gov.bh تكتب عنوانه بنفسك."
+    },
+    "en": {
+      "context": "You reached this page from a link in a text about a housing payment.",
+      "card": {
+        "url": "bh-housing-support.com/claim",
+        "secure": true,
+        "title": "Housing Allowance | Payments",
+        "heading": "Your delayed housing allowance has been approved",
+        "text": "You are owed 600.000 BHD in delayed housing allowance for the past six months. To receive it today, enter your bank card details and your card PIN. The payment window closes in 48 hours.",
+        "fields": [
+          "Card number",
+          "Expiry date",
+          "Card PIN",
+          "Verification code"
+        ],
+        "button": "Receive 600.000 BHD"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "bh-housing-support.com/claim",
+          "why": "This is not a government domain, just words about housing and support glued together. Bahraini government sites end in gov.bh."
+        },
+        {
+          "kind": "red",
+          "mark": "your card PIN",
+          "why": "No payment into your account ever needs your card PIN. Whoever asks for it with your card details wants to take money out, not put it in."
+        },
+        {
+          "kind": "red",
+          "mark": "closes in 48 hours",
+          "why": "The deadline rushes you into typing your details for fear of losing a large sum, leaving no time to check."
+        },
+        {
+          "kind": "trap",
+          "mark": "has been approved",
+          "why": "Approval sounds like good news but proves nothing. Real allowances are paid into the account the authority already has, with no card details needed."
+        }
+      ],
+      "lesson": "Real government support is paid into the account the authority already has on file. Check any payment in the official government app or on a gov.bh site you type yourself."
+    }
+  },
+  {
+    "id": "notification-gov-fine-paid-in-app",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "سددت قبل دقيقة غرامة تأخير تجديد إقامتك من التطبيق الحكومي الرسمي.",
+      "card": {
+        "app": "Government",
+        "title": "تم استلام الدفعة",
+        "body": "تم سداد غرامة تأخير تجديد الإقامة بقيمة 250.00 د.إ بنجاح، ورقم الإيصال 60418، ويمكنك عرض الإيصال من قسم المدفوعات داخل التطبيق",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "250.00 د.إ",
+          "why": "المبلغ يطابق الغرامة التي سددتها بنفسك قبل دقيقة، فالإشعار يؤكد عملية تعرفها."
+        },
+        {
+          "kind": "green",
+          "mark": "Government",
+          "why": "الإشعار صادر من التطبيق الحكومي المثبت على هاتفك لا من رسالة نصية، والغرباء لا يستطيعون إرسال إشعارات عبر هذا التطبيق."
+        },
+        {
+          "kind": "green",
+          "mark": "داخل التطبيق",
+          "why": "الإشعار لا يحمل رابطاً ولا يطلب منك أي إجراء، بل يدلك على الإيصال داخل التطبيق نفسه."
+        },
+        {
+          "kind": "trap",
+          "mark": "رقم الإيصال 60418",
+          "why": "رقم الإيصال يبدو رسمياً لكنه لا يثبت شيئاً وحده، فما يجعل الإشعار موثوقاً أنه يطابق ما فعلته للتو."
+        }
+      ],
+      "lesson": "إشعار السداد الذي يطابق غرامة دفعتها بنفسك أمر طبيعي، أما إذا وصلك طلب سداد لم تبدأه أنت فتحقق منه داخل التطبيق الحكومي الرسمي قبل أي دفع."
+    },
+    "en": {
+      "context": "A minute ago you paid a late residency renewal fine in the official government app.",
+      "card": {
+        "app": "Government",
+        "title": "Payment received",
+        "body": "Your 250.00 AED fine for late residency renewal has been paid. Receipt number 60418. You can view the receipt under Payments in the app.",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "250.00 AED",
+          "why": "The amount matches the fine you paid yourself a minute ago, so the alert confirms something you know."
+        },
+        {
+          "kind": "green",
+          "mark": "Government",
+          "why": "The alert comes from the government app installed on your phone, not a text, and outsiders cannot send alerts through it."
+        },
+        {
+          "kind": "green",
+          "mark": "under Payments in the app",
+          "why": "There is no link and nothing to do. It points you to the receipt inside the app itself."
+        },
+        {
+          "kind": "trap",
+          "mark": "Receipt number 60418",
+          "why": "A receipt number looks official but proves nothing alone. What makes this trustworthy is that it matches what you just did."
+        }
+      ],
+      "lesson": "A payment alert that matches a fine you paid yourself is normal. If a demand arrives for something you did not start, check it inside the official government app first."
+    }
+  },
+  {
+    "id": "web-gov-portal-address-update",
+    "channel": "web",
+    "verdict": "legit",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "official-channel",
+      "expected",
+      "verify-independently"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "انتقلت إلى بيت جديد فكتبت عنوان البوابة الحكومية بنفسك.",
+      "card": {
+        "url": "eservices.gov.sa/address-update",
+        "secure": true,
+        "title": "البوابة الحكومية | تحديث العنوان",
+        "heading": "تحديث العنوان الوطني",
+        "text": "سجّل الدخول بهويتك الرقمية ثمّ وافق على الطلب من التطبيق الحكومي الرسمي على هاتفك، وبعدها حدّد موقع بيتك الجديد على الخريطة، والخدمة مجانية ولا تتطلب أي بيانات مصرفية",
+        "fields": [
+          "رقم الهوية أو الإقامة",
+          "الحي",
+          "رقم المبنى"
+        ],
+        "button": "متابعة"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "eservices.gov.sa/address-update",
+          "why": "العنوان ينتهي بـ gov.sa قبل أول شرطة مائلة، وهذا امتداد لا تحصل عليه إلا الجهات الحكومية السعودية، وقد كتبته بنفسك ولم تصل إليه من رابط."
+        },
+        {
+          "kind": "green",
+          "mark": "وافق على الطلب من التطبيق الحكومي الرسمي",
+          "why": "تؤكد دخولك بموافقتك داخل التطبيق الحكومي على هاتفك، فلا تكتب كلمة مرور ولا رمزاً في الصفحة."
+        },
+        {
+          "kind": "green",
+          "mark": "لا تتطلب أي بيانات مصرفية",
+          "why": "الصفحة لا تطلب بطاقتك ولا أي رسوم، لأنّ تحديث العنوان خدمة مجانية."
+        },
+        {
+          "kind": "trap",
+          "mark": "البوابة الحكومية",
+          "why": "الاسم الرسمي في أعلى الصفحة لا يكفي وحده لأنّ صفحات الاحتيال تنسخه حرفياً، فالفيصل هو العنوان في شريط المتصفح."
+        }
+      ],
+      "lesson": "حدّث بياناتك الحكومية من موقع ينتهي بـ gov.sa تكتب عنوانه بنفسك أو من التطبيق الرسمي، فالخدمة الحقيقية تؤكد هويتك عبر التطبيق ولا تطلب بيانات بطاقتك."
+    },
+    "en": {
+      "context": "You moved house, so you typed the government portal's address yourself.",
+      "card": {
+        "url": "eservices.gov.sa/address-update",
+        "secure": true,
+        "title": "Government portal | Address update",
+        "heading": "Update your national address",
+        "text": "Sign in with your digital ID, then approve the request in the official government app on your phone. Next, mark your new home on the map. The service is free and needs no bank details.",
+        "fields": [
+          "ID or residency number",
+          "District",
+          "Building number"
+        ],
+        "button": "Continue"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "eservices.gov.sa/address-update",
+          "why": "The address ends in gov.sa just before the first slash, an ending only Saudi government bodies can get, and you typed it yourself."
+        },
+        {
+          "kind": "green",
+          "mark": "approve the request in the official government app",
+          "why": "You confirm it is you inside the government app on your phone, so you never type a password or code into the page."
+        },
+        {
+          "kind": "green",
+          "mark": "needs no bank details",
+          "why": "The page asks for no card and no fee, because updating your address is free."
+        },
+        {
+          "kind": "trap",
+          "mark": "Government portal",
+          "why": "An official name at the top proves nothing alone, since fake pages copy it word for word. The address bar is what decides it."
+        }
+      ],
+      "lesson": "Update government details on a gov.sa site you type yourself or in the official app. The real service confirms who you are through the app and never asks for card details."
+    }
+  },
+  {
+    "id": "sms-gov-certificate-in-app",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "طلبت هذا الأسبوع شهادة حسن السير والسلوك من التطبيق الحكومي الرسمي.",
+      "card": {
+        "sender": "Ministry",
+        "time": "11:05",
+        "body": "وزارة الداخلية: شهادة حسن السير والسلوك التي طلبتها جاهزة، ويمكنك تنزيلها من قسم طلباتي في التطبيق الحكومي الرسمي، وهذه الرسالة لا تحتوي على أي رابط ولا يلزمك دفع أي مبلغ إضافي"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "التي طلبتها جاهزة",
+          "why": "الرسالة تخص طلباً قدمته بنفسك هذا الأسبوع، فهي متوقعة ولها سبب تعرفه."
+        },
+        {
+          "kind": "green",
+          "mark": "في التطبيق الحكومي الرسمي",
+          "why": "الرسالة لا تطلب منك سوى أن تفتح التطبيق الحكومي الذي تعرفه بنفسك، فتحمّل الشهادة من مصدر موثوق."
+        },
+        {
+          "kind": "green",
+          "mark": "لا تحتوي على أي رابط",
+          "why": "غياب الرابط يعني أنه لا توجد صفحة مزيفة تكتب فيها بياناتك، فالطريق الوحيد إلى الشهادة هو التطبيق الذي ثبّته بنفسك."
+        },
+        {
+          "kind": "trap",
+          "mark": "Ministry",
+          "why": "اسم المرسل سهل الانتحال فلا يثبت شيئاً وحده، لكنّ الرسالة آمنة لأنها تطابق طلبك ولا تحمل رابطاً ولا تطلب شيئاً."
+        }
+      ],
+      "lesson": "الرسالة الحكومية التي تطابق طلباً قدمته بنفسك وتدلك على التطبيق الرسمي دون رابط رسالة طبيعية، فافتح التطبيق بنفسك وحمّل مستندك من هناك."
+    },
+    "en": {
+      "context": "You requested a good conduct certificate in the official government app this week.",
+      "card": {
+        "sender": "Ministry",
+        "time": "11:05",
+        "body": "Ministry of Interior: the good conduct certificate you requested is ready. You can download it under My Requests in the official government app. This message has no link and there is nothing more to pay."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "you requested is ready",
+          "why": "It is about a request you made yourself this week, so it is expected."
+        },
+        {
+          "kind": "green",
+          "mark": "in the official government app",
+          "why": "All it asks is that you open the government app you know, so you download the certificate from a trusted source."
+        },
+        {
+          "kind": "green",
+          "mark": "This message has no link",
+          "why": "With no link there is no fake page to type into. The only way to the certificate is the app you installed yourself."
+        },
+        {
+          "kind": "trap",
+          "mark": "Ministry",
+          "why": "A sender name is easy to fake, so it proves nothing alone. This text is safe because it matches your request, has no link and asks for nothing."
+        }
+      ],
+      "lesson": "A government text that matches a request you made and points you to the official app without a link is normal. Open the app yourself and download your document there."
+    }
+  },
+  {
+    "id": "sms-gov-national-address",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "lookalike-domain",
+      "urgency",
+      "threat",
+      "impersonation",
+      "unknown-number"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "تقيم في جدة وتتسوق عبر الإنترنت كثيراً.",
+      "card": {
+        "sender": "+966 5••• •••74",
+        "time": "09:41",
+        "body": "تنبيه: بيانات عنوانك الوطني غير مكتملة، وسيتم إيقاف خدماتك الحكومية وتعليق شحناتك ما لم تحدّث بياناتك خلال 24 ساعة عبر الرابط gov.sa-address-update.com"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "gov.sa-address-update.com",
+          "why": "الرابط يبدأ بـ gov.sa ليوهمك بأنه حكومي، لكنّ نطاقه الحقيقي هو sa-address-update.com، بينما تنتهي المواقع الحكومية السعودية بـ gov.sa ولا تبدأ بها."
+        },
+        {
+          "kind": "red",
+          "mark": "سيتم إيقاف خدماتك الحكومية",
+          "why": "التهديد بإيقاف خدماتك وتعليق شحناتك خلال يوم واحد يدفعك إلى فتح الرابط قبل أن تتحقق من عنوانك بنفسك."
+        },
+        {
+          "kind": "red",
+          "mark": "تحدّث بياناتك",
+          "why": "الجهات الحكومية لا تطلب منك تحديث بياناتك عبر رابط في رسالة، فهذا أسلوب التصيد الاحتيالي لجمع بياناتك الشخصية والمصرفية."
+        },
+        {
+          "kind": "trap",
+          "mark": "عنوانك الوطني",
+          "why": "ذكر خدمة حكومية تستخدمها فعلاً لا يثبت أن الرسالة رسمية، لأنّ المحتال يختار خدمة يعرفها الجميع لتبدو رسالته في محلها."
+        }
+      ],
+      "lesson": "حدّث عنوانك وبياناتك عبر التطبيق الحكومي الرسمي أو موقع ينتهي بـ gov.sa تكتب عنوانه بنفسك، ولا تفتح أي رابط يهددك بإيقاف خدماتك."
+    },
+    "en": {
+      "context": "You live in Jeddah and shop online a lot.",
+      "card": {
+        "sender": "+966 5••• •••74",
+        "time": "09:41",
+        "body": "Alert: your national address details are incomplete. Your government services will be suspended and your parcels held unless you update your details within 24 hours at gov.sa-address-update.com"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "gov.sa-address-update.com",
+          "why": "It starts with gov.sa to look official, but the real domain is sa-address-update.com. Saudi government sites end in gov.sa, they do not start with it."
+        },
+        {
+          "kind": "red",
+          "mark": "will be suspended",
+          "why": "Threatening your services and parcels within a day pushes you to tap before you check your address yourself."
+        },
+        {
+          "kind": "red",
+          "mark": "update your details",
+          "why": "Government bodies do not ask you to update your details through a link in a text. That is how phishing collects your personal and card details."
+        },
+        {
+          "kind": "trap",
+          "mark": "national address",
+          "why": "Naming a service you really use proves nothing. Scammers pick services everyone has so the text feels relevant."
+        }
+      ],
+      "lesson": "Update your address only in the official government app or on a gov.sa site you type yourself, and never open a link that threatens to suspend your services."
+    }
+  },
+  {
+    "id": "social-gov-health-insurance-refund",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "government",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "credentials",
+      "otp",
+      "impersonation",
+      "urgency"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "نشرت أمس أنك دفعت رسوم التأمين الصحي مرتين عند تجديد إقامتك في الدوحة.",
+      "card": {
+        "displayName": "دعم وزارة الصحة",
+        "handle": "@health.care.support.qa",
+        "verified": false,
+        "followers": "1,032",
+        "kind": "dm",
+        "text": "مرحباً، اطلعنا على شكواك بخصوص رسوم التأمين الصحي المكررة، ويسعدنا إبلاغك بأنك تستحق استرداد 150 ر.ق، ولإتمام الاسترداد أرسل لنا هنا رقم بطاقتك وتاريخ انتهائها، ثمّ رمز التحقق الذي سيصلك برسالة نصية، علماً أن طلبات الاسترداد تُغلق خلال 24 ساعة"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "أرسل لنا هنا رقم بطاقتك",
+          "why": "الاسترداد الحقيقي يعود إلى البطاقة التي دفعت بها دون أن تكتب بياناتها لأحد، فمن يطلب رقم بطاقتك في رسالة خاصة يريد استخدامها."
+        },
+        {
+          "kind": "red",
+          "mark": "رمز التحقق الذي سيصلك",
+          "why": "رمز التحقق يؤكد عملية دفع من بطاقتك لا استرداداً إليها، ومن يحصل عليه يستطيع إتمام عملية شراء باسمك."
+        },
+        {
+          "kind": "red",
+          "mark": "@health.care.support.qa",
+          "why": "الجهات الحكومية لا تراسلك من حساب عادي باسم مستخدم مركّب، بل ترد على الشكاوى عبر قنواتها الرسمية المعلنة."
+        },
+        {
+          "kind": "trap",
+          "mark": "اطلعنا على شكواك",
+          "why": "معرفة المرسل بشكواك لا تثبت أنه جهة رسمية، لأنّ منشورك متاح للجميع والمحتالون يتابعون هذه المنشورات ليراسلوا أصحابها."
+        }
+      ],
+      "lesson": "إذا نشرت شكوى علنية فتوقّع رسائل من حسابات منتحلة، واطلب الاسترداد عبر القنوات الرسمية للجهة نفسها، ولا ترسل بيانات بطاقتك أو رمز التحقق في أي رسالة خاصة."
+    },
+    "en": {
+      "context": "Yesterday you posted that you were charged twice for health insurance in Doha.",
+      "card": {
+        "displayName": "Ministry of Health Support",
+        "handle": "@health.care.support.qa",
+        "verified": false,
+        "followers": "1,032",
+        "kind": "dm",
+        "text": "Hello, we saw your complaint about the duplicate health insurance charge, and we are happy to tell you that you are entitled to a refund of 150 QAR. To complete it, send us your card number and expiry date here, then the verification code you will receive by text. Refund requests close within 24 hours."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "send us your card number",
+          "why": "A real refund goes back to the card you paid with, without you typing its details to anyone. A DM asking for your card number wants to use it."
+        },
+        {
+          "kind": "red",
+          "mark": "the verification code you will receive",
+          "why": "That code approves a payment from your card, not a refund to it. Whoever has it can complete a purchase in your name."
+        },
+        {
+          "kind": "red",
+          "mark": "@health.care.support.qa",
+          "why": "Government bodies do not message you from an ordinary account with a made up handle. They answer complaints through their announced official channels."
+        },
+        {
+          "kind": "trap",
+          "mark": "we saw your complaint",
+          "why": "Knowing about your complaint proves nothing. Your post is public, and scammers watch posts like it to message the people who wrote them."
+        }
+      ],
+      "lesson": "After a public complaint, expect messages from fake accounts. Ask for refunds through the authority's own official channels, and never send card details or codes in a DM."
+    }
+  },
+  {
+    "id": "qr-gov-power-water-door-notice",
+    "channel": "qr",
+    "verdict": "scam",
+    "category": "utilities",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "qr",
+      "threat",
+      "urgency",
+      "payment",
+      "lookalike-domain",
+      "impersonation"
+    ],
+    "pack": "gov",
+    "ar": {
+      "context": "عدت إلى بيتك في الكويت مساءً فوجدت هذا الإشعار ملصقاً على الباب.",
+      "card": {
+        "place": "إشعار ورقي ملصق على باب بيتك بشعار مطبوع بالألوان",
+        "title": "إشعار نهائي بفصل الكهرباء والماء",
+        "text": "على هذا العنوان مبلغ مستحق قدره 37.400 د.ك لفواتير الكهرباء والماء، وسيُفصل التيار والماء خلال 24 ساعة ما لم يُسدد، فامسح الرمز وادفع فوراً لتجنب رسوم إعادة التوصيل",
+        "opens": "power-water-kw.com/qr/7731"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "power-water-kw.com/qr/7731",
+          "why": "الرمز يفتح موقعاً تجارياً لا ينتهي بـ gov.kw، والجهة الحكومية لا تحصّل فواتيرها عبر رموز ملصقة على الأبواب."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 24 ساعة",
+          "why": "التهديد بقطع الكهرباء والماء خلال يوم واحد يهدف إلى إخافتك حتى تدفع الليلة قبل أن تراجع حسابك."
+        },
+        {
+          "kind": "red",
+          "mark": "على هذا العنوان",
+          "why": "الإشعار لا يذكر اسمك ولا رقم حسابك لدى الجهة، لأنه مطبوع ليُلصق على أي باب في الحي."
+        },
+        {
+          "kind": "trap",
+          "mark": "بشعار مطبوع بالألوان",
+          "why": "الشعار الملون يوحي بالرسمية لكنه لا يثبت شيئاً، لأنّ نسخ الشعارات وطباعتها لا يكلف المحتال شيئاً."
+        }
+      ],
+      "lesson": "راجع فاتورة الكهرباء والماء عبر التطبيق الحكومي الرسمي أو موقع ينتهي بـ gov.kw تكتب عنوانه بنفسك، ولا تدفع عبر رمز وجدته ملصقاً على بابك مهما بدا الإشعار رسمياً."
+    },
+    "en": {
+      "context": "You came home in Kuwait this evening and found this notice taped to your door.",
+      "card": {
+        "place": "A paper notice taped to your front door, with a printed colour logo",
+        "title": "Final notice: electricity and water disconnection",
+        "text": "This address owes 37.400 KWD in electricity and water bills. Power and water will be cut within 24 hours unless it is paid. Scan the code and pay now to avoid a reconnection fee.",
+        "opens": "power-water-kw.com/qr/7731"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "power-water-kw.com/qr/7731",
+          "why": "The code opens a commercial site that does not end in gov.kw, and the authority does not collect bills through codes taped to doors."
+        },
+        {
+          "kind": "red",
+          "mark": "within 24 hours",
+          "why": "Threatening to cut power and water within a day is meant to scare you into paying tonight before you check your account."
+        },
+        {
+          "kind": "red",
+          "mark": "This address owes",
+          "why": "The notice never names you or your account number, because it was printed to go on any door."
+        },
+        {
+          "kind": "trap",
+          "mark": "with a printed colour logo",
+          "why": "A colour logo looks official but proves nothing. Copying and printing a logo costs a scammer nothing."
+        }
+      ],
+      "lesson": "Check your electricity and water bill in the official government app or on a gov.kw site you type yourself, and never pay through a code taped to your door, however official it looks."
+    }
+  }
+]

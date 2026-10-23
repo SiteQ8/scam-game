@@ -4,8 +4,12 @@ import { push } from '../../state/nav';
 import { lang, t, fmtNum, rankFor, duration, count } from '../../i18n/i18n';
 import { dayIndex, caseNumber, msToNextDay, shareGrid, DAILY_SIZE } from '../../engine/daily';
 import { CHAPTERS } from '../../engine/deck';
+import { PACKS, packDeck } from '../../engine/packs';
+import { CARDS } from '../../content/cards';
+import { S } from '../../i18n/strings';
+import type { PackId } from '../../content/types';
 import { Icon } from '../components/Icon';
-import { Mark, Pips, toast } from '../components/common';
+import { Mark, Pips, Stars, toast } from '../components/common';
 import { shareText } from '../../platform/share';
 import { setMusic, sfx } from '../../platform/audio';
 import { siteUrl } from './Play';
@@ -17,6 +21,10 @@ export function Home() {
   const rec = p.daily[String(day)];
   const edition = settings.value.region === 'global' ? 'global' : 'gcc';
   const [now, setNow] = useState(Date.now());
+  const [openPack, setOpenPack] = useState<PackId | null>(null);
+  const packs = PACKS.map((pk) => ({ ...pk, size: packDeck(pk.id, CARDS).length })).filter((pk) => pk.size > 0);
+  const sel = packs.find((pk) => pk.id === openPack);
+  const packText = (id: PackId, sub = false) => S[`pack_${id}${sub ? '_sub' : ''}` as keyof typeof S][L];
   useEffect(() => { const tm = setInterval(() => setNow(Date.now()), 30000); setMusic(true); return () => clearInterval(tm); }, []);
   const rank = rankFor(p.xp);
   const toNext = rank.next ? rank.next.xp - p.xp : 0;
@@ -72,6 +80,24 @@ export function Home() {
           <span class="bar"><i style={{ transform: `scaleX(${pct})` }} /></span>
         </button>
 
+        {packs.length > 0 && (
+          <>
+            <h2 class="section-title">{t('packs')}</h2>
+            <div class="pack-grid">
+              {packs.map((pk) => {
+                const st = p.packs[pk.id]?.stars || 0;
+                return (
+                  <button class={`pack-tile pk-${pk.id}`} onClick={() => { void sfx('tap'); setOpenPack(pk.id); }}>
+                    <span class="glyph"><Icon name={pk.icon} /></span>
+                    <b>{packText(pk.id)}</b>
+                    {st ? <Stars n={st} /> : <span class="meta">{count(pk.size, 'card')}</span>}
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
+
         <h2 class="section-title">{t('modes')}</h2>
         <div class="mode-list">
           <button class="mode" onClick={() => go({ name: 'journey' })}>
@@ -104,6 +130,22 @@ export function Home() {
           <button class="btn btn-ghost" style={{ width: 'auto' }} onClick={() => go({ name: 'about' })}><Icon name="info" />{t('about')}</button>
         </div>
       </div></div>
+      {sel && (
+        <div class="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) setOpenPack(null); }}>
+          <div class={`modal chapter-sheet pack-sheet pk-${sel.id}`} role="dialog" aria-modal="true" aria-labelledby="pack-h">
+            <span class="glyph"><Icon name={sel.icon} /></span>
+            <span class="label" style={{ color: 'var(--text-3)', fontSize: '0.85rem' }}>{t('packs')} · {count(sel.size, 'card')}</span>
+            <h3 id="pack-h" style={{ marginTop: '4px' }}>{packText(sel.id)}</h3>
+            <p class="lead">{packText(sel.id, true)}</p>
+            <p style={{ fontSize: '0.92rem' }}>{t('packRule')}</p>
+            {(p.packs[sel.id]?.stars || 0) > 0 && <div style={{ margin: '0 0 16px' }}><Stars n={p.packs[sel.id].stars} /></div>}
+            <div class="btn-row">
+              <button class="btn btn-secondary" onClick={() => setOpenPack(null)}>{t('cancel')}</button>
+              <button class="btn btn-primary" onClick={() => { setOpenPack(null); go({ name: 'play', mode: 'pack', pack: sel.id }); }}>{(p.packs[sel.id]?.stars || 0) > 0 ? t('replayChapter') : t('start')}</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

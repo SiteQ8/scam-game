@@ -32,6 +32,7 @@ export interface Progress {
   daily: Record<string, DailyRecord>;
   dailyStreak: { current: number; best: number; lastDay: number };
   journey: Record<string, { stars: number; best: number }>;
+  packs: Record<string, { stars: number; best: number }>;
   rushBest: number;
   huntPerfect: number;
   huntsPlayed: number;
@@ -67,6 +68,7 @@ export const defaultProgress = (): Progress => ({
   daily: {},
   dailyStreak: { current: 0, best: 0, lastDay: -1 },
   journey: {},
+  packs: {},
   rushBest: 0,
   huntPerfect: 0,
   huntsPlayed: 0,

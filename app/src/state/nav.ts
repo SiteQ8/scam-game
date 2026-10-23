@@ -1,8 +1,9 @@
 import { signal } from '@preact/signals';
+import type { PackId } from '../content/types';
 
 export type Route =
   | { name: 'home' }
-  | { name: 'play'; mode: 'daily' | 'chapter' | 'rush' | 'party' | 'tutorial' | 'practice'; chapter?: string; party?: PartySetup; ids?: string[] }
+  | { name: 'play'; mode: 'daily' | 'chapter' | 'pack' | 'rush' | 'party' | 'tutorial' | 'practice'; chapter?: string; pack?: PackId; party?: PartySetup; ids?: string[] }
   | { name: 'journey' }
   | { name: 'partySetup' }
   | { name: 'hunt' }

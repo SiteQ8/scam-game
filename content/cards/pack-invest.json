@@ -1,0 +1,864 @@
+[
+  {
+    "id": "social-invest-vip-signals-pump",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 1,
+    "tags": [
+      "crypto",
+      "too-good",
+      "urgency",
+      "payment"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "ظهر لك هذا المنشور من حساب لا تتابعه.",
+      "card": {
+        "displayName": "إشارات الحيتان VIP 🐋",
+        "handle": "@whale.signals.vip",
+        "verified": false,
+        "followers": "48.2K",
+        "kind": "post",
+        "text": "🚀 أعضاء VIP ربحوا أمس 280% من ضخة عملة رقمية جديدة خلال 40 دقيقة فقط! الضخة القادمة يوم الجمعة الساعة 9 مساءً، والاشتراك 150 دولاراً شهرياً، والدفع بعملات رقمية فقط إلى المحفظة الموجودة في ملفنا التعريفي، أرباح مضمونة وباقي 20 مقعداً فقط ⏳"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "أرباح مضمونة",
+          "why": "لا أحد يستطيع ضمان الربح من عملة رقمية، وفي الضخة يبيع المنظمون عملاتهم للأعضاء الذين يشترون متأخرين."
+        },
+        {
+          "kind": "red",
+          "mark": "الدفع بعملات رقمية فقط",
+          "why": "الدفع بالعملات الرقمية إلى محفظة غريب لا يمكن تتبعه أو استرجاعه، فيضيع المال لحظة إرساله."
+        },
+        {
+          "kind": "red",
+          "mark": "باقي 20 مقعداً فقط",
+          "why": "العد التنازلي للمقاعد ضغط لتدفع قبل أن تتوقف وتفكر."
+        },
+        {
+          "kind": "trap",
+          "mark": "ربحوا أمس 280%",
+          "why": "الأرباح السابقة في المنشور مجرد ادعاء يستطيع أي شخص كتابته أو تزييف صورته."
+        }
+      ],
+      "lesson": "تجاهل أي حساب يبيع اشتراكات في التوصيات أو الضخات مع وعد بأرباح مضمونة، ولا ترسل عملات رقمية إلى محفظة شخص لا تعرفه."
+    },
+    "en": {
+      "context": "This post appeared in your feed from an account you do not follow.",
+      "card": {
+        "displayName": "Whale Signals VIP 🐋",
+        "handle": "@whale.signals.vip",
+        "verified": false,
+        "followers": "48.2K",
+        "kind": "post",
+        "text": "🚀 Yesterday our VIP members made 280% on a new token pump in just 40 minutes! Next pump: Friday at 9 pm. VIP access is $150 a month, payment in crypto only, to the wallet in our bio. Guaranteed profits, only 20 spots left ⏳"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Guaranteed profits",
+          "why": "Nobody can guarantee profits on a token, and in a pump the organisers sell their coins to the members who buy last."
+        },
+        {
+          "kind": "red",
+          "mark": "payment in crypto only",
+          "why": "Crypto sent to a stranger's wallet cannot be traced or reversed, so the money is gone once you send it."
+        },
+        {
+          "kind": "red",
+          "mark": "only 20 spots left",
+          "why": "Counting down spots is pressure to pay before you stop and think."
+        },
+        {
+          "kind": "trap",
+          "mark": "made 280%",
+          "why": "Past gains in a post are only claims, and anyone can type them or fake a screenshot."
+        }
+      ],
+      "lesson": "Ignore any account that sells signal or pump subscriptions with promised profits, and never send crypto to a stranger's wallet."
+    }
+  },
+  {
+    "id": "sms-invest-regulator-warning-list",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "investment",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "official-channel",
+      "no-link"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "تصلك رسائل توعية من هذا المرسل كل بضعة أشهر.",
+      "card": {
+        "sender": "Regulator",
+        "time": "12:30",
+        "body": "قبل أن تستثمر تأكد أن الشركة مدرجة في قائمة الجهات المرخصة لدينا وغير مدرجة في قائمة التحذيرات العامة، وتجد القائمتين في موقعنا الرسمي، علماً أننا لا نتواصل مع الأفراد لعرض استثمارات ولا نطلب من أحد تحويل أي مبلغ"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "قائمة التحذيرات العامة",
+          "why": "الرسالة تحيلك إلى قائمة عامة تراجعها بنفسك، فلا شيء تضغط عليه ولا شيء ترسله."
+        },
+        {
+          "kind": "green",
+          "mark": "لا نتواصل مع الأفراد لعرض استثمارات",
+          "why": "الرسالة تحذرك من العروض التي لم تطلبها بدلاً من أن تقدم لك عرضاً، وهذا ما تفعله الجهة الرقابية الحقيقية."
+        },
+        {
+          "kind": "green",
+          "mark": "في موقعنا الرسمي",
+          "why": "الرسالة تطلب منك أن تصل إلى الموقع بنفسك ولا ترسل لك رابطاً، لذا لا يمكن أن تقودك إلى صفحة مزيفة."
+        }
+      ],
+      "lesson": "تحقق من أي جهة استثمارية في قائمة الجهات المرخصة وقائمة التحذيرات على الموقع الرسمي للجهة الرقابية الذي تصل إليه بنفسك، وذلك قبل أن تحوّل أي مبلغ."
+    },
+    "en": {
+      "context": "You get awareness texts from this sender every few months.",
+      "card": {
+        "sender": "Regulator",
+        "time": "12:30",
+        "body": "Before you invest, check that the firm is on our list of licensed firms and not on our public warning list, both on our official website. We never contact individuals to offer investments or ask anyone to transfer money."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "our public warning list",
+          "why": "It points you to a public list you can look up yourself, with nothing to tap and nothing to send."
+        },
+        {
+          "kind": "green",
+          "mark": "We never contact individuals to offer investments",
+          "why": "The text warns you about unsolicited offers instead of making one, which is what a real regulator does."
+        },
+        {
+          "kind": "green",
+          "mark": "on our official website",
+          "why": "You are told to find the website yourself rather than given a link, so the message cannot lead you to a fake page."
+        }
+      ],
+      "lesson": "Check any investment firm against the regulator's licensed list and warning list on the official website you find yourself, before you send any money."
+    }
+  },
+  {
+    "id": "social-invest-recovery-agent",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "advance-fee",
+      "crypto",
+      "off-platform",
+      "unknown-number"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "نشرت الأسبوع الماضي أنك خسرت مدخراتك في منصة تداول وهمية.",
+      "card": {
+        "displayName": "إيما",
+        "handle": "@emma.trades22",
+        "verified": false,
+        "followers": "86",
+        "kind": "comment",
+        "text": "آسفة جداً على خسارتك 💔 أنا استرجعت 23,000 دولار كاملة خسرتها في منصة تداول وهمية بفضل الخبير دانيال، وهو مختص معتمد في استرداد الأموال ويعمل مع جهات دولية، ويتتبع أي عملات رقمية مسروقة خلال 48 ساعة مقابل رسوم بسيطة مقدماً، كلمه على تطبيق المحادثة +44 7700 900742"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "رسوم بسيطة مقدماً",
+          "why": "خدمات الاسترداد التي تطلب الدفع مقدماً احتيال آخر يستهدف من خسروا أموالهم أصلاً."
+        },
+        {
+          "kind": "red",
+          "mark": "ويعمل مع جهات دولية",
+          "why": "الجهات الرسمية لا ترسل وسطاء يتقاضون رسوماً من الضحايا، لذا فهذا الادعاء غطاء لكسب ثقتك."
+        },
+        {
+          "kind": "red",
+          "mark": "كلمه على تطبيق المحادثة",
+          "why": "نقلك إلى محادثة خاصة يبعد عنك من يستطيع تحذيرك، وهناك تبدأ طلبات الدفع."
+        },
+        {
+          "kind": "trap",
+          "mark": "استرجعت 23,000 دولار",
+          "why": "التعليق الممتن سهل التزييف، وغالباً ما تكون هذه الحسابات تابعة للمحتالين أنفسهم."
+        }
+      ],
+      "lesson": "إذا خسرت أموالاً في احتيال فأبلغ بنكك والجهات المختصة مباشرة، ولا تدفع لأي شخص يعدك باستردادها لأنّه محتال آخر يتربص بالضحايا."
+    },
+    "en": {
+      "context": "Last week you posted that you lost your savings to a fake trading site.",
+      "card": {
+        "displayName": "Emma",
+        "handle": "@emma.trades22",
+        "verified": false,
+        "followers": "86",
+        "kind": "comment",
+        "text": "So sorry for your loss 💔 I got back all $23,000 I lost to a fake trading site thanks to Agent Daniel, a certified recovery expert who works with international authorities. He traces stolen crypto in 48 hours for a small upfront fee. Message him on the chat app: +44 7700 900742"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "a small upfront fee",
+          "why": "Recovery services that charge first are a second scam aimed at people who were already robbed."
+        },
+        {
+          "kind": "red",
+          "mark": "works with international authorities",
+          "why": "Real authorities never send private agents to collect fees from victims, so the claim is cover to win your trust."
+        },
+        {
+          "kind": "red",
+          "mark": "Message him on the chat app",
+          "why": "Moving you to a private chat keeps away anyone who could warn you, and that is where the payment requests start."
+        },
+        {
+          "kind": "trap",
+          "mark": "I got back all $23,000",
+          "why": "A grateful comment is easy to fake, and accounts like this often belong to the scammers themselves."
+        }
+      ],
+      "lesson": "If you lose money to a scam, report it to your bank and the police yourself, and never pay anyone who promises to get it back, because that is the next scam."
+    }
+  },
+  {
+    "id": "notification-invest-price-alert",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "crypto"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "ضبطت في تطبيق الاستثمار تنبيهاً عند بلوغ عملة رقمية سعر 2.50 دولار.",
+      "card": {
+        "app": "Invest",
+        "title": "تنبيه السعر",
+        "body": "بلغ سعر العملة الرقمية التي تتابعها هدفك 2.50 دولار، ويمكنك فتح التطبيق لعرض الرسم البياني، وهذا هو التنبيه الذي ضبطته بنفسك ولا يلزمك أي إجراء",
+        "time": "14:22"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "هدفك 2.50 دولار",
+          "why": "السعر يطابق التنبيه الذي ضبطته بنفسك، أي أن الإشعار يصف أمراً طلبته أنت."
+        },
+        {
+          "kind": "green",
+          "mark": "ولا يلزمك أي إجراء",
+          "why": "الإشعار لا يطلب دفعاً ولا رمزاً ولا ضغطاً على رابط، وهذا شأن التنبيهات الحقيقية."
+        },
+        {
+          "kind": "green",
+          "mark": "فتح التطبيق",
+          "why": "الإشعار يحيلك إلى التطبيق الذي ثبّته بنفسك لا إلى رابط في رسالة."
+        }
+      ],
+      "lesson": "التنبيه الذي ضبطته بنفسك طبيعي ما دام يطابق هدفك ولا يطلب شيئاً، لكن نفّذ أي بيع أو شراء من داخل التطبيق ولا تستجب لرسالة تستعجلك."
+    },
+    "en": {
+      "context": "Last week you set an alert in your investing app for when a token hits $2.50.",
+      "card": {
+        "app": "Invest",
+        "title": "Price alert",
+        "body": "The token you follow has reached your target of $2.50. Open the app to see the chart. This is the alert you set yourself, and no action is needed.",
+        "time": "14:22"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "your target of $2.50",
+          "why": "The price matches the alert you set yourself, so the notification describes something you asked for."
+        },
+        {
+          "kind": "green",
+          "mark": "no action is needed",
+          "why": "It asks for no payment, no code and no tap on a link, which is how genuine alerts behave."
+        },
+        {
+          "kind": "green",
+          "mark": "Open the app",
+          "why": "It sends you to the app you installed yourself, not to a link in a message."
+        }
+      ],
+      "lesson": "An alert you set yourself is normal when it matches your target and asks for nothing, but buy or sell only inside the app and never because a message rushes you."
+    }
+  },
+  {
+    "id": "chat-invest-profit-screenshots",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "too-good",
+      "urgency",
+      "payment"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "أضافك أحد معارف صديقك أمس إلى مجموعة الاستثمار هذه.",
+      "card": {
+        "contact": "نادي المستثمرين 💰",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "📷 صورة: إيداع فهد 500 د.ك صار 3,200 د.ك خلال أسبوع واحد 🔥",
+            "time": "20:01"
+          },
+          {
+            "from": "them",
+            "text": "📷 صورة: وهذي سحوبات الأعضاء اليوم، كلها وصلت حساباتهم ✅",
+            "time": "20:02"
+          },
+          {
+            "from": "them",
+            "text": "الجولة الجاية مفتوحة لين الليلة بس، الحد الأدنى 500 د.ك، حوّل المبلغ على حسابي ويرجع لك أضعاف 💸",
+            "time": "20:03"
+          },
+          {
+            "from": "me",
+            "text": "شلون أعرف إن الصور حقيقية؟",
+            "time": "20:10"
+          },
+          {
+            "from": "them",
+            "text": "كل الأعضاء شافوا أرباحهم بعيونهم 😎 الربح مضمون، لا تفوت الفرصة ترى المقاعد محدودة",
+            "time": "20:11"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "سحوبات الأعضاء اليوم",
+          "why": "صور الأرباح والسحوبات يمكن تزييفها في ثوان، لذا فهي لا تثبت شيئاً مهما كثرت."
+        },
+        {
+          "kind": "red",
+          "mark": "حوّل المبلغ على حسابي",
+          "why": "الاستثمار المرخص لا يطلب منك التحويل إلى حساب شخص، لذا يذهب هذا المبلغ مباشرة إلى المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "ويرجع لك أضعاف",
+          "why": "وعد مضاعفة أموالك في أيام هو طُعم هذا الاحتيال مهما أرسلوا معه من صور."
+        },
+        {
+          "kind": "red",
+          "mark": "مفتوحة لين الليلة بس",
+          "why": "المهلة القصيرة غرضها أن تدفع قبل أن تتحقق من أي شيء."
+        }
+      ],
+      "lesson": "لا تثق بصور الأرباح في مجموعات الاستثمار ولا تحوّل أي مبلغ إلى حساب شخصي، بل تحقق من ترخيص الجهة لدى الجهة الرقابية قبل أي خطوة."
+    },
+    "en": {
+      "context": "Yesterday a friend's acquaintance added you to this investment group.",
+      "card": {
+        "contact": "Investors Club 💰",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "📷 Photo: Fahad's 500 KWD deposit became 3,200 KWD in one week 🔥",
+            "time": "20:01"
+          },
+          {
+            "from": "them",
+            "text": "📷 Photo: and here are today's member withdrawals, all received ✅",
+            "time": "20:02"
+          },
+          {
+            "from": "them",
+            "text": "The next round is open only until tonight. Minimum 500 KWD, transfer it to my account and it comes back multiplied 💸",
+            "time": "20:03"
+          },
+          {
+            "from": "me",
+            "text": "How do I know the photos are real?",
+            "time": "20:10"
+          },
+          {
+            "from": "them",
+            "text": "Every member has seen their profits with their own eyes 😎 It's guaranteed profit, don't miss out, seats are limited",
+            "time": "20:11"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "today's member withdrawals",
+          "why": "Photos of profits and withdrawals take seconds to fake, so they prove nothing however many there are."
+        },
+        {
+          "kind": "red",
+          "mark": "transfer it to my account",
+          "why": "A licensed investment never asks you to send money to a person's account, so this deposit goes straight to the scammer."
+        },
+        {
+          "kind": "red",
+          "mark": "comes back multiplied",
+          "why": "A promise to multiply your money in days is the hook of this scam, whatever photos come with it."
+        },
+        {
+          "kind": "red",
+          "mark": "open only until tonight",
+          "why": "The deadline is there so you pay before you check anything."
+        }
+      ],
+      "lesson": "Never trust profit photos in investment groups or send money to a person's account, and check the firm's licence with the regulator before anything else."
+    }
+  },
+  {
+    "id": "email-invest-broker-statement",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "investment",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "لديك حساب تداول لدى شركة وساطة مرخصة ويصلك كشف حساب كل شهر.",
+      "card": {
+        "fromName": "خدمة العملاء، شركة الوساطة",
+        "fromAddress": "statements@broker.example.com",
+        "subject": "كشف حسابك لشهر سبتمبر 2026 جاهز",
+        "body": "عزيزي يوسف،\n\nأصبح كشف حسابك الشهري لشهر سبتمبر 2026 لحساب التداول المنتهي بالأرقام 4417 متاحاً، وبلغت قيمة محفظتك في 30 سبتمبر 12,480.250 د.ك\n\nلعرضه افتح تطبيقنا أو اكتب عنوان موقعنا بنفسك كما تفعل عادة، ثمّ اختر قسم المستندات، وحرصاً على أمانك لا تحتوي هذه الرسالة على أي رابط أو مرفق\n\nوإذا لاحظت أي خطأ في الكشف فاتصل بخدمة العملاء على الرقم الظاهر في التطبيق\n\nخدمة العملاء"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "لا تحتوي هذه الرسالة على أي رابط أو مرفق",
+          "why": "لا شيء في الرسالة تضغط عليه أو تفتحه، لذا لا يمكن أن تقودك إلى صفحة مزيفة."
+        },
+        {
+          "kind": "green",
+          "mark": "اكتب عنوان موقعنا بنفسك",
+          "why": "الرسالة تحيلك إلى التطبيق أو الموقع الذي تستخدمه أصلاً، فتدخل بالطريقة الآمنة."
+        },
+        {
+          "kind": "green",
+          "mark": "الرقم الظاهر في التطبيق",
+          "why": "الرسالة تحيلك إلى رقم موجود في التطبيق الذي تثق به لا إلى رقم مكتوب فيها."
+        }
+      ],
+      "lesson": "إشعارات الكشوف الدورية التي تحيلك إلى التطبيق أو الموقع الذي تستخدمه طبيعية، فافتحها بالطريقة نفسها ولا تفتحها من رابط في رسالة."
+    },
+    "en": {
+      "context": "You have a trading account with a licensed broker and get a statement each month.",
+      "card": {
+        "fromName": "Brokerage Client Services",
+        "fromAddress": "statements@broker.example.com",
+        "subject": "Your September 2026 statement is ready",
+        "body": "Dear Yousef,\n\nYour monthly statement for September 2026 for the trading account ending 4417 is now available. Your portfolio value on 30 September was 12,480.250 KWD.\n\nTo view it, open our app or type our website address as you usually do, then go to Documents. For your security, this email contains no links or attachments.\n\nIf anything in the statement looks wrong, call Client Services on the number shown in the app.\n\nClient Services"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "contains no links or attachments",
+          "why": "There is nothing to tap or open, so the email cannot lead you to a fake page."
+        },
+        {
+          "kind": "green",
+          "mark": "type our website address as you usually do",
+          "why": "It sends you to the app or site you already use, so you sign in the safe way."
+        },
+        {
+          "kind": "green",
+          "mark": "the number shown in the app",
+          "why": "It points you to a contact number inside the app you trust, not to one written in the email."
+        }
+      ],
+      "lesson": "Routine statement emails that send you to the app or website you already use are normal, so open them that way and never through a link in a message."
+    }
+  },
+  {
+    "id": "email-invest-exchange-withdrawal-tax",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "crypto",
+      "advance-fee",
+      "payment",
+      "urgency",
+      "threat"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "أودعت أموالاً في منصة تداول نصحك بها شخص تعرفت إليه عبر الإنترنت.",
+      "card": {
+        "fromName": "قسم الامتثال",
+        "fromAddress": "compliance@coin-exchange-support.com",
+        "subject": "إجراء مطلوب: سحبك معلق",
+        "body": "عزيزي العميل،\n\nتمت الموافقة على سحبك بقيمة 18,400 دولار، لكنه معلق حتى سداد ضريبة الأرباح الرأسمالية بنسبة 20% وقدرها 3,680 دولاراً\n\nووفقاً للأنظمة لا يمكن خصم هذه الضريبة من رصيدك، لذا يرجى إيداعها بعملات رقمية من محفظة خارجية خلال 72 ساعة، وإلا سيتم تجميد حسابك ومصادرة أموالك\n\nقسم الامتثال"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "لا يمكن خصم هذه الضريبة من رصيدك",
+          "why": "المنصة الحقيقية تخصم أي مبلغ مستحق من رصيدك، لذا فطلب مال جديد يكشف أن الرصيد وهمي."
+        },
+        {
+          "kind": "red",
+          "mark": "من محفظة خارجية",
+          "why": "العملات الرقمية المرسلة من محفظة أخرى تذهب مباشرة إلى المحتالين ولا يمكن استرجاعها أبداً."
+        },
+        {
+          "kind": "red",
+          "mark": "سيتم تجميد حسابك",
+          "why": "التهديد بالتجميد والمصادرة غرضه أن تدفع قبل أن تستشير أحداً."
+        },
+        {
+          "kind": "trap",
+          "mark": "قسم الامتثال",
+          "why": "اسم القسم الذي يبدو رسمياً لا يكلف شيئاً ولا يثبت شيئاً."
+        }
+      ],
+      "lesson": "إذا طلبت منك منصة أن تدفع ضريبة أو رسوماً قبل أن تسحب أموالك فتوقف فوراً، لأنّ هذا الطلب علامة مؤكدة على أن المنصة وهمية وأن رصيدك غير موجود."
+    },
+    "en": {
+      "context": "You deposited money on a trading site that someone you met online recommended.",
+      "card": {
+        "fromName": "Compliance Department",
+        "fromAddress": "compliance@coin-exchange-support.com",
+        "subject": "Action required: your withdrawal is on hold",
+        "body": "Dear valued customer,\n\nYour withdrawal of 18,400 USD has been approved, but it is on hold until the 20% capital gains tax of 3,680 USD is paid.\n\nUnder regulations, this tax cannot be deducted from your balance. Please deposit it in crypto from an external wallet within 72 hours, or your account will be frozen and your funds forfeited.\n\nCompliance Department"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "this tax cannot be deducted from your balance",
+          "why": "A real platform takes any charge from your balance, so a demand for fresh money shows the balance is fake."
+        },
+        {
+          "kind": "red",
+          "mark": "from an external wallet",
+          "why": "Crypto sent from another wallet goes straight to the scammers and can never be reversed."
+        },
+        {
+          "kind": "red",
+          "mark": "your account will be frozen",
+          "why": "Threats of freezing and losing your funds are there to make you pay before you ask anyone."
+        },
+        {
+          "kind": "trap",
+          "mark": "Compliance Department",
+          "why": "An official sounding department name costs nothing to write and proves nothing."
+        }
+      ],
+      "lesson": "If a platform asks you to pay a tax or a fee before you can withdraw, stop at once, because it shows the platform is fake and the balance does not exist."
+    }
+  },
+  {
+    "id": "chat-invest-romance-trading-app",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "emotional",
+      "secrecy",
+      "app-install",
+      "too-good",
+      "crypto"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "تتحدث يومياً منذ ثلاثة أسابيع مع نورة التي تعرفت إليها في تطبيق تواصل.",
+      "card": {
+        "contact": "نورة 🌸",
+        "saved": true,
+        "messages": [
+          {
+            "from": "them",
+            "text": "شفت الصورة اللي أرسلتها لك؟ هذي أرباحي اليوم بس 😍",
+            "time": "21:02"
+          },
+          {
+            "from": "them",
+            "voice": true,
+            "duration": "0:15",
+            "text": "والله ما أبي أخبي عليك شي، خالي شاطر في تداول العملات الرقمية وعنده طريقة تربح كل يوم، حمّل التطبيق من الرابط اللي برسله لك وأنا أعلمك خطوة خطوة، بس لا تقول لأحد، اتفقنا؟",
+            "time": "21:03"
+          },
+          {
+            "from": "me",
+            "text": "بس أنا ما أفهم في التداول",
+            "time": "21:05"
+          },
+          {
+            "from": "them",
+            "text": "عادي، ابدأ بـ 500 دينار بس 💛 وهذا الرابط goldcoin-trade.vip/get",
+            "time": "21:06"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "حمّل التطبيق من الرابط",
+          "why": "تطبيق التداول الذي يرسله لك شخص تعرفت إليه عبر الإنترنت منصة وهمية تعرض أرباحاً غير حقيقية."
+        },
+        {
+          "kind": "red",
+          "mark": "لا تقول لأحد",
+          "why": "طلب الكتمان يمنع أهلك وأصدقاءك من تحذيرك قبل أن تخسر أموالك."
+        },
+        {
+          "kind": "red",
+          "mark": "طريقة تربح كل يوم",
+          "why": "لا يوجد تداول حقيقي يربح كل يوم، لذا فهذا الوعد هو الطُعم."
+        },
+        {
+          "kind": "trap",
+          "mark": "نورة",
+          "why": "أسابيع من الحديث الودي وحفظ الرقم تبني الثقة، لكنها لا تثبت حقيقة هذا الشخص."
+        }
+      ],
+      "lesson": "إذا دعاك شخص تعرفت إليه عبر الإنترنت إلى تطبيق تداول فتوقف، لأنّ الجمع بين المودة والاستثمار هو أسلوب هذا الاحتيال، وتحقق من أي منصة لدى الجهة الرقابية قبل أن تودع فيها."
+    },
+    "en": {
+      "context": "For three weeks you have chatted daily with Noura, whom you met on a social app.",
+      "card": {
+        "contact": "Noura 🌸",
+        "saved": true,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Did you see the photo I sent you? That's my profit from today alone 😍",
+            "time": "21:02"
+          },
+          {
+            "from": "them",
+            "voice": true,
+            "duration": "0:16",
+            "text": "Honestly, I don't want to hide anything from you. My uncle is great at crypto trading and his method makes a profit every day. Download the app from my link and I'll teach you. Just don't tell anyone, okay?",
+            "time": "21:03"
+          },
+          {
+            "from": "me",
+            "text": "But I don't know anything about trading",
+            "time": "21:05"
+          },
+          {
+            "from": "them",
+            "text": "That's fine, start with just 500 KWD 💛 Here's the link: goldcoin-trade.vip/get",
+            "time": "21:06"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Download the app from my link",
+          "why": "A trading app sent as a link by someone you met online is a fake platform that shows made up profits."
+        },
+        {
+          "kind": "red",
+          "mark": "don't tell anyone",
+          "why": "Keeping it secret stops your family and friends from warning you before you lose money."
+        },
+        {
+          "kind": "red",
+          "mark": "makes a profit every day",
+          "why": "No real trading makes money every single day, so the promise is the bait."
+        },
+        {
+          "kind": "trap",
+          "mark": "Noura",
+          "why": "Weeks of warm chat and a saved contact build trust, but they do not prove who this person really is."
+        }
+      ],
+      "lesson": "When someone you met online steers you into a trading app, stop, because mixing affection with investing is how this scam works, and check any platform with the regulator first."
+    }
+  },
+  {
+    "id": "notification-invest-fund-risk-disclosure",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "investment",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "أنت الآن تشترك في صندوق استثماري من داخل تطبيق بنكك.",
+      "card": {
+        "app": "Bank",
+        "title": "قبل أن تستثمر: الإفصاح عن المخاطر",
+        "body": "أنت على وشك استثمار 1,000 د.ك في صندوق الدخل المتوازن، وقد ترتفع قيمة الصندوق أو تنخفض، والعوائد السابقة لا تضمن نتائج مستقبلية، لذا اقرأ المعلومات الرئيسية للصندوق في التطبيق ثمّ أكّد الاشتراك أو ألغه",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "قد ترتفع قيمة الصندوق أو تنخفض",
+          "why": "الجهة الحقيقية تخبرك صراحة أنك قد تخسر جزءاً من مالك، وهذا ما لا يقوله المحتال أبداً."
+        },
+        {
+          "kind": "green",
+          "mark": "1,000 د.ك في صندوق الدخل المتوازن",
+          "why": "المبلغ والصندوق يطابقان الاشتراك الذي تجريه الآن بنفسك."
+        },
+        {
+          "kind": "green",
+          "mark": "أكّد الاشتراك أو ألغه",
+          "why": "القرار لك داخل التطبيق دون مهلة ولا رابط ولا تحويل إلى أي شخص."
+        }
+      ],
+      "lesson": "الاستثمار الحقيقي يعرض عليك مخاطره قبل أن تلتزم ويترك لك القرار داخل تطبيقه، بينما يعدك المحتال بالأمان ويستعجلك."
+    },
+    "en": {
+      "context": "You are subscribing to an investment fund in your bank's app right now.",
+      "card": {
+        "app": "Bank",
+        "title": "Before you invest: risk disclosure",
+        "body": "You are about to invest 1,000 KWD in the Balanced Income Fund. The fund's value can go down as well as up, and past returns do not guarantee future results. Read the fund's key facts in the app, then confirm or cancel.",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "can go down as well as up",
+          "why": "A genuine provider tells you plainly that you can lose money, which a scam never does."
+        },
+        {
+          "kind": "green",
+          "mark": "1,000 KWD in the Balanced Income Fund",
+          "why": "The amount and the fund match the subscription you are making right now."
+        },
+        {
+          "kind": "green",
+          "mark": "then confirm or cancel",
+          "why": "You decide inside the app with no deadline, no link and no transfer to anyone."
+        }
+      ],
+      "lesson": "A real investment shows you its risks before you commit and lets you decide in its own app, while a scam promises safety and rushes you."
+    }
+  },
+  {
+    "id": "web-invest-pre-ipo-shares",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "too-good",
+      "urgency",
+      "lookalike-domain",
+      "payment"
+    ],
+    "pack": "invest",
+    "ar": {
+      "context": "عرض عليك إعلان في تطبيق تواصل أسهماً مبكرة في شركة كبرى قبل إدراجها.",
+      "card": {
+        "url": "ipo-allocation-kw.com/subscribe",
+        "secure": true,
+        "title": "تخصيص الاكتتاب | أسهم المؤسسين",
+        "heading": "احجز أسهمك قبل الإدراج",
+        "text": "اشتر أسهم المؤسسين بسعر 0.250 د.ك للسهم قبل إدراج الشركة في سوق الأسهم، مع عائد مضمون بنسبة 35% في يوم الإدراج، والتخصيص محدود ويغلق خلال 24 ساعة، وبعد إرسال الطلب حوّل المبلغ إلى حساب وكيل الاكتتاب وأرسل إلينا الإيصال",
+        "fields": [
+          "الاسم الكامل",
+          "الرقم المدني",
+          "عدد الأسهم",
+          "رقم الهاتف"
+        ],
+        "button": "احجز أسهمي"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "عائد مضمون بنسبة 35%",
+          "why": "لا أحد يعرف سعر السهم قبل إدراجه، لذا فالعائد المضمون كذبة."
+        },
+        {
+          "kind": "red",
+          "mark": "حوّل المبلغ إلى حساب وكيل الاكتتاب",
+          "why": "الاكتتاب الحقيقي تدفع قيمته عبر بنكك أو شركة وساطة مرخصة، لا بتحويل إلى حساب مذكور في صفحة على الإنترنت."
+        },
+        {
+          "kind": "red",
+          "mark": "ipo-allocation-kw.com/subscribe",
+          "why": "هذا العنوان لا يتبع أي بنك أو شركة وساطة أو جهة رقابية، والطرح الحقيقي لا يصلك عبر إعلان."
+        },
+        {
+          "kind": "trap",
+          "mark": "أسهم المؤسسين",
+          "why": "التسميات الحصرية مثل أسهم المؤسسين توحي بفرصة خاصة لكنها لا تعني شيئاً."
+        }
+      ],
+      "lesson": "لا تكتتب في أي أسهم إلا عبر التطبيق الرسمي لبنكك أو لشركة وساطة مرخصة، واعتبر أي ربح مضمون عند الإدراج احتيالاً."
+    },
+    "en": {
+      "context": "An ad on a social app offered early shares in a big company before its listing.",
+      "card": {
+        "url": "ipo-allocation-kw.com/subscribe",
+        "secure": true,
+        "title": "IPO Allocation | Founders' Shares",
+        "heading": "Reserve your shares before the listing",
+        "text": "Buy founders' shares at 0.250 KWD each before the company lists on the stock market, with a guaranteed return of 35% on listing day. Allocation is limited and closes in 24 hours. After you submit, transfer the amount to the issuing agent's account and send us the receipt.",
+        "fields": [
+          "Full name",
+          "Civil ID number",
+          "Number of shares",
+          "Mobile number"
+        ],
+        "button": "Reserve my shares"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "a guaranteed return of 35% on listing day",
+          "why": "Nobody knows a share's price before it lists, so a guaranteed gain is a lie."
+        },
+        {
+          "kind": "red",
+          "mark": "transfer the amount to the issuing agent's account",
+          "why": "Real share offerings are paid through your own bank or licensed broker, never by transfer to an account named on a web page."
+        },
+        {
+          "kind": "red",
+          "mark": "ipo-allocation-kw.com/subscribe",
+          "why": "The address belongs to no bank, broker or regulator, and a real offering does not reach you through an ad."
+        },
+        {
+          "kind": "trap",
+          "mark": "Founders' Shares",
+          "why": "Exclusive labels like founders' shares sound like insider access but mean nothing."
+        }
+      ],
+      "lesson": "Subscribe to a share offering only through your bank's or a licensed broker's official app, and treat any guaranteed listing gain as a scam."
+    }
+  }
+]

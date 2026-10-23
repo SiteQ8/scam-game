@@ -8,6 +8,8 @@ export type Category =
   | 'jobs' | 'investment' | 'romance' | 'family' | 'tech-support' | 'prize' | 'charity' | 'travel' | 'rental'
   | 'education' | 'subscriptions' | 'business';
 
+export type PackId = 'banking' | 'delivery' | 'jobs' | 'invest' | 'gov' | 'ai';
+
 export interface Signal { kind: SignalKind; mark: string; why: string }
 export interface ChatMsg { from: 'them' | 'me'; text: string; time?: string; voice?: boolean; duration?: string; audio?: string }
 export interface CallLine { who: 'caller' | 'you'; text: string }
@@ -34,6 +36,8 @@ export interface Card {
   region: Region;
   difficulty: number;
   tags?: string[];
+  /** Cards written for one of the themed packs; they are played from the pack and in the random modes. */
+  pack?: PackId;
   qr?: { viewBox: string; d: string };
   ar: LangBlock;
   en: LangBlock;

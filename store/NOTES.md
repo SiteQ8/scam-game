@@ -48,4 +48,4 @@ The same script also checked: no dash characters (U+2012 to U+2015, U+2212) and 
 * App Store Connect hides What's New for an app's first version, so `app-store/*/release_notes.txt` is not entered at launch; keep it for the first update. Google Play does take release notes for the first release.
 * App Store Connect has accepted 100 characters of keywords in every language since 2013, but Apple's help page still says 100 bytes. The Arabic keywords are 96 characters and 176 bytes; if they are ever refused, drop terms from the end.
 * Google advises against price words such as "free" in the short description, so the Play text never says it; the App Store description does.
-* Both descriptions state 112 cards (66 scams, 46 genuine). Update them in both stores and both languages if the deck changes.
+* Both descriptions state 172 cards (102 scams, 70 genuine). Update them in both stores and both languages if the deck changes.
