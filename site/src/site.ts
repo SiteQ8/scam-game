@@ -17,6 +17,8 @@ function stampToday() {
   const get = (t: string) => parts.find((p) => p.type === t)?.value || '';
   const date = `${get('weekday')} ${get('day')} ${get('month')}`;
   for (const el of $$('[data-case-n]')) el.textContent = lang === 'ar' ? `الملف رقم ${n}` : `Case #${n}`;
+  // The phone screens that show the case number get today's too, in the line the capture left out.
+  for (const el of $$('[data-case-tpl]')) el.textContent = (el.getAttribute('data-case-tpl') || '').replace('{n}', String(n));
   for (const el of $$('[data-case-date]')) el.textContent = date;
   for (const el of $$('[data-case-sep]')) el.hidden = false;
 }
