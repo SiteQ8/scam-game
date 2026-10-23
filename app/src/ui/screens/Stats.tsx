@@ -3,6 +3,8 @@ import { back, push } from '../../state/nav';
 import { lang, t, fmtNum, rankFor } from '../../i18n/i18n';
 import { CATEGORY_NAMES } from '../../i18n/strings';
 import { ACHIEVEMENTS } from '../../engine/achievements';
+import { levelFor } from '../../engine/levels';
+import { LevelRing } from '../components/Medal';
 import { Icon } from '../components/Icon';
 import { TopBar } from '../components/common';
 
@@ -10,7 +12,8 @@ export function Stats() {
   const L = lang.value;
   const p = progress.value;
   const rank = rankFor(p.xp);
-  const pct = rank.next ? Math.min(1, (p.xp - rank.floor) / (rank.next.xp - rank.floor)) : 1;
+  const lv = levelFor(p.xp);
+  const earned = ACHIEVEMENTS.filter((a) => p.achievements[a.id]).length;
   const cats = Object.entries(p.categories)
     .map(([k, v]) => ({ k, n: v!.right + v!.wrong, acc: Math.round((v!.right / Math.max(1, v!.right + v!.wrong)) * 100) }))
     .filter((c) => c.n > 0)
@@ -21,11 +24,11 @@ export function Stats() {
     <div class="screen">
       <TopBar title={t('stats')} onBack={back} />
       <div class="scroll"><div class="wrap">
-        <div class="rank-strip" style={{ marginTop: '6px' }}>
-          <span class="badge"><Icon name="award" /></span>
+        <button class="rank-strip" style={{ marginTop: '6px', width: '100%', textAlign: 'start' }} onClick={() => push({ name: 'badges' })} aria-label={t('badges')}>
+          <LevelRing n={lv.n} pct={lv.pct} />
           <span class="rank-name"><b>{rank.name}</b><span class="num">{fmtNum(p.xp)} {t('xp')}</span></span>
-          <span class="bar"><i style={{ transform: `scaleX(${pct})` }} /></span>
-        </div>
+          <span class="bar"><i style={{ transform: `scaleX(${lv.pct})` }} /></span>
+        </button>
         {p.judged === 0 && <p style={{ color: 'var(--text-2)', margin: '16px 2px' }}>{t('noStatsYet')}</p>}
         <div class="big-stats">
           <div class="stat"><b class="num">{fmtNum(p.judged)}</b><span>{t('cardsJudged')}</span></div>
@@ -62,18 +65,11 @@ export function Stats() {
             </div>
           </div>
         )}
-        <div class="group">
-          <h2>{t('achievements')}</h2>
-          <div class="ach-grid">
-            {ACHIEVEMENTS.map((a) => (
-              <div class={`ach ${p.achievements[a.id] ? '' : 'locked'}`}>
-                <Icon name={p.achievements[a.id] ? a.icon : 'lock'} />
-                <b>{a[L].title}</b>
-                <span>{a[L].body}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <button class="mode" style={{ marginTop: '22px' }} onClick={() => push({ name: 'badges' })}>
+          <span class="glyph g-journey"><Icon name="medal" /></span>
+          <span class="txt"><b>{t('badges')}</b><span class="num">{t('badgesEarned', { x: earned, y: ACHIEVEMENTS.length })}</span></span>
+          <Icon name="chevron-right" class="flip-rtl" />
+        </button>
       </div></div>
     </div>
   );

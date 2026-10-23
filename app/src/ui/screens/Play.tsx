@@ -11,6 +11,8 @@ import { dailyDeck, dayIndex, caseNumber, shareGrid, msToNextDay, type Edition }
 import { pointsFor, recordJudgement, type Judgement } from '../../engine/scoring';
 import { PACKS, packDeck, isCore } from '../../engine/packs';
 import { newlyUnlocked, type Achievement } from '../../engine/achievements';
+import { levelFor } from '../../engine/levels';
+import { Medal } from '../components/Medal';
 import { CardView } from '../cards/CardView';
 import { SwipeCard, type SwipeApi } from '../components/SwipeCard';
 import { Debrief, SignalList } from '../components/Debrief';
@@ -71,6 +73,8 @@ export function Play({ route }: { route: PlayRoute }) {
   const [quit, setQuit] = useState(false);
   const [unlocked, setUnlocked] = useState<Achievement[]>([]);
   const [rankUp, setRankUp] = useState<string | null>(null);
+  const [levelUp, setLevelUp] = useState<number | null>(null);
+  const [streakNow, setStreakNow] = useState(0);
   const [newBest, setNewBest] = useState(false);
   const api = useRef<SwipeApi | null>(null);
   const cardScroll = useRef<HTMLDivElement | null>(null);
@@ -219,8 +223,12 @@ export function Play({ route }: { route: PlayRoute }) {
     const r0 = rankFor(startXp.current).idx;
     const r1 = rankFor(progress.value.xp);
     if (r1.idx > r0) setRankUp(r1.name);
+    const l0 = levelFor(startXp.current).n;
+    const l1 = levelFor(progress.value.xp).n;
+    if (l1 > l0) setLevelUp(l1);
+    if (mode === 'daily') setStreakNow(progress.value.dailyStreak.current);
     setNewBest(best && before.rushBest > 0);
-    if (fresh.length || r1.idx > r0) { void sfx('levelup'); notify('success'); }
+    if (fresh.length || r1.idx > r0 || l1 > l0) { void sfx('levelup'); notify('success'); }
     setPhase('results');
   }
 
@@ -237,7 +245,7 @@ export function Play({ route }: { route: PlayRoute }) {
       <Results
         mode={mode} deck={deck} results={results} judged={judged} score={score} bestStreak={bestStreak}
         day={day} edition={edition} chapter={route.chapter} players={players} partyScores={partyScores}
-        unlocked={unlocked} rankUp={rankUp} newBest={newBest} route={route}
+        unlocked={unlocked} rankUp={rankUp} levelUp={levelUp} streak={streakNow} newBest={newBest} route={route}
       />
     );
   }
@@ -323,7 +331,7 @@ function Scoreline({ players, scores, current }: { players: string[]; scores: nu
 interface ResultsProps {
   mode: PlayRoute['mode']; deck: Card[]; results: boolean[]; judged: Judgement[]; score: number; bestStreak: number;
   day: number; edition: Edition; chapter?: string; players: string[]; partyScores: number[];
-  unlocked: Achievement[]; rankUp: string | null; newBest: boolean; route: PlayRoute;
+  unlocked: Achievement[]; rankUp: string | null; levelUp: number | null; streak: number; newBest: boolean; route: PlayRoute;
 }
 
 function Results(p: ResultsProps) {
@@ -393,8 +401,10 @@ function Results(p: ResultsProps) {
           </>
         )}
         {p.newBest && <div class="celebrate"><Icon name="trophy" /><div><b>{t('newBest')}</b><span class="num">{right}</span></div></div>}
+        {p.streak >= 2 && <div class="celebrate streak"><Icon name="flame" /><div><b>{t('streakDays', { days: count(p.streak, 'day') })}</b><span>{t('streakDone')}</span></div></div>}
+        {p.levelUp && <div class="celebrate"><Icon name="medal" /><div><b>{t('levelUp')}</b><span>{t('levelN', { n: p.levelUp })}</span></div></div>}
         {p.rankUp && <div class="celebrate"><Icon name="award" /><div><b>{t('newRank')}</b><span>{p.rankUp}</span></div></div>}
-        {p.unlocked.map((a) => <div class="celebrate"><Icon name={a.icon} /><div><b>{t('achievementUnlocked')}: {a[L].title}</b><span>{a[L].body}</span></div></div>)}
+        {p.unlocked.map((a) => <div class="celebrate badge-won"><Medal a={a} on /><div><b>{t('achievementUnlocked')}: {a[L].title}</b><span>{a[L].body}</span></div></div>)}
 
         {p.mode !== 'party' && p.judged.length > 0 && (
           <>
