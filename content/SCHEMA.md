@@ -34,7 +34,12 @@ The validator must print `OK` with zero errors before a file is considered done.
 | `category` | `delivery`, `banking`, `accounts`, `government`, `telecom`, `utilities`, `shopping`, `marketplace`, `jobs`, `investment`, `romance`, `family`, `tech-support`, `prize`, `charity`, `travel`, `rental`, `education`, `subscriptions`, `business` |
 | `region` | `gcc` (Kuwait and the Gulf: KWD and other Gulf currencies, Gulf context) or `global` (no country specific bodies, USD/EUR/GBP) |
 | `difficulty` | integer 1 to 5 (1 obvious, 3 needs a careful look, 5 convincing even to careful people) |
-| `tags` | optional, any of: `urgency`, `threat`, `payment`, `small-fee`, `lookalike-domain`, `shortened-link`, `otp`, `credentials`, `impersonation`, `unknown-number`, `new-number`, `voice-clone`, `too-good`, `gift-cards`, `crypto`, `remote-access`, `app-install`, `qr`, `attachment`, `off-platform`, `advance-fee`, `emotional`, `secrecy`, `official-channel`, `no-link`, `expected`, `verify-independently` |
+| `tags` | optional, any of: `urgency`, `threat`, `payment`, `small-fee`, `lookalike-domain`, `shortened-link`, `otp`, `credentials`, `impersonation`, `unknown-number`, `new-number`, `voice-clone`, `too-good`, `gift-cards`, `crypto`, `remote-access`, `app-install`, `qr`, `attachment`, `off-platform`, `advance-fee`, `emotional`, `secrecy`, `official-channel`, `no-link`, `expected`, `verify-independently`, `deepfake` (a voice, video or picture made with AI) |
+| `pack` | optional, for cards written for a themed pack: `banking` (bank fraud), `delivery` (deliveries), `jobs` (fake jobs), `invest` (investment and crypto), `gov` (impersonating Gulf government bodies), `ai` (AI fakes). The id of a pack card starts with the channel and the pack, such as `sms-banking-otp-reversal` |
+
+## Packs
+
+A pack is ten cards on one theme: six scams and four genuine messages, spread over at least five channels with no more than three of any one channel, easier cards first in difficulty from 1 to 5. Pack cards live in `content/cards/pack-<pack>.json`. They are played from their pack and also appear in the random modes (60 second rush, Play together, Flag hunt), never in the daily case or the journey chapters, so those stay the same when packs are added.
 
 ## Language block (`ar` and `en`)
 
@@ -89,7 +94,7 @@ The validator must print `OK` with zero errors before a file is considered done.
 ### Realism without harm
 * **No real organisation, bank, app, platform or brand name anywhere**, in either language. Never any real bank, courier, telecom, store, wallet, social network or messaging app. Use generic labels: Bank, Delivery, Courier, Post, Customs, Traffic Department, Ministry, Telecom, Electricity and Water, Wallet, Store, Messages, chat app, social app.
 * **Web addresses are fictional.** Scam addresses are realistic lookalikes made of generic words (`parcel-fee-kw.com`, `kw-fines-pay.net`, `secure-verify-account.info`, `gov-kw.services`), never containing a real brand. A scam may misuse "gov" in the wrong place (`kw.gov-pay.net`): that is a lesson in itself.
-* **Legit cards avoid links** wherever real institutions would (banks and couriers increasingly send no links). If a legit card truly needs an address, it must be a government only domain ending in `.gov.kw` (gcc) or `.gov` (global) with a generic subdomain.
+* **Legit cards avoid links** wherever real institutions would (banks and couriers increasingly send no links). If a legit card truly needs an address, it must be a government only domain ending in `.gov.kw`, `.gov.sa`, `.gov.ae`, `.gov.qa`, `.gov.bh` or `.gov.om` (gcc) or `.gov` (global) with a generic subdomain.
 * **Phone numbers are never real.** Gulf numbers are always masked like `+965 6••• ••42` or `+966 5••• •••18`. Foreign scam numbers use reserved fiction ranges: UK `+44 7700 900xxx` (for example `+44 7700 900417`), US `+1 202 555 01xx` (for example `+1 202 555 0143`), or masked like `+62 8•• •••• 31`. Never write 8 or more consecutive unmasked digits except inside those reserved ranges, card endings like `•••• 4417`, or codes and reference numbers clearly labelled as such.
 * People: common first names only (Sara, Ahmad, Noura, Fahad, Maryam, Yousef, John, Emma, Daniel). No real public figures.
 * Amounts and details must be believable for the region.
