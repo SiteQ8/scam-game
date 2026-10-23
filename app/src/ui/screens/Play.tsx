@@ -371,7 +371,7 @@ function Results(p: ResultsProps) {
   const tie = ranking.length > 1 && ranking[0].score === ranking[1].score;
 
   return (
-    <div class="screen">
+    <div class="screen results">
       <div class="topbar"><span class="spacer" /><h1>{title}</h1><button class="icon-btn" onClick={() => reset()} aria-label={t('home')}><Icon name="house" /></button></div>
       <div class="scroll"><div class="wrap">
         {p.mode === 'party' ? (

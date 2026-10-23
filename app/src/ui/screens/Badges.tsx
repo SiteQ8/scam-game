@@ -25,7 +25,7 @@ export function Badges() {
       <TopBar title={t('badges')} onBack={back} />
       <div class="scroll"><div class="wrap">
         <div class="level-card">
-          <LevelRing n={lv.n} pct={lv.pct} />
+          <LevelRing n={lv.n} pct={lv.pct} animate />
           <div class="txt">
             <span class="label">{t('levelN', { n: lv.n })}</span>
             <b>{rank.name}</b>
