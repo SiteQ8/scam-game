@@ -20,6 +20,7 @@ export function Settings() {
         <div class="group" style={{ marginTop: '4px' }}>
           <h2>{t('general')}</h2>
           <div class="panel">
+            <div class="row"><Icon name="accessibility" class="lead" /><span class="lbl">{t('familyMode')}<small>{t('familyModeSub')}</small></span><Toggle checked={s.family} label={t('familyMode')} onChange={(v) => set({ family: v })} /></div>
             <div class="row stack"><span class="lbl">{t('language')}</span>
               <Segmented value={s.lang} label={t('language')} onChange={(v) => set({ lang: v })} options={[{ value: 'system', label: t('langSystem') }, { value: 'ar', label: 'العربية' }, { value: 'en', label: 'English' }]} />
             </div>

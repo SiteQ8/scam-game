@@ -16,6 +16,8 @@ export interface Settings {
   haptics: boolean;
   reduceMotion: boolean;
   textScale: 1 | 1.12 | 1.25;
+  /** Family and seniors mode: larger text and buttons, no timed modes, calmer motion. */
+  family: boolean;
   onboarded: boolean;
 }
 
@@ -38,6 +40,7 @@ export interface Progress {
   huntsPlayed: number;
   partyGames: number;
   checkerUses: number;
+  familyRounds: number;
   cards: Record<string, CardRecord>;
   categories: Partial<Record<Category, CardRecord>>;
   achievements: Record<string, number>;
@@ -55,6 +58,7 @@ export const defaultSettings = (): Settings => ({
   haptics: true,
   reduceMotion: false,
   textScale: 1,
+  family: false,
   onboarded: false,
 });
 
@@ -74,6 +78,7 @@ export const defaultProgress = (): Progress => ({
   huntsPlayed: 0,
   partyGames: 0,
   checkerUses: 0,
+  familyRounds: 0,
   cards: {},
   categories: {},
   achievements: {},
