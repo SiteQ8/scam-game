@@ -1031,3 +1031,31 @@ textarea, input { caret-color: var(--marker); }
 .tip-meta { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-3); font-family: var(--font-display); font-weight: 600; }
 .tip-item p { margin-top: 8px; line-height: 1.6; text-wrap: pretty; }
 .tip-item .icon-btn { position: absolute; top: 8px; inset-inline-end: 6px; }
+
+/* ============ Motion: first frame, results, earned badges ============ */
+/* The first screen after launch settles in from the splash instead of popping on. */
+.screen-anim.enter-first { animation: app-in 280ms var(--ease-out) both; }
+@keyframes app-in { from { opacity: 0; transform: translateY(6px); } }
+/* Results arrive in reading order, a beat apart: score, numbers, then what was earned. */
+.results .wrap > * { animation: rise 320ms var(--ease-out) both; }
+.results .wrap > :nth-child(2) { animation-delay: 50ms; }
+.results .wrap > :nth-child(3) { animation-delay: 100ms; }
+.results .wrap > :nth-child(4) { animation-delay: 150ms; }
+.results .wrap > :nth-child(5) { animation-delay: 200ms; }
+.results .wrap > :nth-child(6) { animation-delay: 250ms; }
+.results .wrap > :nth-child(n + 7) { animation-delay: 300ms; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+/* A new badge: the medal presses in like a stamp, then light runs across it once. */
+.celebrate.badge-won .medal .face { position: relative; overflow: hidden; animation: medal-pop 520ms 260ms var(--ease-out) both; }
+.celebrate.badge-won .medal .face::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.8) 50%, transparent 68%); transform: translateX(-130%); animation: shine 900ms 700ms var(--ease-in-out) forwards; }
+@keyframes medal-pop { 0% { opacity: 0; transform: scale(0.82) rotate(-10deg); } 60% { opacity: 1; transform: scale(1.05) rotate(2deg); } 100% { transform: scale(1) rotate(0); } }
+@keyframes shine { to { transform: translateX(130%); } }
+.reduce-motion .screen-anim.enter-first, .reduce-motion .results .wrap > * { animation: fade-in 180ms ease both !important; }
+.reduce-motion .celebrate.badge-won .medal .face { animation: fade-in 180ms ease both; }
+.reduce-motion .celebrate.badge-won .medal .face::after { display: none; }
+.reduce-motion .level-ring circle.fill { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .screen-anim.enter-first, .results .wrap > * { animation: fade-in 180ms ease both; }
+  .celebrate.badge-won .medal .face { animation: none; }
+  .celebrate.badge-won .medal .face::after { display: none; }
+}

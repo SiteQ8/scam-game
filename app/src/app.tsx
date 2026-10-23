@@ -66,7 +66,7 @@ export function App() {
   return (
     <>
       <div key={top.k} class={`screen-host`} style={{ position: 'absolute', inset: 0 }}>
-        <div class={`screen-anim ${dir === 'back' ? 'enter-back' : dir === 'forward' ? 'enter-forward' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        <div class={`screen-anim ${dir === 'back' ? 'enter-back' : dir === 'forward' ? 'enter-forward' : 'enter-first'}`} style={{ position: 'absolute', inset: 0 }}>
           <Screen r={top} />
         </div>
       </div>
