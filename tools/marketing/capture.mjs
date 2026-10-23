@@ -70,6 +70,14 @@ for (const lang of LANGS) {
   const go = async (route, wait = 900) => { await page.evaluate((r) => window.__nav.reset(r), route); await sleep(wait); };
   const shot = async (name) => { await page.screenshot({ path: `${dir}/${name}.png` }); console.log(lang, name); };
   const crop = async (name, sel, h, pad = 0) => {
+    // An element below the fold is scrolled up first, so the crop holds it whole.
+    const moved = await page.locator(sel).first().evaluate((e, h) => {
+      const r = e.getBoundingClientRect();
+      if (r.top >= 0 && r.top + h <= innerHeight) return false;
+      e.scrollIntoView({ block: 'center' });
+      return true;
+    }, h).catch(() => false);
+    if (moved) await sleep(350);
     const box = await page.locator(sel).first().boundingBox();
     if (!box) { console.log('no crop for', name, sel); return; }
     // The element's whole width, so no line is cut off; the website scales the crop to 360 px.
@@ -79,6 +87,67 @@ for (const lang of LANGS) {
     console.log(lang, 'crop', name);
   };
   const practice = (ids) => go({ name: 'play', mode: 'practice', ids }, 1100);
+  // A whole element, cut out at its own size, for the website's case in four stages. With a line selector the
+  // crop is taken a second time with that line left out, and where the line sits is written relative to the crop.
+  // With `cut`, only the kept element is drawn and everything around it is left clear, so rounded corners and the
+  // card's own shadow sit on whatever field the website puts them on.
+  const CUT = (keep, drop) => `html, body { background: transparent !important; } body * { visibility: hidden !important; } ${keep}, ${keep} * { visibility: visible !important; }${drop ? ` ${drop} { visibility: hidden !important; }` : ''}`;
+  const stage = async (name, sel, pad = 0, lineSel = null, cut = null) => {
+    await page.locator(sel).first().evaluate((e) => {
+      const r = e.getBoundingClientRect();
+      if (r.top < 0 || r.bottom > innerHeight) e.scrollIntoView({ block: 'center' });
+    }).catch(() => {});
+    await sleep(300);
+    if (cut) {
+      await page.evaluate((css) => {
+        const st = document.createElement('style');
+        st.id = 'cut-out';
+        st.textContent = css;
+        document.head.appendChild(st);
+      }, CUT(cut.keep, cut.drop));
+      await sleep(120);
+    }
+    const box = await page.locator(sel).first().boundingBox();
+    if (!box) { console.log('no stage for', name, sel); return; }
+    const x = Math.max(0, Math.floor(box.x - pad));
+    const y = Math.max(0, Math.floor(box.y - pad));
+    const clip = { x, y, width: Math.min(W - x, Math.ceil(box.width + pad * 2)), height: Math.min(H - y, Math.ceil(box.height + pad * 2)) };
+    await page.screenshot({ path: `${dir}/stage-${name}.png`, clip, omitBackground: !!cut });
+    const meta = { w: clip.width, h: clip.height, ...(cut ? { cut: true } : {}) };
+    if (lineSel) {
+      const line = await page.evaluate(([lineSel, ox, oy]) => {
+        const el = document.querySelector(lineSel);
+        if (!el) return null;
+        const cs = getComputedStyle(el);
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const r = range.getBoundingClientRect();
+        const probe = document.createElement('span');
+        probe.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline';
+        el.appendChild(probe);
+        const baseline = probe.getBoundingClientRect().bottom;
+        probe.remove();
+        const rtl = cs.direction === 'rtl';
+        const centred = cs.textAlign === 'center';
+        const out = {
+          text: el.textContent, tpl: el.textContent.replace(/\d+/, '{n}'), rtl, anchor: centred ? 'middle' : 'start',
+          x: (centred ? (r.left + r.right) / 2 : rtl ? r.right : r.left) - ox, y: baseline - oy,
+          family: cs.fontFamily, size: parseFloat(cs.fontSize), weight: Number(cs.fontWeight), spacing: parseFloat(cs.letterSpacing) || 0, color: cs.color,
+        };
+        el.style.color = 'transparent';
+        return out;
+      }, [lineSel, clip.x, clip.y]);
+      if (line) {
+        await sleep(100);
+        await page.screenshot({ path: `${dir}/stage-${name}-live.png`, clip, omitBackground: !!cut });
+        meta.live = line;
+        await page.evaluate((sel) => { document.querySelector(sel).style.color = ''; }, lineSel);
+      }
+    }
+    if (cut) await page.evaluate(() => document.getElementById('cut-out')?.remove());
+    writeFileSync(`${dir}/stage-${name}.json`, JSON.stringify(meta));
+    console.log(lang, 'stage', name);
+  };
   // A screen with a line that holds today's case number: shot as it is, then once more with that line left out,
   // with where the line sits and how it is set, so the website can write in the number of the day it is seen.
   const liveShot = async (name, sel) => {
@@ -143,12 +212,46 @@ for (const lang of LANGS) {
   // A card, the swipe in progress, and the verdict with its marks.
   await practice(['sms-parcel-redelivery-fee']);
   await shot('card');
+  await stage('k1', '.stage .msg', 18, null, { keep: '.stage .card-pos', drop: '.stage .stamp' });
   const card = await page.locator('.stage .card-wrap').boundingBox();
   await page.mouse.move(card.x + card.width / 2, card.y + card.height * 0.42);
   await page.mouse.down();
   await page.mouse.move(card.x + card.width / 2 - 70, card.y + card.height * 0.42 + 6, { steps: 10 });
   await sleep(250);
   await shot('drag');
+  // The second stage: the card past the line with its label at full strength, cut out on its own with clear
+  // corners. It is held in the middle and drawn a little smaller, so the tilted card stays whole on the screen.
+  await page.mouse.move(card.x + card.width / 2 - 112, card.y + card.height * 0.42 + 8, { steps: 6 });
+  await sleep(250);
+  await page.evaluate(() => {
+    const wrap = document.querySelector('.stage .card-wrap');
+    const rot = (wrap.style.transform.match(/rotate\(([-\d.]+)deg\)/) || [])[1] || '-5.6';
+    wrap.style.transform = `translate3d(0, 4px, 0) rotate(${rot}deg) scale(0.86)`;
+  });
+  await page.evaluate((css) => {
+    const st = document.createElement('style');
+    st.id = 'cut-out';
+    st.textContent = css;
+    document.head.appendChild(st);
+  }, CUT('.stage .card-pos'));
+  await sleep(200);
+  {
+    const box = await page.evaluate(() => {
+      const els = [document.querySelector('.stage .msg'), ...document.querySelectorAll('.stage .stamp')];
+      const rs = els.filter(Boolean).map((e) => e.getBoundingClientRect()).filter((r) => r.width && r.height);
+      const stamps = [...document.querySelectorAll('.stage .stamp')].filter((e) => Number(getComputedStyle(e).opacity) > 0.05).map((e) => e.getBoundingClientRect());
+      const use = [rs[0], ...stamps];
+      return { x: Math.min(...use.map((r) => r.left)), y: Math.min(...use.map((r) => r.top)), r: Math.max(...use.map((r) => r.right)), b: Math.max(...use.map((r) => r.bottom)) };
+    });
+    const pad = 22;
+    const x = Math.max(0, Math.floor(box.x - pad));
+    const y = Math.max(0, Math.floor(box.y - pad));
+    const clip = { x, y, width: Math.min(W - x, Math.ceil(box.r - box.x + pad * 2)), height: Math.min(H - y, Math.ceil(box.b - box.y + pad * 2)) };
+    await page.screenshot({ path: `${dir}/stage-k2.png`, clip, omitBackground: true });
+    writeFileSync(`${dir}/stage-k2.json`, JSON.stringify({ w: clip.width, h: clip.height, cut: true }));
+    console.log(lang, 'stage', 'k2');
+  }
+  await page.evaluate(() => document.getElementById('cut-out')?.remove());
   await page.mouse.move(card.x + card.width / 2, card.y + card.height * 0.42, { steps: 6 });
   await page.mouse.up();
   await sleep(700);
@@ -156,6 +259,11 @@ for (const lang of LANGS) {
   await sleep(2200);
   await shot('debrief');
   await crop('f3', '.sheet .signals', 196);
+  // The sheet steps down to a peek, so the whole card shows its numbered marks.
+  await page.click('.sheet-handle');
+  await sleep(900);
+  // This stage is about the marks, so the verdict labels step aside for the picture.
+  await stage('k3', '.stage .msg', 18, null, { keep: '.stage .card-pos', drop: '.stage .stamp' });
 
   // A genuine message: green signs and a trap.
   await practice(['sms-bank-otp-own-purchase']);
@@ -242,6 +350,9 @@ for (const lang of LANGS) {
   }
   await sleep(1200);
   await liveShot('results', '.results-hero p');
+  // The closed case back on the home screen: the cloth with today's strand, finished.
+  await go({ name: 'home' });
+  await stage('k4', '.cloth', 0, '#case-h', { keep: '.cloth' });
 
   if (errors.length) console.log(lang, 'page errors:', errors.join('\n'));
   await ctx.close();

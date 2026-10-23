@@ -31,6 +31,22 @@ for lang in ('en', 'ar'):
         im = im.resize((720, css_h * 2), Image.LANCZOS)
         im.save(os.path.join(out, lang, f'crop-f{n}.webp'), 'WEBP', quality=82, method=6)
         manifest[lang][f'f{n}'] = {'w': css_w, 'h': css_h}
+    # The case in four stages: whole elements at their own size, two pixels per CSS pixel.
+    manifest[lang]['stages'] = {}
+    for k in ('k1', 'k2', 'k3', 'k4'):
+        meta_path = os.path.join(cap, lang, f'stage-{k}.json')
+        if not os.path.exists(meta_path):
+            print('missing stage', lang, k); continue
+        meta = json.load(open(meta_path))
+        for suffix in ('', '-live'):
+            src = os.path.join(cap, lang, f'stage-{k}{suffix}.png')
+            if not os.path.exists(src): continue
+            im = Image.open(src)
+            # A stage cut out on its own keeps its clear corners; the rest are whole rectangles.
+            im = im.convert('RGBA' if meta.get('cut') else 'RGB')
+            im = im.resize((meta['w'] * 2, meta['h'] * 2), Image.LANCZOS)
+            im.save(os.path.join(out, lang, f'stage-{k}{suffix}.webp'), 'WEBP', quality=84, method=6)
+        manifest[lang]['stages'][k] = meta
     manifest[lang]['live'] = {}
     for name in SCREENS:
         live = os.path.join(cap, lang, f'{name}-live.json')
