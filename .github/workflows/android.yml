@@ -1,24 +1,47 @@
 name: android
 
+# Builds the Android app, with versionName and versionCode from package.json.
+# * Pushes to main that touch the app, and runs by hand: a debug APK, kept as a workflow artifact.
+# * A tag such as android-v1.1.0: the debug APK and the signed release bundle, uploaded to the
+#   Play internal testing track.
+# * Called by release.yml for a release such as v1.1.0: the signed release bundle, attached to that
+#   GitHub release as scam-game-v1.1.0.aab and uploaded to the Play internal testing track.
+# Without the signing secrets nothing is signed, and without PLAY_SERVICE_ACCOUNT nothing is uploaded:
+# the run stays green and a notice names the missing secrets. store/SECRETS.md explains each one.
 on:
   push:
     tags: ['android-v*']
     branches: [main]
     paths: ['android/**', 'app/**', 'content/**', 'package.json', '.github/workflows/android.yml']
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      release_tag:
+        description: The GitHub release to build, attach the bundle to and upload, for example v1.1.0
+        type: string
+        required: true
 
 permissions:
   contents: read
 
 jobs:
   build:
+    name: Build and sign
     runs-on: ubuntu-latest
     env:
-      HAS_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
-      HAS_PLAY: ${{ secrets.PLAY_SERVICE_ACCOUNT != '' }}
-      VERSION_CODE: ${{ github.run_number }}
+      # The signed bundle is made for a release from release.yml and for an android-v tag.
+      SIGN: ${{ inputs.release_tag != '' || startsWith(github.ref, 'refs/tags/android-v') }}
+    outputs:
+      signed: ${{ steps.bundle.outputs.signed }}
+      file: ${{ steps.bundle.outputs.file }}
+      upload: ${{ steps.check.outputs.upload }}
+      build_number: ${{ steps.version.outputs.build_number }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # A release is built from its tag, also when the run was started by hand on main.
+          ref: ${{ inputs.release_tag != '' && format('refs/tags/{0}', inputs.release_tag) || '' }}
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -27,39 +50,161 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - run: npm ci && npm run build && npx cap sync android
+      - name: Version from package.json
+        id: version
+        env:
+          TAG: ${{ inputs.release_tag || (startsWith(github.ref, 'refs/tags/') && github.ref_name) || '' }}
+        run: |
+          # The app version is the version in package.json. The build number (Android versionCode,
+          # iPhone CURRENT_PROJECT_VERSION) is major * 10000 + minor * 100 + patch, so 1.1.0 builds 10100
+          # and a later version always has a higher number. ios.yml has this same step.
+          VERSION=$(node -p "require('./package.json').version")
+          if ! echo "$VERSION" | grep -Eq '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]?)\.(0|[1-9][0-9]?)$'; then
+            echo "::error::package.json has version $VERSION. Use major.minor.patch with minor and patch from 0 to 99, for example 1.1.0."
+            exit 1
+          fi
+          if [ -n "$TAG" ] && [ "${TAG##*v}" != "$VERSION" ]; then
+            echo "::error::The tag $TAG does not match version $VERSION in package.json at that commit. Set the version in package.json to ${TAG##*v} before tagging, or build a tag that matches $VERSION."
+            exit 1
+          fi
+          MAJOR=$(echo "$VERSION" | cut -d . -f 1)
+          MINOR=$(echo "$VERSION" | cut -d . -f 2)
+          PATCH=$(echo "$VERSION" | cut -d . -f 3)
+          BUILD_NUMBER=$((MAJOR * 10000 + MINOR * 100 + PATCH))
+          echo "version $VERSION, build number $BUILD_NUMBER"
+          {
+            echo "version=$VERSION"
+            echo "build_number=$BUILD_NUMBER"
+            echo "name=${GITHUB_REPOSITORY#*/}-${TAG:-v$VERSION}"
+          } >> "$GITHUB_OUTPUT"
+      - name: Check the secrets
+        id: check
+        if: env.SIGN == 'true'
+        env:
+          ANDROID_KEYSTORE_BASE64_SET: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+          ANDROID_KEYSTORE_PASSWORD_SET: ${{ secrets.ANDROID_KEYSTORE_PASSWORD != '' }}
+          ANDROID_KEY_ALIAS_SET: ${{ secrets.ANDROID_KEY_ALIAS != '' }}
+          ANDROID_KEY_PASSWORD_SET: ${{ secrets.ANDROID_KEY_PASSWORD != '' }}
+          PLAY_SERVICE_ACCOUNT_SET: ${{ secrets.PLAY_SERVICE_ACCOUNT != '' }}
+        run: |
+          # A missing secret skips what needs it and leaves a notice; it never fails the run.
+          missing=""
+          [ "$ANDROID_KEYSTORE_BASE64_SET" = true ] || missing="$missing ANDROID_KEYSTORE_BASE64"
+          [ "$ANDROID_KEYSTORE_PASSWORD_SET" = true ] || missing="$missing ANDROID_KEYSTORE_PASSWORD"
+          [ "$ANDROID_KEY_ALIAS_SET" = true ] || missing="$missing ANDROID_KEY_ALIAS"
+          [ "$ANDROID_KEY_PASSWORD_SET" = true ] || missing="$missing ANDROID_KEY_PASSWORD"
+          if [ -n "$missing" ]; then
+            echo "::notice title=Android bundle not signed::No signed bundle was made, attached or uploaded. Missing repository secrets:$missing. See store/SECRETS.md."
+            echo "sign=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "sign=true" >> "$GITHUB_OUTPUT"
+          fi
+          if [ "$PLAY_SERVICE_ACCOUNT_SET" = true ]; then
+            echo "upload=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice title=Google Play upload skipped::The bundle was not uploaded to the Play internal testing track. Missing repository secret: PLAY_SERVICE_ACCOUNT. See store/SECRETS.md."
+            echo "upload=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build the web app into the Android project
+        if: inputs.release_tag == '' || steps.check.outputs.sign == 'true'
+        run: npm ci && npm run build && npx cap sync android
       - name: Debug APK for testing
+        if: inputs.release_tag == ''
         working-directory: android
+        env:
+          VERSION_CODE: ${{ steps.version.outputs.build_number }}
         run: ./gradlew --no-daemon assembleDebug
       - uses: actions/upload-artifact@v4
+        if: inputs.release_tag == ''
         with:
           name: android-debug-apk
           path: android/app/build/outputs/apk/debug/*.apk
       - name: Signed release bundle
-        if: env.HAS_KEYSTORE == 'true' && startsWith(github.ref, 'refs/tags/android-v')
+        id: bundle
+        if: steps.check.outputs.sign == 'true'
         working-directory: android
         env:
+          VERSION_CODE: ${{ steps.version.outputs.build_number }}
+          NAME: ${{ steps.version.outputs.name }}
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
         run: |
-          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > upload.keystore
+          KEYSTORE="$RUNNER_TEMP/upload.keystore"
+          if ! printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$KEYSTORE"; then
+            echo "::error::ANDROID_KEYSTORE_BASE64 is not base64 text. See store/SECRETS.md."
+            exit 1
+          fi
+          if ! keytool -list -keystore "$KEYSTORE" -storepass:env ANDROID_KEYSTORE_PASSWORD -alias "$ANDROID_KEY_ALIAS" > /dev/null; then
+            echo "::error::The keystore in ANDROID_KEYSTORE_BASE64 does not open with ANDROID_KEYSTORE_PASSWORD, or has no key with the alias in ANDROID_KEY_ALIAS. See store/SECRETS.md."
+            exit 1
+          fi
           ./gradlew --no-daemon bundleRelease \
-            -Pandroid.injected.signing.store.file="$PWD/upload.keystore" \
+            -Pandroid.injected.signing.store.file="$KEYSTORE" \
             -Pandroid.injected.signing.store.password="$ANDROID_KEYSTORE_PASSWORD" \
             -Pandroid.injected.signing.key.alias="$ANDROID_KEY_ALIAS" \
             -Pandroid.injected.signing.key.password="$ANDROID_KEY_PASSWORD"
-          rm -f upload.keystore
+          rm -f "$KEYSTORE"
+          BUNDLE=app/build/outputs/bundle/release/app-release.aab
+          if ! jarsigner -verify "$BUNDLE" | grep -q "jar verified"; then
+            echo "::error::$BUNDLE is not signed."
+            exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/release"
+          cp "$BUNDLE" "$RUNNER_TEMP/release/$NAME.aab"
+          echo "file=$NAME.aab" >> "$GITHUB_OUTPUT"
+          echo "signed=true" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
-        if: env.HAS_KEYSTORE == 'true' && startsWith(github.ref, 'refs/tags/android-v')
+        if: steps.bundle.outputs.signed == 'true'
         with:
           name: android-release-aab
-          path: android/app/build/outputs/bundle/release/*.aab
-      - name: Upload to the Play internal track
-        if: env.HAS_KEYSTORE == 'true' && env.HAS_PLAY == 'true' && startsWith(github.ref, 'refs/tags/android-v')
+          path: ${{ runner.temp }}/release/${{ steps.bundle.outputs.file }}
+          if-no-files-found: error
+          overwrite: true
+
+  attach:
+    name: Attach to the release
+    needs: build
+    if: inputs.release_tag != '' && needs.build.outputs.signed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: android-release-aab
+          path: release
+      - name: Attach the bundle to the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ inputs.release_tag }}
+          FILE: release/${{ needs.build.outputs.file }}
+        run: gh release upload "$TAG" "$FILE" --clobber
+
+  play:
+    name: Upload to Google Play
+    needs: build
+    if: needs.build.outputs.signed == 'true' && needs.build.outputs.upload == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_tag != '' && format('refs/tags/{0}', inputs.release_tag) || '' }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: android-release-aab
+          path: release
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Upload to the Play internal testing track
         env:
           PLAY_SERVICE_ACCOUNT: ${{ secrets.PLAY_SERVICE_ACCOUNT }}
+          VERSION_CODE: ${{ needs.build.outputs.build_number }}
+          FILE: release/${{ needs.build.outputs.file }}
         run: |
           pip install --quiet google-auth requests
-          python3 tools/android/play-upload.py android/app/build/outputs/bundle/release/app-release.aab internal store/google-play
+          python tools/android/play-upload.py "$FILE" internal store/google-play

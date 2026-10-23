@@ -8,6 +8,7 @@ Listing copy for the App Store and Google Play in English and Arabic, one field 
 * `google-play/en-US/` and `google-play/ar/`: `title`, `short_description`, `full_description` and `changelogs/default.txt`.
 * `app-store/review-notes.txt`: for App Review Information, Notes, in App Store Connect.
 * `answers.md`: every questionnaire in App Store Connect and Play Console, with the answer to pick and why.
+* `SECRETS.md`: the repository secrets that sign the files attached to each GitHub release and upload them to Google Play internal testing and TestFlight, how to make each one, and in which order.
 
 ## Name and address
 
