@@ -25,7 +25,7 @@ export function Badges() {
       <TopBar title={t('badges')} onBack={back} />
       <div class="scroll"><div class="wrap">
         <div class="level-card">
-          <LevelPearl n={lv.n} pct={lv.pct} animate size="lg" />
+          <LevelPearl n={lv.n} animate size="lg" />
           <div class="txt">
             <b>{rank.name}</b>
             <span class="label">{t('levelN', { n: lv.n })}</span>
@@ -42,7 +42,7 @@ export function Badges() {
                 const pr = a.progress?.(p, CARDS);
                 return (
                   <button class={`medal-cell ${on ? 'on' : 'off'}`} onClick={() => { void sfx('tap'); setOpen(a); }} aria-label={`${a[L].title}. ${on ? t('earnedOn', { date: date(p.achievements[a.id]) }) : t('notYet')}`}>
-                    <Medal a={a} on={on} ratio={pr && pr[1] > 0 ? pr[0] / pr[1] : undefined} />
+                    <Medal a={a} on={on} tier />
                     <b>{a[L].title}</b>
                     {!on && pr && pr[1] > 1 && <span class="num">{fmtNum(pr[0])}/{fmtNum(pr[1])}</span>}
                   </button>
@@ -60,17 +60,14 @@ export function Badges() {
               const pr = open.progress?.(p, CARDS);
               return (
                 <>
-                  <Medal a={open} on={on} ratio={pr && pr[1] > 0 ? pr[0] / pr[1] : undefined} size="lg" />
+                  <Medal a={open} on={on} size="lg" tier />
                   <h3 id="badge-h">{open[L].title}</h3>
                   <span class="label">{t(open.tier === 'gold' ? 'tierGold' : open.tier === 'silver' ? 'tierSilver' : 'tierBronze')}</span>
                   <p>{open[L].body}</p>
                   {on ? (
                     <p class="when">{t('earnedOn', { date: date(p.achievements[open.id]) })}</p>
                   ) : (
-                    <>
-                      {pr && pr[1] > 1 && <div class="bar"><i style={{ transform: `scaleX(${pr[0] / pr[1]})` }} /></div>}
-                      <p class="when num">{pr && pr[1] > 1 ? `${fmtNum(pr[0])}/${fmtNum(pr[1])}` : t('notYet')}</p>
-                    </>
+                    <p class="when num">{pr && pr[1] > 1 ? `${fmtNum(pr[0])}/${fmtNum(pr[1])}` : t('notYet')}</p>
                   )}
                   <button class="btn btn-secondary" onClick={() => setOpen(null)} autoFocus>{t('close')}</button>
                 </>

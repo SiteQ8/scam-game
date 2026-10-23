@@ -39,7 +39,7 @@
   --on-cloth: #fbeee9;
   --on-cloth-2: #f2cdc6;
   --brass-light: #e2c27f;
-  --lustre: radial-gradient(circle at 34% 30%, #ffffff 0 13%, #f6efe3 30%, #ddd1bf 66%, #b6a891 100%);
+  --lustre: radial-gradient(circle at 33% 28%, #ffffff 0 8%, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 70% 78%, rgba(222, 176, 182, 0.42), rgba(222, 176, 182, 0) 46%), radial-gradient(circle at 34% 30%, #fbf7f0 0 14%, #f1e8da 32%, #ddd1bf 66%, #b4a58e 100%);
   --dull: radial-gradient(circle at 36% 30%, #8f979a 0%, #626b6e 58%, #4a5255 100%);
 
   /* Verdict colours carry meaning only: scam, legit, and the trap that only looks alarming. */
@@ -304,6 +304,16 @@ textarea, input { caret-color: var(--brass-text); }
 }
 .strand.sm { --b: 18px; }
 .strand.lg { --b: 28px; }
+/* A strand laid out as a necklace: the pearls graduate from the clasp to the middle, as on the certificate. */
+.strand.graduated .bead { flex-basis: calc(var(--b) * (0.6 + 0.4 * var(--g, 1))); max-width: calc(var(--b) * (0.6 + 0.4 * var(--g, 1))); }
+/* A draped strand lies in a shallow curve, its pearls spaced evenly along the thread (positions from drape()).
+   The sag is a share of the width, kept by a percentage padding; each pearl's drop is a percentage margin. */
+.strand.draped { display: block; height: var(--b); padding-top: calc(var(--sag) * 100%); box-sizing: content-box; }
+.strand.draped::before { content: none; }
+.strand.draped .thread { position: absolute; top: calc(var(--b) / 2); height: auto; overflow: visible; fill: none; stroke: var(--thread); stroke-width: 1.5px; }
+.strand.draped .bead { position: absolute; top: calc(var(--b) / 2); left: var(--x); margin-top: calc(var(--y) * 100%); width: var(--b); max-width: none; translate: -50% -50%; }
+.strand.draped.graduated .bead { width: calc(var(--b) * (0.6 + 0.4 * var(--g, 1))); }
+[dir='rtl'] .strand.draped .bead { left: auto; right: var(--x); translate: 50% -50%; }
 .bead {
   position: relative;
   z-index: 1;
@@ -337,17 +347,11 @@ textarea, input { caret-color: var(--brass-text); }
 .pearls .bead { flex: none; width: 15px; max-width: none; }
 .pearls .bead.seat { transform: scale(0.72); }
 
-/* The level: a pearl that grows with the level, inside a brass ring that fills toward the next one. */
-.level-pearl { position: relative; width: 46px; height: 46px; display: grid; place-items: center; flex: none; }
-.level-pearl svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
-[dir='rtl'] .level-pearl svg { transform: rotate(-90deg) scaleY(-1); }
-.level-pearl circle { fill: none; stroke: var(--line-2); stroke-width: 2.5; }
-.level-pearl circle.fill { stroke: var(--brass-text); stroke-linecap: round; transition: stroke-dashoffset 700ms var(--ease-out); }
-.level-pearl .bead { position: absolute; width: calc(var(--p, 0.5) * 100%); max-width: none; }
-.level-pearl b { position: relative; z-index: 2; font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; color: #3a2c18; line-height: 1; }
-.level-pearl.lg { width: 92px; height: 92px; }
-.level-pearl.lg circle { stroke-width: 2; }
-.level-pearl.lg b { font-size: 1.35rem; }
+/* The level: a pearl in a brass seat, graded by size the way merchants sieved pearls. The larger, the higher. */
+.level-pearl { position: relative; width: 48px; height: 48px; display: grid; place-items: center; flex: none; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--seat); }
+.level-pearl .bead { flex: none; width: calc(var(--p, 0.5) * 100%); max-width: none; }
+.level-pearl.lg { width: 96px; height: 96px; box-shadow: inset 0 0 0 2px var(--seat); }
+.level-pearl.sm { width: 40px; height: 40px; }
 
 /* ============ Home ============ */
 .home-head { display: flex; align-items: center; gap: 10px; padding: 10px var(--gutter) 6px; }
@@ -375,7 +379,25 @@ textarea, input { caret-color: var(--brass-text); }
 .cloth h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.3rem, 10.6vw, 2.85rem); line-height: 1.15; color: var(--pearl); padding-inline-end: 84px; }
 .cloth .sub { color: var(--on-cloth-2); font-size: 0.95rem; line-height: 1.5; margin-top: 4px; }
 .cloth .strand { --b: 24px; margin: 20px 2px 20px; }
+.cloth.case { display: flex; flex-direction: column; min-height: min(calc(100svh - 168px - var(--safe-t) - var(--safe-b)), 700px); }
+.cloth.case .strand { --b: 32px; margin: auto 0; }
+/* On the cloth the empty seats are drawn near full size, so the waiting strand reads as clearly as the finished one. */
+.cloth.case .bead.seat { transform: scale(0.9); }
+.cloth.case .bead.now { transform: scale(0.94); }
+.cloth.case .btn-primary { flex: none; }
 .cloth .case-meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 0.86rem; color: var(--on-cloth-2); }
+/* A finished case: the strand laid out on the cloth, centred like a necklace. */
+.result-cloth { text-align: center; margin-top: 4px; padding: 26px 20px 20px; }
+.result-cloth h2 { padding-inline-end: 0; font-size: clamp(2.05rem, 9.4vw, 2.6rem); text-wrap: balance; }
+.result-cloth .strand { --b: 32px; max-width: min(100%, calc(var(--n, 10) * 40px)); margin: 28px auto 22px; }
+.result-cloth .pearls { margin: 0 auto 14px; }
+.result-cloth .pearls .bead { width: 22px; }
+.result-cloth .tally { color: var(--on-cloth); font-size: 1rem; line-height: 1.5; text-wrap: balance; }
+.result-cloth .btn-primary { margin-top: 20px; }
+.result-cloth .case-meta { justify-content: center; }
+.result-cloth .haul { margin: 14px 0 6px; }
+.result-cloth .haul b { display: block; font-family: var(--font-display); font-weight: 700; font-size: clamp(4rem, 22vw, 5.6rem); line-height: 1.1; color: var(--pearl); }
+.result-cloth .haul span { display: block; color: var(--on-cloth-2); font-size: 0.95rem; }
 .cloth .seal { position: absolute; top: 20px; inset-inline-end: 18px; padding: 3px 12px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--brass-light); color: #f6dca4; font-weight: 600; font-size: 0.82rem; line-height: 1.5; }
 @media (hover: hover) and (pointer: fine) { .cloth .btn-primary:hover { background: #ffffff; } }
 
@@ -438,12 +460,13 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 /* ============ Play ============ */
 .play-top { display: flex; align-items: center; gap: 10px; padding: 6px 10px 4px; min-height: 56px; }
 .play-top .strand { flex: 1; --b: 20px; margin-inline: auto; max-width: calc(var(--n, 10) * 30px); }
-.play-top .score { min-width: 58px; text-align: end; font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; line-height: 1.1; }
+.play-top .score { min-width: 58px; text-align: end; font-family: var(--font-body); font-weight: 700; font-size: 1.25rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.play-top .balance { width: 44px; flex: none; }
 .play-top .score small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 0.7rem; color: var(--text-3); margin-top: 2px; }
 .timer { flex: 1; display: flex; align-items: center; gap: 10px; }
 .timer .bar { flex: 1; height: 8px; }
 .timer .bar > i { transition: transform 1s linear; }
-.timer .t { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; min-width: 34px; text-align: center; }
+.timer .t { font-family: var(--font-body); font-weight: 700; font-size: 1.15rem; min-width: 34px; text-align: center; font-variant-numeric: tabular-nums; }
 .timer.low .bar > i { background: var(--scam); }
 .timer.low .t { color: var(--scam-text); }
 .context {
@@ -738,17 +761,27 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 .ltr-run { unicode-bidi: isolate; white-space: nowrap; }
 .msg bdi[dir='ltr'], .mk[dir='ltr'], .mk-hidden[dir='ltr'] { unicode-bidi: isolate; white-space: nowrap; }
 .marks-on .mail-from div > span { margin-top: 8px; }
-/* Revealed marks get room for their number badges so a badge never sits on the line above. */
-.msg.marks-on :where(.bubble, .mail-body, .post-body, .web-page, .qr-card, .lines, p), .msg .mk.on { line-height: 1.95; }
+/* In the debrief each mark opens with its number, inline, so a number never sits on the line above.
+   Found marks in the hunt keep a raised number, since nothing may move under a finger. */
+.msg.marks-on :where(.bubble, .mail-body, .post-body, .web-page, .qr-card, .lines, p) { line-height: 1.8; }
+.msg .mk.on { line-height: 1.95; }
 .mk.pulse { animation: mk-pulse 900ms var(--ease-out); }
 @keyframes mk-pulse { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 40% { box-shadow: 0 0 0 4px rgba(201, 164, 92, 0.7); } }
 .mk > .mk-n, .mk-n { display: grid; color: #fff; }
 .mk-n { position: absolute; top: -12px; inset-inline-end: -13px; display: grid; place-items: center; width: 17px; height: 17px; border-radius: 50%; font-size: 0.68rem; font-weight: 700; color: #fff; font-family: var(--font-body); line-height: 1; box-shadow: 0 0 0 2px var(--paper); transform: scale(0.6); opacity: 0; transition: transform 300ms var(--ease-out), opacity 200ms ease; transition-delay: inherit; z-index: 2; }
-.mk.on .mk-n, .marks-on .mk .mk-n { transform: scale(1); opacity: 1; }
+.mk.on .mk-n, .marks-on .mk .mk-n, .marks-on .mk-run > .mk-n { transform: scale(1); opacity: 1; }
+.mk-n.in { position: relative; top: auto; inset-inline-end: auto; display: inline-grid; vertical-align: 0.12em; margin-inline-end: 4px; box-shadow: none; unicode-bidi: isolate; }
+/* The number, a joined letter and the mark's first word stay on one line; the rest of the mark wraps as the text does.
+   The run takes the card's own direction, so the number opens the mark on the card's reading side even inside a line
+   that reads left to right, such as a sender's number or a web address in an Arabic card. */
+.mk-run { white-space: nowrap; unicode-bidi: isolate; }
+.msg[dir='rtl'] .mk-run { direction: rtl; }
+.msg[dir='ltr'] .mk-run { direction: ltr; }
+.mk-run > .mk:not([dir='ltr']) { white-space: pre-wrap; }
 .mk-hidden { border-radius: 4px; }
-.mk.red .mk-n { background: var(--scam-ink); }
-.mk.green .mk-n { background: var(--legit-ink); }
-.mk.trap .mk-n { background: var(--trap-ink); }
+.mk.red .mk-n, .mk-run.red > .mk-n { background: var(--scam-ink); }
+.mk.green .mk-n, .mk-run.green > .mk-n { background: var(--legit-ink); }
+.mk.trap .mk-n, .mk-run.trap > .mk-n { background: var(--trap-ink); }
 .hunt .mk { cursor: pointer; }
 .hunt .tap-zone { cursor: pointer; }
 @keyframes miss { from { opacity: 1; transform: scale(0.6); } to { opacity: 0; transform: scale(1.4); } }
@@ -758,14 +791,9 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 .results-hero .lbl { display: block; color: var(--text-2); font-weight: 600; font-size: 0.95rem; }
 .results-hero .big { font-family: var(--font-display); font-weight: 700; font-size: clamp(3.6rem, 19vw, 5.2rem); line-height: 1.1; margin: 6px 0 2px; overflow-wrap: anywhere; }
 .results-hero p { color: var(--text-2); }
-.results-hero .strand { --b: 28px; max-width: min(360px, calc(var(--n, 10) * 38px)); margin: 20px auto 6px; }
-.results-hero .pearls { margin-top: 12px; }
-.results-hero .pearls .bead { width: 24px; }
-.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0; }
 .stat { padding: 14px 10px; border-radius: 16px; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line); text-align: center; }
 .stat b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.65rem; line-height: 1.25; }
 .stat span { font-size: 0.8rem; color: var(--text-2); line-height: 1.35; display: block; }
-.toast-line { text-align: center; color: var(--text-2); font-size: 0.88rem; min-height: 1.4em; margin-top: 8px; }
 .review { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 .review-item { display: flex; gap: 12px; align-items: center; padding: 12px; border-radius: 16px; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line); text-align: start; width: 100%; transition: background-color 160ms ease, transform 140ms var(--ease-out); }
 .review-item:active { transform: scale(0.99); }
@@ -780,6 +808,7 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 .celebrate { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 16px; background: color-mix(in srgb, var(--brass) 12%, transparent); box-shadow: inset 0 0 0 1px var(--line-2); margin: 12px 0; }
 .celebrate > .icon { width: 26px; height: 26px; color: var(--brass-text); }
 .celebrate > .bead { width: 26px; flex: none; }
+.celebrate > .level-pearl, .celebrate > .medal { margin-inline-end: 2px; }
 .celebrate b { display: block; font-weight: 600; }
 .celebrate span { font-size: 0.86rem; color: var(--text-2); }
 .celebrate.weak { background: color-mix(in srgb, var(--scam) 11%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--scam) 30%, transparent); }
@@ -813,40 +842,38 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 .badge-count { margin: 14px 4px 0; color: var(--text-2); font-size: 0.9rem; }
 
 .medal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
-.medal-cell { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 6px 12px; border-radius: 16px; text-align: center; transition: transform 140ms var(--ease-out), background-color 160ms ease; }
+.medal-cell { display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 14px 6px 12px; border-radius: 16px; text-align: center; transition: transform 140ms var(--ease-out), background-color 160ms ease; }
 .medal-cell:active { transform: scale(0.96); background: var(--desk-2); }
 @media (hover: hover) and (pointer: fine) { .medal-cell:hover { background: var(--desk-2); } }
 .medal-cell b { font-weight: 600; font-size: 0.82rem; line-height: 1.35; }
 .medal-cell.off b { color: var(--text-2); }
-.medal-cell .num { font-size: 0.74rem; color: var(--text-3); margin-top: -4px; }
+.medal-cell .num { font-size: 0.74rem; color: var(--text-3); margin-top: -11px; }
 .medal { position: relative; width: 64px; height: 64px; display: grid; place-items: center; flex: none; }
 .medal.lg { width: 96px; height: 96px; }
-.medal .face { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--desk-3); color: var(--text-3); box-shadow: inset 0 0 0 1px var(--line-2); }
-.medal.lg .face { width: 78px; height: 78px; }
+.medal.sm { width: 44px; height: 44px; }
+.medal .face { width: 100%; height: 100%; border-radius: 50%; display: grid; place-items: center; color: var(--text-3); box-shadow: inset 0 0 0 1.5px var(--seat); }
 .medal .face .icon { width: 24px; height: 24px; }
 .medal.lg .face .icon { width: 36px; height: 36px; }
-.medal .ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
-[dir='rtl'] .medal .ring { transform: rotate(-90deg) scaleY(-1); }
-.medal .ring circle { fill: none; stroke: var(--line); stroke-width: 3; }
-.medal .ring circle.fill { stroke: var(--brass-text); stroke-linecap: round; }
-.medal.on .face { color: #2b2214; background: radial-gradient(120% 120% at 30% 20%, #ffffff 0%, var(--metal) 46%, var(--rim) 100%); box-shadow: 0 0 0 3px var(--desk), 0 0 0 4.5px var(--rim); }
-.medal.tier-bronze { --metal: #e9b994; --rim: #a8693a; }
-.medal.tier-silver { --metal: #e8edf0; --rim: #95a3aa; }
-.medal.tier-gold { --metal: #f3d48c; --rim: #bf8f34; }
+.medal.sm .face .icon { width: 18px; height: 18px; }
+.medal.on .face { background: var(--lustre); color: #3a2c18; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); outline: 1.5px solid var(--brass-text); outline-offset: 3px; }
+[data-theme='light'] .medal.on .face { box-shadow: 0 2px 5px rgba(16, 37, 43, 0.22); }
+/* The tier as one, two or three pearls set on the ring's lower edge. */
+.medal .tier { position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%); display: flex; gap: 2px; direction: ltr; }
+.medal .tier .bead { flex: none; width: 10px; max-width: none; }
+.medal.lg .tier { bottom: -9px; gap: 3px; }
+.medal.lg .tier .bead { width: 14px; }
 .badge-sheet { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .badge-sheet .medal { margin: 4px 0 14px; }
 .badge-sheet .label { font-size: 0.82rem; color: var(--brass-text); font-weight: 600; margin-top: 4px; }
 .badge-sheet h3 { margin-top: 0; }
 .badge-sheet p { margin-bottom: 10px; }
 .badge-sheet .when { color: var(--text-3); font-size: 0.86rem; margin-bottom: 18px; }
-.badge-sheet .bar { width: 100%; height: 8px; margin: 4px 0 8px; }
 .badge-sheet .btn { width: 100%; }
-.celebrate.badge-won .medal { width: 48px; height: 48px; }
-.celebrate.badge-won .medal .face { width: 40px; height: 40px; }
-.celebrate.badge-won .medal .face .icon { width: 20px; height: 20px; color: #2b2214; margin: 0; }
+.celebrate .medal .face .icon { margin: 0; }
+.celebrate .medal.on .face .icon { color: #3a2c18; }
 
 /* ============ Packs ============ */
-/* Each pack keeps a nacre of its own, the way pearls come in silver, gold, rose and green. */
+/* Each pack is a brass line icon on the tile ground; its three pearls are the tile's one accent. */
 .pack-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .pack-tile {
   display: flex;
@@ -862,23 +889,11 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
   transition: transform 140ms var(--ease-out), background-color 160ms ease;
 }
 .pack-tile:active { transform: scale(0.97); background: var(--desk-3); }
-.pack-tile .glyph, .pack-sheet .glyph { width: 42px; height: 42px; border-radius: 12px; background: color-mix(in srgb, var(--pk) 16%, var(--desk-3)); color: var(--pk); }
-.pack-tile .glyph .icon, .pack-sheet .glyph .icon { width: 22px; height: 22px; }
+.pack-tile .glyph, .pack-sheet .glyph { width: auto; height: auto; border-radius: 0; background: none; color: var(--brass-text); }
+.pack-tile .glyph .icon, .pack-sheet .glyph .icon { width: 26px; height: 26px; }
 .pack-tile b { font-weight: 600; font-size: 0.98rem; line-height: 1.3; flex: 1; }
 .pack-tile .meta { font-size: 0.82rem; color: var(--text-3); }
 .pack-sheet .glyph { margin-bottom: 14px; }
-.pk-banking { --pk: #a9c4e0; }
-.pk-delivery { --pk: #e8c98a; }
-.pk-jobs { --pk: #9fd6bf; }
-.pk-invest { --pk: #c9b9ea; }
-.pk-gov { --pk: #efb3a6; }
-.pk-ai { --pk: #8fd0da; }
-[data-theme='light'] .pk-banking { --pk: #2c5b8f; }
-[data-theme='light'] .pk-delivery { --pk: #855c10; }
-[data-theme='light'] .pk-jobs { --pk: #17704f; }
-[data-theme='light'] .pk-invest { --pk: #5a3f9c; }
-[data-theme='light'] .pk-gov { --pk: #a23b27; }
-[data-theme='light'] .pk-ai { --pk: #1a6b78; }
 
 /* ============ Lists and settings ============ */
 .group { margin-top: 24px; }
@@ -918,8 +933,7 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 .cat-row + .cat-row { border-top: 1px solid var(--line); }
 .cat-row .n { font-size: 0.9rem; }
 .cat-row .p { text-align: end; font-weight: 600; font-size: 0.92rem; }
-.cat-row .bar > i { background: var(--legit); }
-.cat-row.low .bar > i { background: var(--scam); }
+.cat-row .strand { --b: 14px; gap: 2px; }
 
 /* ============ Checker ============ */
 .lead-text { color: var(--text-2); margin: 2px 2px 14px; }
@@ -986,7 +1000,7 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 .modal p { color: var(--text-2); margin-bottom: 18px; }
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes modal-in { from { transform: translateY(100%); } }
-.toast { position: fixed; left: 50%; bottom: calc(24px + var(--safe-b)); z-index: 60; transform: translateX(-50%); width: max-content; padding: 12px 18px; border-radius: 14px; background: var(--desk-4); color: var(--text); box-shadow: var(--shadow); font-size: 0.92rem; display: flex; gap: 10px; align-items: center; animation: toast-in 320ms var(--ease-out) both; max-width: calc(100% - 32px); }
+.toast { position: fixed; left: 50%; bottom: calc(104px + var(--safe-b)); z-index: 60; transform: translateX(-50%); width: max-content; padding: 12px 18px; border-radius: 14px; background: var(--desk-4); color: var(--text); box-shadow: var(--shadow); font-size: 0.92rem; display: flex; gap: 10px; align-items: center; animation: toast-in 320ms var(--ease-out) both; max-width: calc(100% - 32px); }
 .toast .icon { width: 20px; height: 20px; color: var(--brass-text); flex: none; }
 @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 12px); } }
 .about-lead { font-size: 1.05rem; line-height: 1.65; color: var(--text); margin-top: 6px; text-wrap: pretty; }
@@ -1112,7 +1126,7 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 /* The first screen after launch settles in from the splash instead of popping on. */
 .screen-anim.enter-first { animation: app-in 280ms var(--ease-out) both; }
 @keyframes app-in { from { opacity: 0; transform: translateY(6px); } }
-/* Results arrive in reading order, a beat apart: score, the strand, numbers, then what was earned. */
+/* Results arrive in reading order, a beat apart: the finished strand, then what was earned, then the review. */
 .results .wrap > * { animation: rise 320ms var(--ease-out) both; }
 .results .wrap > :nth-child(2) { animation-delay: 50ms; }
 .results .wrap > :nth-child(3) { animation-delay: 100ms; }
@@ -1122,7 +1136,7 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 .results .wrap > :nth-child(n + 7) { animation-delay: 300ms; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
 /* The finished strand: its pearls catch the light one after another, once. */
-.results-hero .strand .bead.ok::after {
+.result-cloth .strand .bead.ok::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -1139,10 +1153,9 @@ button.tile:active { transform: scale(0.97); background: var(--desk-3); }
 @keyframes shine { to { transform: translateX(130%); } }
 .reduce-motion .screen-anim.enter-first, .reduce-motion .results .wrap > * { animation: fade-in 180ms ease both !important; }
 .reduce-motion .celebrate.badge-won .medal .face { animation: fade-in 180ms ease both; }
-.reduce-motion .celebrate.badge-won .medal .face::after, .reduce-motion .results-hero .strand .bead.ok::after { display: none; }
-.reduce-motion .level-pearl circle.fill { transition: none; }
+.reduce-motion .celebrate.badge-won .medal .face::after, .reduce-motion .result-cloth .strand .bead.ok::after { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .screen-anim.enter-first, .results .wrap > * { animation: fade-in 180ms ease both; }
   .celebrate.badge-won .medal .face { animation: none; }
-  .celebrate.badge-won .medal .face::after, .results-hero .strand .bead.ok::after { display: none; }
+  .celebrate.badge-won .medal .face::after, .result-cloth .strand .bead.ok::after { display: none; }
 }

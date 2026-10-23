@@ -6,7 +6,7 @@ import { ACHIEVEMENTS } from '../../engine/achievements';
 import { levelFor } from '../../engine/levels';
 import { LevelPearl } from '../components/Medal';
 import { Icon } from '../components/Icon';
-import { TopBar } from '../components/common';
+import { Strand, TopBar } from '../components/common';
 
 export function Stats() {
   const L = lang.value;
@@ -25,7 +25,7 @@ export function Stats() {
       <TopBar title={t('stats')} onBack={back} />
       <div class="scroll"><div class="wrap">
         <button class="rank-strip" onClick={() => push({ name: 'badges' })} aria-label={`${t('levelN', { n: lv.n })}, ${rank.name}. ${t('badges')}`}>
-          <LevelPearl n={lv.n} pct={lv.pct} />
+          <LevelPearl n={lv.n} />
           <span class="txt"><b>{rank.name}</b><span class="num">{t('levelN', { n: lv.n })} · {fmtNum(p.xp)} {t('xp')}</span></span>
           <Icon name="chevron-right" class="flip-rtl" />
         </button>
@@ -56,9 +56,9 @@ export function Stats() {
             <h2>{t('byCategory')}</h2>
             <div class="panel">
               {cats.map((c) => (
-                <div class={`cat-row ${c.acc < 60 ? 'low' : ''}`}>
+                <div class="cat-row">
                   <span class="n">{CATEGORY_NAMES[c.k][L]}</span>
-                  <span class="bar"><i style={{ transform: `scaleX(${c.acc / 100})` }} /></span>
+                  <Strand total={10} results={Array.from({ length: 10 }, (_, i) => i < Math.round(c.acc / 10))} />
                   <span class="p num">{c.acc}%</span>
                 </div>
               ))}

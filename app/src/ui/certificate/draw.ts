@@ -11,7 +11,6 @@ export interface CertificateData {
   stats: { value: string; label: string }[];
   date: string;
   serial: string;
-  stamp: string;
   site: string;
 }
 
@@ -112,7 +111,7 @@ function strand(g: CanvasRenderingContext2D, cx: number, y: number) {
 }
 
 export async function drawCertificate(d: CertificateData): Promise<HTMLCanvasElement> {
-  const all = [d.game, d.name, d.title, d.awardedTo, d.body, d.date, d.serial, d.stamp, d.site, ...d.stats.flatMap((s) => [s.value, s.label])].join(' ');
+  const all = [d.game, d.name, d.title, d.awardedTo, d.body, d.date, d.serial, d.site, ...d.stats.flatMap((s) => [s.value, s.label])].join(' ');
   await Promise.all([
     document.fonts.load(`700 80px ${DISPLAY}`, all),
     document.fonts.load(`400 34px ${BODY}`, all),
@@ -207,7 +206,7 @@ export async function drawCertificate(d: CertificateData): Promise<HTMLCanvasEle
     g.fillText(s.label, x, top + 116);
   });
 
-  // Date and number on the reading side, the brass seal on the other.
+  // Date and number on the reading side, the game's brass roundel on the other.
   const startX = rtl ? CERT_W - 150 : 150;
   g.textAlign = rtl ? 'right' : 'left';
   g.fillStyle = INK;
@@ -217,31 +216,24 @@ export async function drawCertificate(d: CertificateData): Promise<HTMLCanvasEle
   g.font = `400 28px ${BODY}`;
   g.fillText(d.serial, startX, 1148);
 
+  // A printed roundel, not a metal seal: two brass hairlines around the mark and the game's name. It claims nothing.
   const sx = rtl ? 250 : CERT_W - 250;
   const sy = 1100;
   g.save();
   g.translate(sx, sy);
-  g.rotate(rtl ? 0.12 : -0.12);
-  const seal = g.createRadialGradient(-30, -36, 8, 0, 0, 104);
-  seal.addColorStop(0, '#f6e2a8');
-  seal.addColorStop(0.55, '#d8b468');
-  seal.addColorStop(1, '#a8803a');
-  g.shadowColor = 'rgba(70, 40, 12, 0.35)';
-  g.shadowBlur = 24;
-  g.shadowOffsetY = 10;
-  g.beginPath(); g.arc(0, 0, 100, 0, Math.PI * 2); g.fillStyle = seal; g.fill();
-  g.shadowColor = 'transparent';
-  g.strokeStyle = 'rgba(110, 76, 22, 0.7)';
-  g.lineWidth = 3;
-  g.beginPath(); g.arc(0, 0, 84, 0, Math.PI * 2); g.stroke();
+  g.strokeStyle = 'rgba(169, 132, 63, 0.85)';
+  g.lineWidth = 2.5;
+  g.beginPath(); g.arc(0, 0, 104, 0, Math.PI * 2); g.stroke();
+  g.strokeStyle = 'rgba(169, 132, 63, 0.45)';
   g.lineWidth = 1.5;
-  g.beginPath(); g.arc(0, 0, 76, 0, Math.PI * 2); g.stroke();
+  g.beginPath(); g.arc(0, 0, 94, 0, Math.PI * 2); g.stroke();
+  g.drawImage(mark, -34, -74, 68, 68);
   g.textAlign = 'center';
-  g.textBaseline = 'middle';
-  g.fillStyle = '#4a3108';
-  const ss = fit(g, d.stamp, 700, 44, DISPLAY, 132);
-  g.font = `700 ${ss}px ${DISPLAY}`;
-  g.fillText(d.stamp, 0, 4);
+  g.textBaseline = 'alphabetic';
+  g.fillStyle = CLOTH;
+  g.font = `700 30px ${DISPLAY}`;
+  const nameLines = wrap(g, d.game, 150).slice(0, 2);
+  nameLines.forEach((line, i) => g.fillText(line, 0, nameLines.length > 1 ? 30 + i * 34 : 42));
   g.restore();
 
   // Where to play.

@@ -66,7 +66,7 @@ export function Onboarding() {
               </div>
             </div>
             <h2>{said ? t('tutorialDone') : t('ob2Title')}</h2>
-            <p>{said ? (said === demo.verdict ? `${t('correct')}. ${t('itWasScam')}` : `${t('wrong')}. ${t('itWasScam')}`) : t('ob2Body')}</p>
+            <p>{said ? (said === demo.verdict ? t('ob2Right') : t('ob2Wrong')) : t('ob2Body')}</p>
           </>
         )}
         {step === 3 && (

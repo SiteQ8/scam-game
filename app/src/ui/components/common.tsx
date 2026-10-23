@@ -79,21 +79,62 @@ export function Pearls({ n, of = 3 }: { n: number; of?: number }) {
   );
 }
 
+/** How far the draped strand sags, as a share of its width, and where its two ends sit. */
+const SAG = 0.2;
+const END = 0.04;
+
+/**
+ * Where each pearl of a draped strand sits: spread evenly along the curve y = SAG · (1 − u²), not evenly across,
+ * so the pearls keep the same spacing on the steep ends as in the middle, as they would on a real string.
+ * x and y are shares of the strand's width.
+ */
+export function drape(total: number): { x: number; y: number }[] {
+  if (total < 2) return [{ x: 0.5, y: SAG }];
+  const half = (1 - 2 * END) / 2;
+  const STEPS = 400;
+  const at = (u: number) => ({ x: 0.5 + u * half, y: SAG * (1 - u * u) });
+  const length: number[] = [0];
+  for (let k = 1; k <= STEPS; k++) {
+    const a = at(-1 + (2 * (k - 1)) / STEPS);
+    const b = at(-1 + (2 * k) / STEPS);
+    length.push(length[k - 1] + Math.hypot(b.x - a.x, b.y - a.y));
+  }
+  const all = length[STEPS];
+  return Array.from({ length: total }, (_, i) => {
+    const want = (all * i) / (total - 1);
+    let k = 1;
+    while (k < STEPS && length[k] < want) k++;
+    const f = (want - length[k - 1]) / (length[k] - length[k - 1] || 1);
+    return at(-1 + (2 * (k - 1 + f)) / STEPS);
+  });
+}
+
 /**
  * The strand: one seat per card. A right call seats a lustrous pearl, a wrong one a dull bead,
  * and the seat being played rings in brass. Beads added since the last render drop in.
+ * A finished strand can be graduated like a necklace, the pearls largest in the middle,
+ * and on the cloth it can be draped, laid in a shallow curve the way a necklace rests.
  */
-export function Strand({ total, results, current = -1, size, label }: { total: number; results: boolean[]; current?: number; size?: 'sm' | 'lg'; label?: string }) {
+export function Strand({ total, results, current = -1, size, label, graduated = false, draped = false }: { total: number; results: boolean[]; current?: number; size?: 'sm' | 'lg'; label?: string; graduated?: boolean; draped?: boolean }) {
   const last = useRef(results.length);
   const fresh = useRef(results.length);
   if (results.length > last.current) { fresh.current = last.current; last.current = results.length; }
   else if (results.length < last.current) { last.current = results.length; fresh.current = results.length; }
+  const spots = draped ? drape(total) : null;
   return (
-    <div class={`strand ${size || ''}`} style={{ '--n': total }} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'}>
+    <div class={`strand ${size || ''}${graduated ? ' graduated' : ''}${draped ? ' draped' : ''}`} style={{ '--n': total, '--sag': SAG }} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'}>
+      {draped && (
+        <svg class="thread" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" style={{ left: `${END * 100}%`, width: `${(1 - 2 * END) * 100}%`, aspectRatio: `${1 - 2 * END} / ${SAG}` }}>
+          <path d="M0 0Q50 20 100 0" vector-effect="non-scaling-stroke" />
+        </svg>
+      )}
       {Array.from({ length: total }, (_, i) => {
         const state = i < results.length ? (results[i] ? 'ok' : 'no') : i === current ? 'seat now' : 'seat';
         const isFresh = i >= fresh.current && i < results.length;
-        return <i key={i} class={`bead ${state}${isFresh ? ' fresh' : ''}`} style={{ '--i': i }} />;
+        const mid = (total - 1) / 2;
+        const g = graduated && total > 1 ? 1 - Math.abs(i - mid) / mid : 1;
+        const spot = spots ? { '--x': `${(spots[i].x * 100).toFixed(2)}%`, '--y': spots[i].y.toFixed(4) } : {};
+        return <i key={i} class={`bead ${state}${isFresh ? ' fresh' : ''}`} style={{ '--i': i, '--g': g.toFixed(3), ...spot }} />;
       })}
     </div>
   );

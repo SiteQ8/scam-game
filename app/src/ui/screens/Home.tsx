@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { progress, settings } from '../../state/store';
 import { push } from '../../state/nav';
-import { lang, t, fmtNum, rankFor, duration, count } from '../../i18n/i18n';
+import { lang, t, fmtNum, rankFor, duration, count, strandTally } from '../../i18n/i18n';
 import { dayIndex, caseNumber, msToNextDay, shareGrid, dateOfDay, DAILY_SIZE } from '../../engine/daily';
 import { levelFor, lastWeek } from '../../engine/levels';
 import { LevelPearl } from '../components/Medal';
@@ -56,13 +56,13 @@ export function Home() {
         <button class="icon-btn" onClick={() => go({ name: 'settings' })} aria-label={t('settings')}><Icon name="settings" /></button>
       </div>
       <div class="scroll"><div class="home-wrap">
-        <section class="cloth" aria-labelledby="case-h">
+        <section class="cloth case" aria-labelledby="case-h">
           {rec?.done && <span class="seal">{t('closedStamp')}</span>}
           <h2 id="case-h" class="num">{t('dailyNumber', { n: caseNumber(day) })}</h2>
           <p class="sub num">
-            {rec?.done ? `${right}/${rec.results.length} · ${count(rec.score, 'point')}` : rec && rec.results.length ? t('dailyProgress', { x: rec.results.length, n: DAILY_SIZE }) : t('dailyBlurb')}
+            {rec?.done ? strandTally(right, rec.results.length) : rec && rec.results.length ? t('dailyProgress', { x: rec.results.length, n: DAILY_SIZE }) : t('dailyBlurb')}
           </p>
-          <Strand total={DAILY_SIZE} results={rec ? rec.results : []} current={rec?.done ? -1 : rec ? rec.results.length : 0} />
+          <Strand total={DAILY_SIZE} results={rec ? rec.results : []} current={rec?.done ? -1 : rec ? rec.results.length : 0} graduated draped />
           {rec?.done ? (
             <button class="btn btn-primary" onClick={shareDaily}><Icon name="share-2" />{t('shareResult')}</button>
           ) : (
@@ -80,7 +80,7 @@ export function Home() {
         <div class="home-tiles">
           <button class="tile" onClick={() => go({ name: 'badges' })} aria-label={`${t('levelN', { n: lv.n })}, ${rank.name}. ${t('badges')}`}>
             <span class="lv">
-              <LevelPearl n={lv.n} pct={lv.pct} />
+              <LevelPearl n={lv.n} />
               <span><b>{rank.name}</b><span class="s">{t('levelN', { n: lv.n })}</span></span>
             </span>
             <span class="s num">{lv.next ? t('xpToLevel', { n: lv.next - p.xp, level: lv.n + 1 }) : `${fmtNum(p.xp)} ${t('xp')}`}</span>
@@ -103,7 +103,7 @@ export function Home() {
               {packs.map((pk) => {
                 const st = p.packs[pk.id]?.stars || 0;
                 return (
-                  <button class={`pack-tile pk-${pk.id}`} onClick={() => { void sfx('tap'); setOpenPack(pk.id); }}>
+                  <button class="pack-tile" onClick={() => { void sfx('tap'); setOpenPack(pk.id); }}>
                     <span class="glyph"><Icon name={pk.icon} /></span>
                     <b>{packText(pk.id)}</b>
                     {st ? <Pearls n={st} /> : <span class="meta">{count(pk.size, 'card')}</span>}
@@ -162,7 +162,7 @@ export function Home() {
       </div></div>
       {sel && (
         <div class="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) setOpenPack(null); }}>
-          <div class={`modal chapter-sheet pack-sheet pk-${sel.id}`} role="dialog" aria-modal="true" aria-labelledby="pack-h">
+          <div class="modal chapter-sheet pack-sheet" role="dialog" aria-modal="true" aria-labelledby="pack-h">
             <span class="glyph"><Icon name={sel.icon} /></span>
             <h3 id="pack-h">{packText(sel.id)}</h3>
             <span class="sheet-meta">{count(sel.size, 'card')}</span>

@@ -70,7 +70,6 @@ export function Certificate() {
         ],
         date,
         serial: t('certSerial', { n: cert.serial }),
-        stamp: t('certStamp'),
         site: siteUrl().replace(/^https:\/\//, ''),
       });
       if (cancelled) return;

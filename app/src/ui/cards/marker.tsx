@@ -33,6 +33,13 @@ const PHONE = /\+\s?\d[\d\s•()]{5,}\d/g;
 const ARABIC = /[\u0600-\u06FF]/;
 /** Text with no Arabic letters but with digits or Latin letters reads left to right even inside Arabic. */
 export const isLtrRun = (t: string) => !ARABIC.test(t) && /[0-9A-Za-z]/.test(t);
+const WORD = /[\p{L}\p{M}\p{N}]/u;
+/** Where the word a mark begins in starts: a mark can begin after a letter joined to its word, such as و or ب. */
+function wordStart(text: string, at: number): number {
+  let i = at;
+  while (i > 0 && WORD.test(text[i - 1])) i--;
+  return i;
+}
 
 /** Phone numbers inside a sentence keep their own direction, so +965 never turns into 965+. */
 function phones(text: string, keyBase: string): ComponentChildren[] {
@@ -150,7 +157,9 @@ export function createMarker(signals: Signal[] | null, opts: MarkerOptions): Mar
       const no = opts.numbers?.[i] || i + 1;
       const s = signals[i];
       used.add(i);
-      if (at > 0) parts.push(...linkify(rest.slice(0, at), `s${n++}`));
+      // In the debrief the number opens the word the mark begins in, so a joined و or ب stays with its word.
+      const from = opts.on && !opts.hunt ? wordStart(rest, at) : at;
+      if (from > 0) parts.push(...linkify(rest.slice(0, from), `s${n++}`));
       const isLink = /[a-z0-9-]+\.[a-z]{2,}/i.test(s.mark) && !/\s/.test(s.mark);
       if (opts.hunt) {
         const found = opts.hunt.has(i);
@@ -161,10 +170,16 @@ export function createMarker(signals: Signal[] | null, opts: MarkerOptions): Mar
           </span>,
         );
       } else if (opts.on) {
+        // The number, any joined letter and the mark's first word never part at a line end. The number keeps the
+        // reading direction of the text around it, so it opens the mark on the right in Arabic even when the mark
+        // itself is a phone number, an amount or a link that reads left to right.
         parts.push(
-          <span key={`m${i}`} data-i={i} dir={isLtrRun(s.mark) ? 'ltr' : undefined} class={`mk ${s.kind} ${isLink ? 'link' : ''} ${opts.active === i ? 'pulse' : ''}`} style={{ transitionDelay: `${120 + (no - 1) * 110}ms` }}>
-            {s.mark}
-            <span class="mk-n" aria-hidden="true">{no}</span>
+          <span key={`m${i}`} class={`mk-run ${s.kind}`} style={{ transitionDelay: `${120 + (no - 1) * 110}ms` }}>
+            <span class="mk-n in" aria-hidden="true">{no}</span>
+            {rest.slice(from, at)}
+            <span data-i={i} dir={isLtrRun(s.mark) ? 'ltr' : undefined} class={`mk ${s.kind} ${isLink ? 'link' : ''} ${opts.active === i ? 'pulse' : ''}`} style={{ transitionDelay: `${120 + (no - 1) * 110}ms` }}>
+              {s.mark}
+            </span>
           </span>,
         );
       } else {

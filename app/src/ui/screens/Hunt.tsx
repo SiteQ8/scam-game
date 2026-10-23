@@ -94,11 +94,14 @@ export function Hunt() {
 
   if (done) {
     return (
-      <div class="screen">
-        <div class="topbar"><span class="spacer" /><h1>{t('hunt')}</h1><button class="icon-btn" onClick={() => reset()} aria-label={t('home')}><Icon name="house" /></button></div>
+      <div class="screen results">
+        <div class="topbar"><span class="spacer" /><h1>{t('roundDone')}</h1><button class="icon-btn" onClick={() => reset()} aria-label={t('home')}><Icon name="house" /></button></div>
         <div class="scroll"><div class="wrap">
-          <div class="results-hero"><span class="lbl">{t('found', { x: totals.found, y: totals.all })}</span><div class="big num">{totals.found}/{totals.all}</div></div>
-          <div class="results-hero" style={{ paddingTop: 0 }}><Strand total={results.length} results={results} size="lg" /></div>
+          <section class="cloth result-cloth" aria-labelledby="hunt-h">
+            <h2 id="hunt-h">{t('hunt')}</h2>
+            <Strand total={results.length} results={results} size="lg" graduated label={t('found', { x: totals.found, y: totals.all })} />
+            <p class="tally num">{t('found', { x: totals.found, y: totals.all })}</p>
+          </section>
           <div style={{ display: 'grid', gap: '10px', marginTop: '18px' }}>
             <button class="btn btn-primary" onClick={() => replace({ name: 'hunt' })}>{t('playAgain')}</button>
             <button class="btn btn-secondary" onClick={() => reset()}>{t('home')}</button>

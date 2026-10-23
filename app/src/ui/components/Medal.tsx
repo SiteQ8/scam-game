@@ -1,44 +1,32 @@
-import { useEffect, useState } from 'preact/hooks';
 import type { Achievement } from '../../engine/achievements';
+import { MAX_LEVEL } from '../../engine/levels';
 import { Icon } from './Icon';
 
-/** A badge as a round medal: tier coloured when earned, a progress ring while it is still on its way. */
-export function Medal({ a, on, ratio, size = 'md' }: { a: Achievement; on: boolean; ratio?: number; size?: 'md' | 'lg' }) {
-  const r = 30;
-  const len = 2 * Math.PI * r;
+const TIER_PEARLS = { bronze: 1, silver: 2, gold: 3 } as const;
+
+/** A badge: earned, a nacre face in a brass ring; not yet, an empty brass seat. The tier shows as one to three pearls. */
+export function Medal({ a, on, size = 'md', tier = false }: { a: Achievement; on: boolean; size?: 'md' | 'lg' | 'sm'; tier?: boolean }) {
+  const n = TIER_PEARLS[a.tier];
   return (
-    <span class={`medal ${size} tier-${a.tier} ${on ? 'on' : 'off'}`} aria-hidden="true">
-      {!on && ratio !== undefined && (
-        <svg class="ring" viewBox="0 0 68 68">
-          <circle cx="34" cy="34" r={r} />
-          <circle class="fill" cx="34" cy="34" r={r} style={{ strokeDasharray: `${len}`, strokeDashoffset: `${len * (1 - Math.max(0, Math.min(1, ratio)))}` }} />
-        </svg>
-      )}
+    <span class={`medal ${size} ${on ? 'on' : 'off'}`} aria-hidden="true">
       <span class="face"><Icon name={a.icon} /></span>
+      {tier && on && <span class="tier">{Array.from({ length: n }, () => <i class="bead ok" />)}</span>}
     </span>
   );
 }
 
-/** The level as a pearl that grows with it, in a brass ring that fills toward the next level; it can fill when it first appears. */
-export function LevelPearl({ n, pct, animate = false, size }: { n: number; pct: number; animate?: boolean; size?: 'lg' }) {
-  const r = 22;
-  const len = 2 * Math.PI * r;
-  const [shown, setShown] = useState(animate ? 0 : pct);
-  useEffect(() => {
-    if (!animate) { setShown(pct); return; }
-    const id = requestAnimationFrame(() => requestAnimationFrame(() => setShown(pct)));
-    return () => cancelAnimationFrame(id);
-  }, [pct]);
-  // From two fifths of the ring at level 1 to four fifths by level 30.
-  const grow = 0.4 + 0.42 * Math.min(1, Math.max(0, n - 1) / 29);
+/** How large the level's pearl sits in its seat: small at level 1, growing fast at first, nearly filling it by the top level. */
+export function pearlSize(n: number): number {
+  const lv = Math.max(1, Math.min(MAX_LEVEL, n));
+  if (lv <= 10) return 0.29 + 0.54 * (Math.log(lv) / Math.log(10));
+  return 0.83 + 0.05 * ((lv - 10) / (MAX_LEVEL - 10));
+}
+
+/** The level as a pearl in a brass seat: the larger the pearl, the higher the level, the way merchants graded pearls by size. */
+export function LevelPearl({ n, animate = false, size }: { n: number; animate?: boolean; size?: 'lg' | 'sm' }) {
   return (
-    <span class={`level-pearl ${size || ''}`} style={{ '--p': grow.toFixed(3) }} aria-hidden="true">
-      <svg viewBox="0 0 48 48">
-        <circle cx="24" cy="24" r={r} />
-        <circle class="fill" cx="24" cy="24" r={r} style={{ strokeDasharray: `${len}`, strokeDashoffset: `${len * (1 - shown)}` }} />
-      </svg>
-      <i class="bead ok" />
-      <b class="num">{n}</b>
+    <span class={`level-pearl ${size || ''}`} style={{ '--p': pearlSize(n).toFixed(3) }} aria-hidden="true">
+      <i class={`bead ok${animate ? ' fresh' : ''}`} />
     </span>
   );
 }
