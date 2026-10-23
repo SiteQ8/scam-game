@@ -209,9 +209,10 @@
   },
   "q12": { "en": "Where can I get it?", "ar": "من أين أحصل عليها؟" },
   "a12_soon": {
-    "en": "Play the full game in your browser now. The App Store and Google Play versions are on their way.",
-    "ar": "العبها كاملة من متصفحك الآن، ونسختا App Store و Google Play في الطريق."
+    "en": "Play the full game in your browser now. The App Store and Google Play versions are coming soon.",
+    "ar": "العبها كاملة من متصفحك الآن، ونسختا App Store و Google Play قريباً."
   },
+  "soon_apps": { "en": "iPhone and Android apps coming soon", "ar": "تطبيقا آيفون وأندرويد قريباً" },
   "a12_live": {
     "en": "On the App Store and Google Play, or in your browser on this site.",
     "ar": "من App Store و Google Play، أو من متصفحك عبر هذا الموقع."
@@ -320,6 +321,7 @@
   "pr_v_dev": { "en": "Ali AlEnezi, Kuwait", "ar": "علي العنزي، الكويت" },
   "pr_k_platforms": { "en": "Platforms", "ar": "المنصات" },
   "pr_v_platforms": { "en": "iPhone, Android and the web", "ar": "آيفون وأندرويد والويب" },
+  "pr_v_platforms_soon": { "en": "The web now, iPhone and Android coming soon", "ar": "الويب الآن، وآيفون وأندرويد قريباً" },
   "pr_k_langs": { "en": "Languages", "ar": "اللغات" },
   "pr_v_langs": { "en": "Arabic and English", "ar": "العربية والإنجليزية" },
   "pr_k_price": { "en": "Price", "ar": "السعر" },
