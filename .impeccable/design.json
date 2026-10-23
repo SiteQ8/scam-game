@@ -1,0 +1,1374 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T18:57:00Z",
+  "title": "Design System: Scam Detective",
+  "extensions": {
+    "colorMeta": {
+      "pearl": {
+        "role": "primary",
+        "displayName": "Nacre Pearl",
+        "canonical": "#f5efe4",
+        "tonalRamp": [
+          "#0e0b04",
+          "#28231b",
+          "#443f36",
+          "#625d54",
+          "#858076",
+          "#a6a197",
+          "#ccc7bc",
+          "#f4eee3"
+        ]
+      },
+      "on-pearl": {
+        "role": "primary",
+        "displayName": "Cloth Ink on Pearl",
+        "canonical": "#3a0d16",
+        "tonalRamp": [
+          "#1e0005",
+          "#3f121a",
+          "#5f2f35",
+          "#804c53",
+          "#a66f75",
+          "#ca9095",
+          "#f2b5bb",
+          "#ffe8ea"
+        ]
+      },
+      "on-nacre": {
+        "role": "primary",
+        "displayName": "Nacre Shadow Ink",
+        "canonical": "#3a2c18",
+        "tonalRamp": [
+          "#130900",
+          "#2f210d",
+          "#4c3d29",
+          "#6a5b45",
+          "#8e7d67",
+          "#b09f87",
+          "#d6c4ac",
+          "#feecd3"
+        ]
+      },
+      "cloth": {
+        "role": "secondary",
+        "displayName": "Merchant's Cloth",
+        "canonical": "#7c1424",
+        "tonalRamp": [
+          "#1f0003",
+          "#4a000e",
+          "#780e21",
+          "#9c353d",
+          "#c45a5f",
+          "#ea7b7f",
+          "#ffafaf",
+          "#ffe8e8"
+        ]
+      },
+      "cloth-lit": {
+        "role": "secondary",
+        "displayName": "Cloth Lit Corner",
+        "canonical": "#94202f",
+        "tonalRamp": [
+          "#1f0003",
+          "#4b000e",
+          "#7c001d",
+          "#a12e39",
+          "#ca545b",
+          "#f1767b",
+          "#ffafaf",
+          "#ffe8e8"
+        ]
+      },
+      "cloth-deep": {
+        "role": "secondary",
+        "displayName": "Cloth Deep Fold",
+        "canonical": "#5c0e1a",
+        "tonalRamp": [
+          "#1f0003",
+          "#4a000f",
+          "#6e2128",
+          "#914045",
+          "#b86367",
+          "#dd8587",
+          "#ffafaf",
+          "#ffe8e8"
+        ]
+      },
+      "on-cloth": {
+        "role": "secondary",
+        "displayName": "Cloth Paper Ink",
+        "canonical": "#fbeee9",
+        "tonalRamp": [
+          "#110906",
+          "#2b221e",
+          "#473d39",
+          "#665b57",
+          "#897d79",
+          "#ab9f9a",
+          "#d1c4bf",
+          "#f8ebe6"
+        ]
+      },
+      "on-cloth-2": {
+        "role": "secondary",
+        "displayName": "Cloth Blush Ink",
+        "canonical": "#f2cdc6",
+        "tonalRamp": [
+          "#1a0402",
+          "#361c17",
+          "#543732",
+          "#74554f",
+          "#987771",
+          "#bb9892",
+          "#e2beb7",
+          "#ffe9e4"
+        ]
+      },
+      "brass-on-cloth": {
+        "role": "tertiary",
+        "displayName": "Brass on Cloth",
+        "canonical": "#f0d394",
+        "tonalRamp": [
+          "#110a00",
+          "#2f2200",
+          "#513c00",
+          "#735919",
+          "#977c3f",
+          "#ba9e60",
+          "#e1c485",
+          "#ffedc5"
+        ]
+      },
+      "night-sea": {
+        "role": "neutral",
+        "displayName": "Night Sea Ground",
+        "canonical": "#0d1d22",
+        "tonalRamp": [
+          "#010d12",
+          "#17272c",
+          "#324348",
+          "#4f6167",
+          "#71848a",
+          "#92a5ac",
+          "#b7cbd2",
+          "#def3fa"
+        ]
+      },
+      "night-sea-2": {
+        "role": "neutral",
+        "displayName": "Night Sea Surface",
+        "canonical": "#12272d",
+        "tonalRamp": [
+          "#000e13",
+          "#12272d",
+          "#2e444a",
+          "#4b6269",
+          "#6d858c",
+          "#8ea6ae",
+          "#b3ccd4",
+          "#daf4fc"
+        ]
+      },
+      "night-sea-3": {
+        "role": "neutral",
+        "displayName": "Night Sea Well",
+        "canonical": "#1a343b",
+        "tonalRamp": [
+          "#000e13",
+          "#0e282f",
+          "#2a444c",
+          "#48636a",
+          "#6a868e",
+          "#8aa7b0",
+          "#afcdd6",
+          "#d6f5fe"
+        ]
+      },
+      "night-sea-4": {
+        "role": "neutral",
+        "displayName": "Night Sea Raised",
+        "canonical": "#23424a",
+        "tonalRamp": [
+          "#000e12",
+          "#082930",
+          "#26454d",
+          "#44636c",
+          "#66868f",
+          "#86a8b1",
+          "#acced8",
+          "#d3f6ff"
+        ]
+      },
+      "night-text": {
+        "role": "neutral",
+        "displayName": "Pale Nacre Text",
+        "canonical": "#f3ede2",
+        "tonalRamp": [
+          "#0e0b04",
+          "#28231b",
+          "#443f36",
+          "#625d54",
+          "#858076",
+          "#a6a197",
+          "#ccc7bc",
+          "#f4eee3"
+        ]
+      },
+      "night-text-2": {
+        "role": "neutral",
+        "displayName": "Sea Grey Text",
+        "canonical": "#b8c4c2",
+        "tonalRamp": [
+          "#050d0c",
+          "#1d2625",
+          "#384241",
+          "#56605e",
+          "#788381",
+          "#99a4a2",
+          "#becac8",
+          "#e5f2ef"
+        ]
+      },
+      "night-text-3": {
+        "role": "neutral",
+        "displayName": "Deep Sea Grey Text",
+        "canonical": "#8fa0a2",
+        "tonalRamp": [
+          "#030d0f",
+          "#192729",
+          "#344345",
+          "#516163",
+          "#738486",
+          "#94a5a7",
+          "#bacbcd",
+          "#e0f3f5"
+        ]
+      },
+      "night-brass": {
+        "role": "tertiary",
+        "displayName": "Night Brass",
+        "canonical": "#c9a45c",
+        "tonalRamp": [
+          "#120a00",
+          "#312100",
+          "#533b00",
+          "#795700",
+          "#9e7a30",
+          "#c09c54",
+          "#e7c279",
+          "#ffecc9"
+        ]
+      },
+      "night-brass-text": {
+        "role": "tertiary",
+        "displayName": "Lamp Brass",
+        "canonical": "#e2c27f",
+        "tonalRamp": [
+          "#110a00",
+          "#302100",
+          "#523c00",
+          "#76590e",
+          "#9a7c39",
+          "#bc9d5b",
+          "#e3c380",
+          "#ffedc7"
+        ]
+      },
+      "night-line": {
+        "role": "neutral",
+        "displayName": "Brass Hairline",
+        "canonical": "rgba(201, 164, 92, 0.16)",
+        "tonalRamp": [
+          "#120a00",
+          "#312100",
+          "#533b00",
+          "#795700",
+          "#9e7a30",
+          "#c09c54",
+          "#e7c279",
+          "#ffecc9"
+        ]
+      },
+      "night-line-2": {
+        "role": "neutral",
+        "displayName": "Brass Hairline Strong",
+        "canonical": "rgba(201, 164, 92, 0.3)",
+        "tonalRamp": [
+          "#120a00",
+          "#312100",
+          "#533b00",
+          "#795700",
+          "#9e7a30",
+          "#c09c54",
+          "#e7c279",
+          "#ffecc9"
+        ]
+      },
+      "night-seat": {
+        "role": "tertiary",
+        "displayName": "Brass Seat",
+        "canonical": "rgba(226, 194, 127, 0.62)",
+        "tonalRamp": [
+          "#110a00",
+          "#302100",
+          "#523c00",
+          "#76590e",
+          "#9a7c39",
+          "#bc9d5b",
+          "#e3c380",
+          "#ffedc7"
+        ]
+      },
+      "night-thread": {
+        "role": "tertiary",
+        "displayName": "Brass Thread",
+        "canonical": "rgba(201, 164, 92, 0.5)",
+        "tonalRamp": [
+          "#120a00",
+          "#312100",
+          "#533b00",
+          "#795700",
+          "#9e7a30",
+          "#c09c54",
+          "#e7c279",
+          "#ffecc9"
+        ]
+      },
+      "night-scam-text": {
+        "role": "semantic",
+        "displayName": "Coral Text at Night",
+        "canonical": "#ff8a80",
+        "tonalRamp": [
+          "#1f0001",
+          "#4b0004",
+          "#7a0910",
+          "#9f332f",
+          "#c75851",
+          "#ee7a71",
+          "#ffb0a7",
+          "#ffe9e6"
+        ]
+      },
+      "night-legit-text": {
+        "role": "semantic",
+        "displayName": "Green Text at Night",
+        "canonical": "#6fd8ad",
+        "tonalRamp": [
+          "#000f08",
+          "#002c1d",
+          "#004c35",
+          "#006f4f",
+          "#22966e",
+          "#4eb88f",
+          "#77dfb4",
+          "#c0ffe2"
+        ]
+      },
+      "day-mist": {
+        "role": "neutral",
+        "displayName": "Sea Mist Ground",
+        "canonical": "#e7edec",
+        "tonalRamp": [
+          "#080c0b",
+          "#212524",
+          "#3c4140",
+          "#5a5f5e",
+          "#7c8181",
+          "#9da3a2",
+          "#c3c9c8",
+          "#eaf0ef"
+        ]
+      },
+      "day-mist-2": {
+        "role": "neutral",
+        "displayName": "Sea Mist Surface",
+        "canonical": "#f6f8f7",
+        "tonalRamp": [
+          "#0a0b0b",
+          "#232424",
+          "#3f403f",
+          "#5c5e5d",
+          "#7f8180",
+          "#a0a2a1",
+          "#c6c8c7",
+          "#edefee"
+        ]
+      },
+      "day-mist-3": {
+        "role": "neutral",
+        "displayName": "Sea Mist Well",
+        "canonical": "#dce5e4",
+        "tonalRamp": [
+          "#070d0c",
+          "#1f2625",
+          "#3a4141",
+          "#585f5f",
+          "#7a8281",
+          "#9ba4a3",
+          "#c1c9c8",
+          "#e8f1f0"
+        ]
+      },
+      "day-mist-4": {
+        "role": "neutral",
+        "displayName": "Sea Mist Raised",
+        "canonical": "#cfdbd9",
+        "tonalRamp": [
+          "#050d0c",
+          "#1d2625",
+          "#384241",
+          "#56605e",
+          "#788381",
+          "#99a4a2",
+          "#becac8",
+          "#e5f2ef"
+        ]
+      },
+      "day-ink": {
+        "role": "neutral",
+        "displayName": "Sea Ink",
+        "canonical": "#10252b",
+        "tonalRamp": [
+          "#000e13",
+          "#12272e",
+          "#2e444a",
+          "#4b6269",
+          "#6d858c",
+          "#8ea6ae",
+          "#b3ccd4",
+          "#daf4fc"
+        ]
+      },
+      "day-ink-2": {
+        "role": "neutral",
+        "displayName": "Slate Sea Ink",
+        "canonical": "#3d5358",
+        "tonalRamp": [
+          "#000e12",
+          "#13282c",
+          "#2e4449",
+          "#4c6267",
+          "#6e858a",
+          "#8ea6ac",
+          "#b4cdd2",
+          "#daf4fa"
+        ]
+      },
+      "day-ink-3": {
+        "role": "neutral",
+        "displayName": "Muted Sea Ink",
+        "canonical": "#51666a",
+        "tonalRamp": [
+          "#000e11",
+          "#14282b",
+          "#304447",
+          "#4d6266",
+          "#6f8589",
+          "#90a6ab",
+          "#b5ccd1",
+          "#dcf4f8"
+        ]
+      },
+      "day-brass": {
+        "role": "tertiary",
+        "displayName": "Day Brass",
+        "canonical": "#a8843f",
+        "tonalRamp": [
+          "#120900",
+          "#312100",
+          "#543b00",
+          "#795704",
+          "#9d7a34",
+          "#c09b57",
+          "#e7c17c",
+          "#ffeccb"
+        ]
+      },
+      "day-brass-text": {
+        "role": "tertiary",
+        "displayName": "Burnished Brass Ink",
+        "canonical": "#7a5a1f",
+        "tonalRamp": [
+          "#120900",
+          "#322000",
+          "#553a00",
+          "#77571c",
+          "#9c7a41",
+          "#be9c62",
+          "#e5c187",
+          "#ffeccd"
+        ]
+      },
+      "day-line": {
+        "role": "neutral",
+        "displayName": "Sea Ink Hairline",
+        "canonical": "rgba(16, 37, 43, 0.12)",
+        "tonalRamp": [
+          "#000e13",
+          "#12272e",
+          "#2e444a",
+          "#4b6269",
+          "#6d858c",
+          "#8ea6ae",
+          "#b3ccd4",
+          "#daf4fc"
+        ]
+      },
+      "day-line-2": {
+        "role": "neutral",
+        "displayName": "Sea Ink Hairline Strong",
+        "canonical": "rgba(16, 37, 43, 0.22)",
+        "tonalRamp": [
+          "#000e13",
+          "#12272e",
+          "#2e444a",
+          "#4b6269",
+          "#6d858c",
+          "#8ea6ae",
+          "#b3ccd4",
+          "#daf4fc"
+        ]
+      },
+      "day-seat": {
+        "role": "tertiary",
+        "displayName": "Day Brass Seat",
+        "canonical": "rgba(122, 90, 31, 0.55)",
+        "tonalRamp": [
+          "#120900",
+          "#322000",
+          "#553a00",
+          "#77571c",
+          "#9c7a41",
+          "#be9c62",
+          "#e5c187",
+          "#ffeccd"
+        ]
+      },
+      "day-thread": {
+        "role": "tertiary",
+        "displayName": "Day Brass Thread",
+        "canonical": "rgba(122, 90, 31, 0.42)",
+        "tonalRamp": [
+          "#120900",
+          "#322000",
+          "#553a00",
+          "#77571c",
+          "#9c7a41",
+          "#be9c62",
+          "#e5c187",
+          "#ffeccd"
+        ]
+      },
+      "day-scam-text": {
+        "role": "semantic",
+        "displayName": "Coral Text by Day",
+        "canonical": "#b3322b",
+        "tonalRamp": [
+          "#1f0000",
+          "#4b0002",
+          "#7d0006",
+          "#a72621",
+          "#d14f44",
+          "#f87265",
+          "#ffb0a5",
+          "#ffe9e5"
+        ]
+      },
+      "day-legit-text": {
+        "role": "semantic",
+        "displayName": "Green Text by Day",
+        "canonical": "#10704c",
+        "tonalRamp": [
+          "#000f07",
+          "#002c1b",
+          "#004d32",
+          "#0e6f4b",
+          "#3e936d",
+          "#62b58d",
+          "#88dcb2",
+          "#c1ffdf"
+        ]
+      },
+      "day-paper": {
+        "role": "neutral",
+        "displayName": "Day Card Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a1a1a1",
+          "#c7c7c7",
+          "#eeeeee"
+        ]
+      },
+      "scam": {
+        "role": "semantic",
+        "displayName": "Scam Coral",
+        "canonical": "#e5584f",
+        "tonalRamp": [
+          "#1f0001",
+          "#4b0003",
+          "#7d0009",
+          "#ab1d1e",
+          "#d54942",
+          "#fd6e63",
+          "#ffb0a6",
+          "#ffe9e6"
+        ]
+      },
+      "legit": {
+        "role": "semantic",
+        "displayName": "Legit Green",
+        "canonical": "#3dbb8c",
+        "tonalRamp": [
+          "#000f08",
+          "#002c1d",
+          "#004c34",
+          "#006f4e",
+          "#00976c",
+          "#3dbb8c",
+          "#6ae2b1",
+          "#c0ffe1"
+        ]
+      },
+      "on-scam": {
+        "role": "semantic",
+        "displayName": "Coral Shadow Ink",
+        "canonical": "#2a0806",
+        "tonalRamp": [
+          "#1e0101",
+          "#3b1814",
+          "#5a332f",
+          "#7b514c",
+          "#a0736d",
+          "#c3948e",
+          "#ebbab3",
+          "#ffe9e5"
+        ]
+      },
+      "on-legit": {
+        "role": "semantic",
+        "displayName": "Green Shadow Ink",
+        "canonical": "#03251a",
+        "tonalRamp": [
+          "#000f08",
+          "#092b20",
+          "#27473b",
+          "#446658",
+          "#67897b",
+          "#87ab9c",
+          "#acd1c1",
+          "#d3f9e8"
+        ]
+      },
+      "scam-ink": {
+        "role": "semantic",
+        "displayName": "Scam Number Red",
+        "canonical": "#c73a32",
+        "tonalRamp": [
+          "#1f0000",
+          "#4b0002",
+          "#7d0005",
+          "#ac1b1a",
+          "#d6493f",
+          "#fd6d60",
+          "#ffb0a5",
+          "#ffe9e5"
+        ]
+      },
+      "legit-ink": {
+        "role": "semantic",
+        "displayName": "Legit Number Green",
+        "canonical": "#16815a",
+        "tonalRamp": [
+          "#000f07",
+          "#002c1c",
+          "#004d33",
+          "#006f4b",
+          "#32946c",
+          "#58b78d",
+          "#80deb2",
+          "#c1ffe0"
+        ]
+      },
+      "trap-ink": {
+        "role": "semantic",
+        "displayName": "Trap Gold",
+        "canonical": "#8e6a28",
+        "tonalRamp": [
+          "#120900",
+          "#322000",
+          "#553a00",
+          "#79560e",
+          "#9e7939",
+          "#c19b5b",
+          "#e8c180",
+          "#ffeccd"
+        ]
+      },
+      "mark-scam": {
+        "role": "semantic",
+        "displayName": "Scam Highlight",
+        "canonical": "rgba(229, 88, 79, 0.28)",
+        "tonalRamp": [
+          "#1f0001",
+          "#4b0003",
+          "#7d0009",
+          "#ab1d1e",
+          "#d54942",
+          "#fd6e63",
+          "#ffb0a6",
+          "#ffe9e6"
+        ]
+      },
+      "mark-legit": {
+        "role": "semantic",
+        "displayName": "Legit Highlight",
+        "canonical": "rgba(61, 187, 140, 0.27)",
+        "tonalRamp": [
+          "#000f08",
+          "#002c1d",
+          "#004c34",
+          "#006f4e",
+          "#00976c",
+          "#3dbb8c",
+          "#6ae2b1",
+          "#c0ffe1"
+        ]
+      },
+      "mark-trap": {
+        "role": "semantic",
+        "displayName": "Trap Highlight",
+        "canonical": "rgba(201, 164, 92, 0.34)",
+        "tonalRamp": [
+          "#120a00",
+          "#312100",
+          "#533b00",
+          "#795700",
+          "#9e7a30",
+          "#c09c54",
+          "#e7c279",
+          "#ffecc9"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Phone Paper",
+        "canonical": "#fbfaf7",
+        "tonalRamp": [
+          "#0c0b09",
+          "#252422",
+          "#40403d",
+          "#5e5d5b",
+          "#81807d",
+          "#a2a19f",
+          "#c8c7c4",
+          "#efeeeb"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Phone Paper Banner",
+        "canonical": "#f0eee9",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#41403c",
+          "#5f5d59",
+          "#82807c",
+          "#a3a19d",
+          "#c9c7c2",
+          "#f0eee9"
+        ]
+      },
+      "paper-3": {
+        "role": "neutral",
+        "displayName": "Phone Paper Rule",
+        "canonical": "#e4e1da",
+        "tonalRamp": [
+          "#0d0b07",
+          "#26241f",
+          "#423f3a",
+          "#605d57",
+          "#83807a",
+          "#a4a19b",
+          "#cac7c0",
+          "#f1eee7"
+        ]
+      },
+      "phone-ink": {
+        "role": "neutral",
+        "displayName": "Phone Ink",
+        "canonical": "#141820",
+        "tonalRamp": [
+          "#080b12",
+          "#20242d",
+          "#3b4049",
+          "#595e68",
+          "#7b808b",
+          "#9ca2ad",
+          "#c2c7d3",
+          "#e9effa"
+        ]
+      },
+      "phone-ink-2": {
+        "role": "neutral",
+        "displayName": "Phone Ink Secondary",
+        "canonical": "#545d6b",
+        "tonalRamp": [
+          "#050b16",
+          "#1d2430",
+          "#38404d",
+          "#555e6c",
+          "#778190",
+          "#98a2b2",
+          "#bec8d8",
+          "#e5efff"
+        ]
+      },
+      "phone-ink-3": {
+        "role": "neutral",
+        "displayName": "Phone Ink Tertiary",
+        "canonical": "#737b88",
+        "tonalRamp": [
+          "#060b14",
+          "#1e242f",
+          "#39404c",
+          "#565e6a",
+          "#79818e",
+          "#9aa2b0",
+          "#bfc8d6",
+          "#e6effe"
+        ]
+      },
+      "phone-link": {
+        "role": "neutral",
+        "displayName": "Link Blue",
+        "canonical": "#1f5fd1",
+        "tonalRamp": [
+          "#000826",
+          "#001e59",
+          "#003692",
+          "#1354c5",
+          "#397aee",
+          "#6aa0ff",
+          "#a8c8ff",
+          "#e6efff"
+        ]
+      },
+      "bubble": {
+        "role": "neutral",
+        "displayName": "Received Bubble",
+        "canonical": "#e9e7e1",
+        "tonalRamp": [
+          "#0c0b07",
+          "#252420",
+          "#41403b",
+          "#5f5d58",
+          "#82807b",
+          "#a3a19c",
+          "#c9c7c1",
+          "#f0eee8"
+        ]
+      },
+      "bubble-me": {
+        "role": "neutral",
+        "displayName": "Sent Bubble",
+        "canonical": "#2b6be6",
+        "tonalRamp": [
+          "#000728",
+          "#001c5c",
+          "#003496",
+          "#1151cb",
+          "#3778f4",
+          "#6b9fff",
+          "#a9c8ff",
+          "#e6efff"
+        ]
+      },
+      "site-on-sea": {
+        "role": "neutral",
+        "displayName": "Site On Sea",
+        "canonical": "#f1f0ed",
+        "tonalRamp": [
+          "#0c0b09",
+          "#252422",
+          "#40403d",
+          "#5e5d5b",
+          "#81807d",
+          "#a2a19f",
+          "#c8c7c4",
+          "#efeeeb"
+        ]
+      },
+      "site-paper": {
+        "role": "neutral",
+        "displayName": "Site Paper",
+        "canonical": "#fffdf8",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#41403c",
+          "#5f5d59",
+          "#82807c",
+          "#a3a19d",
+          "#c9c7c2",
+          "#f0eee9"
+        ]
+      },
+      "on-brass": {
+        "role": "tertiary",
+        "displayName": "Brass Field Ink",
+        "canonical": "#231807",
+        "tonalRamp": [
+          "#130900",
+          "#2d2211",
+          "#4a3e2c",
+          "#695b48",
+          "#8c7e6a",
+          "#ae9f8b",
+          "#d4c5b0",
+          "#fcecd6"
+        ]
+      },
+      "on-brass-2": {
+        "role": "tertiary",
+        "displayName": "Brass Field Ink Secondary",
+        "canonical": "#4a3812",
+        "tonalRamp": [
+          "#110a00",
+          "#302100",
+          "#4f3d17",
+          "#6e5b35",
+          "#917d57",
+          "#b49f77",
+          "#dac59c",
+          "#ffecc9"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The case title on the cloth; results cloths step down to clamp(2.05rem, 9.4vw, 2.6rem)."
+      },
+      "display-number": {
+        "displayName": "Display Number",
+        "purpose": "Big numbers: the rush haul on the results cloth, with tabular figures."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The debrief verdict and the level name; dialog titles at 1.5rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The centred top bar title."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Section titles on Home and results; settings group titles at 1.1rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; the debrief lesson opens to 1.65 leading."
+      },
+      "body-strong": {
+        "displayName": "Body Strong",
+        "purpose": "Titles of rows and tiles."
+      },
+      "secondary": {
+        "displayName": "Secondary",
+        "purpose": "The line under a row title and meta lines."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every button label."
+      },
+      "verdict": {
+        "displayName": "Verdict",
+        "purpose": "The scam and legit buttons."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Signal group headings and small labels."
+      },
+      "device": {
+        "displayName": "Device",
+        "purpose": "Message card text, in the phone's own system font."
+      },
+      "site-heading": {
+        "displayName": "Site Heading",
+        "purpose": "Section headings on the website."
+      },
+      "site-lead": {
+        "displayName": "Site Lead",
+        "purpose": "Leads, field titles and questions on the website."
+      },
+      "site-body": {
+        "displayName": "Site Body",
+        "purpose": "Running text on the website."
+      },
+      "site-small": {
+        "displayName": "Site Small",
+        "purpose": "Notes, captions, navigation and the footer on the website."
+      },
+      "site-button": {
+        "displayName": "Site Button",
+        "purpose": "Pill buttons on the website."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lift-night",
+        "value": "0 18px 40px -18px rgba(0, 0, 0, 0.72), 0 4px 12px rgba(0, 0, 0, 0.28)",
+        "purpose": "The one elevation at night: the case cloth, the message card, the toast and the certificate preview."
+      },
+      {
+        "name": "lift-day",
+        "value": "0 16px 36px -18px rgba(16, 37, 43, 0.4), 0 3px 10px rgba(16, 37, 43, 0.12)",
+        "purpose": "The same elevation in Pearl day."
+      },
+      {
+        "name": "sheet-edge",
+        "value": "0 -18px 40px -20px rgba(0, 0, 0, 0.7)",
+        "purpose": "The debrief sheet and bottom dialogs, the lift turned upward."
+      },
+      {
+        "name": "pearl-contact-night",
+        "value": "0 2px 5px rgba(0, 0, 0, 0.38), inset 0 -1px 2px rgba(90, 66, 30, 0.22)",
+        "purpose": "Every lustrous bead at night."
+      },
+      {
+        "name": "pearl-contact-day",
+        "value": "0 2px 4px rgba(16, 37, 43, 0.3), inset 0 0 0 1px rgba(90, 66, 30, 0.18)",
+        "purpose": "Every lustrous bead in Pearl day."
+      },
+      {
+        "name": "nacre-object",
+        "value": "0 3px 8px rgba(0, 0, 0, 0.35)",
+        "purpose": "Larger nacre objects: the right-call ring, a passed journey stop (at 0.3), an earned medal and the switch thumb (0 2px 6px at 0.3)."
+      },
+      {
+        "name": "stamp-lift",
+        "value": "0 10px 26px -10px rgba(0, 0, 0, 0.55)",
+        "purpose": "Verdict stamps riding on the card."
+      },
+      {
+        "name": "hairline-ring-night",
+        "value": "inset 0 0 0 1px rgba(201, 164, 92, 0.16)",
+        "purpose": "The edge of every flat container at night; 1.5px or the stronger hairline for outlined items."
+      },
+      {
+        "name": "selected-ring-night",
+        "value": "inset 0 0 0 2px #e2c27f",
+        "purpose": "A focused input or a chosen option at night."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Presses, drops and arrivals."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Light running across nacre."
+      },
+      {
+        "name": "ease-drawer",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Sheets, dialogs, the card settling and parked stamps."
+      },
+      {
+        "name": "press",
+        "value": "140ms ease-out, scale 0.94 to 0.99",
+        "purpose": "Every press: 0.97 for buttons and tiles, 0.94 for icon buttons, 0.96 for verdict buttons."
+      },
+      {
+        "name": "tone",
+        "value": "160ms ease",
+        "purpose": "Background and colour changes on hover, press and selection."
+      },
+      {
+        "name": "bead-drop",
+        "value": "240ms ease-out, from translateY(-8px) scale(0.5)",
+        "purpose": "A new verdict dropping into its seat."
+      },
+      {
+        "name": "lustre-sweep",
+        "value": "640ms ease-in-out after 200ms",
+        "purpose": "A right call catching the light once."
+      },
+      {
+        "name": "strand-finish",
+        "value": "700ms per pearl, 70ms apart, from 380ms",
+        "purpose": "The finished strand on the results cloth catching the light pearl by pearl."
+      },
+      {
+        "name": "screen",
+        "value": "300ms ease-out over 28px forward, 260ms over 20px back",
+        "purpose": "Screen changes along the reading direction."
+      },
+      {
+        "name": "first-screen",
+        "value": "280ms ease-out, rising 6px",
+        "purpose": "The first screen settling out of the launch screen."
+      },
+      {
+        "name": "card-enter",
+        "value": "340ms ease-out, from translateY(14px) scale(0.95)",
+        "purpose": "The next card coming forward."
+      },
+      {
+        "name": "sheet",
+        "value": "420ms ease-drawer",
+        "purpose": "The debrief sheet sliding up; dialogs take 340ms."
+      },
+      {
+        "name": "stamp",
+        "value": "300ms ease-out from scale 1.3, then 460ms ease-drawer to the top edge",
+        "purpose": "The verdict landing on the card and parking."
+      },
+      {
+        "name": "mark-fill",
+        "value": "560ms ease-out, 120ms plus 110ms per number",
+        "purpose": "Marks filling from the reading side in the debrief."
+      },
+      {
+        "name": "results-rise",
+        "value": "320ms ease-out over 10px, 50ms apart",
+        "purpose": "Results arriving in reading order."
+      },
+      {
+        "name": "medal-earned",
+        "value": "520ms pop to 1.05, then a 900ms shine",
+        "purpose": "A newly earned medal."
+      },
+      {
+        "name": "reduced",
+        "value": "160ms fade (180ms for results and medals)",
+        "purpose": "Reduced motion and family mode: movement becomes a fade, light sweeps are dropped, loops stop."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "app-wide",
+        "value": "min-width: 720px"
+      },
+      {
+        "name": "site-two-columns",
+        "value": "max-width: 1100px"
+      },
+      {
+        "name": "site-stacked",
+        "value": "max-width: 900px"
+      },
+      {
+        "name": "site-phone",
+        "value": "max-width: 700px"
+      },
+      {
+        "name": "site-narrow",
+        "value": "max-width: 420px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action of a screen: nacre pearl with cloth ink, 14px corners, at least 52px tall. By day, off the cloth, it turns to sea ink with pearl text.",
+      "html": "<div class=\"ds-night\"><button class=\"ds-btn ds-btn-primary\" type=\"button\">Open today's case<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 52px; padding: 0 22px; border: 0; border-radius: 14px; font: 600 1.02rem/1.3 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-align: center; cursor: pointer; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms ease, opacity 180ms ease; } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #e2c27f; outline-offset: 3px; } .ds-btn[disabled] { opacity: 0.45; pointer-events: none; } .ds-btn-primary { background: #f5efe4; color: #3a0d16; } @media (hover: hover) and (pointer: fine) { .ds-btn-primary:hover { background: color-mix(in srgb, #f5efe4 88%, white); } }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The quieter choice beside a primary: a tonal sea well with the text colour, one step up on hover.",
+      "html": "<div class=\"ds-night\"><button class=\"ds-btn ds-btn-secondary\" type=\"button\">Cancel</button></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 52px; padding: 0 22px; border: 0; border-radius: 14px; font: 600 1.02rem/1.3 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-align: center; cursor: pointer; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms ease, opacity 180ms ease; } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #e2c27f; outline-offset: 3px; } .ds-btn[disabled] { opacity: 0.45; pointer-events: none; } .ds-btn-secondary { background: #1a343b; color: #f3ede2; } @media (hover: hover) and (pointer: fine) { .ds-btn-secondary:hover { background: #23424a; } }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Lamp brass text with no fill until hover, 44px tall, for links such as all tips, stats and badges.",
+      "html": "<div class=\"ds-night\"><button class=\"ds-btn ds-btn-ghost\" type=\"button\">All tips<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></button></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 52px; padding: 0 22px; border: 0; border-radius: 14px; font: 600 1.02rem/1.3 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-align: center; cursor: pointer; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms ease, opacity 180ms ease; } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #e2c27f; outline-offset: 3px; } .ds-btn[disabled] { opacity: 0.45; pointer-events: none; } .ds-btn-ghost { width: auto; min-height: 44px; background: transparent; color: #e2c27f; } @media (hover: hover) and (pointer: fine) { .ds-btn-ghost:hover { background: #1a343b; } }"
+    },
+    {
+      "name": "Verdict Buttons",
+      "kind": "button",
+      "refersTo": "verdict-button",
+      "description": "The two calls, scam on the left and legit on the right in both languages, each led by a disc in its verdict fill.",
+      "html": "<div class=\"ds-night\"><div class=\"ds-verdicts\"><button class=\"ds-verdict ds-verdict-scam\" type=\"button\"><span class=\"ds-vd\"><svg class=\"ds-vd-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/></svg></span>Scam</button><button class=\"ds-verdict ds-verdict-legit\" type=\"button\"><span class=\"ds-vd\"><svg class=\"ds-vd-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>Legit</button></div></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-verdicts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; direction: ltr; } .ds-verdict { display: flex; align-items: center; justify-content: center; gap: 12px; height: 64px; padding: 0; border: 0; border-radius: 16px; background: #12272d; box-shadow: inset 0 0 0 1px rgba(201, 164, 92, 0.3); font: 700 1.12rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; cursor: pointer; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease; } .ds-verdict:active { transform: scale(0.96); background: #1a343b; } .ds-verdict:focus-visible { outline: 2px solid #e2c27f; outline-offset: 3px; } @media (hover: hover) and (pointer: fine) { .ds-verdict:hover { background: #1a343b; } } .ds-verdict-scam { color: #ff8a80; } .ds-verdict-legit { color: #6fd8ad; } .ds-vd { width: 32px; height: 32px; flex: none; display: grid; place-items: center; border-radius: 50%; } .ds-vd-icon { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; } .ds-verdict-scam .ds-vd { background: #e5584f; color: #2a0806; } .ds-verdict-legit .ds-vd { background: #3dbb8c; color: #03251a; }"
+    },
+    {
+      "name": "Home Head",
+      "kind": "nav",
+      "refersTo": "icon-button",
+      "description": "The top of Home: the mark and the wordmark in Aref Ruqaa, the streak chip with its lustrous bead, and the settings icon button.",
+      "html": "<div class=\"ds-night\"><div class=\"ds-head\"><span class=\"ds-wordmark\"><svg class=\"ds-mark\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><defs><radialGradient id=\"ds-mark-pearl\" cx=\"0.36\" cy=\"0.32\" r=\"0.72\"><stop offset=\"0\" stop-color=\"#ffffff\"/><stop offset=\"0.2\" stop-color=\"#f6efe3\"/><stop offset=\"0.62\" stop-color=\"#dccfbc\"/><stop offset=\"1\" stop-color=\"#b3a48c\"/></radialGradient><radialGradient id=\"ds-mark-cloth\" cx=\"0.85\" cy=\"0.1\" r=\"1.1\"><stop offset=\"0\" stop-color=\"#94202f\"/><stop offset=\"0.55\" stop-color=\"#7c1424\"/><stop offset=\"1\" stop-color=\"#5c0e1a\"/></radialGradient></defs><rect width=\"64\" height=\"64\" rx=\"15\" fill=\"url(#ds-mark-cloth)\"/><path d=\"M38.6 38.6 50 50\" stroke=\"#c9a45c\" stroke-width=\"7\" stroke-linecap=\"round\"/><circle cx=\"28\" cy=\"28\" r=\"15\" fill=\"none\" stroke=\"#c9a45c\" stroke-width=\"4.5\"/><circle cx=\"28\" cy=\"28\" r=\"9.5\" fill=\"url(#ds-mark-pearl)\"/></svg><b>Scam Detective</b></span><span class=\"ds-chip ds-chip-streak\"><i class=\"ds-pearl\"></i>4</span><button class=\"ds-icon-btn\" type=\"button\" aria-label=\"Settings\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg></button></div></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-pearl { position: relative; display: block; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 33% 28%, #ffffff 0 8%, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 70% 78%, rgba(222, 176, 182, 0.42), rgba(222, 176, 182, 0) 46%), radial-gradient(circle at 34% 30%, #fbf7f0 0 14%, #f1e8da 32%, #ddd1bf 66%, #b4a58e 100%); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.38), inset 0 -1px 2px rgba(90, 66, 30, 0.22); } .ds-head { display: flex; align-items: center; gap: 10px; } .ds-wordmark { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; } .ds-mark { width: 36px; height: 36px; flex: none; } .ds-wordmark b { font: 700 1.5rem/1.2 'Aref Ruqaa', 'Readex Pro', ui-serif, Georgia, serif; color: #f3ede2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-chip { display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px; border-radius: 999px; background: #1a343b; color: #b8c4c2; font: 500 0.85rem/1 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; white-space: nowrap; font-variant-numeric: tabular-nums; } .ds-chip-streak { color: #e2c27f; font-weight: 600; } .ds-chip-streak .ds-pearl { width: 13px; flex: none; } .ds-icon-btn { width: 44px; height: 44px; flex: none; display: grid; place-items: center; padding: 0; border: 0; border-radius: 14px; background: transparent; color: #b8c4c2; cursor: pointer; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, color 160ms ease; } .ds-icon-btn .ds-icon { width: 22px; height: 22px; } .ds-icon-btn:active { transform: scale(0.94); background: #1a343b; } .ds-icon-btn:focus-visible { outline: 2px solid #e2c27f; outline-offset: 3px; } @media (hover: hover) and (pointer: fine) { .ds-icon-btn:hover { background: #1a343b; color: #f3ede2; } }"
+    },
+    {
+      "name": "Level and Week Tiles",
+      "kind": "card",
+      "refersTo": "tile",
+      "description": "Flat tiles on the night surface with a brass hairline ring: the level as a pearl sized in its brass seat, and the week as seven small pearls with today ringed.",
+      "html": "<div class=\"ds-night\"><div class=\"ds-tiles\"><button class=\"ds-tile\" type=\"button\"><span class=\"ds-lv\"><span class=\"ds-level-pearl\" style=\"--p:0.615\"><i class=\"ds-pearl\"></i></span><span><b>Spotter</b><span class=\"ds-s\">Level 4</span></span></span><span class=\"ds-s\">650 XP to level 5</span></button><div class=\"ds-tile\"><span><b>4 days in a row</b><span class=\"ds-s\">Play today's case to add today's pearl</span></span><span class=\"ds-week\"><span class=\"ds-day\"><i class=\"ds-seat\"></i>F</span><span class=\"ds-day\"><i class=\"ds-seat\"></i>S</span><span class=\"ds-day\"><i class=\"ds-pearl\"></i>S</span><span class=\"ds-day\"><i class=\"ds-pearl\"></i>M</span><span class=\"ds-day\"><i class=\"ds-pearl\"></i>T</span><span class=\"ds-day\"><i class=\"ds-pearl\"></i>W</span><span class=\"ds-day ds-today\"><i class=\"ds-seat\"></i>T</span></span></div></div></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-pearl { position: relative; display: block; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 33% 28%, #ffffff 0 8%, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 70% 78%, rgba(222, 176, 182, 0.42), rgba(222, 176, 182, 0) 46%), radial-gradient(circle at 34% 30%, #fbf7f0 0 14%, #f1e8da 32%, #ddd1bf 66%, #b4a58e 100%); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.38), inset 0 -1px 2px rgba(90, 66, 30, 0.22); } .ds-seat { display: block; aspect-ratio: 1; border-radius: 50%; background: color-mix(in srgb, #1a343b 70%, transparent); box-shadow: inset 0 0 0 2px rgba(226, 194, 127, 0.62); } .ds-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } .ds-tile { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 14px; border: 0; border-radius: 16px; background: #12272d; box-shadow: inset 0 0 0 1px rgba(201, 164, 92, 0.16); color: #f3ede2; text-align: start; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease; } button.ds-tile { cursor: pointer; } button.ds-tile:active { transform: scale(0.97); background: #1a343b; } button.ds-tile:focus-visible { outline: 2px solid #e2c27f; outline-offset: 3px; } @media (hover: hover) and (pointer: fine) { button.ds-tile:hover { background: #1a343b; } } .ds-tile b { display: block; font-weight: 600; font-size: 0.96rem; line-height: 1.3; } .ds-s { display: block; font-size: 0.8rem; line-height: 1.4; color: #b8c4c2; font-variant-numeric: tabular-nums; } .ds-lv { display: flex; align-items: center; gap: 10px; min-width: 0; } .ds-level-pearl { width: 48px; height: 48px; flex: none; display: grid; place-items: center; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(226, 194, 127, 0.62); } .ds-level-pearl .ds-pearl { width: calc(var(--p, 0.5) * 100%); } .ds-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-top: auto; } .ds-day { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 0.68rem; line-height: 1; color: #8fa0a2; } .ds-day .ds-pearl, .ds-day .ds-seat { width: 15px; flex: none; } .ds-day .ds-seat { transform: scale(0.7); } .ds-day.ds-today { color: #f3ede2; font-weight: 600; } .ds-day.ds-today .ds-seat { box-shadow: inset 0 0 0 2px #e2c27f; transform: scale(0.8); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "A flat field on the night surface with a strong hairline ring that thickens to lamp brass on focus; 16px text or more so phones never zoom.",
+      "html": "<div class=\"ds-night\"><label class=\"ds-field\"><span>Name on the certificate</span><input class=\"ds-input\" type=\"text\" placeholder=\"Your name\" autocomplete=\"off\"/><small>Optional, and it stays on this device</small></label></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-field { display: flex; flex-direction: column; gap: 8px; } .ds-field > span { font-weight: 600; font-size: 0.92rem; color: #b8c4c2; } .ds-field small { font-size: 0.82rem; color: #b8c4c2; } .ds-input { min-height: 56px; padding: 0 16px; border: 0; outline: 0; border-radius: 14px; background: #12272d; color: #f3ede2; box-shadow: inset 0 0 0 1px rgba(201, 164, 92, 0.3); font: 400 1.05rem/1.4 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; caret-color: #e2c27f; transition: box-shadow 160ms ease; } .ds-input::placeholder { color: #8fa0a2; } .ds-input:focus { box-shadow: inset 0 0 0 2px #e2c27f; }"
+    },
+    {
+      "name": "Case Cloth and Strand",
+      "kind": "custom",
+      "refersTo": "case-cloth",
+      "description": "The signature: the day's case on the merchant's red cloth, its ten seats draped like a necklace, pearls for right calls, a dull bead for a wrong one, the seat in play ringed in brass, and the pearl button at thumb height. The newest pearl drops in and catches the light once.",
+      "html": "<div class=\"ds-night\"><section class=\"ds-cloth\"><h2>Case #8</h2><p class=\"ds-sub\">4 of 10 done</p><div class=\"ds-strand\"><svg class=\"ds-thread\" viewBox=\"0 0 100 10\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M0 0Q50 20 100 0\" vector-effect=\"non-scaling-stroke\"/></svg><i class=\"ds-b ds-pearl\" style=\"--x:4.00%;--y:0.0;--g:0.0\"></i><i class=\"ds-b ds-pearl\" style=\"--x:12.96%;--y:0.0703;--g:0.222\"></i><i class=\"ds-b ds-dull\" style=\"--x:22.69%;--y:0.1295;--g:0.444\"></i><i class=\"ds-b ds-pearl ds-fresh\" style=\"--x:33.19%;--y:0.1733;--g:0.667\"></i><i class=\"ds-b ds-seat ds-now\" style=\"--x:44.31%;--y:0.1969;--g:0.889\"></i><i class=\"ds-b ds-seat\" style=\"--x:55.69%;--y:0.1969;--g:0.889\"></i><i class=\"ds-b ds-seat\" style=\"--x:66.81%;--y:0.1733;--g:0.667\"></i><i class=\"ds-b ds-seat\" style=\"--x:77.31%;--y:0.1295;--g:0.444\"></i><i class=\"ds-b ds-seat\" style=\"--x:87.04%;--y:0.0703;--g:0.222\"></i><i class=\"ds-b ds-seat\" style=\"--x:96.00%;--y:0.0;--g:0.0\"></i></div><button class=\"ds-btn ds-btn-primary\" type=\"button\">Continue the case<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button><div class=\"ds-meta\"><span>Gulf edition</span><span>Next case in 2h 35m</span></div></section></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-pearl { position: relative; display: block; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 33% 28%, #ffffff 0 8%, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 70% 78%, rgba(222, 176, 182, 0.42), rgba(222, 176, 182, 0) 46%), radial-gradient(circle at 34% 30%, #fbf7f0 0 14%, #f1e8da 32%, #ddd1bf 66%, #b4a58e 100%); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.38), inset 0 -1px 2px rgba(90, 66, 30, 0.22); } .ds-seat { display: block; aspect-ratio: 1; border-radius: 50%; background: color-mix(in srgb, #1a343b 70%, transparent); box-shadow: inset 0 0 0 2px rgba(226, 194, 127, 0.62); } .ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 52px; padding: 0 22px; border: 0; border-radius: 14px; font: 600 1.02rem/1.3 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-align: center; cursor: pointer; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms ease, opacity 180ms ease; } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #e2c27f; outline-offset: 3px; } .ds-btn[disabled] { opacity: 0.45; pointer-events: none; } .ds-btn-primary { background: #f5efe4; color: #3a0d16; } @media (hover: hover) and (pointer: fine) { .ds-btn-primary:hover { background: color-mix(in srgb, #f5efe4 88%, white); } } .ds-cloth { position: relative; display: flex; flex-direction: column; min-height: 440px; padding: 22px 20px 18px; border-radius: 16px; color: #fbeee9; background: radial-gradient(130% 110% at 100% 0%, #94202f 0%, #7c1424 52%, #5c0e1a 100%); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.72), 0 4px 12px rgba(0, 0, 0, 0.28); } .ds-cloth h2 { margin: 0; padding-inline-end: 84px; font: 700 clamp(2.3rem, 10.6vw, 2.85rem)/1.15 'Aref Ruqaa', 'Readex Pro', ui-serif, Georgia, serif; color: #f5efe4; font-variant-numeric: tabular-nums; } .ds-sub { margin: 4px 0 0; color: #f2cdc6; font-size: 0.95rem; line-height: 1.5; font-variant-numeric: tabular-nums; } .ds-strand { --b: 32px; position: relative; display: block; height: var(--b); padding-top: 20%; box-sizing: content-box; margin: auto 0; } .ds-thread { position: absolute; top: calc(var(--b) / 2); left: 4%; width: 92%; height: auto; aspect-ratio: 0.92 / 0.2; overflow: visible; fill: none; stroke: rgba(226, 194, 127, 0.72); stroke-width: 1.5px; } .ds-strand .ds-b { position: absolute; z-index: 1; top: calc(var(--b) / 2); left: var(--x); margin-top: calc(var(--y) * 100%); width: calc(var(--b) * (0.6 + 0.4 * var(--g, 1))); translate: -50% -50%; } .ds-dull { display: block; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 36% 30%, #8f979a 0%, #626b6e 58%, #4a5255 100%); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.22); transform: scale(0.84); } .ds-cloth .ds-seat { background: rgba(40, 4, 10, 0.32); box-shadow: inset 0 0 0 2px rgba(234, 205, 140, 0.85); transform: scale(0.9); } .ds-cloth .ds-now { box-shadow: inset 0 0 0 2px #f0d394, 0 0 0 3px color-mix(in srgb, #f0d394 26%, transparent); transform: scale(0.94); } .ds-fresh { animation: ds-drop 240ms cubic-bezier(0.23, 1, 0.32, 1) both; } @keyframes ds-drop { from { opacity: 0; transform: translateY(-8px) scale(0.5); } } .ds-pearl.ds-fresh::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.95) 50%, transparent 68%) no-repeat; background-size: 260% 100%; animation: ds-lustre 640ms 200ms cubic-bezier(0.77, 0, 0.175, 1) both; } @keyframes ds-lustre { from { background-position: 130% 0; opacity: 1; } to { background-position: -30% 0; opacity: 0; } } .ds-cloth .ds-btn { flex: none; } .ds-cloth .ds-btn:focus-visible { outline-color: #f5efe4; } @media (hover: hover) and (pointer: fine) { .ds-cloth .ds-btn-primary:hover { background: #ffffff; } } .ds-meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 0.86rem; color: #f2cdc6; font-variant-numeric: tabular-nums; } @media (prefers-reduced-motion: reduce) { .ds-fresh { animation: ds-fade 160ms ease both; } .ds-pearl.ds-fresh::after { display: none; } } @keyframes ds-fade { from { opacity: 0; } }"
+    },
+    {
+      "name": "Medals",
+      "kind": "custom",
+      "refersTo": "medal",
+      "description": "Badges as nacre and brass: an earned medal is a lustrous face in a lamp brass ring with its tier as pearls on the lower edge, pressing in and catching the light once; an unearned one is an empty brass seat.",
+      "html": "<div class=\"ds-night\"><div class=\"ds-medals\"><div class=\"ds-medal-cell\"><span class=\"ds-medal ds-on ds-won\"><span class=\"ds-face\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"/><path d=\"m16 9-5.5 5.5L8 12\"/></svg></span><span class=\"ds-tier\"><i class=\"ds-pearl\"></i></span></span><b>First catch</b></div><div class=\"ds-medal-cell ds-off\"><span class=\"ds-medal\"><span class=\"ds-face\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z\"/></svg></span></span><b>On a roll</b><span class=\"ds-count\">9/10</span></div></div></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-pearl { position: relative; display: block; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 33% 28%, #ffffff 0 8%, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 70% 78%, rgba(222, 176, 182, 0.42), rgba(222, 176, 182, 0) 46%), radial-gradient(circle at 34% 30%, #fbf7f0 0 14%, #f1e8da 32%, #ddd1bf 66%, #b4a58e 100%); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.38), inset 0 -1px 2px rgba(90, 66, 30, 0.22); } .ds-medals { display: flex; justify-content: center; gap: 28px; } .ds-medal-cell { display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 14px 6px 12px; text-align: center; } .ds-medal-cell b { font-weight: 600; font-size: 0.82rem; line-height: 1.35; color: #f3ede2; } .ds-medal-cell.ds-off b { color: #b8c4c2; } .ds-count { margin-top: -11px; font-size: 0.74rem; color: #8fa0a2; font-variant-numeric: tabular-nums; } .ds-medal { position: relative; width: 64px; height: 64px; flex: none; display: grid; place-items: center; } .ds-face { position: relative; width: 100%; height: 100%; display: grid; place-items: center; overflow: hidden; border-radius: 50%; color: #8fa0a2; box-shadow: inset 0 0 0 1.5px rgba(226, 194, 127, 0.62); } .ds-face .ds-icon { width: 24px; height: 24px; } .ds-medal.ds-on .ds-face { background: radial-gradient(circle at 33% 28%, #ffffff 0 8%, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 70% 78%, rgba(222, 176, 182, 0.42), rgba(222, 176, 182, 0) 46%), radial-gradient(circle at 34% 30%, #fbf7f0 0 14%, #f1e8da 32%, #ddd1bf 66%, #b4a58e 100%); color: #3a2c18; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); outline: 1.5px solid #e2c27f; outline-offset: 3px; } .ds-tier { position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%); display: flex; gap: 2px; } .ds-tier .ds-pearl { width: 10px; flex: none; } .ds-medal.ds-won .ds-face { animation: ds-medal-pop 520ms 260ms cubic-bezier(0.23, 1, 0.32, 1) both; } .ds-medal.ds-won .ds-face::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.8) 50%, transparent 68%); transform: translateX(-130%); animation: ds-shine 900ms 700ms cubic-bezier(0.77, 0, 0.175, 1) forwards; } @keyframes ds-medal-pop { 0% { opacity: 0; transform: scale(0.82); } 60% { opacity: 1; transform: scale(1.05); } 100% { transform: scale(1); } } @keyframes ds-shine { to { transform: translateX(130%); } } @media (prefers-reduced-motion: reduce) { .ds-medal.ds-won .ds-face { animation: none; } .ds-medal.ds-won .ds-face::after { display: none; } }"
+    },
+    {
+      "name": "Marked Message and Signal",
+      "kind": "custom",
+      "refersTo": "message-card",
+      "description": "A message card is a real phone screen in the device font and the phone's inks. In the debrief each sign's words fill from the reading side, opened by a numbered disc, and the same number leads its explanation below.",
+      "html": "<div class=\"ds-night\"><article class=\"ds-msg\" dir=\"ltr\" lang=\"en\"><div class=\"ds-msg-kind\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\"/></svg><span>Text message</span></div><div class=\"ds-convo-head\"><div class=\"ds-avatar\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></div><b><span class=\"ds-mk-run\" style=\"--d:120ms\"><span class=\"ds-mk-n\" aria-hidden=\"true\">1</span><span class=\"ds-mk\">+63 9&#8226;&#8226; &#8226;&#8226;&#8226; &#8226;&#8226;41</span></span></b></div><div class=\"ds-convo\"><div class=\"ds-time\">Today 09:14</div><div class=\"ds-bubble\">POST: Your parcel KW8812 is held at our depot due to an incomplete address. Pay the <span class=\"ds-mk-run\" style=\"--d:230ms\"><span class=\"ds-mk-n\" aria-hidden=\"true\">2</span><span class=\"ds-mk\">0.350 KWD</span></span> redelivery fee <span class=\"ds-mk-run\" style=\"--d:340ms\"><span class=\"ds-mk-n\" aria-hidden=\"true\">3</span><span class=\"ds-mk\">within 12 hours</span></span> at <span class=\"ds-mk-run\" style=\"--d:450ms\"><span class=\"ds-mk-n\" aria-hidden=\"true\">4</span><span class=\"ds-mk ds-link\">parcel-fee-kw.com/pay</span></span> or it will be returned to the sender.</div></div></article><div class=\"ds-signal\"><span class=\"ds-n\">3</span><p>A short deadline is there to rush you before you stop and check.</p></div></div>",
+      "css": ".ds-night { background: #0d1d22; color: #f3ede2; padding: 20px 16px; border-radius: 16px; font: 400 1rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-msg { width: min(100%, 440px); margin: 0 auto; overflow: hidden; border-radius: 16px; background: #fbfaf7; color: #141820; box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.72), 0 4px 12px rgba(0, 0, 0, 0.28); font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Noto Sans Arabic', 'Helvetica Neue', Arial, sans-serif; } .ds-msg-kind { display: flex; align-items: center; gap: 8px; padding: 12px 16px 0; color: #737b88; font: 600 0.78rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 0.01em; } .ds-msg-kind .ds-icon { width: 15px; height: 15px; } .ds-convo-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #e4e1da; } .ds-convo-head b { font-size: 1rem; font-weight: 600; line-height: 1.8; } .ds-avatar { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border-radius: 50%; background: #e4e1da; color: #545d6b; } .ds-avatar .ds-icon { width: 20px; height: 20px; } .ds-convo { display: flex; flex-direction: column; gap: 8px; padding: 14px 14px 18px; } .ds-time { text-align: center; color: #737b88; font-size: 0.74rem; } .ds-bubble { align-self: flex-start; max-width: 86%; padding: 9px 13px; border-radius: 18px; border-end-start-radius: 6px; background: #e9e7e1; color: #141820; font-size: 0.98rem; line-height: 1.8; overflow-wrap: anywhere; } .ds-mk-run { white-space: nowrap; unicode-bidi: isolate; } .ds-mk { padding: 0 1px; border-radius: 4px; line-height: 1.95; background-image: linear-gradient(rgba(229, 88, 79, 0.28), rgba(229, 88, 79, 0.28)); background-repeat: no-repeat; background-position: left center; background-size: 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; animation: ds-mark 560ms cubic-bezier(0.23, 1, 0.32, 1) both; animation-delay: var(--d, 120ms); } @keyframes ds-mark { from { background-size: 0% 100%; } } .ds-mk-n { display: inline-grid; place-items: center; width: 17px; height: 17px; margin-inline-end: 4px; vertical-align: 0.12em; border-radius: 50%; background: #c73a32; color: #ffffff; font: 700 0.68rem/1 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; animation: ds-num 300ms cubic-bezier(0.23, 1, 0.32, 1) both; animation-delay: var(--d, 120ms); } @keyframes ds-num { from { opacity: 0; transform: scale(0.6); } } .ds-link { color: #1f5fd1; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; } .ds-signal { display: flex; gap: 12px; align-items: flex-start; margin-top: 16px; padding: 12px; border-radius: 14px; background: #1a343b; color: #f3ede2; font: 400 0.97rem/1.55 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-signal p { margin: 0; } .ds-n { width: 24px; height: 24px; flex: none; display: grid; place-items: center; margin-top: 1px; border-radius: 50%; background: #c73a32; color: #ffffff; font: 700 0.78rem/1 'Readex Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; } @media (prefers-reduced-motion: reduce) { .ds-mk, .ds-mk-n { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pearl Merchant's Cloth",
+    "overview": "Every case is a strand being strung. The player judges ten messages, and each verdict seats a pearl in a ten-seat strand laid on the merchant's red cloth: a lustrous pearl for a right call, a dull bead for a wrong one, a brass ring for a seat still waiting. Progress, score and the result the player shares are one object, so the system refuses the category default of a dark quiz app with a progress bar, a points counter and green and red squares. The world is that of the Arabian Gulf's pearl merchant (الطوّاش): a deep blue green night sea for the ground, the red cloth as the one committed field for the day's case, nacre for the primary action and for right calls, and brass for every hairline, ring, thread and empty seat.\n\nThe game is an operating surface for short sessions on a phone, often in the evening, so the world shows as precision rather than ornament: standard controls, one soft elevation, gently rounded corners, Aref Ruqaa for titles and big numbers over Readex Pro for every other word. Motion has one authored moment: on each verdict a pearl drops into its seat in 240ms and a right call catches the light once, while a wrong call settles as a dull bead with no lustre. Three curves carry the movement: a quick ease-out (cubic-bezier(0.23, 1, 0.32, 1)) for presses, drops and arrivals, an ease-in-out (cubic-bezier(0.77, 0, 0.175, 1)) for light running across nacre, and a drawer curve (cubic-bezier(0.32, 0.72, 0, 1)) for sheets, dialogs and parked stamps. The message cards stand deliberately outside the world: they are real phone screens in the device's own font and inks, because the game trains the eye on the thing it will meet. Arabic is first class: strands, arrows, the cloth's light and the mark numbers all mirror for right to left reading, while the verdict buttons keep scam on the left and legit on the right in both languages, as the swipe does.\n\nThe website is a second surface in the same world. It keeps the sea, the cloth, brass, pearl and both faces, but lays them out as flat full-bleed fields, one colour per chapter, with no shadows and with buttons as full pills. The pieces of the game it shows keep the app's own radii, inks and type.",
+    "keyCharacteristics": [
+      "The ten-seat strand is progress, score and shared result in one object.",
+      "Night sea by default, with a Pearl day theme on pale sea mist; cloth, brass and pearl stay the same in both.",
+      "One red cloth field per app screen, carrying the day's case or the finished one.",
+      "Nacre is the reward: right calls, passed chapters, earned medals and the level shine as lustrous pearls, and a wrong call is a dull bead.",
+      "Aref Ruqaa at 700 for titles and big numbers, Readex Pro for every other word, the device font only inside message cards.",
+      "One soft elevation; everything else is tonal layering edged with hairline rings.",
+      "Fully mirrored for Arabic, with the verdict sides fixed."
+    ],
+    "rules": [
+      {
+        "name": "The One Cloth Rule",
+        "body": "An app screen holds at most one red cloth field: the day's case on Home, the finished case on results, the ground of the certificate. Smaller than a field, the cloth only ever grounds the mark and the icon of a certificate ready to claim.",
+        "section": "colors"
+      },
+      {
+        "name": "The Meaning-Only Rule",
+        "body": "Coral means scam or harm (a scam, a destructive action, time running out, the topic that fools the player most) and green means legit or safe; neither is ever decoration. A trap that only looks alarming is marked in Trap Gold, the one place brass carries a verdict, and the cloth's wine red never stands in for one.",
+        "section": "colors"
+      },
+      {
+        "name": "The Brass Seat Rule",
+        "body": "Seats, threads and the rings that hold pearls are brass in both themes. At night the container hairlines are brass as well; by day they turn to sea ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Hands Rule",
+        "body": "Aref Ruqaa writes only display text, always at 700: screen, section, sheet and dialog titles, the case title and big numbers. Readex Pro writes every other word, including the titles of rows, tiles and cards, buttons, labels, chips, stamps and the small counts in the play bar.",
+        "section": "typography"
+      },
+      {
+        "name": "The Phone's Own Voice Rule",
+        "body": "A message card speaks in the device font and the phone's inks. Only the game's own annotations on a card use Readex Pro: the channel line, the stamps, the mark numbers and banners such as an unknown sender.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Count Rule",
+        "body": "Every count, score, time and percentage sets tabular figures, so numbers hold still as they change.",
+        "section": "typography"
+      },
+      {
+        "name": "The Thumb Height Rule",
+        "body": "The day's one action sits at the foot of the cloth, at thumb height, with the strand centred in the space above it.",
+        "section": "layout"
+      },
+      {
+        "name": "The Fixed Sides Rule",
+        "body": "Scam is always on the left and legit on the right, in both languages, because the swipe is physical: left for scam, right for legit.",
+        "section": "layout"
+      },
+      {
+        "name": "The Mirror Rule",
+        "body": "In Arabic everything that reads mirrors: strands fill from the right, screens slide the other way, arrows flip, the cloth's light and its seal move to the top left, and mark numbers open on the right. Only the verdict sides stay where they are.",
+        "section": "layout"
+      },
+      {
+        "name": "The One Lift Rule",
+        "body": "Only a surface that sits above the sea gets the lift: the cloth, the message card, the toast, the certificate. Tiles, panels, rows and buttons stay flat with a hairline ring, and nothing carries both.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Pearls Cast Shadows Rule",
+        "body": "Contact shadows belong to nacre objects, never to containers.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Flat Chapter Rule",
+        "body": "The website casts no shadows: every section is one flat field, and depth comes from the change of field and the waterline.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Round Pearl Rule",
+        "body": "Circles are for pearls and what holds or counts them: beads, seats, the level seat, medals, journey stops, verdict discs and number discs, besides the phone's own avatars. Containers are never circles, and pearls are never squares.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Honest Strand Rule",
+        "body": "On a strand that reports play, a lustrous pearl always means a right call, a dull bead a wrong one and an empty brass ring a seat still waiting. The three never swap meaning.",
+        "section": "components"
+      },
+      {
+        "name": "The Reading Side Rule",
+        "body": "A mark's number opens the mark on the side the card reads from, joined to the mark's first word so it never sits alone on the line above. It keeps the card's direction even inside a left to right run, such as a phone number or a web address in an Arabic card, and the website's marked messages follow the same rule.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do let the strand carry progress, score and the shared result: one seat per card, a lustrous pearl for a right call, a dull bead for a wrong one, a brass ring for a seat still waiting.",
+      "Do keep one red cloth field per app screen, with its one primary action at the cloth's foot at thumb height.",
+      "Do draw container edges as inset hairline rings (brass at night, sea ink by day) and thicken them to a 2px brass ring for focus and selection.",
+      "Do set titles and big numbers in Aref Ruqaa 700, every other word in Readex Pro, and every count in tabular figures.",
+      "Do keep message cards in the device font and the phone's inks, with only the game's annotations in Readex Pro.",
+      "Do mirror everything that reads for Arabic, and keep scam on the left and legit on the right in both languages.",
+      "Do answer every press with a scale between 0.94 and 0.99 over 140ms on the quick ease-out (cubic-bezier(0.23, 1, 0.32, 1)), and keep hover for fine pointers.",
+      "Do theme the browser's own surfaces from the palette: a brass selection tint, a brass caret, thin scrollbars in the hairline colour and brass focus rings.",
+      "Do honour reduced motion and family mode: screen changes, pearl drops and arrivals become short fades of 160 to 180ms, light sweeps are dropped and loops stop; family mode also reads at least 1.3 times larger with targets of 52px and up.",
+      "Do give each website chapter one flat field with its own inks and action colour, and keep its buttons flat pills."
+    ],
+    "donts": [
+      "Don't track a case with a progress bar, a running points counter or a row of green and red squares: the strand is the progress. A bar only ever counts time, as in rush and the flag hunt.",
+      "Don't use coral or green as decoration, and never let the cloth's red stand for a verdict.",
+      "Don't let a strand show lustre it has not earned: a wrong call is always a dull bead and a waiting seat always an empty ring.",
+      "Don't give tiles, rows or buttons a drop shadow, or put a hairline ring under the lift.",
+      "Don't set a message card's own words in the game's faces or lay the world's colours on the card itself; only the debrief's marks, numbers and stamps sit on it.",
+      "Don't swap the verdict sides for Arabic, or let a mark's number fall onto the line above its words.",
+      "Don't draw seats, threads or night hairlines in neutral grey; they are brass.",
+      "Don't add shadows or rounded section panels to the website."
+    ]
+  }
+}
