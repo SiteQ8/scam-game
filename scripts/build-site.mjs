@@ -101,19 +101,26 @@ const exampleCards = pickExamples();
 // Pieces of the game's own interface for the feature tiles, in each language.
 const svgIcon = (name) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${G.ICONS[name] || ''}</svg>`;
 const CHANNEL_ICON = { sms: 'message-square', notification: 'bell', chat: 'message-circle', email: 'mail', call: 'phone', web: 'globe', qr: 'qr-code', social: 'users', market: 'shopping-bag' };
-/** A real card's message with its warning signs marked and numbered the way the game numbers them, in reading order. */
+/** A real card's sender and message with its warning signs marked and numbered the way the game numbers them,
+ * in reading order from the sender line down. As in the game, each number opens the word its mark begins in, on the
+ * reading side, and stays with that word at a line end. */
 function markedMessage(id, lang) {
   const card = byId.get(id);
   const block = card[lang];
   const nums = G.markNumbers(card, lang);
-  let html = R.esc(block.card.body);
+  const fields = { from: R.esc(block.card.sender || ''), body: R.esc(block.card.body) };
   block.signals.forEach((s, i) => {
     const m = R.esc(s.mark);
-    if (!html.includes(m)) return;
+    const key = fields.from.includes(m) ? 'from' : fields.body.includes(m) ? 'body' : null;
+    if (!key) return;
+    const text = fields[key];
+    const at = text.indexOf(m);
+    let from = at;
+    while (from > 0 && /[\p{L}\p{M}\p{N}]/u.test(text[from - 1])) from--;
     const ltr = /^[^\u0600-\u06FF]*$/.test(s.mark) ? ' dir="ltr"' : '';
-    html = html.replace(m, `<mark${ltr}><span class="n">${nums[i]}</span>${m}</mark>`);
+    fields[key] = `${text.slice(0, from)}<span class="mrun"><span class="n">${nums[i]}</span>${text.slice(from, at)}<mark${ltr}>${m}</mark></span>${text.slice(at + m.length)}`;
   });
-  return html;
+  return fields;
 }
 function ui(lang) {
   const S = G.S;
@@ -121,6 +128,9 @@ function ui(lang) {
     icon: svgIcon,
     channels: Object.keys(CHANNEL_ICON).map((ch) => ({ icon: CHANNEL_ICON[ch], name: G.CHANNEL_NAMES[ch][lang] })),
     listen: S.listen[lang],
+    caller: byId.get('call-bank-fraud-otp')[lang].card.caller,
+    callLabel: S.incomingCall[lang],
+    callLine: byId.get('call-bank-fraud-otp')[lang].card.lines[0].text,
     marked: markedMessage('sms-parcel-redelivery-fee', lang),
     packs: ['banking', 'delivery', 'ai'].map((id, i) => ({ id, icon: G.PACKS.find((p) => p.id === id).icon, name: S[`pack_${id}`][lang], pearls: [3, 2, 1][i] })),
     rank: G.RANKS[1][lang],

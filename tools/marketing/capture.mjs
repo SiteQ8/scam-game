@@ -1,7 +1,8 @@
 // Captures real screens of the game for the website, the store listings and the press kit.
 // Build the capture variant first:  npx vite build --mode capture
 // usage: node tools/marketing/capture.mjs [outdir] [en|ar]
-// Writes <outdir>/<lang>/<name>.png at 440x956 CSS pixels, 3x, plus small crops for the website.
+// Writes <outdir>/<lang>/<name>.png at 440x956 CSS pixels, 3x, and the four stages of a case for the website,
+// each element cut out at its own size.
 import { launch } from '../lib/env.mjs';
 import { spawn } from 'node:child_process';
 import { mkdirSync, existsSync, writeFileSync } from 'node:fs';
@@ -69,29 +70,13 @@ for (const lang of LANGS) {
   };
   const go = async (route, wait = 900) => { await page.evaluate((r) => window.__nav.reset(r), route); await sleep(wait); };
   const shot = async (name) => { await page.screenshot({ path: `${dir}/${name}.png` }); console.log(lang, name); };
-  const crop = async (name, sel, h, pad = 0) => {
-    // An element below the fold is scrolled up first, so the crop holds it whole.
-    const moved = await page.locator(sel).first().evaluate((e, h) => {
-      const r = e.getBoundingClientRect();
-      if (r.top >= 0 && r.top + h <= innerHeight) return false;
-      e.scrollIntoView({ block: 'center' });
-      return true;
-    }, h).catch(() => false);
-    if (moved) await sleep(350);
-    const box = await page.locator(sel).first().boundingBox();
-    if (!box) { console.log('no crop for', name, sel); return; }
-    // The element's whole width, so no line is cut off; the website scales the crop to 360 px.
-    const x = Math.max(0, box.x - pad);
-    const width = Math.min(W - x, box.width + pad * 2);
-    await page.screenshot({ path: `${dir}/crop-${name}.png`, clip: { x, y: Math.max(0, box.y - pad), width, height: h } });
-    console.log(lang, 'crop', name);
-  };
   const practice = (ids) => go({ name: 'play', mode: 'practice', ids }, 1100);
   // A whole element, cut out at its own size, for the website's case in four stages. With a line selector the
   // crop is taken a second time with that line left out, and where the line sits is written relative to the crop.
   // With `cut`, only the kept element is drawn and everything around it is left clear, so rounded corners and the
   // card's own shadow sit on whatever field the website puts them on.
-  const CUT = (keep, drop) => `html, body { background: transparent !important; } body * { visibility: hidden !important; } ${keep}, ${keep} * { visibility: visible !important; }${drop ? ` ${drop} { visibility: hidden !important; }` : ''}`;
+  // The website shows every card flat, with no drop shadow, so a cut-out leaves the game's shadow out.
+  const CUT = (keep, drop) => `html, body { background: transparent !important; } body * { visibility: hidden !important; } ${keep}, ${keep} * { visibility: visible !important; } .stage .msg, .cloth { box-shadow: none !important; }${drop ? ` ${drop} { visibility: hidden !important; }` : ''}`;
   const stage = async (name, sel, pad = 0, lineSel = null, cut = null) => {
     await page.locator(sel).first().evaluate((e) => {
       const r = e.getBoundingClientRect();
@@ -148,39 +133,6 @@ for (const lang of LANGS) {
     writeFileSync(`${dir}/stage-${name}.json`, JSON.stringify(meta));
     console.log(lang, 'stage', name);
   };
-  // A screen with a line that holds today's case number: shot as it is, then once more with that line left out,
-  // with where the line sits and how it is set, so the website can write in the number of the day it is seen.
-  const liveShot = async (name, sel) => {
-    await shot(name);
-    const live = await page.evaluate((sel) => {
-      const el = document.querySelector(sel);
-      if (!el) return null;
-      const cs = getComputedStyle(el);
-      const range = document.createRange();
-      range.selectNodeContents(el);
-      const r = range.getBoundingClientRect();
-      const probe = document.createElement('span');
-      probe.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline';
-      el.appendChild(probe);
-      const baseline = probe.getBoundingClientRect().bottom;
-      probe.remove();
-      const rtl = cs.direction === 'rtl';
-      const centred = cs.textAlign === 'center';
-      const line = {
-        text: el.textContent, tpl: el.textContent.replace(/\d+/, '{n}'), rtl, anchor: centred ? 'middle' : 'start',
-        x: centred ? (r.left + r.right) / 2 : rtl ? r.right : r.left, y: baseline,
-        family: cs.fontFamily, size: parseFloat(cs.fontSize), weight: Number(cs.fontWeight), spacing: parseFloat(cs.letterSpacing) || 0, color: cs.color,
-      };
-      el.style.color = 'transparent';
-      return line;
-    }, sel);
-    if (!live) { console.log('no case line for', name, sel); return; }
-    await sleep(100);
-    await shot(`${name}-live`);
-    writeFileSync(`${dir}/${name}-live.json`, JSON.stringify(live));
-    await page.evaluate((sel) => { document.querySelector(sel).style.color = ''; }, sel);
-  };
-
   // First screen of a new player who came from the website in their language (the link carries ?lang=).
   await page.goto(BASE, { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => localStorage.clear());
@@ -190,7 +142,7 @@ for (const lang of LANGS) {
 
   await boot(settings(lang), progress());
   await go({ name: 'home' });
-  await liveShot('home', '#case-h');
+  await shot('home');
 
   // The card packs, further down the home screen.
   await page.evaluate(() => {
@@ -200,19 +152,17 @@ for (const lang of LANGS) {
   });
   await sleep(500);
   await shot('packs');
-  await crop('f4', '.pack-grid', 200, 2);
 
   // Badges and the level.
   await go({ name: 'badges' }, 1100);
   await shot('badges');
-  await crop('f5', '.medal-grid', 196, 4);
   await go({ name: 'tips' });
   await shot('tips');
 
   // A card, the swipe in progress, and the verdict with its marks.
   await practice(['sms-parcel-redelivery-fee']);
   await shot('card');
-  await stage('k1', '.stage .msg', 18, null, { keep: '.stage .card-pos', drop: '.stage .stamp' });
+  await stage('k1', '.stage .msg', 0, null, { keep: '.stage .card-pos', drop: '.stage .stamp' });
   const card = await page.locator('.stage .card-wrap').boundingBox();
   await page.mouse.move(card.x + card.width / 2, card.y + card.height * 0.42);
   await page.mouse.down();
@@ -258,12 +208,11 @@ for (const lang of LANGS) {
   await page.click('.verdict-btn.scam');
   await sleep(2200);
   await shot('debrief');
-  await crop('f3', '.sheet .signals', 196);
   // The sheet steps down to a peek, so the whole card shows its numbered marks.
   await page.click('.sheet-handle');
   await sleep(900);
   // This stage is about the marks, so the verdict labels step aside for the picture.
-  await stage('k3', '.stage .msg', 18, null, { keep: '.stage .card-pos', drop: '.stage .stamp' });
+  await stage('k3', '.stage .msg', 0, null, { keep: '.stage .card-pos', drop: '.stage .stamp' });
 
   // A genuine message: green signs and a trap.
   await practice(['sms-bank-otp-own-purchase']);
@@ -274,14 +223,12 @@ for (const lang of LANGS) {
   for (const [name, id] of [['chat', 'chat-hi-mum-new-number'], ['email', 'email-supplier-bank-details-change'], ['web', 'web-bank-login-lookalike-padlock'], ['qr', 'qr-parking-meter-sticker'], ['social', 'social-giveaway-fake-badge'], ['market', 'market-buyer-overpay-refund']]) {
     await practice([id]);
     await shot(name);
-    if (name === 'chat') await crop('f1', '.stage .msg', 200);
   }
 
   // A call, part way through.
   await practice(['call-bank-fraud-otp']);
   await sleep(7500);
   await shot('call');
-  await crop('f2', '.stage .msg', 200);
 
   await go({ name: 'journey' });
   await shot('journey');
@@ -302,7 +249,6 @@ for (const lang of LANGS) {
   await page.locator('.player-row input').nth(2).blur();
   await sleep(400);
   await shot('party');
-  await crop('f6', '.players', 196, 6);
 
   await go({ name: 'checker' });
   const sample = lang === 'ar'
@@ -321,13 +267,11 @@ for (const lang of LANGS) {
   await shot('settings');
   await go({ name: 'about' });
   await shot('about');
-  await crop('f8', '.panel.prose', 168, 2);
 
   // Family mode: larger text and calmer motion on the same home screen.
   await boot(settings(lang, { family: true }), progress());
   await go({ name: 'home' });
-  await liveShot('family', '#case-h');
-  await crop('f7', '.tip-card', 230, 4);
+  await shot('family');
 
   // The certificate after the whole journey, with the player's name on it.
   await boot(settings(lang), graduate(lang));
@@ -348,11 +292,11 @@ for (const lang of LANGS) {
     await page.click('.bottom-bar .btn-primary');
     await sleep(900);
   }
-  await sleep(1200);
-  await liveShot('results', '.results-hero p');
-  // The closed case back on the home screen: the cloth with today's strand, finished.
-  await go({ name: 'home' });
-  await stage('k4', '.cloth', 0, '#case-h', { keep: '.cloth' });
+  // The finished strand catches the light pearl by pearl; the pictures wait until it has.
+  await sleep(2600);
+  await shot('results');
+  // The finished strand on its cloth, the last stage of a case.
+  await stage('k4', '.result-cloth', 0, '#res-h', { keep: '.result-cloth' });
 
   if (errors.length) console.log(lang, 'page errors:', errors.join('\n'));
   await ctx.close();

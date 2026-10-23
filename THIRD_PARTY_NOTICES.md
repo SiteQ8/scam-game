@@ -55,11 +55,10 @@ The iPhone and Android apps also contain code that comes with Capacitor under th
 
 ## Photographs on the website
 
-The website (`site/img/world/`, published in `docs/img/world/`) shows three photographs from Wikimedia Commons, each cropped and the two from 1911 also levelled. Their credits are in `site/img/world/credits.json` and on the pages themselves.
+The website (`site/img/world/`, published in `docs/img/world/`) shows two photographs from Wikimedia Commons, both from 1911, each cropped and levelled. Their credits are in `site/img/world/credits.json` and on the pages themselves.
 
 * Pearl diver ready to dive, Muharraq, March 1911. Unknown photographer. Public domain. https://commons.wikimedia.org/wiki/File:%D8%B7%D9%88%D8%A7%D8%B4%D8%A96.jpg
 * Pearlers working on their diving gear, Muharraq, March 1911. Unknown photographer. Public domain. https://commons.wikimedia.org/wiki/File:%D8%B7%D9%88%D8%A7%D8%B4%D8%A9.jpg
-* Kuwait City Dhow Harbour 09, 3 December 2022, by Zairon. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0). https://commons.wikimedia.org/wiki/File:Kuwait_City_Dhow_Harbour_09.jpg
 
 ## Audio
 

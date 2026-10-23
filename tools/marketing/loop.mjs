@@ -1,10 +1,11 @@
 // Draws the swipe for the website's second stage: the real card, dragged towards Scam, back, towards Genuine and
-// back again, on the website's own mist so it sits in its field without an edge. It starts and ends at rest, so it
-// loops without a seam. Each frame is a screenshot of the game with the card posed by the game's own drag rules
+// back again, on the website's own mist so it sits in its field without an edge. The card is drawn flat, with no
+// shadow, the way the website shows every card. It starts and ends at rest, so it loops without a seam. Each frame is a screenshot of the game with the card posed by the game's own drag rules
 // (tilt and label strength); the card travels less than a finger would, so the whole card stays in the picture.
 // Build the capture variant first:  npx vite build --mode capture
 // usage: node tools/marketing/loop.mjs [out dir]
-// Writes <out>/<lang>/swipe-loop.mp4, swipe-loop.webm, swipe-loop.webp and <out>/loop.json (CSS size of the picture).
+// Writes <out>/<lang>/swipe-loop.mp4, swipe-loop.webm, swipe-loop.webp and <out>/loop.json: the CSS size of the
+// picture and where the card rests inside it (shares of its width and height), so the page can line it up.
 import { launch } from '../lib/env.mjs';
 import { spawn, execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync, rmSync } from 'node:fs';
@@ -54,20 +55,19 @@ for (const lang of ['en', 'ar']) {
   await page.waitForFunction(() => window.__nav);
   await page.evaluate(() => window.__nav.reset({ name: 'play', mode: 'practice', ids: ['sms-parcel-redelivery-fee'] }));
   await sleep(1600);
-  // Only the card is drawn, on the website's mist; nothing moves on its own.
-  await page.addStyleTag({ content: `html, body { background: ${MIST} !important; } body * { visibility: hidden !important; } .stage .card-pos, .stage .card-pos * { visibility: visible !important; } .stage .msg { max-width: ${CARD}px !important; } *, *::before, *::after { transition: none !important; animation: none !important; }` });
+  // Only the card is drawn, on the website's mist, flat with a hairline edge; nothing moves on its own.
+  await page.addStyleTag({ content: `html, body { background: ${MIST} !important; } body * { visibility: hidden !important; } .stage .card-pos, .stage .card-pos * { visibility: visible !important; } .stage .msg { max-width: ${CARD}px !important; box-shadow: 0 0 0 1px rgba(16, 37, 43, 0.12) !important; } *, *::before, *::after { transition: none !important; animation: none !important; }` });
   await sleep(400);
   const box = await page.evaluate(() => { const r = document.querySelector('.stage .msg').getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height }; });
 
-  // The picture: the card at rest with room for its tilt, its travel, its label and its shadow.
+  // The picture: the card at rest with room for its tilt, its travel and its label, the same above and below.
   const rad = (DX / 20) * Math.PI / 180;
   const halfW = (box.w / 2) * Math.cos(rad) + (box.h / 2) * Math.sin(rad) + DX * TRAVEL * Z;
   const halfH = (box.h / 2) * Math.cos(rad) + (box.w / 2) * Math.sin(rad);
   const pad = 26 * Z;
   const even = (v) => Math.round(v / 2) * 2;
   const cx = box.x + box.w / 2, cy = box.y + box.h / 2;
-  // The card's shadow falls below it, so the picture reaches further down than up, until the mist is clear again.
-  const side = pad + 16 * Z, above = pad * 0.6, below = pad + 44 * Z;
+  const side = pad + 16 * Z, above = pad * 0.6, below = pad * 0.6;
   const clip = { width: even(2 * (halfW + side)), height: even(2 * halfH + above + below) };
   clip.x = even(cx - clip.width / 2);
   clip.y = even(cy - halfH - above);
@@ -99,7 +99,8 @@ for (const lang of ['en', 'ar']) {
   execFileSync('ffmpeg', ['-y', '-v', 'error', ...input, '-an', '-vf', vf, '-c:v', 'libx264', '-preset', 'slow', '-crf', '24', '-profile:v', 'high', ...tags, '-movflags', '+faststart', join(dir, 'swipe-loop.mp4')]);
   execFileSync('ffmpeg', ['-y', '-v', 'error', ...input, '-an', '-vf', vf, '-c:v', 'libvpx-vp9', '-crf', '34', '-b:v', '0', '-row-mt', '1', ...tags, join(dir, 'swipe-loop.webm')]);
   execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', join(frames, 'f0000.png'), '-vf', `scale=${outW}:${outH}:flags=lanczos`, '-c:v', 'libwebp', '-quality', '86', join(dir, 'swipe-loop.webp')]);
-  sizes[lang] = { w: outW / 2, h: outH / 2 };
+  const r = (v) => Math.round(v * 10000) / 10000;
+  sizes[lang] = { w: outW / 2, h: outH / 2, card: { x: r((box.x - clip.x) / clip.width), y: r((box.y - clip.y) / clip.height), w: r(box.w / clip.width), h: r(box.h / clip.height) } };
   console.log(lang, 'swipe loop', `${FRAMES} frames`, `${outW}x${outH}`);
 }
 writeFileSync(join(OUT, 'loop.json'), JSON.stringify(sizes));

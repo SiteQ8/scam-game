@@ -3,6 +3,8 @@ const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 export const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ESC[c]);
 
 export const EMAIL = 'site@hotmail.com';
+// Names that read as one word in either language, so a line never breaks inside them.
+const KEEP_TOGETHER = /App Store|Google Play|CC BY 4\.0|Wikimedia Commons|Aref Ruqaa|Readex Pro|SIL Open Font License/g;
 
 /** A translator for one language. Tokens: {email}, {mark}..{/mark}, {mail}..{/mail}, and {name} style variables. */
 export function translator(copy, lang, mailSubject) {
@@ -18,7 +20,7 @@ export function translator(copy, lang, mailSubject) {
     s = s.replace(/\{email\}/g, `<a href="mailto:${EMAIL}">${EMAIL}</a>`);
     s = s.replace(/\{mark\}(.*?)\{\/mark\}/g, '<mark>$1</mark>');
     s = s.replace(/\{mail\}(.*?)\{\/mail\}/g, `<a href="mailto:${EMAIL}?subject=${encodeURIComponent(mailSubject || '')}">$1</a>`);
-    return s;
+    return s.replace(KEEP_TOGETHER, (m) => m.replace(/ /g, '\u00a0'));
   };
   t.raw = raw;
   return t;
@@ -40,6 +42,17 @@ const strand = (seats, cls = '', rtl = false) => {
   const w = list.length * 24;
   const uses = list.map((v, i) => `<use href="#${v === 1 ? 'pearl' : v === 0 ? 'bead' : 'seat'}" x="${i * 24 + 2}" y="2" width="20" height="20"/>`).join('');
   return `<svg class="strand ${cls}" viewBox="0 0 ${w} 24" aria-hidden="true" focusable="false"><path d="M8 12H${w - 8}" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>${uses}</svg>`;
+};
+
+/** Ten pearls on a brass thread, graduated like a necklace: today's case before it is played. */
+const necklace = (cls = '') => {
+  const n = 10;
+  const gap = 5;
+  const sizes = Array.from({ length: n }, (_, i) => 28 * (0.6 + 0.4 * (1 - Math.abs(i - (n - 1) / 2) / ((n - 1) / 2))));
+  let x = 2;
+  const uses = sizes.map((s) => { const u = `<use href="#pearl" x="${x.toFixed(1)}" y="${((32 - s) / 2).toFixed(1)}" width="${s.toFixed(1)}" height="${s.toFixed(1)}"/>`; x += s + gap; return u; }).join('');
+  const w = Math.ceil(x - gap + 2);
+  return `<svg class="necklace ${cls}" viewBox="0 0 ${w} 32" width="${w}" height="32" aria-hidden="true" focusable="false"><path d="M6 16H${w - 6}" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>${uses}</svg>`;
 };
 
 function brandName(ctx) {
@@ -121,21 +134,22 @@ ${page === 'home' && lang === 'en' ? `<script src="${root}assets/lang.js?v=${ctx
 ${ctx.jsonld ? `<script type="application/ld+json">${ctx.jsonld}</script>\n` : ''}</head>`;
 }
 
-const ARROW = `<svg class="arrow" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 24h30M26 12l12 12-12 12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"/></svg>`;
-
-/** The close of every page: the last two rows of a board, every cell used. */
+/** The close of every page: a plain band of two rows. Who made it and where to go, then the time in Kuwait City and the credits. */
 function footer(ctx) {
   const { t, root, lang } = ctx;
   const pre = lang === 'ar' ? `${root}ar/` : root;
   const name = brandName(ctx);
   const repo = ctx.brand.repo ? `<a href="https://github.com/${esc(ctx.brand.repo)}">${t('foot_code')}</a>` : '';
-  return `<footer class="tiles">
-  <div class="tl t-say"><p class="say">${t('foot_what')}</p><p class="legal">${t('foot_copy')}. ${t('foot_credit')}</p></div>
-  <nav class="tl t-nav" aria-label="${esc(t.raw('nav_label'))}"><a href="${root}play/?lang=${lang}">${t('foot_play')}</a><a href="${pre}privacy/">${t('foot_privacy')}</a><a href="${pre}support/">${t('foot_support')}</a><a href="${pre}press/">${t('foot_press')}</a>${repo}${langSwitch(ctx)}</nav>
-  <div class="tl t-time"><img src="${root}img/world/kuwait-dhow-harbour.webp" width="800" height="800" alt="${esc(t.raw('time_alt'))}" loading="lazy" decoding="async"><p>${t('foot_city')}</p><p class="clock"><span class="sr-only">${t('foot_time')}: </span><span data-clock>UTC+3</span></p></div>
-  <div class="tl t-mail"><a href="mailto:${EMAIL}">${EMAIL}</a></div>
-  <div class="tl t-mark">${MARK_SVG('fm')}<span class="fw">${esc(name || t.raw('home_link'))}</span></div>
-  <a class="tl t-go" href="${root}play/?lang=${lang}"><span>${t('foot_open')}</span>${ARROW}</a>
+  return `<footer class="foot">
+  <div class="row">
+    <a class="wordmark" href="${pre}"${name ? '' : ` aria-label="${esc(t.raw('home_link'))}"`}>${MARK_SVG()}${name ? `<span>${esc(name)}</span>` : ''}</a>
+    <nav aria-label="${esc(t.raw('nav_label'))}"><a href="${root}play/?lang=${lang}">${t('foot_play')}</a><a href="${pre}privacy/">${t('foot_privacy')}</a><a href="${pre}support/">${t('foot_support')}</a><a href="${pre}press/">${t('foot_press')}</a>${repo}${langSwitch(ctx)}</nav>
+    <a class="mail" href="mailto:${EMAIL}">${EMAIL}</a>
+  </div>
+  <div class="row small">
+    <p class="made">${t('foot_what')}<span class="time"><span>${t('foot_city')}</span> <span class="clock"><span class="sr-only">${t('foot_time')}: </span><span data-clock>UTC+3</span></span></span></p>
+    <p class="legal"><span>${t('foot_copy')}</span><span>${t('foot_credit')}</span></p>
+  </div>
 </footer>`;
 }
 
@@ -158,7 +172,10 @@ function stageLoop(ctx) {
   if (!L) return '';
   const { t } = ctx;
   const base = `${ctx.root}img/${ctx.lang}/swipe-loop`;
-  return `<figure class="card loop"><video class="loop-v" width="${L.w}" height="${L.h}" muted loop playsinline disablepictureinpicture preload="none" poster="${base}.webp" aria-label="${esc(t.raw('k2_loop_alt'))}"><source src="${base}.webm" type='video/webm; codecs="vp9"'><source src="${base}.mp4" type="video/mp4"></video><button class="loop-btn" type="button" hidden data-pause="${esc(t.raw('loop_pause'))}" data-play="${esc(t.raw('loop_play'))}" aria-label="${esc(t.raw('loop_play'))}"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="1.2"/><rect x="13.5" y="5" width="3.5" height="14" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg></button></figure>`;
+  // Where the card rests inside the picture, so the page can draw it at the size and on the line of the other cards.
+  const c = L.card || { x: 0.11, y: 0.1, w: 0.78, h: 0.8 };
+  const box = `--fx:${c.x};--fy:${c.y};--fw:${c.w};--fh:${c.h};--ar:${(L.h / L.w).toFixed(4)}`;
+  return `<figure class="card loop" style="${box}"><video class="loop-v" width="${L.w}" height="${L.h}" muted loop playsinline disablepictureinpicture preload="none" poster="${base}.webp" aria-label="${esc(t.raw('k2_loop_alt'))}"><source src="${base}.webm" type='video/webm; codecs="vp9"'><source src="${base}.mp4" type="video/mp4"></video><button class="loop-btn" type="button" hidden data-pause="${esc(t.raw('loop_pause'))}" data-play="${esc(t.raw('loop_play'))}" aria-label="${esc(t.raw('loop_play'))}"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="1.2"/><rect x="13.5" y="5" width="3.5" height="14" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg></button></figure>`;
 }
 
 /** One of the four stages of a case: a real crop of the game, at its own size, today's number written in when it shows one. */
@@ -169,25 +186,24 @@ function stagePicture(ctx, k, alt) {
   return `<figure class="card" data-ui>${img(ctx, `stage-${k}${live ? '-live' : ''}`, alt, { w: meta.w, h: meta.h })}${live ? liveLine(live, meta.w, meta.h) : ''}</figure>`;
 }
 
-// The feature tiles hold pieces of the game's own interface, enlarged and cropped by the tile.
+// Each feature tile holds one moment of the game's own interface, all at one scale: a piece of the game, not an icon.
 function fragments(ctx) {
   const u = ctx.ui;
+  const { t } = ctx;
   return {
-    f1: `<ul class="fr fr-kinds" data-ui aria-hidden="true">${u.channels.map((c) => `<li>${u.icon(c.icon)}<span>${esc(c.name)}</span></li>`).join('')}</ul>`,
-    f2: `<div class="fr fr-call" data-ui aria-hidden="true"><span class="ring">${u.icon('phone-incoming')}</span><span class="play">${u.icon('play')}<span>${esc(u.listen)}</span></span></div>`,
-    f3: `<p class="fr fr-marks" data-ui aria-hidden="true" dir="auto">${u.marked}</p>`,
-    f4: `<div class="fr fr-packs" data-ui aria-hidden="true">${u.packs.map((pk) => `<span class="pk pk-${pk.id}"><span class="g">${u.icon(pk.icon)}</span><b>${esc(pk.name)}</b>${strand([1, 1, 1].map((_, i) => (i < pk.pearls ? 1 : null)), 'three', ctx.lang === 'ar')}</span>`).join('')}</div>`,
-    f5: `<div class="fr fr-level" data-ui aria-hidden="true"><span class="lp"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="22"/><circle class="fill" cx="24" cy="24" r="22" pathLength="100" stroke-dasharray="64 100"/><use href="#pearl" x="12" y="12" width="24" height="24"/></svg><b>4</b></span><span class="rk"><b>${esc(u.rank)}</b><span>${esc(u.level)}</span></span></div>`,
-    f6: `<ul class="fr fr-party" data-ui aria-hidden="true">${u.players.map((pl, i) => `<li class="${i === 0 ? 'me' : ''}">${u.icon('user')}<span>${esc(pl.name)}</span><b>${pl.score}</b></li>`).join('')}</ul>`,
-    f7: `<div class="fr fr-family" data-ui aria-hidden="true"><span class="sw" role="presentation"></span><span class="lbl"><b>${esc(u.family)}</b><span>${esc(u.familySub)}</span></span></div>`,
-    f8: `<p class="fr fr-private" data-ui aria-hidden="true">${esc(u.privacy)}</p>`,
+    marks: `<div class="fr fr-marks" data-ui aria-hidden="true"><p class="from" dir="auto">${u.marked.from}</p><p class="body" dir="auto">${u.marked.body}</p></div>`,
+    kinds: `<ul class="fr fr-kinds" data-ui aria-hidden="true">${u.channels.map((c) => `<li>${u.icon(c.icon)}<span>${esc(c.name)}</span></li>`).join('')}</ul>`,
+    call: `<div class="fr fr-call" data-ui aria-hidden="true"><span class="who"><span class="av">${u.icon('user')}</span><span><b dir="ltr">${esc(u.caller)}</b><span>${esc(u.callLabel)}</span></span></span><span class="play">${u.icon('play')}<span>${esc(u.listen)}</span></span><span class="line">${esc(u.callLine)}</span></div>`,
+    journey: `<div class="fr fr-journey" data-ui aria-hidden="true"><span class="lv"><span class="lp" style="--p:0.62"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#pearl"/></svg></span><span><b>${esc(u.rank)}</b><span>${esc(u.level)}</span></span></span><span class="pks">${u.packs.map((pk) => `<span class="pk">${u.icon(pk.icon)}<b>${esc(pk.name)}</b>${strand([1, 1, 1].map((_, i) => (i < pk.pearls ? 1 : null)), 'three', ctx.lang === 'ar')}</span>`).join('')}</span></div>`,
+    family: `<div class="fr fr-family" data-ui aria-hidden="true"><ul class="party">${u.players.map((pl, i) => `<li class="${i === 0 ? 'me' : ''}">${u.icon('user')}<span>${esc(pl.name)}</span><b>${pl.score}</b></li>`).join('')}</ul><span class="set"><span class="lbl"><b>${esc(u.family)}</b><span>${esc(u.familySub)}</span></span><span class="sw" role="presentation"></span></span></div>`,
+    private: `<p class="fr fr-private" data-ui aria-hidden="true">${t('f8_frag')}</p>`,
   };
 }
 
 const TILES = [
-  // [feature, grid area class, field]
-  ['f3', 'a-f3', 'mist'], ['f1', 'a-f1', 'sea2'], ['f2', 'a-f2', 'sea'], ['f7', 'a-f7', 'brass'],
-  ['f5', 'a-f5', 'sea2'], ['f4', 'a-f4', 'mist'], ['f6', 'a-f6', 'cloth'], ['f8', 'a-f8', 'sea2'],
+  // [fragment, heading, line]
+  ['marks', 'f3_h', 'f3_t'], ['kinds', 'f1_h', 'f1_t'], ['call', 'f2_h', 'f2_t'],
+  ['journey', 'fj_h', 'fj_t'], ['family', 'ff_h', 'ff_t'], ['private', 'f8_h', 'f8_t'],
 ];
 
 export function homePage(ctx) {
@@ -195,8 +211,9 @@ export function homePage(ctx) {
   const play = `${root}play/?lang=${lang}`;
   const frag = fragments(ctx);
   const faqs = Array.from({ length: 12 }, (_, i) => i + 1)
-    .map((i) => `<div class="band ${i % 2 ? 'f-sea' : 'f-sea2'}"><h3 class="rv">${t(`q${i}`)}</h3><p class="rv" style="--d:1">${i === 12 ? t(ctx.storesLive ? 'a12_live' : 'a12_soon') : t(`a${i}`)}</p></div>`)
-    .join('\n  ');
+    .map((i) => `<div class="qa rv" style="--d:${(i - 1) % 2}"><h3>${t(`q${i}`)}</h3><p>${i === 12 ? t(ctx.storesLive ? 'a12_live' : 'a12_soon') : t(`a${i}`)}</p></div>`)
+    .join('\n    ');
+  const k2 = ctx.stages?.k2;
   const headline = (tag, attrs) => `<${tag} class="wl-t"${attrs}><span class="ln"><span>${t('hero_l1')}</span></span><span class="ln"><span>${t('hero_l2')}</span></span></${tag}>`;
   const otherLang = lang === 'ar' ? 'en' : 'ar';
   return `${head(ctx, { title: t.raw('meta_title'), desc: t.raw('meta_desc'), page: 'home' })}
@@ -208,32 +225,38 @@ ${PEARL_DEFS}
   <div class="above">${headline('h1', ' id="hero-h"')}</div>
   <div class="below">${headline('p', ' aria-hidden="true"')}
     <div class="deep">
-      ${strand(Array(10).fill(null), 'hero-strand', lang === 'ar')}
+      ${necklace('hero-strand')}
       <p class="case-line"><b data-case-n>${t('bar_today')}</b><span data-case-sep hidden>${lang === 'ar' ? '، ' : ', '}</span><span data-case-date></span></p>
       <p class="sub">${t('hero_sub')}</p>
+      <a class="btn" href="${play}">${t('cta_primary')}</a>
     </div>
   </div>
+  ${k2 ? `<figure class="float" aria-hidden="true"><img src="${root}img/${lang}/stage-k2.webp" width="${k2.w}" height="${k2.h}" alt="" decoding="async" fetchpriority="high"></figure>` : ''}
   <header class="bar">
     <a class="wordmark" href="${root}${lang === 'ar' ? 'ar/' : ''}"${brandName(ctx) ? '' : ` aria-label="${esc(t.raw('home_link'))}"`}>${MARK_SVG()}${brandName(ctx) ? `<span>${esc(brandName(ctx))}</span>` : ''}</a>
-    <span class="acts">${langSwitch(ctx, 'lang')}<a class="btn" href="${play}">${t('cta_primary')}</a></span>
+    <span class="acts">${langSwitch(ctx, 'lang')}</span>
   </header>
 </section>
 
 <section id="check" class="ch f-mist showcase" aria-labelledby="sc-h">
-  <h2 id="sc-h" class="sr-only">${t('sc_a')} ${t('sc_b')}</h2>
-  <div class="tries">
-    <p class="hint" id="sc-hint">${t('sc_hint')}</p>
-    <div class="examples" role="group" aria-label="${esc(t.raw('sc_try'))}">
-      ${ctx.examples.map((e, i) => `<button type="button" data-example="${i}" aria-pressed="${i === 0}">${esc(e.label)}</button>`).join('')}
+  <div class="ch-head">
+    <h2 id="sc-h" class="rv">${t('hero_check')}</h2>
+    <div class="tries rv" style="--d:1">
+      <p class="hint" id="sc-hint">${t('sc_hint')}</p>
+      <div class="examples" role="group" aria-label="${esc(t.raw('sc_try'))}">
+        ${ctx.examples.map((e, i) => `<button type="button" data-example="${i}" aria-pressed="${i === 0}">${esc(e.label)}</button>`).join('')}
+      </div>
     </div>
   </div>
-  <label class="sr-only" for="sc-input">${t('sc_label')}</label>
-  <textarea id="sc-input" data-ui rows="3" dir="auto" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="sc-hint">${esc(ctx.examples[0].text)}</textarea>
+  <div class="field">
+    <label class="sr-only" for="sc-input">${t('sc_label')}</label>
+    <textarea id="sc-input" data-ui rows="6" dir="auto" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="sc-hint" placeholder="${esc(t.raw('sc_empty'))}">${esc(ctx.examples[0].text)}</textarea>
+    <p class="note">${t('sc_note')}</p>
+  </div>
   <div class="answer">
     <div class="chk" data-ui id="sc-result" aria-label="${esc(t.raw('sc_fragment'))}" role="region">${ctx.checkerHtml}</div>
     <p class="sr-only" aria-live="polite" id="sc-live"></p>
   </div>
-  <p class="note">${t('sc_note')}</p>
 </section>
 <script type="application/json" id="sc-examples">${JSON.stringify(ctx.examples.map((e) => e.text)).replace(/</g, '\\u003c')}</script>
 
@@ -251,7 +274,7 @@ ${PEARL_DEFS}
     ${stagePicture(ctx, 'k3', t.raw('k3_alt'))}
     <p class="clause rv" style="--d:1">${t('hw3')}</p>
   </div>
-  <div class="fld f-cloth">
+  <div class="fld f-sea2">
     ${stagePicture(ctx, 'k4', t.raw('k4_alt'))}
     <p class="clause rv" style="--d:1">${t('hw4')}</p>
   </div>
@@ -266,9 +289,11 @@ ${PEARL_DEFS}
   <p class="rv" style="--d:1">${t('eye_p')}</p>
 </section>
 
-<section id="features" class="board" aria-labelledby="feat-h">
-  <div class="tile a-head f-cloth"><h2 id="feat-h" class="rv">${t('feat_h2')}</h2></div>
-  ${TILES.map(([f, area, field]) => `<article class="tile ${area} f-${field}">${frag[f]}<div class="cap rv"><h3>${t(`${f}_h`)}</h3><p>${t(`${f}_t`)}</p></div></article>`).join('\n  ')}
+<section id="features" class="feats f-sea" aria-labelledby="feat-h">
+  <h2 id="feat-h" class="rv">${t('feat_h2')}</h2>
+  <div class="grid">
+    ${TILES.map(([f, h, p], i) => `<article class="tile t-${f} rv" style="--d:${i % 3}">${frag[f]}<div class="cap"><h3>${t(h)}</h3><p>${t(p)}</p></div></article>`).join('\n    ')}
+  </div>
 </section>
 
 <section id="about" class="about f-mist" aria-labelledby="ab-h">
@@ -286,9 +311,11 @@ ${PEARL_DEFS}
   </div>
 </section>
 
-<section id="faq" class="faq" aria-labelledby="faq-h">
-  <div class="band head f-brass"><h2 id="faq-h" class="rv">${t('faq_h2')}</h2></div>
-  ${faqs}
+<section id="faq" class="faq f-sea2" aria-labelledby="faq-h">
+  <h2 id="faq-h" class="rv">${t('faq_h2')}</h2>
+  <div class="qas">
+    ${faqs}
+  </div>
 </section>
 
 <section class="cta f-cloth" aria-labelledby="cta-h">

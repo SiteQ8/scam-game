@@ -20,7 +20,7 @@
   },
   "cta_primary": { "en": "Open today’s case", "ar": "افتح ملف اليوم" },
   "hero_check": { "en": "Check a message you received", "ar": "افحص رسالة وصلتك" },
-  "bar_today": { "en": "Today's case", "ar": "ملف اليوم" },
+  "bar_today": { "en": "Today’s case", "ar": "ملف اليوم" },
   "bar_note": { "en": "Ten cards, the same for everyone today", "ar": "عشر بطاقات يلعبها الجميع اليوم" },
   "stage_label": { "en": "Screens from the game", "ar": "شاشات من اللعبة" },
   "shot_home": { "en": "The home screen with today’s case file", "ar": "الشاشة الرئيسية وعليها ملف اليوم" },
@@ -365,8 +365,8 @@
   "pr_trailer_label": { "en": "The trailer, with sound", "ar": "العرض الترويجي مع الصوت" },
   "pr_h_credits": { "en": "Credits", "ar": "الشكر والمصادر" },
   "pr_credits": {
-    "en": "Voices, music, sound effects and the trailer's opening shot were made with ElevenLabs. Fonts are Aref Ruqaa and Readex Pro under the SIL Open Font License, and icons come from Lucide under the ISC licence. The photographs of the pearl trade at Muharraq in 1911 are in the public domain, and the dhow harbour of Kuwait City is by Zairon under CC BY 4.0, all from Wikimedia Commons.",
-    "ar": "صُنعت الأصوات والموسيقى والمؤثرات الصوتية واللقطة الافتتاحية للعرض الترويجي عبر ElevenLabs، والخطوط هي Aref Ruqaa و Readex Pro برخصة SIL Open Font License، والأيقونات من Lucide برخصة ISC، أما صور تجارة اللؤلؤ في المحرق عام 1911 فهي ملك عام، وصورة ميناء السفن الشراعية في مدينة الكويت من تصوير Zairon برخصة CC BY 4.0، وكلها من Wikimedia Commons."
+    "en": "Voices, music, sound effects and the trailer’s opening shot were made with ElevenLabs. Fonts are Aref Ruqaa and Readex Pro under the SIL Open Font License, and icons come from Lucide under the ISC licence. The photographs of the pearl trade at Muharraq in 1911 are in the public domain, from Wikimedia Commons.",
+    "ar": "صُنعت الأصوات والموسيقى والمؤثرات الصوتية واللقطة الافتتاحية للعرض الترويجي عبر ElevenLabs، والخطوط هي Aref Ruqaa و Readex Pro برخصة SIL Open Font License، والأيقونات من Lucide برخصة ISC، أما صور تجارة اللؤلؤ في المحرق عام 1911 فهي ملك عام من Wikimedia Commons."
   },
   "nf_title": { "en": "This link leads nowhere", "ar": "هذا الرابط لا يقود إلى أي مكان" },
   "nf_p": { "en": "Just like the links in the game.", "ar": "تماماً مثل الروابط في اللعبة." },
@@ -383,7 +383,7 @@
   "loop_pause": { "en": "Pause the swipe", "ar": "أوقف السحبة" },
   "loop_play": { "en": "Play the swipe", "ar": "شغّل السحبة" },
   "k3_alt": { "en": "The same card with the words that gave it away, numbered", "ar": "البطاقة نفسها وقد حُددت الكلمات التي كشفتها بالأرقام" },
-  "k4_alt": { "en": "Today's case closed on the red cloth, with its strand of pearls", "ar": "ملف اليوم مغلقاً على القماش الأحمر ومعه عقد اللؤلؤ" },
+  "k4_alt": { "en": "Today’s case closed on the red cloth, with its strand of pearls", "ar": "ملف اليوم مغلقاً على القماش الأحمر ومعه عقد اللؤلؤ" },
   "f1_t": { "en": "Texts, chats, emails, calls, pages, QR codes and more.", "ar": "رسائل ومحادثات وبريد ومكالمات وصفحات ورموز QR وغيرها." },
   "f2_t": { "en": "Answer and hear the caller as the words appear.", "ar": "ترد فتسمع المتصل وكلماته تظهر أمامك." },
   "f3_t": { "en": "Each warning sign, numbered in reading order.", "ar": "كل علامة تحذير مرقمة بترتيب قراءتها." },
@@ -403,13 +403,13 @@
     "en": "Every card follows a trick scammers really use, in the Arabian Gulf and around the world, with fictional names and links. The game is free and open source, has no ads and never asks for your data.",
     "ar": "كل بطاقة تتبع حيلة يستخدمها المحتالون فعلاً في الخليج العربي وحول العالم بأسماء وروابط وهمية، واللعبة مجانية ومفتوحة المصدر وبلا إعلانات ولا تطلب منك أي بيانات."
   },
-  "ab_btn": { "en": "Send me a message that fooled you", "ar": "أرسل لي رسالة خدعتك" },
+  "ab_btn": { "en": "Send me a scam that fooled you", "ar": "أرسل لي رسالة خدعتك" },
   "ab_photo_alt": { "en": "A pearl diver in the water beside his boat, holding the rope, at Muharraq in 1911", "ar": "غواص لؤلؤ في الماء بجانب قاربه ممسكاً بالحبل في المحرق عام 1911" },
   "ab_photo_cap": {
     "en": "A pearl diver at Muharraq, 1911. The game takes its colours from the pearl trade of the Arabian Gulf.",
     "ar": "غواص لؤلؤ في المحرق عام 1911، ومن تجارة اللؤلؤ في الخليج العربي أخذت اللعبة ألوانها."
   },
-  "cta_lead": { "en": "Today's case", "ar": "ملف اليوم" },
+  "cta_lead": { "en": "Today’s case", "ar": "ملف اليوم" },
   "cta_in_en": { "en": "in English", "ar": "بالإنجليزية" },
   "cta_in_ar": { "en": "in Arabic", "ar": "بالعربية" },
   "cta_go": { "en": "Open it", "ar": "افتحه" },
@@ -419,10 +419,10 @@
   "foot_city": { "en": "Kuwait City", "ar": "مدينة الكويت" },
   "foot_time": { "en": "Local time", "ar": "التوقيت المحلي" },
   "foot_credit": {
-    "en": "Photographs: pearlers at Muharraq, 1911, public domain; the dhow harbour of Kuwait City by Zairon, CC BY 4.0; both via Wikimedia Commons.",
-    "ar": "الصور: الغواصون في المحرق عام 1911 في الملك العام، وميناء السفن الخشبية في مدينة الكويت بعدسة Zairon برخصة CC BY 4.0، وكلتاهما عبر ويكيميديا كومنز."
+    "en": "Photographs of the pearl trade at Muharraq, 1911, public domain, via Wikimedia Commons",
+    "ar": "صور تجارة اللؤلؤ في المحرق عام 1911 من الملك العام عبر ويكيميديا كومنز"
   },
-  "foot_open": { "en": "Open today's case", "ar": "افتح ملف اليوم" },
+  "foot_open": { "en": "Open today’s case", "ar": "افتح ملف اليوم" },
   "eye_h": { "en": "Tell the real from the fake", "ar": "اعرف الحقيقي من المزيف" },
   "eye_p": {
     "en": "In the pearl trade of the Arabian Gulf, merchants judged each pearl by eye before they bought it. The game asks the same of every message: look closely, then decide.",
@@ -430,5 +430,18 @@
   },
   "eye_alt": { "en": "Pearlers on their boat at Muharraq in 1911, one rinsing his diving gear in the sea", "ar": "رجال على قارب للغوص في المحرق عام 1911، وأحدهم يغسل عدة الغوص في البحر" },
   "eye_cap": { "en": "Pearlers working on their diving gear at Muharraq, 1911.", "ar": "رجال يجهزون عدة الغوص في المحرق عام 1911." },
-  "time_alt": { "en": "Wooden dhows moored in the dhow harbour of Kuwait City", "ar": "سفن خشبية راسية في ميناء السفن الخشبية بمدينة الكويت" }
+  "fj_h": { "en": "Chapters, packs and a pearl that grows", "ar": "فصول وحزم ولؤلؤة تكبر" },
+  "fj_t": {
+    "en": "Eight chapters to expert, six packs and 31 badges, and a pearl that grows with your level.",
+    "ar": "ثمانية فصول حتى مستوى الخبراء وست حزم و31 شارة، ولؤلؤة تكبر مع مستواك."
+  },
+  "ff_h": { "en": "Play together, or in family mode", "ar": "العبوا معاً أو بوضع العائلة" },
+  "ff_t": {
+    "en": "Pass one phone around the room, or switch on larger text, calmer motion and no timers.",
+    "ar": "هاتف واحد يتنقل بينكم، أو خط أكبر وحركة أهدأ بلا مؤقتات."
+  },
+  "f8_frag": {
+    "en": "No account, no ads, no tracking. Your progress stays on your device, in the app and in the browser.",
+    "ar": "لا حساب ولا إعلانات ولا تتبع، ويبقى تقدمك على جهازك في التطبيق وفي المتصفح."
+  }
 }

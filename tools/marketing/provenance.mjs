@@ -67,7 +67,9 @@ mark(list('site/img/world', raster), (f) => {
 for (const lang of ['en', 'ar']) {
   mark(list(`site/img/${lang}`, raster), (f) => (basename(f).startsWith('swipe-loop')
     ? 'first frame of the swipe loop drawn by tools/marketing/loop.mjs from the game itself (capture build).'
-    : 'a screen of the game itself, captured by tools/marketing/capture.mjs from the capture build and resized by tools/marketing/site-images.py.'));
+    : basename(f).startsWith('stage-')
+      ? 'an element of the game itself, cut out at its own size by tools/marketing/capture.mjs from the capture build and resized by tools/marketing/site-images.py.'
+      : 'a screen of the game itself, captured by tools/marketing/capture.mjs from the capture build and resized by tools/marketing/site-images.py.'));
 }
 mark(list('site/img', (f) => /^og-.*\.png$/.test(f)), 'link preview drawn by tools/marketing/og.mjs around the game\'s own debrief screen, in the website\'s colours and type.');
 mark(walk('store/screenshots', raster), 'store screenshot drawn by tools/marketing/store-shots.mjs around a screen of the game captured by tools/marketing/capture.mjs.');
