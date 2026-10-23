@@ -2,8 +2,8 @@
 // Real app footage and screens inside a phone, an ElevenLabs opening shot, ElevenLabs narration
 // (Abu Salem in Arabic), the game's own music and sound effects.
 //
-// Needs: a capture (tools/marketing/capture.mjs) and a recording (tools/marketing/record.mjs),
-//        the site built once (docs/assets/fonts), ffmpeg on the PATH.
+// Needs: a capture (tools/marketing/capture.mjs) and a recording (tools/marketing/record.mjs), ffmpeg on the PATH.
+// The frames are drawn in the pearl world (tools/marketing/look.mjs): each caption on a field of its own colour.
 // usage: node tools/marketing/trailer.mjs <capture dir> <recording dir> <out dir> [en|ar]
 import { launch } from '../lib/env.mjs';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -11,11 +11,11 @@ import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { MARK_SVG } from '../../site/render.mjs';
+import { FACES, DISPLAY, TEXT, C, FIELDS, WATERLINE, esc } from './look.mjs';
 
 const [capture, recording, out, only] = process.argv.slice(2).map((p, i) => (i < 3 ? resolve(p) : p));
 if (!capture || !recording || !out) throw new Error('usage: node tools/marketing/trailer.mjs <capture dir> <recording dir> <out dir> [en|ar]');
 const root = resolve('.');
-const fonts = join(root, 'docs/assets/fonts');
 const copy = JSON.parse(readFileSync(join(root, 'site/copy.json'), 'utf8'));
 const brand = JSON.parse(readFileSync(join(root, 'brand.json'), 'utf8'));
 const marks = JSON.parse(readFileSync(join(recording, 'marks.json'), 'utf8'));
@@ -31,49 +31,48 @@ const pad = Math.round(phoneH * 0.0116);
 const SH = phoneH - pad * 2, SW = Math.round((SH * 440) / 956 / 2) * 2;
 const PW = SW + pad * 2, PX = Math.round((W - PW) / 2), SX = PX + pad, SY = PHONE_TOP + pad;
 
+// Each caption sits on a field of its own colour, as the website's chapters do, with one word marked in that field's colour.
 const CAPTIONS = {
   open: { en: 'A message just arrived. Real or scam?', ar: 'وصلتك رسالة، فهل هي حقيقية أم احتيال؟' },
-  swipe: { en: copy.hero_h1.en, ar: copy.hero_h1.ar, mark: { en: 'scams', ar: 'الاحتيال' } },
-  marked: { en: copy.f3_h.en, ar: copy.f3_h.ar, mark: { en: 'marked', ar: 'واضحة' } },
-  call: { en: copy.f2_h.en, ar: copy.f2_h.ar },
-  nine: { en: copy.f1_h.en, ar: copy.f1_h.ar },
-  check: { en: copy.hero_check.en, ar: copy.hero_check.ar },
-  day: { en: copy.how_h2.en, ar: copy.how_h2.ar },
-  together: { en: copy.f5_h.en, ar: copy.f5_h.ar },
+  swipe: { en: copy.hero_h1.en, ar: copy.hero_h1.ar, mark: { en: 'scams', ar: 'الاحتيال' }, field: 'mist' },
+  marked: { en: copy.f3_h.en, ar: copy.f3_h.ar, mark: { en: 'marked', ar: 'واضحة' }, field: 'sea' },
+  call: { en: copy.f2_h.en, ar: copy.f2_h.ar, field: 'cloth' },
+  nine: { en: copy.f1_h.en, ar: copy.f1_h.ar, field: 'sea' },
+  check: { en: copy.hero_check.en, ar: copy.hero_check.ar, field: 'brass' },
+  day: { en: copy.how_h2.en, ar: copy.how_h2.ar, field: 'mist' },
+  together: { en: copy.f6_h.en, ar: copy.f6_h.ar, field: 'sea' },
 };
 // Until the apps are in the stores the trailer ends on the coming soon line; afterwards, on where to get it.
 const END_LINE = (brand.appStoreId && brand.appStoreLive) || brand.playLive
   ? { en: 'Free on iPhone, Android and the web', ar: 'مجانية على آيفون وأندرويد والويب' }
   : { en: 'Coming soon to iPhone and Android', ar: 'قريباً على آيفون وأندرويد' };
 
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-const withMark = (text, word) => (word && text.includes(word) ? esc(text).replace(esc(word), `<mark>${esc(word)}</mark>`) : esc(text));
-const FACES = `
-@font-face { font-family: 'Alexandria'; src: url('file://${fonts}/alexandria-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; unicode-range: U+0000-00FF, U+2000-206F; }
-@font-face { font-family: 'Alexandria'; src: url('file://${fonts}/alexandria-arabic-wght-normal.woff2') format('woff2'); font-weight: 100 900; unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF; }
-@font-face { font-family: 'Plex'; src: url('file://${fonts}/ibm-plex-sans-arabic-arabic-400-normal.woff2') format('woff2'); font-weight: 400; unicode-range: U+0600-06FF, U+FB50-FDFF, U+FE70-FEFF; }
-@font-face { font-family: 'Plex'; src: url('file://${fonts}/ibm-plex-sans-arabic-latin-400-normal.woff2') format('woff2'); font-weight: 400; unicode-range: U+0000-00FF, U+2000-206F; }
+const withMark = (text, word) => (word && text.includes(word) ? esc(text).replace(esc(word), `<em>${esc(word)}</em>`) : esc(text));
+const BASE = `${FACES}
 * { margin: 0; box-sizing: border-box; }
-mark { background: #ffd43b; color: #141820; padding: 0 0.12em; border-radius: 0.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }`;
+em { font-style: normal; }`;
 
 /** A caption above the phone, with a transparent hole where the screen shows through. */
 function framePage(lang, key) {
   const c = CAPTIONS[key];
   const ar = lang === 'ar';
   const r = Math.round(phoneH * 0.064), sr = Math.round(phoneH * 0.053);
-  return `<!doctype html><html lang="${lang}" dir="${ar ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><style>${FACES}
+  const fl = FIELDS[c.field];
+  const light = fl.bg === C.mist || fl.bg === C.brass;
+  return `<!doctype html><html lang="${lang}" dir="${ar ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><style>${BASE}
 html, body { width: ${W}px; height: ${H}px; background: transparent; overflow: hidden; }
 svg { position: absolute; inset: 0; }
-h1 { position: absolute; top: 112px; inset-inline: 84px; color: #141820; font: 500 ${ar ? 86 : 92}px/${ar ? 1.3 : 1.05} 'Alexandria', sans-serif; letter-spacing: ${ar ? 0 : '-0.022em'}; text-wrap: balance; }
+h1 { position: absolute; top: 112px; inset-inline: 84px; color: ${fl.ink}; font: 700 ${ar ? 88 : 96}px/${ar ? 1.3 : 1.1} ${DISPLAY}; letter-spacing: ${ar ? 0 : '-0.015em'}; text-wrap: balance; }
+h1 em { color: ${fl.mark}; }
 </style></head><body>
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <defs>
     <mask id="hole"><rect width="${W}" height="${H}" fill="#fff"/><rect x="${SX}" y="${SY}" width="${SW}" height="${SH}" rx="${sr}" fill="#000"/></mask>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="${Math.round(phoneH * 0.025)}" stdDeviation="${Math.round(phoneH * 0.03)}" flood-color="#141820" flood-opacity="0.32"/></filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="${Math.round(phoneH * 0.025)}" stdDeviation="${Math.round(phoneH * 0.03)}" flood-color="${C.onMist}" flood-opacity="${light ? 0.3 : 0}"/></filter>
   </defs>
   <g mask="url(#hole)">
-    <rect width="${W}" height="${H}" fill="#f4f3f0"/>
-    <rect x="${PX}" y="${PHONE_TOP}" width="${PW}" height="${phoneH}" rx="${r}" fill="#1b2130" filter="url(#shadow)"/>
+    <rect width="${W}" height="${H}" fill="${fl.bg}"/>
+    <rect x="${PX}" y="${PHONE_TOP}" width="${PW}" height="${phoneH}" rx="${r}" fill="${C.phone}" filter="url(#shadow)"/>
   </g>
 </svg>
 <h1>${withMark(c[lang], c.mark?.[lang])}</h1>
@@ -83,32 +82,36 @@ h1 { position: absolute; top: 112px; inset-inline: 84px; color: #141820; font: 5
 /** The opening caption, set over the ElevenLabs shot. */
 function openPage(lang) {
   const ar = lang === 'ar';
-  return `<!doctype html><html lang="${lang}" dir="${ar ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><style>${FACES}
+  return `<!doctype html><html lang="${lang}" dir="${ar ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><style>${BASE}
 html, body { width: ${W}px; height: ${H}px; background: transparent; overflow: hidden; }
-.shade { position: absolute; inset: 0 0 auto; height: 760px; background: linear-gradient(rgba(6, 9, 15, 0.82), rgba(6, 9, 15, 0)); }
-h1 { position: absolute; top: 120px; inset-inline: 84px; color: #f1f4f8; font: 500 ${ar ? 84 : 90}px/${ar ? 1.32 : 1.06} 'Alexandria', sans-serif; letter-spacing: ${ar ? 0 : '-0.02em'}; text-wrap: balance; }
+.shade { position: absolute; inset: 0 0 auto; height: 760px; background: linear-gradient(rgba(6, 15, 18, 0.84), rgba(6, 15, 18, 0)); }
+h1 { position: absolute; top: 120px; inset-inline: 84px; color: ${C.pearl}; font: 700 ${ar ? 88 : 94}px/${ar ? 1.32 : 1.1} ${DISPLAY}; letter-spacing: ${ar ? 0 : '-0.015em'}; text-wrap: balance; }
 </style></head><body><div class="shade"></div><h1>${esc(CAPTIONS.open[lang])}</h1></body></html>`;
 }
 
+/** The last card: the website's waterline, with the name above the surface and where to get it under it. */
 function endPage(lang) {
   const ar = lang === 'ar';
   const name = ar ? brand.nameAr || brand.nameEn : brand.nameEn;
-  return `<!doctype html><html lang="${lang}" dir="${ar ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><style>${FACES}
-html, body { width: ${W}px; height: ${H}px; background: #f4f3f0; color: #141820; overflow: hidden; font-family: 'Plex', sans-serif; }
-.stack { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 96px 120px; }
-.mark { width: 200px; height: 200px; border-radius: 48px; overflow: hidden; box-shadow: 0 30px 60px -24px rgba(20, 24, 32, 0.4); }
-.mark svg { width: 100%; height: 100%; display: block; }
-.name { margin-top: 64px; font: 600 64px/1.2 'Alexandria', sans-serif; }
-h1 { margin-top: ${name ? 28 : 72}px; font: 500 ${ar ? 112 : 120}px/${ar ? 1.3 : 1.02} 'Alexandria', sans-serif; letter-spacing: ${ar ? 0 : '-0.025em'}; text-wrap: balance; }
-p { margin-top: 44px; font-size: 44px; line-height: 1.4; color: #4a5361; }
-.site { margin-top: 18px; font-size: 40px; color: #141820; }
-</style></head><body><div class="stack">
-<div class="mark">${MARK_SVG('')}</div>
-${name ? `<div class="name">${esc(name)}</div>` : ''}
-<h1>${withMark(copy.hero_h1[lang], CAPTIONS.swipe.mark[lang])}</h1>
-<p>${esc(END_LINE[lang])}</p>
-${brand.domain ? `<div class="site" dir="ltr">${esc(brand.domain)}</div>` : ''}
-</div></body></html>`;
+  const seam = 1010;
+  return `<!doctype html><html lang="${lang}" dir="${ar ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><style>${BASE}
+html, body { width: ${W}px; height: ${H}px; background: ${C.sea}; overflow: hidden; font-family: ${TEXT}; }
+.above { position: absolute; inset: 0 0 auto; height: ${seam}px; background: ${C.mist}; }
+.brand { position: absolute; top: 300px; inset-inline-start: 96px; display: flex; align-items: center; gap: 30px; color: ${C.onMist}; font: 700 60px/1.2 ${DISPLAY}; }
+.brand svg { width: 140px; height: 140px; display: block; }
+.l { position: absolute; inset-inline-start: 92px; font: 700 ${ar ? 150 : 168}px/${ar ? 1.32 : 1} ${DISPLAY}; white-space: nowrap; letter-spacing: ${ar ? 0 : '-0.015em'}; }
+.l1 { color: ${C.cloth}; }
+.l2 { color: ${C.pearl}; }
+.after { position: absolute; inset-inline: 96px; }
+.after p { font-size: 46px; line-height: 1.4; color: ${C.onSea2}; }
+.after .site { margin-top: 14px; color: ${C.onSea}; }
+</style><script>${WATERLINE}</script></head><body data-seam="${seam}" data-gap="30" data-after="64">
+<div class="above"></div>
+<div class="brand">${MARK_SVG('')}${name ? `<span>${esc(name)}</span>` : ''}</div>
+<div class="l l1">${esc(copy.hero_l1[lang])}</div>
+<div class="l l2">${esc(copy.hero_l2[lang])}</div>
+<div class="after"><p>${esc(END_LINE[lang])}</p>${brand.domain ? `<p class="site" dir="ltr">${esc(brand.domain)}</p>` : ''}</div>
+</body></html>`;
 }
 
 async function renderPngs(lang) {
@@ -120,6 +123,7 @@ async function renderPngs(lang) {
     writeFileSync(tmp, html);
     await page.goto(`file://${tmp}`, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
+    await page.evaluate(() => window.waterline?.());
     await page.waitForTimeout(120);
     await page.screenshot({ path: file, omitBackground: transparent });
   };
@@ -191,7 +195,7 @@ function build(lang) {
   ].map(([n, t, v]) => ({ i: add(['-i', audio(n)]), t, v }));
 
   const g = [];
-  g.push(`color=c=0xf4f3f0:s=${W}x${H}:r=${FPS}:d=${TOTAL}[base]`);
+  g.push(`color=c=0x${C.sea.slice(1)}:s=${W}x${H}:r=${FPS}:d=${TOTAL}[base]`);
   let last = 'base';
   content.forEach((c, n) => {
     const src = c.from !== undefined

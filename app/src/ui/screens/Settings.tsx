@@ -55,7 +55,7 @@ export function Settings() {
           </div>
         </div>
         <div class="group">
-          <div class="panel"><button class="row link-row" onClick={() => setErase(true)} style={{ color: 'var(--scam-text)' }}><Icon name="rotate-ccw" class="lead" /><span class="lbl">{t('reset')}</span></button></div>
+          <div class="panel"><button class="row link-row danger" onClick={() => setErase(true)}><Icon name="rotate-ccw" class="lead" /><span class="lbl">{t('reset')}</span></button></div>
         </div>
       </div></div>
       {erase && <Confirm title={t('reset')} body={t('resetConfirm')} confirm={t('erase')} cancel={t('cancel')} danger onConfirm={async () => { setErase(false); await eraseAll(); reset(); }} onCancel={() => setErase(false)} />}

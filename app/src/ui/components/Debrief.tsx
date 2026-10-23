@@ -3,7 +3,7 @@ import type { Card, Lang, LangBlock, Verdict } from '../../content/types';
 import { Icon } from './Icon';
 import { S } from '../../i18n/strings';
 import { fmtNum } from '../../i18n/i18n';
-import { bidi } from '../cards/marker';
+import { bidi, markNumbers } from '../cards/marker';
 
 interface Props {
   card: Card;
@@ -18,28 +18,40 @@ interface Props {
 }
 
 const KIND_LABEL = { red: 'redFlags', green: 'greenSignals', trap: 'traps' } as const;
+type Kind = keyof typeof KIND_LABEL;
 
+/**
+ * What to take away first, then the evidence grouped by kind. The numbers match the marks on the card,
+ * and the group that decides the verdict comes first.
+ */
 export function SignalList({ card, lang, active, onSignal }: { card: Card; lang: Lang; active: number | null; onSignal: (i: number) => void }) {
   const block = card[lang] as LangBlock;
+  const numbers = markNumbers(card, lang);
+  const order: Kind[] = card.verdict === 'scam' ? ['red', 'trap', 'green'] : ['green', 'trap', 'red'];
+  const groups = order
+    .map((k) => ({ k, items: block.signals.map((s, i) => ({ s, i, n: numbers[i] })).filter((x) => x.s.kind === k).sort((a, b) => a.n - b.n) }))
+    .filter((g) => g.items.length);
   return (
     <>
-      <ul class="signals">
-        {block.signals.map((s, i) => (
-          <li key={i}>
-            <button class={`signal ${s.kind} ${active === i ? 'active' : ''}`} onClick={() => onSignal(i)}>
-              <span class="n">{i + 1}</span>
-              <span>
-                <span class="k">{S[KIND_LABEL[s.kind]][lang]}</span>
-                <p>{bidi(s.why)}</p>
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
       <div class="lesson">
         <b><Icon name="shield-check" />{S.nextTime[lang]}</b>
         <p>{bidi(block.lesson)}</p>
       </div>
+      {groups.map((g) => (
+        <section class="sig-group" key={g.k}>
+          <h4 class={`sig-h ${g.k}`}>{S[KIND_LABEL[g.k]][lang]}</h4>
+          <ul class="signals">
+            {g.items.map(({ s, i, n }) => (
+              <li key={i}>
+                <button class={`signal ${s.kind} ${active === i ? 'active' : ''}`} onClick={() => onSignal(i)}>
+                  <span class="n">{n}</span>
+                  <p>{bidi(s.why)}</p>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </>
   );
 }
@@ -80,7 +92,7 @@ export function Debrief({ card, lang, said, points, open, active, onSignal, peek
           <span class="ring"><Icon name={correct ? 'check' : 'x'} /></span>
           <div>
             <h3>{correct ? S.correct[lang] : S.wrong[lang]}</h3>
-            <p>{card.verdict === 'scam' ? S.itWasScam[lang] : S.itWasLegit[lang]}</p>
+            <p class={card.verdict === 'scam' ? 'v-scam' : 'v-legit'}>{card.verdict === 'scam' ? S.itWasScam[lang] : S.itWasLegit[lang]}</p>
           </div>
           {points > 0 && <span class="pts num" dir="ltr">+{fmtNum(points)}</span>}
         </div>

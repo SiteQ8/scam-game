@@ -1,11 +1,11 @@
 A free game that trains your eye to spot scams. Judge realistic texts, calls, emails and QR codes, then see every sign you missed.
 
-Each card is a message on a phone screen. Swipe left if it is a scam and right if it is legit. The debrief then highlights the exact words that gave it away and explains each one, with warning signs in red and signs it is genuine in green. It marks the traps too: details that feel reassuring but prove nothing, like a familiar sender name. Every card ends with a lesson for next time.
+Each card is a message on a phone screen. Swipe left if it is a scam and right if it is legit. The debrief then marks and numbers the exact words that gave it away and explains each one, with warning signs in red and signs it is genuine in green. It marks the traps too: details that feel reassuring but prove nothing, like a familiar sender name. Every card ends with a lesson for next time.
 
 There are 172 cards in nine kinds of message: text messages, app notifications, chats, emails, phone calls, web pages, QR codes, social posts and marketplace chats. Of these, 102 are scams and 70 are genuine, because real life is mixed and knowing when to trust matters too. Every scam card follows a trick that scammers really use in the Arabian Gulf and around the world, from parcel fees, verification codes and fines to prizes, job and investment offers, fake support, romance and family emergencies.
 
 Ways to play
-• Daily case: ten cards, the same for everyone that day, from the easiest to the hardest. Share a result grid that gives nothing away.
+• Daily case: ten cards, the same for everyone that day, from the easiest to the hardest. Share your strand of pearls, which gives nothing away.
 • Journey: eight chapters, from first steps to expert. Get seven of ten right to open the next one.
 • Card packs: six themed packs of ten cards, on bank fraud, deliveries, fake jobs, investment and crypto, fake government services in the Arabian Gulf, and AI fakes such as cloned voices and deepfake videos.
 • 60 second rush: make as many right calls as you can before the clock runs out. A wrong one costs three seconds.

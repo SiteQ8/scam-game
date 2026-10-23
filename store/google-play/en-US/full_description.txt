@@ -1,11 +1,11 @@
 Swipe left on scams. Each card is a realistic message on a phone screen: swipe left if it is a scam and right if it is legit.
 
-After each swipe, the debrief highlights the exact words that gave the message away and explains each one, with warning signs in red and signs it is genuine in green. It marks the traps too: details that feel reassuring but prove nothing, like a familiar sender name. Every card ends with a lesson for next time.
+After each swipe, the debrief marks and numbers the exact words that gave the message away and explains each one, with warning signs in red and signs it is genuine in green. It marks the traps too: details that feel reassuring but prove nothing, like a familiar sender name. Every card ends with a lesson for next time.
 
 There are 172 cards in nine kinds of message: text messages, app notifications, chats, emails, phone calls, web pages, QR codes, social posts and marketplace chats. Of these, 102 are scams and 70 are genuine, because real life is mixed and knowing when to trust matters too. Every scam card follows a trick that scammers really use in the Arabian Gulf and around the world, from parcel fees, verification codes and fines to prizes, job and investment offers, fake support, romance and family emergencies.
 
 Ways to play
-• Daily case: ten cards, the same for everyone that day, from the easiest to the hardest, with a result grid you can share without spoiling the answers.
+• Daily case: ten cards, the same for everyone that day, from the easiest to the hardest, with a strand of pearls you can share without spoiling the answers.
 • Journey: eight chapters, from first steps to expert. Get seven of ten right to open the next one.
 • Card packs: six themed packs of ten cards, on bank fraud, deliveries, fake jobs, investment and crypto, fake government services in the Arabian Gulf, and AI fakes such as cloned voices and deepfake videos.
 • 60 second rush: make as many right calls as you can before the clock runs out. A wrong one costs three seconds.

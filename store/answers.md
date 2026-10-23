@@ -64,7 +64,7 @@ Age Categories and Override
 
 ## Apple: Content rights
 
-* **Does your app contain, show, or access third-party content?** Yes. The fonts (Alexandria and IBM Plex Sans Arabic, SIL Open Font License), the Lucide icons (ISC licence, and MIT for the icons Lucide takes from Feather) and the voices, music and sound effects generated with ElevenLabs come from third parties.
+* **Does your app contain, show, or access third-party content?** Yes. The fonts (Aref Ruqaa and Readex Pro, SIL Open Font License), the Lucide icons (ISC licence, and MIT for the icons Lucide takes from Feather) and the voices, music and sound effects generated with ElevenLabs come from third parties.
 * **Do you have all necessary rights to that content?** Yes. The font and icon licences allow bundling, and the credits are in About and in THIRD_PARTY_NOTICES.md. Confirm that the ElevenLabs plan used for the audio allows publishing it in an app.
 
 ## Categories
@@ -109,7 +109,7 @@ Google Play: one category only, plus up to five tags.
 
 The options are one or more age groups: 5 and under, 6 to 8, 9 to 12, 13 to 15, 16 to 17, and 18 and over. Any group under 13 brings the app under the Families policy.
 
-**Recommendation: 13 to 15, 16 to 17, and 18 and over.** The cards are built around bank codes, parcel fees, job and investment offers and romance scams, which teenagers and adults meet every day. Families and classrooms can still play together, because the target audience does not stop anyone from installing. If Play asks whether the store listing could unintentionally appeal to children, answer **No**: the art is a dark desk with paper cards, a highlighter and a stamp, with no cartoon characters.
+**Recommendation: 13 to 15, 16 to 17, and 18 and over.** The cards are built around bank codes, parcel fees, job and investment offers and romance scams, which teenagers and adults meet every day. Families and classrooms can still play together, because the target audience does not stop anyone from installing. If Play asks whether the store listing could unintentionally appeal to children, answer **No**: the art is the night sea, a red cloth, pearls and paper cards, with no cartoon characters.
 
 What adding 9 to 12 (or younger) would require, and where the app stands today:
 * **Content suitable for children:** mostly met. There is no violence, gambling, drugs or sexual content. The judgement call is the romance scam card and the calls that threaten arrest, since the Families policy rules out dating and sexual advice in content for children.

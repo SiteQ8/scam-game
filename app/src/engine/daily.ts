@@ -71,7 +71,7 @@ function byDifficulty(a: Card, b: Card) {
   return a.difficulty - b.difficulty || a.id.localeCompare(b.id);
 }
 
-/** Spoiler free share text: one square per card. */
+/** The shared result: the case's strand, a white pearl for each right call and a dark bead for each miss. */
 export function shareGrid(results: boolean[]): string {
-  return results.map((r) => (r ? '🟩' : '🟥')).join('');
+  return results.map((r) => (r ? '⚪' : '⚫')).join('');
 }

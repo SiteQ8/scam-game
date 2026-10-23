@@ -18,25 +18,25 @@ A swipe game that trains the eye to spot scams. Each card is a realistic message
 
 ## Positioning
 
-Real looking cards in nine channels (text, notification, chat, email, call, web page, QR code, social, marketplace) with voiced calls, a highlighter debrief that marks every sign and every trap, a daily case shared by everyone, and an offline message checker. Bilingual Arabic and English, with Gulf and global examples. Free, no ads, no account, never connects to the internet, open source.
+Real looking cards in nine channels (text, notification, chat, email, call, web page, QR code, social, marketplace) with voiced calls, a debrief that marks and numbers every sign and every trap, a daily case shared by everyone, and an offline message checker. Bilingual Arabic and English, with Gulf and global examples. Free, no ads, no account, never connects to the internet, open source.
 
 ## Operating Context
 
-Played in short sessions: the daily case of ten cards, a journey of eight chapters, a 60 second rush, a flag hunt, party mode on one phone, and a checker for messages the player actually received. Families compare the spoiler free share grid.
+Played in short sessions: the daily case of ten cards, a journey of eight chapters, a 60 second rush, a flag hunt, party mode on one phone, and a checker for messages the player actually received. Families compare the spoiler free strand of pearls they share.
 
 ## Capabilities and Constraints
 
 - Every name, number and link on the cards is fictional; links lead nowhere and QR codes only state that they are a training example. No real brands. Legit cards use only official government domains or example.com.
 - Arabic is natural Arabic, never a literal translation; a period ends a sentence and never sits in the middle of one. No dashes in any language.
 - The app never makes a network request (CSP enforced). Progress is stored on the device only.
-- Open decision: the game's name (Arabic and English) and its subdomain on 3li.info are chosen by the author and not yet supplied. `brand.json` holds them.
+- The name is Scam Detective, محقق الاحتيال in Arabic. The domain is the author's to choose and is not yet supplied. `brand.json` holds them.
 
 ## Brand Commitments
 
 - Made by Ali AlEnezi, Kuwait. Contact site@hotmail.com.
 - Voices, music and sound effects generated with ElevenLabs; never Mishary Alafasy's voice.
 - No real bank, or any real brand, named in any example.
-- Identity already in the app: the dark investigator's desk, paper cards, the yellow highlighter, the red stamp. Alexandria for display, IBM Plex Sans Arabic for text.
+- Identity: the pearl merchant's world (الطوّاش). The night sea, the merchant's red cloth, the nacre of a pearl and brass. Each case is a strand of ten pearls: a right call adds a lustrous pearl, a wrong one a dull bead, and the finished strand is what players share. Aref Ruqaa for display, Readex Pro for text.
 
 ## Evidence on Hand
 

@@ -48,15 +48,32 @@ function markedText(text: string, marks: Mark[]): string {
   // An address is wrapped only when every mark sits wholly inside it or wholly outside it, so the tags nest.
   const spans = addressRanges(text).filter(([s, e]) => sorted.every((m) => m.end <= s || m.start >= e || (m.start >= s && m.end <= e)));
   const cuts = [...new Set([0, text.length, ...sorted.flatMap((m) => [m.start, m.end]), ...spans.flat()])].sort((a, b) => a - b);
+  // A number opens its mark on the reading side and stays with the mark's first word at a line end. When the mark is
+  // part of an address, the number opens the whole address instead, so the address is never split.
+  const holder = (m: Mark) => spans.find(([s, e]) => m.start >= s && m.end <= e);
+  const badge = (m: Mark) => `<span class="m-n" aria-hidden="true">${m.n}</span>`;
   let out = '';
   cuts.forEach((p, i) => {
-    for (const m of sorted) if (m.end === p) out += '</mark>';
-    for (const [, e] of spans) if (e === p) out += '</span>';
-    for (const [s, e] of spans) if (s === p) out += `<span class="addr"${ARABIC.test(text.slice(s, e)) ? '' : ' dir="ltr"'}>`;
+    for (const m of sorted) if (m.end === p) out += holder(m) ? '</mark>' : '</mark></span>';
+    for (const [s, e] of spans) {
+      if (e !== p) continue;
+      out += '</span>';
+      if (sorted.some((m) => m.start >= s && m.end <= e)) out += '</span>';
+    }
+    for (const [s, e] of spans) {
+      if (s !== p) continue;
+      const inside = sorted.filter((m) => m.start >= s && m.end <= e);
+      if (inside.length) out += `<span class="mrun" style="--i:${inside[0].n}">${inside.map(badge).join('')}`;
+      out += `<span class="addr"${ARABIC.test(text.slice(s, e)) ? '' : ' dir="ltr"'}>`;
+    }
     for (const m of sorted) {
       if (m.start !== p) continue;
       const inner = text.slice(m.start, m.end);
-      out += `<mark class="${/\s/.test(inner) ? 'm' : 'm nw'}" style="--i:${m.n}"${phoneLike(inner) ? ' dir="ltr"' : ''}><span class="m-n" aria-hidden="true">${m.n}</span>`;
+      const cls = `${/\s/.test(inner) ? 'm' : 'm nw'}`;
+      const dir = phoneLike(inner) ? ' dir="ltr"' : '';
+      out += holder(m)
+        ? `<mark class="${cls}" style="--i:${m.n}"${dir}>`
+        : `<span class="mrun" style="--i:${m.n}">${badge(m)}<mark class="${cls}"${dir}>`;
     }
     if (i < cuts.length - 1) out += isolate(text.slice(p, cuts[i + 1]));
   });
@@ -90,13 +107,21 @@ export function render(text: string, lang: Lang, empty: string): View {
   const input = text.replace(/[\u200E\u200F\u2060\u2066-\u2069]/g, '').trim();
   if (!input) return { html: `<p class="chk-empty">${esc(empty)}</p>`, result: null, summary: empty };
   const result = check(input, { localCodes: GCC_CODES });
-  const negatives = result.findings.filter((f) => !f.positive);
   const positives = result.findings.filter((f) => f.positive);
-  const marks: Mark[] = [];
-  negatives.forEach((f, i) => {
+  // Each sign keeps the first stretch of text it points at (the engine lists the strongest signs first, so they win
+  // an overlap). Then the signs are numbered in reading order: the marks from the top of the message down, then the
+  // signs with nothing to mark, so the numbers in the text read 1, 2, 3 and the list below follows them.
+  const spans: Array<[number, number] | null> = [];
+  const found = result.findings.filter((f) => !f.positive);
+  found.forEach((f) => {
     const at = locateEvidence(input, f.evidence);
-    if (at && !marks.some((m) => at[0] < m.end && at[1] > m.start)) marks.push({ start: at[0], end: at[1], n: i + 1 });
+    spans.push(at && !spans.some((s) => s && at[0] < s[1] && at[1] > s[0]) ? at : null);
   });
+  const order = found.map((f, i) => ({ f, at: spans[i] }))
+    .sort((a, b) => (a.at && b.at ? a.at[0] - b.at[0] : a.at ? -1 : b.at ? 1 : 0));
+  const negatives = order.map((o) => o.f);
+  const marks: Mark[] = [];
+  order.forEach((o, i) => { if (o.at) marks.push({ start: o.at[0], end: o.at[1], n: i + 1 }); });
   const [labelKey, ico] = LEVEL[result.level];
   const label = S[labelKey][lang];
   const tail = marks.length ? marked(marks.length, negatives.length, lang) : '';

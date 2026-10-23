@@ -46,21 +46,22 @@ writeFileSync(join(out, 'assets/site.js'), js);
 const langJs = (await transform(read('site/assets/lang.js'), { minify: true, target: 'es2015' })).code;
 writeFileSync(join(out, 'assets/lang.js'), langJs);
 
-const WEIGHTS = /-(400|500|600|wght)-normal\.woff2/;
+const WEIGHTS = /-(700|wght)-normal\.woff2/;
 const fontRules = read('app/src/styles/fonts.css').split('\n').filter((l) => l.startsWith('@font-face') && WEIGHTS.test(l));
 for (const rule of fontRules) {
   const file = rule.match(/fonts\/([^)]+\.woff2)/)[1];
   copyFileSync(join(root, 'app/src/assets/fonts', file), join(out, 'assets/fonts', file));
 }
 // The font licence travels with the font files.
-for (const file of ['OFL-alexandria.txt', 'OFL-ibm-plex-sans-arabic.txt']) copyFileSync(join(root, 'app/src/assets/fonts', file), join(out, 'assets/fonts', file));
-const fontsCss = `/* Alexandria and IBM Plex Sans Arabic, SIL Open Font License 1.1 */\n${fontRules.join('\n').replaceAll('../assets/fonts/', 'fonts/')}\n`;
+for (const file of ['OFL-aref-ruqaa.txt', 'OFL-readex-pro.txt']) copyFileSync(join(root, 'app/src/assets/fonts', file), join(out, 'assets/fonts', file));
+const fontsCss = `/* Aref Ruqaa and Readex Pro, SIL Open Font License 1.1 */\n${fontRules.join('\n').replaceAll('../assets/fonts/', 'fonts/')}\n`;
 const css = (await transform(fontsCss + read('site/assets/site.css'), { loader: 'css', minify: true, target: ['chrome105', 'safari15.4', 'firefox110'] })).code;
 writeFileSync(join(out, 'assets/site.css'), css);
 
 // Pictures: real screens of the game captured by tools/marketing/capture.mjs, plus the icons.
 const shots = join(root, 'site/img');
-if (existsSync(shots)) cpSync(shots, join(out, 'img'), { recursive: true, filter: (src) => !src.endsWith('manifest.json') });
+// The JSON files beside the pictures (sizes, credits, where each picture comes from) stay in the source.
+if (existsSync(shots)) cpSync(shots, join(out, 'img'), { recursive: true, filter: (src) => !src.endsWith('.json') });
 for (const f of ['icon-32.png', 'icon-180.png', 'icon-192.png', 'icon-512.png']) copyFileSync(join(root, 'app/public/img', f), join(out, 'img', f));
 copyFileSync(join(root, 'assets/icon-only.png'), join(out, 'img/icon-1024.png'));
 const trailerDir = join(root, 'store/trailer');
@@ -71,6 +72,8 @@ if (trailer) {
 }
 writeFileSync(join(out, 'img/mark-flat.svg'), R.MARK_SVG().replace('<svg class=""', '<svg xmlns="http://www.w3.org/2000/svg"').replace(' aria-hidden="true" focusable="false"', ''));
 const manifest = existsSync(join(shots, 'manifest.json')) ? JSON.parse(readFileSync(join(shots, 'manifest.json'), 'utf8')) : {};
+// The swipe drawn by tools/marketing/loop.mjs, when it exists: its size per language.
+const loops = existsSync(join(shots, 'loop.json')) ? JSON.parse(readFileSync(join(shots, 'loop.json'), 'utf8')) : {};
 
 // Example messages for the live checker come from real cards, so they match the game.
 const cardText = G.cardText;
@@ -94,6 +97,50 @@ const pickExamples = () => {
   return chosen.slice(0, 4);
 };
 const exampleCards = pickExamples();
+
+// Pieces of the game's own interface for the feature tiles, in each language.
+const svgIcon = (name) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${G.ICONS[name] || ''}</svg>`;
+const CHANNEL_ICON = { sms: 'message-square', notification: 'bell', chat: 'message-circle', email: 'mail', call: 'phone', web: 'globe', qr: 'qr-code', social: 'users', market: 'shopping-bag' };
+/** A real card's sender and message with its warning signs marked and numbered the way the game numbers them,
+ * in reading order from the sender line down. As in the game, each number opens the word its mark begins in, on the
+ * reading side, and stays with that word at a line end. */
+function markedMessage(id, lang) {
+  const card = byId.get(id);
+  const block = card[lang];
+  const nums = G.markNumbers(card, lang);
+  const fields = { from: R.esc(block.card.sender || ''), body: R.esc(block.card.body) };
+  block.signals.forEach((s, i) => {
+    const m = R.esc(s.mark);
+    const key = fields.from.includes(m) ? 'from' : fields.body.includes(m) ? 'body' : null;
+    if (!key) return;
+    const text = fields[key];
+    const at = text.indexOf(m);
+    let from = at;
+    while (from > 0 && /[\p{L}\p{M}\p{N}]/u.test(text[from - 1])) from--;
+    const ltr = /^[^\u0600-\u06FF]*$/.test(s.mark) ? ' dir="ltr"' : '';
+    fields[key] = `${text.slice(0, from)}<span class="mrun"><span class="n">${nums[i]}</span>${text.slice(from, at)}<mark${ltr}>${m}</mark></span>${text.slice(at + m.length)}`;
+  });
+  return fields;
+}
+function ui(lang) {
+  const S = G.S;
+  return {
+    icon: svgIcon,
+    channels: Object.keys(CHANNEL_ICON).map((ch) => ({ icon: CHANNEL_ICON[ch], name: G.CHANNEL_NAMES[ch][lang] })),
+    listen: S.listen[lang],
+    caller: byId.get('call-bank-fraud-otp')[lang].card.caller,
+    callLabel: S.incomingCall[lang],
+    callLine: byId.get('call-bank-fraud-otp')[lang].card.lines[0].text,
+    marked: markedMessage('sms-parcel-redelivery-fee', lang),
+    packs: ['banking', 'delivery', 'ai'].map((id, i) => ({ id, icon: G.PACKS.find((p) => p.id === id).icon, name: S[`pack_${id}`][lang], pearls: [3, 2, 1][i] })),
+    rank: G.RANKS[1][lang],
+    level: S.levelN[lang].replace('{n}', '4'),
+    players: (lang === 'ar' ? ['نورة', 'فهد', 'جدتي'] : ['Noura', 'Fahad', 'Grandma']).map((name, i) => ({ name, score: [4, 3, 5][i] })),
+    family: S.familyMode[lang],
+    familySub: S.familyModeSub[lang],
+    privacy: S.noData[lang],
+  };
+}
 
 function stores(lang) {
   const list = [];
@@ -123,7 +170,7 @@ function context(lang, path) {
     lang, path, t, brand, root: '../'.repeat(depth),
     hash: { css: hash(css), js: hash(js), lang: hash(langJs) },
     examples, checkerHtml: examples.length ? G.render(examples[0].text, lang, copy.sc_empty[lang]).html : '',
-    crops: manifest[lang] || {}, live: (manifest[lang] || {}).live, stores: stores(lang), storesLive: stores(lang).length > 0,
+    stages: (manifest[lang] || {}).stages || {}, loop: loops[lang] || null, ui: ui(lang), stores: stores(lang), storesLive: stores(lang).length > 0,
     trailer, cardCount: cards.length, pressShots: ['home', 'card', 'debrief', 'call', 'packs', 'badges', 'certificate', 'family'],
     jsonld: path === '' ? jsonld(lang) : '',
   };

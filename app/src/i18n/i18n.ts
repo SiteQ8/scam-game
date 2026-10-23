@@ -39,6 +39,14 @@ export function count(n: number, noun: keyof typeof COUNTS): string {
   return `${nf.format(n)} ${n === 1 ? c.en[0] : c.en[1]}`;
 }
 
+/** A strand in words: "8 lustrous pearls and 2 dull beads", «8 لؤلؤات لامعة وخرزتان باهتتان». */
+export function strandTally(right: number, total: number): string {
+  const wrong = total - right;
+  if (!wrong) return count(right, 'pearl');
+  if (!right) return count(wrong, 'bead');
+  return lang.value === 'ar' ? `${count(right, 'pearl')} و${count(wrong, 'bead')}` : `${count(right, 'pearl')} and ${count(wrong, 'bead')}`;
+}
+
 export function rankFor(xp: number) {
   let idx = 0;
   RANKS.forEach((r, i) => { if (xp >= r.xp) idx = i; });
