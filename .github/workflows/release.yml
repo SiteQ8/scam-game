@@ -3,27 +3,65 @@ name: release
 # Every note in .github/release-notes/ becomes a GitHub release: the file name is the version,
 # the first line is the title and the rest is the body. Merging a new note into main tags the
 # merged commit and publishes its release; a version tag pushed by hand publishes that one.
+#
+# A release created with GITHUB_TOKEN starts no other workflow, so this run builds the apps too:
+# android.yml and ios.yml sign the newest release it published, attach the files to it as
+# scam-game-<tag>.aab and scam-game-<tag>.ipa, and upload them to Google Play internal testing
+# and to App Store Connect for TestFlight. Missing secrets skip those steps with a notice, and the
+# release stays published. Run this workflow by hand with a tag to build an existing release again,
+# for example after adding the secrets that store/SECRETS.md lists.
 on:
   push:
     branches: [main]
     paths: ['.github/release-notes/**', '.github/workflows/release.yml']
     tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: The existing release to build, attach and upload again, for example v1.1.0
+        required: true
+        type: string
 
 permissions:
-  contents: write
+  contents: read
+
+# One release run at a time, so two runs never publish or upload the same version together.
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 jobs:
-  release:
+  publish:
+    name: Publish the release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      tag: ${{ steps.publish.outputs.tag }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Publish the releases
+        id: publish
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG_TO_BUILD: ${{ inputs.tag }}
         run: |
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
+            if ! gh release view "$TAG_TO_BUILD" > /dev/null 2>&1; then
+              echo "::error::There is no release $TAG_TO_BUILD. Merge .github/release-notes/$TAG_TO_BUILD.md into main to publish it."
+              exit 1
+            fi
+            echo "building the files of $TAG_TO_BUILD again"
+            echo "tag=$TAG_TO_BUILD" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [ "$GITHUB_REF_TYPE" = tag ] && [ ! -f ".github/release-notes/$GITHUB_REF_NAME.md" ]; then
             echo "Write .github/release-notes/$GITHUB_REF_NAME.md before tagging $GITHUB_REF_NAME."; exit 1
           fi
+          : > "$RUNNER_TEMP/published"
           for notes in .github/release-notes/v*.md; do
             tag=$(basename "$notes" .md)
             if [ "$GITHUB_REF_TYPE" = tag ] && [ "$tag" != "$GITHUB_REF_NAME" ]; then continue; fi
@@ -38,5 +76,35 @@ jobs:
             else
               gh release create "$tag" --title "$title" --notes-file "$RUNNER_TEMP/notes.md" --target "$GITHUB_SHA"
               echo "published $tag at $GITHUB_SHA"
+              echo "$tag" >> "$RUNNER_TEMP/published"
             fi
           done
+          # The apps are built for the tag pushed by hand, or for the newest release this run published.
+          # Notes that only update a release build nothing.
+          if [ "$GITHUB_REF_TYPE" = tag ]; then
+            echo "tag=$GITHUB_REF_NAME" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=$(sort -V "$RUNNER_TEMP/published" | tail -n 1)" >> "$GITHUB_OUTPUT"
+          fi
+
+  android:
+    name: Android
+    needs: publish
+    if: needs.publish.outputs.tag != ''
+    permissions:
+      contents: write
+    uses: ./.github/workflows/android.yml
+    with:
+      release_tag: ${{ needs.publish.outputs.tag }}
+    secrets: inherit
+
+  ios:
+    name: iPhone
+    needs: publish
+    if: needs.publish.outputs.tag != ''
+    permissions:
+      contents: write
+    uses: ./.github/workflows/ios.yml
+    with:
+      release_tag: ${{ needs.publish.outputs.tag }}
+    secrets: inherit
