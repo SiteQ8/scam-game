@@ -1011,3 +1011,23 @@ textarea, input { caret-color: var(--marker); }
 .cert-locked .bar i { display: block; height: 100%; background: var(--marker); transform-origin: left; }
 [dir='rtl'] .cert-locked .bar i { transform-origin: right; }
 .cert-locked .count { font-size: 0.86rem; color: var(--text-3); margin-bottom: 22px; }
+
+/* ============ Tips ============ */
+.tip-card { margin-top: 14px; padding: 16px 16px 8px; border-radius: 18px; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line); }
+.tip-head { display: flex; align-items: center; gap: 10px; }
+.tip-head .bulb { width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center; background: var(--marker-soft); color: var(--marker); flex: none; }
+.tip-head .bulb .icon { width: 19px; height: 19px; }
+.tip-head h2 { font-family: var(--font-display); font-weight: 650; font-size: 0.95rem; flex: 1; }
+.tip-head .topic, .tip-meta .topic { flex: none; font-size: 0.76rem; color: var(--text-3); padding: 3px 9px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-2); white-space: nowrap; }
+.tip-card p { margin: 12px 2px 4px; font-size: 1.02rem; line-height: 1.6; text-wrap: pretty; }
+.tip-actions { display: flex; justify-content: space-between; margin: 0 -10px; }
+.tip-actions .btn { min-height: 44px; padding: 0 10px; font-size: 0.92rem; gap: 6px; }
+.tip-actions .btn .icon { width: 18px; height: 18px; }
+.tips-intro { color: var(--text-2); margin: 6px 2px 14px; }
+.tip-list { display: flex; flex-direction: column; gap: 10px; }
+.tip-item { position: relative; padding: 14px 56px 14px 16px; border-radius: 18px; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line); }
+[dir='rtl'] .tip-item { padding: 14px 16px 14px 56px; }
+.tip-item.today { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--marker) 60%, transparent); }
+.tip-meta { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-3); font-family: var(--font-display); font-weight: 600; }
+.tip-item p { margin-top: 8px; line-height: 1.6; text-wrap: pretty; }
+.tip-item .icon-btn { position: absolute; top: 8px; inset-inline-end: 6px; }

@@ -62,4 +62,8 @@ for (const c of cards) {
 
 mkdirSync(dirname(outFile), { recursive: true });
 writeFileSync(outFile, JSON.stringify(cards));
-console.log(`content: ${cards.length} cards, audio linked ${audioLinked}, audio missing ${audioMissing}`);
+
+// The tip of the day: one per day, in the order written, looping after the last one.
+const tips = JSON.parse(readFileSync(join(root, 'content', 'tips.json'), 'utf8'));
+writeFileSync(join(dirname(outFile), 'tips.json'), JSON.stringify(tips));
+console.log(`content: ${cards.length} cards, ${tips.length} tips, audio linked ${audioLinked}, audio missing ${audioMissing}`);

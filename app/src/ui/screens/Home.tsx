@@ -5,6 +5,8 @@ import { lang, t, fmtNum, rankFor, duration, count } from '../../i18n/i18n';
 import { dayIndex, caseNumber, msToNextDay, shareGrid, dateOfDay, DAILY_SIZE } from '../../engine/daily';
 import { levelFor, lastWeek } from '../../engine/levels';
 import { LevelRing } from '../components/Medal';
+import { tipFor } from '../../content/tips';
+import { TIP_TOPICS } from '../../i18n/strings';
 import { CHAPTERS } from '../../engine/deck';
 import { PACKS, packDeck } from '../../engine/packs';
 import { CARDS } from '../../content/cards';
@@ -32,6 +34,7 @@ export function Home() {
   const lv = levelFor(p.xp);
   const week = lastWeek(day, (d) => Boolean(p.daily[String(d)]?.done));
   const weekday = new Intl.DateTimeFormat(L === 'ar' ? 'ar' : 'en-GB', { weekday: 'narrow' });
+  const tip = tipFor(day);
   const passed = CHAPTERS.filter((c) => (p.journey[c.id]?.stars || 0) > 0).length;
   const name = L === 'ar' ? (__BRAND__.nameAr || __BRAND__.nameEn) : __BRAND__.nameEn;
   const right = rec ? rec.results.filter(Boolean).length : 0;
@@ -93,6 +96,19 @@ export function Home() {
           <span class="rank-name"><b>{rank.name}</b><span class="num">{lv.next ? t('xpToLevel', { n: lv.next - p.xp, level: lv.n + 1 }) : `${fmtNum(p.xp)} ${t('xp')}`}</span></span>
           <span class="bar"><i style={{ transform: `scaleX(${lv.pct})` }} /></span>
         </button>
+
+        <section class="tip-card" aria-labelledby="tip-h">
+          <div class="tip-head">
+            <span class="bulb"><Icon name="lightbulb" /></span>
+            <h2 id="tip-h">{t('tipOfDay')}</h2>
+            <span class="topic">{TIP_TOPICS[tip.topic]?.[L]}</span>
+          </div>
+          <p>{tip[L]}</p>
+          <div class="tip-actions">
+            <button class="btn btn-ghost" style={{ width: 'auto' }} onClick={async () => { const r = await shareText(tip[L], siteUrl() || undefined); if (r === 'copied') toast(t('copied'), 'copy'); }}><Icon name="share-2" />{t('share')}</button>
+            <button class="btn btn-ghost" style={{ width: 'auto' }} onClick={() => go({ name: 'tips' })}>{t('allTips')}<Icon name="chevron-right" class="flip-rtl" /></button>
+          </div>
+        </section>
 
         {packs.length > 0 && (
           <>

@@ -158,6 +158,8 @@ function checkCommonText(id, lang, s) {
   for (const b of BANNED_ARABIC) if (arWord(b).test(s)) err(id, `${lang}: brand name "${b}" is not allowed`);
   for (const b of BRAND_PHRASES_AR) if (s.includes(b)) err(id, `${lang}: brand name "${b}" is not allowed`);
   if (hiddenBrand(s)) err(id, `${lang}: a bank name that must never appear is in "${s.slice(0, 60)}"`);
+  // The Gulf is the Arabian Gulf (الخليج العربي) in every language, never any other name.
+  if (/persian\s+gulf|الخليج\s+الفارسي/i.test(s)) err(id, `${lang}: the Gulf is the Arabian Gulf (الخليج العربي)`);
   // Phone numbers
   for (const m of s.match(/\+\d[\d\s()]{6,}\d/g) || []) {
     const digits = m.replace(/\D/g, '');
@@ -275,6 +277,41 @@ for (const { c, f } of cards) {
   }
 }
 
+// ---------- tips ----------
+// The tip of the day: content/tips.json, one sentence per language, held to the same rules as the cards.
+export const TIP_TOPICS = ['codes', 'links', 'calls', 'ai', 'banking', 'delivery', 'jobs', 'investment', 'government', 'qr', 'shopping', 'social', 'family', 'privacy', 'reporting'];
+const tipsPath = join(dirname(dir), 'tips.json');
+let tipCount = 0;
+if (existsSync(tipsPath)) {
+  let tips = [];
+  try { tips = JSON.parse(readFileSync(tipsPath, 'utf8')); } catch (e) { errors.push(`tips.json: invalid JSON (${e.message})`); }
+  if (!Array.isArray(tips)) { errors.push('tips.json: the file must hold a JSON array'); tips = []; }
+  tipCount = tips.length;
+  const tipIds = new Set();
+  tips.forEach((tip, i) => {
+    const id = (tip && tip.id) || `tips.json[${i}]`;
+    if (!/^tip-[a-z0-9]+(-[a-z0-9]+)*$/.test((tip && tip.id) || '')) err(id, 'a tip id is kebab-case and starts with tip-');
+    if (tipIds.has(id)) err(id, 'duplicate tip id');
+    tipIds.add(id);
+    if (!TIP_TOPICS.includes(tip && tip.topic)) err(id, `tip topic must be one of ${TIP_TOPICS.join(', ')}`);
+    if (i > 0 && tips[i - 1] && tips[i - 1].topic === tip.topic) err(id, 'two neighbouring tips share a topic');
+    for (const lang of ['en', 'ar']) {
+      const s = tip && tip[lang];
+      if (!isStr(s)) { err(id, `${lang} missing`); continue; }
+      if ([...s].length > 140) err(id, `${lang}: longer than 140 characters`);
+      checkCommonText(id, lang, s);
+    }
+    if (isStr(tip.en) && AR_LETTER.test(tip.en)) err(id, 'en: Arabic letters in an English tip');
+    if (isStr(tip.ar)) {
+      const t = tip.ar.trim();
+      if (!t.endsWith('.')) err(id, 'ar: a tip ends with a period');
+      if (stripAllowed(t.slice(0, -1)).includes('.')) err(id, `ar: period in the middle: "${t.slice(0, 60)}"`);
+      if (/[A-Za-z]/.test(t.replace(/QR/g, ''))) err(id, 'ar: Latin letters other than QR');
+      if (/الخليج(?!\s+العربي)/.test(t)) err(id, 'ar: write الخليج العربي');
+    }
+  });
+}
+
 // ---------- summary ----------
 const count = (key) => cards.reduce((acc, { c }) => { const k = c && c[key]; acc[k] = (acc[k] || 0) + 1; return acc; }, {});
 const fmt = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(', ');
@@ -288,6 +325,7 @@ const packs = count('pack');
 const core = packs.undefined || 0;
 delete packs.undefined;
 console.log(`Pack: ${fmt(packs) || 'none'} (core cards ${core})`);
+console.log(`Tips: ${tipCount}`);
 if (warnings.length) { console.log(`\nWarnings (${warnings.length}):`); warnings.forEach((w) => console.log(`  ${w}`)); }
 if (errors.length) { console.log(`\nErrors (${errors.length}):`); errors.forEach((e) => console.log(`  ${e}`)); process.exit(1); }
 console.log('\nOK');
