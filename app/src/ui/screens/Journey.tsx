@@ -23,6 +23,17 @@ export function Journey() {
     <div class="screen">
       <TopBar title={t('journey')} onBack={back} />
       <div class="scroll"><div class="wrap">
+        {(() => {
+          const passed = CHAPTERS.filter((c) => (p.journey[c.id]?.stars || 0) > 0).length;
+          const ready = passed === CHAPTERS.length;
+          return (
+            <button class={`cert-banner ${ready ? 'ready' : ''}`} onClick={() => { void sfx('tap'); push({ name: 'certificate' }); }}>
+              <span class="glyph"><Icon name="file-badge" /></span>
+              <span class="txt"><b>{ready ? t('certReady') : t('certificate')}</b><span class="num">{ready ? t('certGet') : t('certProgress', { x: passed, y: CHAPTERS.length })}</span></span>
+              <Icon name="chevron-right" class="flip-rtl" />
+            </button>
+          );
+        })()}
         <div class="route">
           {chapters.map((c, i) => {
             const st = p.journey[c.id]?.stars || 0;

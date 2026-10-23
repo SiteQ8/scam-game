@@ -10,6 +10,7 @@ export type Route =
   | { name: 'checker' }
   | { name: 'stats' }
   | { name: 'badges' }
+  | { name: 'certificate' }
   | { name: 'settings' }
   | { name: 'about' }
   | { name: 'onboarding' };
