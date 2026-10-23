@@ -42,7 +42,7 @@ const CAPTIONS = {
   together: { en: copy.f5_h.en, ar: copy.f5_h.ar },
 };
 // Until the apps are in the stores the trailer ends on the coming soon line; afterwards, on where to get it.
-const END_LINE = brand.appStoreId || brand.playLive
+const END_LINE = (brand.appStoreId && brand.appStoreLive) || brand.playLive
   ? { en: 'Free on iPhone, Android and the web', ar: 'مجانية على آيفون وأندرويد والويب' }
   : { en: 'Coming soon to iPhone and Android', ar: 'قريباً على آيفون وأندرويد' };
 

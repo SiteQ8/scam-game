@@ -45,4 +45,20 @@ describe.skipIf(!existsSync(join(store, 'app-store')))('store listings', () => {
       expect(new Set(words).size, `${l}: repeated keyword`).toBe(words.length);
     }
   });
+
+  it('spend no keyword on a word the name or subtitle already has, or on a word twice', () => {
+    // Apple indexes the name and subtitle already, so a word in them is wasted in the keyword field.
+    // Words compare without the Arabic article and without an English plural s.
+    const norm = (w: string) => w.toLowerCase().replace(/^ال/, '').replace(/^([a-z]{3,})s$/, '$1');
+    const wordsOf = (s: string) => s.split(/[\s,،:]+/).map((w) => w.trim()).filter((w) => [...w].length >= 3).map(norm);
+    for (const l of ['en-US', 'ar-SA']) {
+      const taken = new Set([...wordsOf(read(`app-store/${l}/name.txt`)), ...wordsOf(read(`app-store/${l}/subtitle.txt`))]);
+      const seen = new Set<string>();
+      for (const w of wordsOf(read(`app-store/${l}/keywords.txt`))) {
+        expect(taken.has(w), `${l}: keyword word "${w}" is already in the name or subtitle`).toBe(false);
+        expect(seen.has(w), `${l}: keyword word "${w}" appears twice`).toBe(false);
+        seen.add(w);
+      }
+    }
+  });
 });
