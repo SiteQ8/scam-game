@@ -711,6 +711,41 @@ textarea, input { caret-color: var(--marker); }
 .stars .on { color: var(--marker); fill: var(--marker); }
 .chapter-sheet .lead { color: var(--text-2); margin: 6px 0 16px; }
 
+/* ============ Packs ============ */
+.pack-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.pack-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 124px;
+  padding: 14px;
+  border-radius: 18px;
+  background: var(--desk-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  text-align: start;
+  transition: transform 140ms var(--ease-out), background-color 160ms ease;
+}
+.pack-tile:active { transform: scale(0.97); background: var(--desk-3); }
+.pack-tile .glyph, .pack-sheet .glyph { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--pk-soft); color: var(--pk); }
+.pack-tile .glyph .icon, .pack-sheet .glyph .icon { width: 22px; height: 22px; }
+.pack-tile b { font-family: var(--font-display); font-weight: 650; font-size: 0.98rem; line-height: 1.25; letter-spacing: -0.01em; flex: 1; }
+.pack-tile .meta { font-size: 0.82rem; color: var(--text-3); }
+.pack-tile .stars .icon { width: 14px; height: 14px; }
+.pack-sheet .glyph { margin-bottom: 12px; }
+.pk-banking { --pk: #6cb2ff; --pk-soft: rgba(80, 160, 255, 0.14); }
+.pk-delivery { --pk: #ffb347; --pk-soft: rgba(255, 170, 60, 0.14); }
+.pk-jobs { --pk: #4fd3a8; --pk-soft: rgba(35, 176, 135, 0.15); }
+.pk-invest { --pk: #b9a2ff; --pk-soft: rgba(155, 123, 255, 0.16); }
+.pk-gov { --pk: #ff8a66; --pk-soft: rgba(255, 120, 80, 0.14); }
+.pk-ai { --pk: #ff7ac8; --pk-soft: rgba(255, 110, 190, 0.14); }
+[data-theme='light'] .pk-banking { --pk: #1f62c9; }
+[data-theme='light'] .pk-delivery { --pk: #a8560a; }
+[data-theme='light'] .pk-jobs { --pk: #0d7a5a; }
+[data-theme='light'] .pk-invest { --pk: #5b3ccf; }
+[data-theme='light'] .pk-gov { --pk: #b8401f; }
+[data-theme='light'] .pk-ai { --pk: #b42f84; }
+
 /* ============ Lists and settings ============ */
 .group { margin-top: 22px; }
 .group > h2 { font-family: var(--font-display); font-weight: 650; font-size: 0.86rem; color: var(--text-3); margin: 0 6px 8px; letter-spacing: 0.01em; }

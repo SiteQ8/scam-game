@@ -121,6 +121,26 @@ export const S = {
   ch_expert: { en: 'Expert', ar: 'مستوى الخبراء' },
   ch_expert_sub: { en: 'The most convincing cards in the game', ar: 'أكثر البطاقات إقناعاً في اللعبة' },
 
+  // Packs
+  packs: { en: 'Card packs', ar: 'حزم البطاقات' },
+  packRule: { en: 'Get 7 of 10 right to complete the pack.', ar: 'أجب عن سبع بطاقات من عشر إجابة صحيحة لتكمل الحزمة.' },
+  packPassed: { en: 'Pack complete', ar: 'أكملت الحزمة' },
+  packFailed: { en: 'Get 7 right to complete this pack', ar: 'تحتاج سبع إجابات صحيحة لتكمل الحزمة' },
+  nextPack: { en: 'Next pack', ar: 'الحزمة التالية' },
+  packNew: { en: 'New', ar: 'جديدة' },
+  pack_banking: { en: 'Bank fraud', ar: 'الاحتيال المصرفي' },
+  pack_banking_sub: { en: 'Codes, cards and fake bank staff', ar: 'رموز وبطاقات وموظفو بنوك مزيفون' },
+  pack_delivery: { en: 'Deliveries', ar: 'التوصيل' },
+  pack_delivery_sub: { en: 'Fees, couriers and parcels that never come', ar: 'رسوم ومندوبون وشحنات لا تصل' },
+  pack_jobs: { en: 'Fake jobs', ar: 'الوظائف الوهمية' },
+  pack_jobs_sub: { en: 'Offers that end up costing you', ar: 'عروض عمل تنتهي بخسارة مالك' },
+  pack_invest: { en: 'Investment and crypto', ar: 'الاستثمار والعملات الرقمية' },
+  pack_invest_sub: { en: 'Promised returns and fake platforms', ar: 'أرباح موعودة ومنصات مزيفة' },
+  pack_gov: { en: 'Fake government', ar: 'انتحال الجهات الحكومية' },
+  pack_gov_sub: { en: 'Fines, IDs and benefits in the Arabian Gulf', ar: 'مخالفات وهويات وإعانات في دول الخليج العربي' },
+  pack_ai: { en: 'AI fakes', ar: 'التزييف بالذكاء الاصطناعي' },
+  pack_ai_sub: { en: 'Cloned voices, deepfake videos and chatbots', ar: 'أصوات مستنسخة ومقاطع مزيفة وروبوتات محادثة' },
+
   // Rush
   timeLeft: { en: 'Time', ar: 'الوقت' },
   timeUp: { en: "Time's up", ar: 'انتهى الوقت' },

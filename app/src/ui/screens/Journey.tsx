@@ -4,6 +4,7 @@ import { back, push } from '../../state/nav';
 import { lang, t, count } from '../../i18n/i18n';
 import { S } from '../../i18n/strings';
 import { CHAPTERS, chapterDeck, byRegion } from '../../engine/deck';
+import { isCore } from '../../engine/packs';
 import { CARDS } from '../../content/cards';
 import { Icon } from '../components/Icon';
 import { Stars, TopBar } from '../components/common';
@@ -12,7 +13,7 @@ import { sfx } from '../../platform/audio';
 export function Journey() {
   const L = lang.value;
   const p = progress.value;
-  const pool = byRegion(CARDS, settings.value.region);
+  const pool = byRegion(CARDS, settings.value.region).filter(isCore);
   const chapters = CHAPTERS.map((c) => ({ ...c, size: chapterDeck(c.id, pool).length })).filter((c) => c.size >= 4);
   const [open, setOpen] = useState<string | null>(null);
   const unlocked = (i: number) => i === 0 || (p.journey[chapters[i - 1].id]?.stars || 0) > 0;
