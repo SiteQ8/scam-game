@@ -116,8 +116,23 @@ function footer(ctx) {
 </footer>`;
 }
 
-const img = (ctx, file, alt, { cls = '', w = 440, h = 956, lazy = true, priority = false } = {}) =>
-  `<img class="${cls}" src="${ctx.root}img/${ctx.lang}/${file}.webp" width="${w}" height="${h}" alt="${esc(alt)}" decoding="async"${lazy ? ' loading="lazy"' : ''}${priority ? ' fetchpriority="high"' : ''}>`;
+const img = (ctx, file, alt, { cls = '', w = 440, h = 956, lazy = true, priority = false, attrs = '' } = {}) =>
+  `<img class="${cls}"${attrs} src="${ctx.root}img/${ctx.lang}/${file}.webp" width="${w}" height="${h}" alt="${esc(alt)}" decoding="async"${lazy ? ' loading="lazy"' : ''}${priority ? ' fetchpriority="high"' : ''}>`;
+
+// Screens that show today's case number are captured a second time with that line left out, and the page writes the
+// line back in with the number of the day it is seen, in the same place and type, so the phone always agrees with
+// the bar under it. The site is built with the captured line, the same on any day; the browser fills in the number.
+function liveLine(L) {
+  const n = (v) => Math.round(v * 100) / 100;
+  const style = `font-family:${L.family};font-size:${n(L.size)}px;font-weight:${L.weight};letter-spacing:${n(L.spacing)}px;fill:${L.color}`;
+  return `<svg class="live" viewBox="0 0 440 956" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><text x="${n(L.x)}" y="${n(L.y)}" direction="${L.rtl ? 'rtl' : 'ltr'}" text-anchor="${L.anchor}" style="${esc(style)}" data-case-tpl="${esc(L.tpl)}">${esc(L.text)}</text></svg>`;
+}
+
+/** A phone screen: the picture, or the picture without its case number and today's number written over it. */
+function phoneScreen(ctx, shot, alt, opts) {
+  const live = ctx.live?.[shot];
+  return img(ctx, live ? `${shot}-live` : shot, alt, opts) + (live ? liveLine(live) : '');
+}
 
 function stageBar(ctx) {
   const { t } = ctx;
@@ -126,15 +141,19 @@ function stageBar(ctx) {
 }
 
 export const HERO_SHOTS = [['home', 'shot_home'], ['card', 'shot_card'], ['debrief', 'shot_debrief']];
+// The phone beside the features: one screen per feature, and the small picture in each feature's panel (crop).
 export const TOUR = [
   { id: 'how', shot: 'results', alt: 'shot_results' },
   { id: 'f1', shot: 'chat', alt: 'shot_chat' },
   { id: 'f2', shot: 'call', alt: 'shot_call' },
   { id: 'f3', shot: 'debrief2', alt: 'shot_debrief' },
-  { id: 'f4', shot: 'journey', alt: 'shot_journey' },
-  { id: 'f5', shot: 'party', alt: 'shot_party' },
-  { id: 'f6', shot: 'settings', alt: 'shot_settings' },
+  { id: 'f4', shot: 'packs', alt: 'shot_packs' },
+  { id: 'f5', shot: 'certificate', alt: 'shot_certificate', crop: 'shot_badges' },
+  { id: 'f6', shot: 'party', alt: 'shot_party' },
+  { id: 'f7', shot: 'family', alt: 'shot_family' },
+  { id: 'f8', shot: 'settings', alt: 'shot_settings' },
 ];
+const FEATURES = TOUR.slice(1).map((_, i) => i + 1);
 
 function slip(ctx) {
   const { t } = ctx;
@@ -154,7 +173,7 @@ function module(ctx, n) {
   const { t } = ctx;
   const crop = ctx.crops[`f${n}`] || { w: 360, h: 180 };
   return `<article class="mod" data-shot="f${n}">
-  <div class="panel rv">${img(ctx, `crop-f${n}`, t.raw(TOUR[n].alt), { w: crop.w, h: crop.h })}</div>
+  <div class="panel rv">${img(ctx, `crop-f${n}`, t.raw(TOUR[n].crop || TOUR[n].alt), { w: crop.w, h: crop.h })}</div>
   <div class="txt rv" style="--d:1"><h3>${t(`f${n}_h`)}</h3><p>${t(`f${n}_p1`)}</p><p>${t(`f${n}_p2`)}</p></div>
 </article>`;
 }
@@ -193,7 +212,7 @@ export function homePage(ctx) {
   </div>
   <figure class="stage on-dark" data-stage="hero" aria-label="${esc(t.raw('stage_label'))}">
     <div class="phone-wrap"><div class="phone"><div class="screen">
-      ${HERO_SHOTS.map(([f, a], i) => img(ctx, f, t.raw(a), { cls: i === 0 ? 'on' : '', lazy: i !== 0, priority: i === 0 })).join('\n      ')}
+      ${HERO_SHOTS.map(([f, a], i) => phoneScreen(ctx, f, t.raw(a), { cls: i === 0 ? 'on' : '', lazy: i !== 0, priority: i === 0 })).join('\n      ')}
     </div></div></div>
     ${stageBar(ctx)}
   </figure>
@@ -226,12 +245,12 @@ export function homePage(ctx) {
     </section>
     <section id="features" class="features" aria-labelledby="feat-h">
       <h2 id="feat-h" class="rv">${t('feat_h2')}</h2>
-      ${[1, 2, 3, 4, 5, 6].map((n) => module(ctx, n)).join('\n      ')}
+      ${FEATURES.map((n) => module(ctx, n)).join('\n      ')}
     </section>
   </div>
   <figure class="stage on-dark" data-stage="tour" aria-hidden="true">
     <div class="phone-wrap"><div class="phone"><div class="screen">
-      ${TOUR.map((s, i) => `<img class="${i === 0 ? 'on' : ''}" data-for="${s.id}" src="${root}img/${lang}/${s.shot}.webp" width="440" height="956" alt="" decoding="async" loading="lazy">`).join('\n      ')}
+      ${TOUR.map((s, i) => phoneScreen(ctx, s.shot, '', { cls: i === 0 ? 'on' : '', attrs: ` data-for="${s.id}"` })).join('\n      ')}
     </div></div></div>
     ${stageBar(ctx)}
   </figure>

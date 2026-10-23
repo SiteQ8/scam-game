@@ -101,6 +101,9 @@ a { color: inherit; text-decoration: underline; text-decoration-thickness: 1.5px
 .phone .screen { position: relative; height: 100%; aspect-ratio: 440 / 956; border-radius: calc(var(--h) * 0.053); overflow: hidden; background: var(--desk); }
 .phone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; }
 .phone img.on { opacity: 1; }
+/* Today's case number, written over the home screen where the capture left it out. */
+.phone svg.live { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.4s ease; pointer-events: none; font-family: var(--display); }
+.phone img.on + svg.live { opacity: 1; }
 .stage .bar {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 12px 24px; background: var(--paper); color: var(--ink); font-size: var(--s1); line-height: 1.3;
@@ -314,7 +317,7 @@ a { color: inherit; text-decoration: underline; text-decoration-thickness: 1.5px
   .rv-ready .rv { opacity: 1; transform: none; transition: none; }
   .hero h1, .hero .lede, .hero .actions, [data-ui] mark.m, [data-ui] .m-n, [data-ui] .chk-list li { animation: none; }
   [data-ui] mark.m { background-color: var(--marker); }
-  .phone img { transition: none; }
+  .phone img, .phone svg.live { transition: none; }
 }
 
 /* ---------- Tablet and phone ---------- */
