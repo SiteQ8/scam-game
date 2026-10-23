@@ -1,7 +1,7 @@
 {
   "name": "scam-swipe-game",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A free swipe game in Arabic and English that trains people to spot scams in texts, calls, emails, chats, web pages and QR codes. Offline, with no ads and no account.",
   "license": "MIT",
   "type": "module",
