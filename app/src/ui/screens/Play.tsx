@@ -216,6 +216,7 @@ export function Play({ route }: { route: PlayRoute }) {
       }
       if (mode === 'rush') { best = right > p.rushBest; p.rushBest = Math.max(p.rushBest, right); }
       if (mode === 'party') p.partyGames += 1;
+      if (settings.value.family && mode !== 'tutorial') p.familyRounds = (p.familyRounds || 0) + 1;
     });
     const fresh = newlyUnlocked(progress.value, CARDS);
     if (fresh.length) updateProgress((p) => { fresh.forEach((a) => { p.achievements[a.id] = Date.now(); }); });

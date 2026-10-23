@@ -121,19 +121,19 @@ export function Home() {
             </span>
             <span class="meta"><b class="num">{passed}/{CHAPTERS.length}</b></span>
           </button>
-          <button class="mode" onClick={() => go({ name: 'play', mode: 'rush' })}>
+          {!settings.value.family && <button class="mode" onClick={() => go({ name: 'play', mode: 'rush' })}>
             <span class="glyph g-rush"><Icon name="timer" /></span>
             <span class="txt"><b>{t('rush')}</b><span>{t('rushSub')}</span></span>
             {p.rushBest > 0 && <span class="meta">{t('best')}<b class="num">{p.rushBest}</b></span>}
-          </button>
+          </button>}
           <button class="mode" onClick={() => go({ name: 'partySetup' })}>
             <span class="glyph g-party"><Icon name="users" /></span>
             <span class="txt"><b>{t('party')}</b><span>{t('partySub')}</span></span>
           </button>
-          <button class="mode" onClick={() => go({ name: 'hunt' })}>
+          {!settings.value.family && <button class="mode" onClick={() => go({ name: 'hunt' })}>
             <span class="glyph g-hunt"><Icon name="crosshair" /></span>
             <span class="txt"><b>{t('hunt')}</b><span>{t('huntSub')}</span></span>
-          </button>
+          </button>}
           <button class="mode tool" onClick={() => go({ name: 'checker' })}>
             <span class="glyph g-check"><Icon name="scan-search" /></span>
             <span class="txt"><b>{t('checker')}</b><span>{t('checkerSub')}</span></span>

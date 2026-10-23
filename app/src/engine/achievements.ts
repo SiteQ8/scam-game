@@ -76,6 +76,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   counted({ id: 'rush25', icon: 'hourglass', group: 'modes', tier: 'gold', en: { title: 'Lightning', body: 'Get 25 right in the 60 second rush.' }, ar: { title: 'كالبرق', body: 'احكم على خمس وعشرين بطاقة حكماً صحيحاً في سباق الستين ثانية.' } }, (p) => p.rushBest, 25),
   { id: 'hunt', icon: 'crosshair', group: 'modes', tier: 'silver', en: { title: 'Sharp eyes', body: 'Find every warning sign in a flag hunt.' }, ar: { title: 'عين ثاقبة', body: 'اعثر على كل علامات التحذير في جولة صيد.' }, check: (p) => p.huntPerfect >= 1 },
   { id: 'party', icon: 'users', group: 'modes', tier: 'bronze', en: { title: 'Host', body: 'Finish a game with friends or family.' }, ar: { title: 'المضيف', body: 'أنهِ جولة مع الأهل أو الأصدقاء.' }, check: (p) => p.partyGames >= 1 },
+  { id: 'family', icon: 'accessibility', group: 'modes', tier: 'bronze', en: { title: 'Family table', body: 'Play a round in family and seniors mode.' }, ar: { title: 'جلسة العائلة', body: 'العب جولة في وضع العائلة وكبار السن.' }, check: (p) => (p.familyRounds || 0) >= 1 },
   { id: 'checker', icon: 'scan-search', group: 'modes', tier: 'bronze', en: { title: 'Checked for real', body: 'Use the message checker.' }, ar: { title: 'فحص حقيقي', body: 'استخدم فاحص الرسائل.' }, check: (p) => p.checkerUses >= 1 },
 ];
 
