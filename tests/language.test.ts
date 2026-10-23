@@ -1,5 +1,7 @@
 // Language rules enforced at build time: no dashes anywhere, and Arabic periods only at the end of a sentence.
 import { describe, it, expect } from 'vitest';
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { S, CATEGORY_NAMES, CHANNEL_NAMES, RANKS, COUNTS } from '../app/src/i18n/strings';
 import { ACHIEVEMENTS } from '../app/src/engine/achievements';
 import { check } from '../app/src/engine/checker';
@@ -60,6 +62,26 @@ describe('website copy', () => {
       const prose = (t: string) => t.replace(/<[^>]+>/g, ' ').replace(/\{[a-z_]+\}/g, ' ');
       arabicOk(prose(ar), `copy.${k}`);
       englishOk(prose(en), `copy.${k}`);
+    }
+  });
+});
+
+describe('release notes', () => {
+  const dir = join(__dirname, '..', '.github', 'release-notes');
+  const files = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.md')) : [];
+
+  it('exist for every version, in English and Arabic, and follow the rules', () => {
+    expect(files.length).toBeGreaterThan(0);
+    for (const f of files) {
+      const lines = readFileSync(join(dir, f), 'utf8').split('\n');
+      expect(lines[0], `${f}: the first line is the title`).toMatch(new RegExp(`^# ${f.replace(/\.md$/, '').replace(/\./g, '\\.')}\\b`));
+      expect(lines.includes('## العربية'), `${f}: Arabic section`).toBe(true);
+      for (const line of lines.filter((l) => l.trim())) {
+        // Markdown marks and link targets are not prose.
+        const prose = line.replace(/\]\([^)]*\)/g, ']').replace(/[*#[\]]/g, ' ');
+        if (/[؀-ۿ]/.test(prose)) arabicOk(prose, f);
+        else englishOk(prose, f);
+      }
     }
   });
 });
