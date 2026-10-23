@@ -962,3 +962,21 @@ textarea, input { caret-color: var(--marker); }
 .miss-host.miss-x { animation: miss 600ms var(--ease-out) forwards; }
 .hero-icon { width: 58px; height: 58px; stroke-width: 1.6; }
 .onb .art .stage { position: relative; height: 100%; min-height: 260px; }
+
+/* ============ Family and seniors mode ============ */
+/* Text already reads a third larger through --scale; targets, the verdict buttons and the lesson grow with it. */
+.family .icon-btn { width: 52px; height: 52px; }
+.family .icon-btn .icon { width: 26px; height: 26px; }
+.family .btn { min-height: 60px; }
+.family .verdict-btn { height: 76px; font-size: 1.2rem; }
+.family .verdict-btn .icon { width: 30px; height: 30px; }
+/* The header keeps the full name: the streak shows in its own panel below, so the chip steps aside. */
+.family .home-head .chip.flame { display: none; }
+.family .wordmark b { font-size: 1.1rem; }
+.family .lesson { padding: 16px; }
+.family .lesson p { font-size: 1.05rem; line-height: 1.7; }
+.family .switch { width: 60px; height: 36px; }
+.family .switch::after { width: 30px; height: 30px; }
+.family .switch[aria-checked='true']::after { transform: translateX(24px); }
+.family[dir='rtl'] .switch[aria-checked='true']::after, [dir='rtl'] .family .switch[aria-checked='true']::after { transform: translateX(-24px); }
+.onb-family { margin-top: 16px; }

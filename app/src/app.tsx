@@ -25,8 +25,10 @@ function applyTheme() {
   const dark = s.theme === 'system' ? media.matches : s.theme === 'dark';
   const el = document.documentElement;
   el.dataset.theme = dark ? 'dark' : 'light';
-  el.style.setProperty('--scale', String(s.textScale));
-  el.classList.toggle('reduce-motion', s.reduceMotion || motion.matches);
+  // Family mode reads at least a third larger whatever the text size, and keeps motion calm.
+  el.style.setProperty('--scale', String(s.family ? Math.max(1.3, s.textScale + 0.18) : s.textScale));
+  el.classList.toggle('family', s.family);
+  el.classList.toggle('reduce-motion', s.reduceMotion || s.family || motion.matches);
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0c111b' : '#ece7de');
   void setStatusBar(dark);
 }
