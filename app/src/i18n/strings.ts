@@ -220,6 +220,13 @@ export const S = {
   tierSilver: { en: 'Silver', ar: 'فضية' },
   tierGold: { en: 'Gold', ar: 'ذهبية' },
 
+  // Tips
+  tipOfDay: { en: 'Tip of the day', ar: 'نصيحة اليوم' },
+  tips: { en: 'Tips', ar: 'النصائح' },
+  allTips: { en: 'All tips', ar: 'كل النصائح' },
+  tipsIntro: { en: 'A new tip every day. Here are the ones so far.', ar: 'نصيحة جديدة كل يوم، وهذه نصائح الأيام الماضية.' },
+  yesterday: { en: 'Yesterday', ar: 'أمس' },
+
   // Certificate
   certificate: { en: 'Certificate', ar: 'الشهادة' },
   certReady: { en: 'Your certificate is ready', ar: 'شهادتك جاهزة' },
@@ -338,6 +345,24 @@ export const CATEGORY_NAMES: Record<string, { en: string; ar: string }> = {
   education: { en: 'Education', ar: 'التعليم' },
   subscriptions: { en: 'Subscriptions', ar: 'الاشتراكات' },
   business: { en: 'Work', ar: 'العمل' },
+};
+
+export const TIP_TOPICS: Record<string, { en: string; ar: string }> = {
+  codes: { en: 'Codes', ar: 'الرموز' },
+  links: { en: 'Links', ar: 'الروابط' },
+  calls: { en: 'Calls', ar: 'المكالمات' },
+  ai: { en: 'AI fakes', ar: 'التزييف بالذكاء الاصطناعي' },
+  banking: { en: 'Banking', ar: 'البنوك' },
+  delivery: { en: 'Deliveries', ar: 'الشحنات' },
+  jobs: { en: 'Jobs', ar: 'الوظائف' },
+  investment: { en: 'Investment', ar: 'الاستثمار' },
+  government: { en: 'Government', ar: 'الجهات الرسمية' },
+  qr: { en: 'QR codes', ar: 'رموز QR' },
+  shopping: { en: 'Shopping', ar: 'التسوق' },
+  social: { en: 'Social', ar: 'التواصل' },
+  family: { en: 'Family', ar: 'العائلة' },
+  privacy: { en: 'Privacy', ar: 'الخصوصية' },
+  reporting: { en: 'Reporting', ar: 'البلاغ' },
 };
 
 export const CHANNEL_NAMES: Record<string, { en: string; ar: string }> = {

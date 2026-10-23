@@ -11,6 +11,7 @@ export type Route =
   | { name: 'stats' }
   | { name: 'badges' }
   | { name: 'certificate' }
+  | { name: 'tips' }
   | { name: 'settings' }
   | { name: 'about' }
   | { name: 'onboarding' };
