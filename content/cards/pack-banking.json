@@ -1,0 +1,866 @@
+[
+  {
+    "id": "notification-banking-card-purchase-alert",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "دفعت ببطاقتك قبل لحظات 12.750 د.ك ثمن مشترياتك من السوبرماركت.",
+      "card": {
+        "app": "Bank",
+        "title": "عملية شراء بالبطاقة",
+        "body": "عملية شراء بقيمة 12.750 د.ك لدى السوبرماركت ببطاقتك المنتهية بـ 4417، والرصيد المتاح 318.400 د.ك، وإن لم تكن أنت من أجراها فاتصل بالرقم المطبوع خلف بطاقتك",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "12.750 د.ك",
+          "why": "المبلغ والمكان يطابقان ما دفعته قبل لحظات، أي أن الإشعار يصف عملية أجريتها بنفسك."
+        },
+        {
+          "kind": "green",
+          "mark": "فاتصل بالرقم المطبوع خلف بطاقتك",
+          "why": "الإشعار يدلك على الرقم المطبوع على بطاقتك لا على رابط أو رقم مكتوب في الرسالة، وهكذا تتعامل البنوك الحقيقية مع عملائها."
+        },
+        {
+          "kind": "trap",
+          "mark": "المنتهية بـ 4417",
+          "why": "آخر أربعة أرقام من البطاقة تظهر في كل إيصال فلا تثبت شيئاً وحدها، لكنّ الإشعار موثوق لأنه يطابق ما فعلته ولا يطلب منك شيئاً."
+        }
+      ],
+      "lesson": "إشعار الشراء الذي يطابق ما دفعته للتو ولا يحمل رابطاً إشعار طبيعي، وإذا وصلك يوماً إشعار بعملية لا تعرفها فاتصل بالرقم المطبوع خلف بطاقتك."
+    },
+    "en": {
+      "context": "You just paid 12.750 KWD for groceries at the supermarket with your card.",
+      "card": {
+        "app": "Bank",
+        "title": "Card purchase",
+        "body": "Purchase of 12.750 KWD at Supermarket with your card ending 4417. Available balance: 318.400 KWD. Not you? Call the number on the back of your card.",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "12.750 KWD",
+          "why": "The amount and the shop match the payment you made a moment ago, so the alert describes what you did."
+        },
+        {
+          "kind": "green",
+          "mark": "Call the number on the back of your card",
+          "why": "It sends you to the number printed on your card, not to a link or a number in the message, which is how real banks work."
+        },
+        {
+          "kind": "trap",
+          "mark": "card ending 4417",
+          "why": "The last four digits are on every receipt, so they prove nothing alone. This alert is trustworthy because it matches your purchase and asks for nothing."
+        }
+      ],
+      "lesson": "A purchase alert that matches what you just paid and has no link is normal. If one ever shows a payment you don't know, call the number on your card."
+    }
+  },
+  {
+    "id": "social-banking-loan-upfront-fee",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "advance-fee",
+      "payment",
+      "too-good",
+      "urgency",
+      "credentials"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "ظهر لك هذا الإعلان الممول وأنت تتصفح تطبيق التواصل الاجتماعي.",
+      "card": {
+        "displayName": "قروض فورية",
+        "handle": "@instant.loans.kw7",
+        "verified": false,
+        "followers": "8,912",
+        "kind": "post",
+        "text": "💸 قروض شخصية حتى 10,000 د.ك خلال 30 دقيقة، بدون تحويل راتب وبدون كفيل وحتى لو عليك قروض ثانية، طلبك موافق عليه مبدئياً، بس ادفع رسوم فتح ملف 25 د.ك عشان نصرف لك المبلغ، وأرسل لنا صورة بطاقتك المدنية وبطاقة البنك، والعرض لين الليلة بس، راسلنا الحين 📩"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "ادفع رسوم فتح ملف 25 د.ك",
+          "why": "البنوك المرخصة تخصم أي رسوم من مبلغ القرض نفسه، أما الرسوم التي تُطلب منك قبل صرف القرض فهي الاحتيال بعينه لأنّ القرض لن يصل أبداً."
+        },
+        {
+          "kind": "red",
+          "mark": "بدون تحويل راتب وبدون كفيل",
+          "why": "الوعد بإقراض أي شخص دون أي تحقق طُعم، لأنّ البنوك المرخصة ملزمة بالتحقق من دخلك قبل أن تقرضك."
+        },
+        {
+          "kind": "red",
+          "mark": "صورة بطاقتك المدنية وبطاقة البنك",
+          "why": "صورة بطاقتك المصرفية تكشف رقمها وتاريخ انتهائها، وإذا اجتمعت مع صورة بطاقتك المدنية أتاحتا للمحتال أن ينفق من حسابك وينتحل هويتك."
+        },
+        {
+          "kind": "trap",
+          "mark": "طلبك موافق عليه مبدئياً",
+          "why": "عبارة الموافقة المبدئية لا تكلف المحتال شيئاً، فهو يكتبها لكل من يقرأ المنشور."
+        }
+      ],
+      "lesson": "اطلب القرض من فرع بنك مرخص أو من تطبيقه الرسمي فقط، ولا تدفع أي رسوم مقدماً لتحصل على قرض مهما بدا العرض مغرياً."
+    },
+    "en": {
+      "context": "This sponsored post appeared while you were scrolling a social app.",
+      "card": {
+        "displayName": "Instant Loans KW",
+        "handle": "@instant.loans.kw7",
+        "verified": false,
+        "followers": "8,912",
+        "kind": "post",
+        "text": "💸 Personal loans up to 10,000 KWD in 30 minutes! No salary transfer, no guarantor, approved even if you already have other loans. Your request is preapproved: just pay a 25 KWD file opening fee to release the money, then send us a photo of your civil ID and your bank card. Offer valid until tonight, message us now 📩"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "pay a 25 KWD file opening fee",
+          "why": "Licensed lenders take any fees out of the loan itself. A fee you must pay before the money arrives is the scam, and the loan never comes."
+        },
+        {
+          "kind": "red",
+          "mark": "No salary transfer, no guarantor",
+          "why": "A loan for anyone with no checks at all is bait. Licensed banks must check your income before they lend."
+        },
+        {
+          "kind": "red",
+          "mark": "photo of your civil ID and your bank card",
+          "why": "A photo of your card shows its number and expiry date, and with your civil ID a scammer can spend your money and pose as you."
+        },
+        {
+          "kind": "trap",
+          "mark": "preapproved",
+          "why": "Being told you are already approved costs nothing to write. The same line goes to everyone who reads the post."
+        }
+      ],
+      "lesson": "Apply for a loan only at a licensed bank's branch or in its official app, and never pay a fee up front to get one."
+    }
+  },
+  {
+    "id": "web-banking-app-update-apk",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "app-install",
+      "lookalike-domain",
+      "urgency",
+      "impersonation"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "وصلتك رسالة تقول إن تطبيق البنك قديم وفيها رابط إلى هذه الصفحة.",
+      "card": {
+        "url": "bank-app-update.com/android",
+        "secure": true,
+        "title": "البنك | مركز التحديثات",
+        "heading": "تطبيق البنك يحتاج إلى تحديث عاجل",
+        "text": "نسختك الحالية من التطبيق ستتوقف عن العمل خلال 24 ساعة، فحمّل الملف Bank_Update_v7.apk من هذه الصفحة واسمح بالتثبيت من مصادر غير معروفة، ثمّ امنح التطبيق صلاحية الوصول إلى رسائلك ليتحقق من هويتك تلقائياً\n\nهذا تحديث رسمي معتمد",
+        "fields": [],
+        "button": "حمّل التحديث"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "bank-app-update.com/android",
+          "why": "تحديث التطبيقات يتم من متجر التطبيقات الرسمي في هاتفك لا من موقع إلكتروني، وهذا العنوان لا يعود إلى أي بنك."
+        },
+        {
+          "kind": "red",
+          "mark": "واسمح بالتثبيت من مصادر غير معروفة",
+          "why": "هاتفك يمنع تثبيت التطبيقات من خارج المتجر الرسمي ليحميك، وتعطيل هذه الحماية هو الطريق الذي تدخل منه البرامج الخبيثة."
+        },
+        {
+          "kind": "red",
+          "mark": "صلاحية الوصول إلى رسائلك",
+          "why": "تطبيق البنك الحقيقي لا يحتاج إلى قراءة رسائلك، أما البرنامج الخبيث فيريدها ليسرق رموز التحقق التي يرسلها لك البنك."
+        },
+        {
+          "kind": "trap",
+          "mark": "هذا تحديث رسمي معتمد",
+          "why": "وصف التحديث بأنه رسمي لا يكلف المحتال شيئاً ولا يثبت شيئاً، وكذلك القفل الظاهر بجانب العنوان لا يثبت أن الموقع صادق."
+        }
+      ],
+      "lesson": "حدّث تطبيق البنك من متجر التطبيقات الرسمي في هاتفك فقط، ولا تثبّت ملف تطبيق من رابط ولا تسمح بالتثبيت من مصادر غير معروفة."
+    },
+    "en": {
+      "context": "A text said your banking app was out of date and linked to this page.",
+      "card": {
+        "url": "bank-app-update.com/android",
+        "secure": true,
+        "title": "Bank | Update centre",
+        "heading": "Your banking app needs an urgent update",
+        "text": "Your current version will stop working within 24 hours. Download Bank_Update_v7.apk from this page, allow installs from unknown sources, then give the app access to your messages so it can confirm your identity automatically.\n\nThis is an official update.",
+        "fields": [],
+        "button": "Download update"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "bank-app-update.com/android",
+          "why": "Apps are updated from your phone's official app store, never from a website, and this address belongs to no bank."
+        },
+        {
+          "kind": "red",
+          "mark": "allow installs from unknown sources",
+          "why": "Your phone blocks apps from outside the official store to protect you. Turning that off is how malware gets in."
+        },
+        {
+          "kind": "red",
+          "mark": "access to your messages",
+          "why": "A real banking app has no reason to read your texts. Malware wants them to steal the codes your bank sends you."
+        },
+        {
+          "kind": "trap",
+          "mark": "This is an official update",
+          "why": "Calling it official costs a scammer nothing, and neither does the padlock next to the address."
+        }
+      ],
+      "lesson": "Update your banking app only from your phone's official app store. Never install an app file from a link or switch on installs from unknown sources."
+    }
+  },
+  {
+    "id": "sms-banking-reversal-code",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "otp",
+      "impersonation",
+      "unknown-number",
+      "urgency"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "دفعت عدة فواتير ببطاقتك هذا الأسبوع.",
+      "card": {
+        "sender": "+965 5••• ••81",
+        "time": "10:42",
+        "body": "البنك: عزيزي العميل، خُصم مبلغ 49.500 د.ك من حسابك مرتين عن طريق الخطأ وسنعيد إليك المبلغ المكرر اليوم، وسيصلك الآن رمز التحقق الخاص بعملية الاسترجاع، فأرسله رداً على هذا الرقم خلال 10 دقائق ليعود المبلغ إلى حسابك"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+965 5••• ••81",
+          "why": "البنك يرسل رسائله باسمه المسجل لا من رقم هاتف شخصي، لذا فوصول الرسالة من رقم جوال علامة احتيال واضحة."
+        },
+        {
+          "kind": "red",
+          "mark": "فأرسله رداً على هذا الرقم",
+          "why": "لا يطلب أي بنك أن تعيد إليه رمز التحقق، فالرمز يُكتب فقط في الصفحة أو التطبيق الذي بدأت فيه العملية بنفسك."
+        },
+        {
+          "kind": "red",
+          "mark": "رمز التحقق الخاص بعملية الاسترجاع",
+          "why": "استرجاع المال لا يحتاج إلى رمز منك، لأنّ الرمز الذي سيصلك يؤكد دفعة تخرج من حسابك ونص رسالته يذكر ذلك صراحة."
+        },
+        {
+          "kind": "trap",
+          "mark": "وسنعيد إليك المبلغ المكرر اليوم",
+          "why": "خبر المال العائد إليك يخفف حذرك، لكنه لا يثبت شيئاً عن هوية المرسل."
+        }
+      ],
+      "lesson": "استرجاع المال لا يحتاج إلى رمز منك أبداً لأنّ الرموز تؤكد خروج المال من حسابك فقط، لذا لا ترسل رمزاً لأي شخص مهما كان السبب."
+    },
+    "en": {
+      "context": "You paid a few bills with your card this week.",
+      "card": {
+        "sender": "+965 5••• ••81",
+        "time": "10:42",
+        "body": "Bank: Dear customer, a duplicate charge of 49.500 KWD was taken from your account in error and will be refunded today. You will now receive a verification code for the reversal. Reply to this number with the code within 10 minutes so the amount returns to your account."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "+965 5••• ••81",
+          "why": "Banks text from their registered name, not from a personal mobile number."
+        },
+        {
+          "kind": "red",
+          "mark": "Reply to this number with the code",
+          "why": "No bank ever asks you to send a code back. A code is only typed into the page or app where you started something yourself."
+        },
+        {
+          "kind": "red",
+          "mark": "a verification code for the reversal",
+          "why": "A refund never needs a code from you. The code that arrives will approve a payment out of your account, and its own text says so."
+        },
+        {
+          "kind": "trap",
+          "mark": "will be refunded today",
+          "why": "Good news about money coming back lowers your guard, but it proves nothing about who sent the text."
+        }
+      ],
+      "lesson": "Getting money back never needs a code from you. Codes only approve money leaving your account, so never send one to anyone."
+    }
+  },
+  {
+    "id": "email-banking-never-asks-codes",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "no-link",
+      "official-channel",
+      "verify-independently"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "حدّثك أصدقاؤك هذا الأسبوع عن مكالمات احتيالية تنتحل اسم بنكك.",
+      "card": {
+        "fromName": "البنك",
+        "fromAddress": "notices@bank.example.com",
+        "subject": "مكالمات تنتحل صفة فريق مكافحة الاحتيال لدينا",
+        "body": "عزيزي يوسف،\n\nتلقى بعض عملائنا مكالمات من أشخاص ينتحلون صفة فريق مكافحة الاحتيال في البنك، فيدّعي المتصل وجود مشكلة في حسابك ثمّ يطلب منك قراءة رمز أو الموافقة على طلب في التطبيق أو نقل أموالك إلى مكان آمن\n\nلن نطلب منك أبداً الرقم السري أو كلمة المرور أو أي رمز، لا بالهاتف ولا بالرسائل ولا بالبريد ولا عبر تطبيقات الدردشة، وإذا وصلتك مكالمة كهذه فأغلق الخط واتصل بالرقم المطبوع خلف بطاقتك\n\nلا يلزمك أي إجراء آخر، وهذه الرسالة لا تحتوي على أي رابط"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "لن نطلب منك أبداً الرقم السري",
+          "why": "الرسالة تخبرك بما لن يطلبه البنك أبداً، وهذا عكس ما يريده المحتال منك تماماً."
+        },
+        {
+          "kind": "green",
+          "mark": "فأغلق الخط واتصل بالرقم المطبوع خلف بطاقتك",
+          "why": "الرسالة تدلك على الرقم المطبوع على بطاقتك، وهو خط لا يتحكم فيه المحتالون."
+        },
+        {
+          "kind": "green",
+          "mark": "لا يلزمك أي إجراء آخر",
+          "why": "الرسالة لا تطلب منك رداً ولا ضغطاً على رابط ولا أي بيانات."
+        },
+        {
+          "kind": "trap",
+          "mark": "notices@bank.example.com",
+          "why": "العنوان الذي يبدو صحيحاً علامة جيدة لكنه قابل للتقليد، وما يجعل الرسالة آمنة فعلاً أنها لا تطلب منك شيئاً."
+        }
+      ],
+      "lesson": "تحذير البنك الحقيقي لا يطلب منك شيئاً ولا يحمل رابطاً، فاعمل بنصيحته ولا تشارك رمزاً أو رقماً سرياً أو كلمة مرور، وأغلق الخط مع كل من يطلبها منك."
+    },
+    "en": {
+      "context": "Friends have told you about scam calls in your bank's name this week.",
+      "card": {
+        "fromName": "Bank",
+        "fromAddress": "notices@bank.example.com",
+        "subject": "Calls pretending to be from our fraud team",
+        "body": "Dear Yousef,\n\nSome customers have had calls from people pretending to be our fraud team. The caller says there is a problem with your account, then asks you to read out a code, approve a request in the app, or move your money somewhere safe.\n\nWe will never ask you for your PIN, your password or any code, by phone, text, email or chat. If you get a call like this, hang up and call the number on the back of your card.\n\nYou don't need to do anything else. This email has no links."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "We will never ask you for your PIN",
+          "why": "It tells you what the bank will never ask for, the opposite of what a scammer wants from you."
+        },
+        {
+          "kind": "green",
+          "mark": "hang up and call the number on the back of your card",
+          "why": "It sends you to the number printed on your card, a line the scammers do not control."
+        },
+        {
+          "kind": "green",
+          "mark": "You don't need to do anything else",
+          "why": "It asks for no reply, no tap and no details."
+        },
+        {
+          "kind": "trap",
+          "mark": "notices@bank.example.com",
+          "why": "An address that looks right is a good sign but can be imitated. What really makes this email safe is that it asks you for nothing."
+        }
+      ],
+      "lesson": "A real bank warning asks for nothing and has no link. Follow its advice: never share a code, PIN or password, and hang up on anyone who asks."
+    }
+  },
+  {
+    "id": "chat-banking-limit-increase",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "otp",
+      "credentials",
+      "too-good",
+      "unknown-number",
+      "impersonation"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "لديك بطاقة ائتمانية حدها 1,000 دولار.",
+      "card": {
+        "contact": "+44 7700 900263",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "مرحباً سارة، معك فريق ترقية البطاقات في البنك 🎉 بطاقتك الائتمانية مؤهلة لرفع حدها من 1,000 دولار إلى 5,000 دولار بدون أي رسوم",
+            "time": "11:05"
+          },
+          {
+            "from": "them",
+            "text": "ولتفعيل الزيادة اليوم أرسلي لنا صورة واضحة لوجه البطاقة وظهرها، ثمّ رمز التحقق الذي سيصلك برسالة نصية لنتأكد أنك صاحبة البطاقة",
+            "time": "11:06"
+          },
+          {
+            "from": "me",
+            "text": "ما أقدر أسويها من تطبيق البنك؟",
+            "time": "11:09"
+          },
+          {
+            "from": "them",
+            "text": "العرض متاح عبر هذه المحادثة فقط وينتهي الليلة، ولا يظهر في التطبيق ولا في الفروع",
+            "time": "11:10"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "لوجه البطاقة وظهرها",
+          "why": "صورة وجهي البطاقة تكشف رقمها كاملاً وتاريخ انتهائها والرمز المطبوع خلفها، وهذا كل ما يحتاجه المحتال ليشتري ببطاقتك."
+        },
+        {
+          "kind": "red",
+          "mark": "رمز التحقق الذي سيصلك",
+          "why": "الرمز الذي سيصلك لا يرفع حد بطاقتك، بل يؤكد عملية دفع أو يضيف بطاقتك إلى هاتف المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "متاح عبر هذه المحادثة فقط",
+          "why": "عروض البنك الحقيقية تظهر في تطبيقه وفروعه أيضاً، أما العرض الذي لا يوجد إلا في محادثة مع رقم مجهول ففخ."
+        },
+        {
+          "kind": "trap",
+          "mark": "مرحباً سارة",
+          "why": "معرفة اسمك لا تثبت شيئاً، لأنّ الأسماء تتسرب بسهولة ويستخدمها المحتالون ليبدو كلامهم مألوفاً."
+        }
+      ],
+      "lesson": "الطريق الآمن لرفع حد البطاقة هو تطبيق البنك الرسمي أو الفرع، ولا يجوز إرسال صورة البطاقة أو رمز التحقق لأي شخص مهما كان العرض مغرياً."
+    },
+    "en": {
+      "context": "You have a credit card with a 1,000 dollar limit.",
+      "card": {
+        "contact": "+44 7700 900263",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Hello Sara, this is the card upgrades team at your bank 🎉 Your credit card qualifies for a limit increase from $1,000 to $5,000, with no fees.",
+            "time": "11:05"
+          },
+          {
+            "from": "them",
+            "text": "To apply the increase today, send us a clear photo of the front and back of your card, then the six digit code we text you, so we know it's really you.",
+            "time": "11:06"
+          },
+          {
+            "from": "me",
+            "text": "Can't I just do this in the bank app?",
+            "time": "11:09"
+          },
+          {
+            "from": "them",
+            "text": "This offer is only available through this chat and expires tonight. It won't show in the app or at branches.",
+            "time": "11:10"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "front and back of your card",
+          "why": "A photo of both sides shows the full card number, expiry date and the code on the back, everything needed to shop with your card."
+        },
+        {
+          "kind": "red",
+          "mark": "the six digit code we text you",
+          "why": "That code would not raise your limit. It would approve a payment or add your card to the scammer's phone."
+        },
+        {
+          "kind": "red",
+          "mark": "only available through this chat",
+          "why": "Real bank offers also appear in the app and at branches. An offer that exists only in a chat with an unknown number is a trap."
+        },
+        {
+          "kind": "trap",
+          "mark": "Hello Sara",
+          "why": "Knowing your name proves nothing. Names leak easily, and scammers use them to sound familiar."
+        }
+      ],
+      "lesson": "Ask for a higher limit only in your bank's official app or at a branch, and never send anyone a photo of your card or a code."
+    }
+  },
+  {
+    "id": "sms-banking-chequebook-branch",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "طلبت من فرع البنك قبل عشرة أيام دفتر شيكات جديداً.",
+      "card": {
+        "sender": "Bank",
+        "time": "09:15",
+        "body": "عزيزي فهد، دفتر الشيكات الذي طلبته جاهز للاستلام من فرعنا في السالمية ابتداءً من يوم الأحد، يرجى إحضار بطاقتك المدنية عند الاستلام، ولا حاجة إلى الرد على هذه الرسالة"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "دفتر الشيكات الذي طلبته",
+          "why": "الرسالة متابعة لطلب قدّمته بنفسك، وتذكر اسمك والشيء الذي طلبته."
+        },
+        {
+          "kind": "green",
+          "mark": "يرجى إحضار بطاقتك المدنية",
+          "why": "الاستلام يتم في الفرع بحضورك وإبراز هويتك أمام الموظف، فلا شيء يُكتب أو يُدفع أو يُقرأ عبر الهاتف."
+        },
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "اسم المرسل وحده لا يثبت شيئاً لأنّ انتحاله ممكن، لكنّ الرسالة آمنة لأنها تطابق طلبك ولا تطلب منك شيئاً."
+        }
+      ],
+      "lesson": "الإشعار الذي يطابق طلباً قدّمته ولا يطلب منك سوى زيارة الفرع إشعار طبيعي، فاستلم دفترك بنفسك وأبرز هويتك للموظف."
+    },
+    "en": {
+      "context": "Ten days ago you asked your branch for a new cheque book.",
+      "card": {
+        "sender": "Bank",
+        "time": "09:15",
+        "body": "Dear Fahad, the cheque book you requested is ready for collection at our Salmiya branch from Sunday. Please bring your civil ID. There is no need to reply to this message."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "the cheque book you requested",
+          "why": "It follows up on a request you made yourself, and it names you and what you asked for."
+        },
+        {
+          "kind": "green",
+          "mark": "Please bring your civil ID",
+          "why": "You collect it in person and show your ID at the counter, so nothing is typed, paid or read out over the phone."
+        },
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "The sender name proves nothing alone, since it can be spoofed. This text is safe because it matches your request and asks for nothing."
+        }
+      ],
+      "lesson": "A notice that matches something you asked for and only invites you to the branch is normal. Collect it in person and show your ID at the counter."
+    }
+  },
+  {
+    "id": "email-banking-frozen-salary-verify",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "credentials",
+      "threat",
+      "urgency",
+      "lookalike-domain",
+      "impersonation"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "طلب منك بنكك العام الماضي تحديث بيانات جهة عملك في الفرع.",
+      "card": {
+        "fromName": "إدارة الالتزام",
+        "fromAddress": "compliance@kw-bank-kyc.com",
+        "subject": "تم تجميد حسابك",
+        "body": "عزيزي العميل،\n\nتُلزم تعليمات مكافحة غسل الأموال المحدّثة كل عميل بتأكيد بيانات راتبه مرة كل سنة، وقد جُمّد حسابك مؤقتاً لأن بيانات راتبك غير محدّثة\n\nولرفع التجميد أدخل جهة عملك وراتبك الشهري ورقم بطاقتك المدنية في الصفحة أدناه، ثمّ سجّل الدخول باسم المستخدم وكلمة المرور الخاصين بخدماتك المصرفية عبر الإنترنت، علماً بأن الحسابات التي لا تُحدّث خلال 48 ساعة ستُغلق ويُحجز رصيدها للمراجعة\n\nإدارة الالتزام",
+        "button": {
+          "label": "حدّث بيانات راتبك",
+          "url": "kw-bank-kyc.com/salary"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "compliance@kw-bank-kyc.com",
+          "why": "هذا ليس عنوان بنكك بل كلمات توحي بالبنك على نطاق يستطيع أي شخص شراءه."
+        },
+        {
+          "kind": "red",
+          "mark": "باسم المستخدم وكلمة المرور",
+          "why": "لا يحتاج أي بنك إلى كلمة مرورك ليحدّث بياناتك، ومن يحصل عليها يدخل إلى حسابك باسمك."
+        },
+        {
+          "kind": "red",
+          "mark": "ستُغلق ويُحجز رصيدها",
+          "why": "التهديد بإغلاق حسابك خلال يومين ضغط يدفعك إلى التصرف قبل أن تتصل بالبنك."
+        },
+        {
+          "kind": "trap",
+          "mark": "تعليمات مكافحة غسل الأموال",
+          "why": "التعليمات موجودة فعلاً وهذا ما يجعل الرسالة مقنعة، لكنّ ذكرها لا يثبت شيئاً عن هوية المرسل."
+        }
+      ],
+      "lesson": "حدّث بياناتك الشخصية وبيانات راتبك عبر تطبيق البنك الرسمي أو في الفرع فقط، ولا تسجّل الدخول أبداً عبر رابط وصلك في بريد إلكتروني."
+    },
+    "en": {
+      "context": "Last year your bank asked you to update your employer details at a branch.",
+      "card": {
+        "fromName": "Bank Compliance",
+        "fromAddress": "compliance@kw-bank-kyc.com",
+        "subject": "Your account has been frozen",
+        "body": "Dear customer,\n\nUnder updated anti money laundering rules, every customer must confirm their salary details once a year. Your account has been temporarily frozen because your salary information is out of date.\n\nTo unfreeze it, enter your employer, monthly salary and civil ID number on the page below, then sign in with your online banking username and password. Accounts not updated within 48 hours will be closed and the balance held for review.\n\nCompliance Department",
+        "button": {
+          "label": "Update my salary details",
+          "url": "kw-bank-kyc.com/salary"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "compliance@kw-bank-kyc.com",
+          "why": "This is not your bank's address, just bank sounding words on a domain anyone can buy."
+        },
+        {
+          "kind": "red",
+          "mark": "username and password",
+          "why": "No bank needs your online banking password to update your records. Whoever gets it can sign in as you."
+        },
+        {
+          "kind": "red",
+          "mark": "will be closed",
+          "why": "Threatening to close your account within two days is pressure to act before you call your bank."
+        },
+        {
+          "kind": "trap",
+          "mark": "anti money laundering rules",
+          "why": "These rules are real, which is what makes the email convincing. Quoting them proves nothing about who sent it."
+        }
+      ],
+      "lesson": "Update your personal or salary details only in your bank's official app or at a branch, and never sign in through a link in an email."
+    }
+  },
+  {
+    "id": "notification-banking-approve-own-transfer",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "official-channel",
+      "no-link"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "تحوّل الآن 150 دولاراً إلى أختك نورة من تطبيق البنك.",
+      "card": {
+        "app": "Bank",
+        "title": "هل توافق على هذا التحويل؟",
+        "body": "تحويل 150.00 دولار إلى نورة على الحساب المنتهي بـ 2291، فلا توافق إلا إذا كنت أنت من بدأ هذا التحويل، ولن نتصل بك أبداً لنطلب منك الموافقة على أي طلب",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "تحويل 150.00 دولار إلى نورة",
+          "why": "المبلغ والاسم يطابقان تماماً التحويل الذي تجريه الآن بنفسك."
+        },
+        {
+          "kind": "green",
+          "mark": "فلا توافق إلا إذا كنت أنت من بدأ هذا التحويل",
+          "why": "الطلب الحقيقي ينبهك متى لا يجوز لك الموافقة، ويظهر لك في أثناء إجرائك التحويل بنفسك."
+        },
+        {
+          "kind": "green",
+          "mark": "ولن نتصل بك أبداً",
+          "why": "البنك يحذرك من الحيلة نفسها التي يستخدمها المحتالون، فتعرف أن من يتصل ليطلب منك الموافقة محتال."
+        },
+        {
+          "kind": "trap",
+          "mark": "هل توافق على هذا التحويل؟",
+          "why": "طلب الموافقة ليس احتيالاً في حد ذاته، وما يحسم الأمر أن تكون أنت من بدأ العملية التي يصفها."
+        }
+      ],
+      "lesson": "وافق على أي طلب في تطبيق البنك فقط عندما تجري العملية نفسها بنفسك، ولا توافق أبداً لأنّ متصلاً طلب منك ذلك."
+    },
+    "en": {
+      "context": "You are sending 150 dollars to your sister Noura in your bank app right now.",
+      "card": {
+        "app": "Bank",
+        "title": "Approve this transfer?",
+        "body": "$150.00 to Noura, account ending 2291. Only approve if you started this transfer yourself. We will never call you to ask you to approve a request.",
+        "time": "now"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "$150.00 to Noura",
+          "why": "The amount and the name match exactly the transfer you are making right now."
+        },
+        {
+          "kind": "green",
+          "mark": "Only approve if you started this transfer yourself",
+          "why": "A real approval request tells you when not to approve, and it appears while you are making the transfer yourself."
+        },
+        {
+          "kind": "green",
+          "mark": "We will never call you",
+          "why": "It warns you about the exact trick scammers use, so you know a caller asking you to approve is a fake."
+        },
+        {
+          "kind": "trap",
+          "mark": "Approve this transfer?",
+          "why": "An approval request is not a scam in itself. What decides it is whether you started the action it describes."
+        }
+      ],
+      "lesson": "Approve a request in your bank app only while you are making that exact payment yourself, and never because a caller asks you to."
+    }
+  },
+  {
+    "id": "call-banking-approve-push",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "impersonation",
+      "urgency",
+      "verify-independently"
+    ],
+    "pack": "banking",
+    "ar": {
+      "context": "حفظت رقم خدمة عملاء بنكك في هاتفك باسم البنك.",
+      "card": {
+        "caller": "البنك",
+        "saved": true,
+        "voice": {
+          "gender": "male",
+          "age": "adult",
+          "tone": "calm"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "مساء الخير أستاذ فهد، معاك أحمد من إدارة الحماية بالبنك، لاحظنا حركة غير معتادة على حسابك، في واحد حاول يحوّل تسعمية دينار برا الكويت"
+          },
+          {
+            "who": "you",
+            "text": "شنو؟ أنا ما حولت شي"
+          },
+          {
+            "who": "caller",
+            "text": "ولا يهمك، وقفناها، بس الحين بيطلع لك طلب بتطبيق البنك مكتوب فيه موافقة على تحويل، هذا هو الإلغاء نفسه، اضغط موافقة فوراً وخلك معاي على الخط"
+          },
+          {
+            "who": "you",
+            "text": "زين، طلع لي الطلب الحين"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "اضغط موافقة فوراً",
+          "why": "الموافقة في تطبيق البنك تعني تأكيد عملية دفع، ولا يمكن إلغاء تحويل بأن يطلب منك أحد الموافقة عليه."
+        },
+        {
+          "kind": "red",
+          "mark": "هذا هو الإلغاء نفسه",
+          "why": "الطلب مكتوب فيه تحويل لأنه تحويل فعلاً، والمتصل يبرر ذلك حتى توافق بنفسك على دفعة المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "وخلك معاي على الخط",
+          "why": "إبقاؤك على الخط يمنعك من إنهاء المكالمة والاتصال بالبنك بنفسك."
+        },
+        {
+          "kind": "trap",
+          "mark": "البنك",
+          "why": "هوية المتصل يمكن تزويرها لتظهر لك رقماً حفظته بنفسك، لذا فظهور اسم البنك المحفوظ في هاتفك لا يثبت شيئاً."
+        }
+      ],
+      "lesson": "لا توافق أبداً على طلب في تطبيق البنك لأنّ متصلاً طلب منك ذلك، بل أغلق الخط واتصل بنفسك بالرقم المطبوع خلف بطاقتك."
+    },
+    "en": {
+      "context": "You saved your bank's hotline in your phone as Bank.",
+      "card": {
+        "caller": "Bank",
+        "saved": true,
+        "voice": {
+          "gender": "male",
+          "age": "adult",
+          "tone": "calm"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "Good evening, Mr Fahad, it's Ahmad from the bank's protection team. We've noticed unusual activity on your account. Someone tried to send nine hundred dinars abroad."
+          },
+          {
+            "who": "you",
+            "text": "What? I haven't sent anything!"
+          },
+          {
+            "who": "caller",
+            "text": "Don't worry, we've paused it. A request will pop up in your bank app now. It says approve transfer, but that's how cancellations show. Tap Approve immediately and stay on the line."
+          },
+          {
+            "who": "you",
+            "text": "Okay, it's showing on my screen now."
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "Tap Approve immediately",
+          "why": "Approving in your bank app confirms a payment. Nobody cancels a transfer by asking you to approve one."
+        },
+        {
+          "kind": "red",
+          "mark": "that's how cancellations show",
+          "why": "The request says transfer because it is one. The caller explains it away so you approve the scammer's payment yourself."
+        },
+        {
+          "kind": "red",
+          "mark": "stay on the line",
+          "why": "Keeping you on the call stops you from hanging up and calling the bank yourself."
+        },
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "Caller ID can be faked to show a number you saved, so even your bank's saved contact on the screen proves nothing."
+        }
+      ],
+      "lesson": "Never approve a request in your bank app because a caller asks you to. Hang up and call the number on the back of your card yourself."
+    }
+  }
+]

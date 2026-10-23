@@ -1,0 +1,888 @@
+[
+  {
+    "id": "notification-delivery-order-dispatched",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "shopping",
+    "region": "global",
+    "difficulty": 1,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "طلبت قبل يومين خلاطاً وغلاية ومحمصة من تطبيق المتجر.",
+      "card": {
+        "app": "Store",
+        "title": "طلبك في الطريق إليك",
+        "body": "شُحنت قطعتان من طلبك هما الخلاط والغلاية، وستصلك من شركة التوصيل رسالة نصية فيها رمز الاستلام يوم التوصيل، أما المحمصة فستصلك في شحنة منفصلة، وطلبك مدفوع بالكامل",
+        "time": "08:30"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Store",
+          "why": "الإشعار صادر من تطبيق المتجر الذي اشتريت منه، والغرباء لا يستطيعون إرسال إشعارات عبر هذا التطبيق."
+        },
+        {
+          "kind": "green",
+          "mark": "الخلاط والغلاية",
+          "why": "الإشعار يذكر القطع التي طلبتها فعلاً، أي أن المرسل يعرف طلبك ولا يخمّن."
+        },
+        {
+          "kind": "green",
+          "mark": "وطلبك مدفوع بالكامل",
+          "why": "لا يُطلب منك أي مبلغ، لذا لا يجد المحتال في الإشعار ما يستفيد منه."
+        }
+      ],
+      "lesson": "إشعار الشحن الذي يصلك داخل تطبيق المتجر ويذكر مشترياتك ولا يطلب منك شيئاً إشعار طبيعي، فتابع شحنتك من التطبيق لا من روابط الرسائل."
+    },
+    "en": {
+      "context": "Two days ago you ordered a blender, a kettle and a toaster in the Store app.",
+      "card": {
+        "app": "Store",
+        "title": "Your order is on its way",
+        "body": "2 of your 3 items have shipped: the blender and the kettle. The courier will text you a delivery code on the day. The toaster will follow in a separate parcel. Your order is fully paid.",
+        "time": "08:30"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Store",
+          "why": "The alert comes from the Store app you ordered in, and outsiders cannot send notifications through it."
+        },
+        {
+          "kind": "green",
+          "mark": "the blender and the kettle",
+          "why": "It names the items you actually ordered, so the sender knows your order rather than guessing."
+        },
+        {
+          "kind": "green",
+          "mark": "Your order is fully paid",
+          "why": "Nothing is asked of you, so there is nothing in it for a scammer."
+        }
+      ],
+      "lesson": "A shipping alert inside the store's own app that names your items and asks for nothing is normal. Follow the parcel there, not through links in texts."
+    }
+  },
+  {
+    "id": "chat-delivery-customs-agent",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 2,
+    "tags": [
+      "payment",
+      "impersonation",
+      "unknown-number",
+      "urgency"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "طلبت ساعة من متجر في الخارج وموعد وصولها هذا الأسبوع.",
+      "card": {
+        "contact": "+965 9••• ••58",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "مرحباً، معك يوسف، مخلّص جمركي معتمد في المطار 🪪 شحنتك القادمة من الخارج محجوزة لأن الرسوم الجمركية عليها غير مدفوعة",
+            "time": "13:02"
+          },
+          {
+            "from": "them",
+            "text": "أقدر أخلّصها لك اليوم، الجمارك 18 د.ك و5 د.ك أتعابي، حوّل 23 د.ك على حسابي الشخصي KW•• •••• •••• 6620 وأرسل لي صورة الإيصال",
+            "time": "13:03"
+          },
+          {
+            "from": "them",
+            "text": "بسرعة لو سمحت، إذا ما انسدد المبلغ خلال 24 ساعة بترجعها الجمارك للمرسل",
+            "time": "13:04"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "على حسابي الشخصي",
+          "why": "الرسوم الجمركية تُدفع للجمارك أو عبر تطبيق شركة التوصيل الرسمي، ولا تُحوّل أبداً إلى الحساب الشخصي لشخص غريب."
+        },
+        {
+          "kind": "red",
+          "mark": "+965 9••• ••58",
+          "why": "الجمارك وشركات التوصيل لا تراسلك من رقم شخصي عبر تطبيق دردشة."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال 24 ساعة",
+          "why": "المهلة القصيرة والتهديد بإعادة الشحنة يدفعانك إلى التحويل قبل أن تتحقق من تطبيق شركة التوصيل."
+        },
+        {
+          "kind": "trap",
+          "mark": "مخلّص جمركي معتمد",
+          "why": "وصف نفسه بأنه معتمد لا يكلفه شيئاً ولا يثبت أنه يعمل لدى الجمارك أو أي جهة رسمية."
+        }
+      ],
+      "lesson": "إذا كانت على شحنتك رسوم جمركية فتحقق منها وادفعها في تطبيق شركة التوصيل الرسمي أو لدى الجمارك، ولا تحوّل أي مبلغ لشخص راسلك."
+    },
+    "en": {
+      "context": "You ordered a watch from a shop abroad and it is due this week.",
+      "card": {
+        "contact": "+965 9••• ••58",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Hello, I'm Yousef, a licensed customs clearance agent at the airport 🪪 Your parcel from abroad is being held because the customs duty on it is unpaid.",
+            "time": "13:02"
+          },
+          {
+            "from": "them",
+            "text": "I can clear it for you today. Duty is 18 KWD plus 5 KWD for my service. Transfer 23 KWD to my personal account KW•• •••• •••• 6620 and send me a photo of the receipt.",
+            "time": "13:03"
+          },
+          {
+            "from": "them",
+            "text": "Please be quick, if it isn't paid within 24 hours customs will send it back to the sender.",
+            "time": "13:04"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "to my personal account",
+          "why": "Customs duty is paid to customs or in the courier's official app, never into a stranger's personal account."
+        },
+        {
+          "kind": "red",
+          "mark": "+965 9••• ••58",
+          "why": "Customs and couriers do not message you from a personal number on a chat app."
+        },
+        {
+          "kind": "red",
+          "mark": "within 24 hours",
+          "why": "The short deadline and the threat to return the parcel push you to transfer before you check the courier's app."
+        },
+        {
+          "kind": "trap",
+          "mark": "licensed customs clearance agent",
+          "why": "Calling himself licensed costs him nothing and proves nothing about working for customs or anyone official."
+        }
+      ],
+      "lesson": "If a parcel owes duty, check and pay it in the courier's official app or at the customs office, never by transfer to someone who messages you."
+    }
+  },
+  {
+    "id": "email-delivery-damaged-compensation",
+    "channel": "email",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "too-good",
+      "credentials",
+      "lookalike-domain",
+      "urgency",
+      "impersonation"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "وصلتك عدة شحنات من متاجر مختلفة هذا الشهر.",
+      "card": {
+        "fromName": "مطالبات التوصيل",
+        "fromAddress": "claims@parcel-care-refund.com",
+        "subject": "تضررت شحنتك، اطلب تعويضك الآن",
+        "body": "عزيزي العميل،\n\nنأسف لإبلاغك بأن شحنة موجهة إليك تعرضت للتلف في مستودعنا، ويحق لك تعويض قدره 85.00 دولار\n\nولاستلام التعويض املأ نموذج المطالبة ببيانات البطاقة التي تريد استلام المبلغ عليها، بما في ذلك تاريخ انتهاء البطاقة ورمز الأمان، علماً بأن المطالبات تُقبل خلال 48 ساعة فقط\n\nفريق المطالبات",
+        "button": {
+          "label": "اطلب التعويض",
+          "url": "parcel-care-refund.com/claim"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "claims@parcel-care-refund.com",
+          "why": "العنوان لا يعود إلى أي شركة توصيل تعاملت معها، بل كلمات مطمئنة على نطاق يستطيع أي شخص شراءه."
+        },
+        {
+          "kind": "red",
+          "mark": "تاريخ انتهاء البطاقة ورمز الأمان",
+          "why": "لا يحتاج أحد إلى تاريخ انتهاء بطاقتك ورمز الأمان ليرسل لك مالاً، فهذه البيانات تتيح للص أن ينفق من بطاقتك."
+        },
+        {
+          "kind": "red",
+          "mark": "شحنة موجهة إليك",
+          "why": "الرسالة لا تذكر الشحنة ولا المتجر لأنّ المرسل لا يعرفهما، بل يراهن على أنك استلمت شحنة مؤخراً."
+        },
+        {
+          "kind": "trap",
+          "mark": "نأسف لإبلاغك",
+          "why": "الاعتذار المهذب يشبه أسلوب خدمة العملاء الحقيقية، لكنه لا يثبت شيئاً عن هوية المرسل."
+        }
+      ],
+      "lesson": "إذا تضررت شحنتك فعلاً فالمتجر أو شركة التوصيل يعالجان الأمر في تطبيقهما الرسمي، لذا لا تعطِ بيانات بطاقتك لتستلم أي تعويض."
+    },
+    "en": {
+      "context": "Several parcels from different shops reached you this month.",
+      "card": {
+        "fromName": "Courier Claims",
+        "fromAddress": "claims@parcel-care-refund.com",
+        "subject": "Your parcel was damaged, claim your compensation",
+        "body": "Dear customer,\n\nWe are sorry to inform you that a parcel addressed to you was damaged in our warehouse. You are entitled to compensation of $85.00.\n\nTo receive it, fill in the claim form with the card you want the money paid to, including its expiry date and security code. Claims are accepted within 48 hours only.\n\nClaims Team",
+        "button": {
+          "label": "Claim compensation",
+          "url": "parcel-care-refund.com/claim"
+        }
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "claims@parcel-care-refund.com",
+          "why": "The address belongs to no courier you used, just reassuring words on a domain anyone can buy."
+        },
+        {
+          "kind": "red",
+          "mark": "expiry date and security code",
+          "why": "Nobody needs your card's expiry date and security code to send you money. Those details let a thief spend with your card."
+        },
+        {
+          "kind": "red",
+          "mark": "a parcel addressed to you",
+          "why": "It never says which parcel or shop, because the sender doesn't know. It just bets that you had a delivery recently."
+        },
+        {
+          "kind": "trap",
+          "mark": "We are sorry to inform you",
+          "why": "A polite apology sounds like real customer service, but it proves nothing about who sent the email."
+        }
+      ],
+      "lesson": "If a parcel really was damaged, the shop or courier sorts it out in its own app. Never give card details to receive compensation."
+    }
+  },
+  {
+    "id": "sms-delivery-door-code",
+    "channel": "sms",
+    "verdict": "legit",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "طلبت حاسوباً محمولاً من متجر إلكتروني وسيصلك هذا المساء.",
+      "card": {
+        "sender": "Courier",
+        "time": "16:05",
+        "body": "سيصلك الحاسوب المحمول الذي طلبته اليوم بين الساعة 6 و9 مساءً، ورمز الاستلام هو 4821، فأظهره للمندوب فقط بعد أن تستلم الشحنة بيدك، ولا تشاركه عبر الهاتف أو المحادثات لأنّ مندوبينا لا يطلبونه منك مسبقاً أبداً"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "الحاسوب المحمول الذي طلبته",
+          "why": "الرسالة تذكر ما طلبته فعلاً وموعداً يطابق ما تنتظره."
+        },
+        {
+          "kind": "green",
+          "mark": "فأظهره للمندوب فقط بعد أن تستلم الشحنة بيدك",
+          "why": "الرمز يُعرض وجهاً لوجه عند الباب بعد أن تصبح الشحنة في يدك، لذا لا ينتفع به أي شخص آخر."
+        },
+        {
+          "kind": "green",
+          "mark": "ولا تشاركه عبر الهاتف أو المحادثات",
+          "why": "الرسالة تحذرك من الحيلة نفسها التي يستخدمها المحتالون حين يتصلون ليطلبوا الرمز قبل وصولهم."
+        },
+        {
+          "kind": "trap",
+          "mark": "Courier",
+          "why": "اسم المرسل وحده لا يثبت شيئاً لأنّ انتحاله ممكن، لكنّ الرسالة آمنة لأنها تطابق طلبك ولا تطلب منك شيئاً عبر الهاتف."
+        }
+      ],
+      "lesson": "رمز الاستلام مكانه عند الباب، فأظهره للمندوب بعد أن تستلم الشحنة بيدك، ولا تقرأه في مكالمة ولا ترسله في محادثة أبداً."
+    },
+    "en": {
+      "context": "You ordered a laptop online and it arrives this evening.",
+      "card": {
+        "sender": "Courier",
+        "time": "16:05",
+        "body": "Your laptop order arrives today between 6 and 9 PM. Your delivery code is 4821. Show it to the driver only once the parcel is in your hands. Never share it by phone or chat, our drivers will never ask for it in advance."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Your laptop order",
+          "why": "It names what you actually ordered and a time that matches what you expect."
+        },
+        {
+          "kind": "green",
+          "mark": "only once the parcel is in your hands",
+          "why": "The code is shown face to face at the door, after you have the parcel, so it is useless to anyone else."
+        },
+        {
+          "kind": "green",
+          "mark": "Never share it by phone or chat",
+          "why": "It warns you about the exact trick scammers use: calling to ask for the code before they arrive."
+        },
+        {
+          "kind": "trap",
+          "mark": "Courier",
+          "why": "The sender name proves nothing alone, since it can be spoofed. This text is safe because it matches your order and asks nothing of you by phone."
+        }
+      ],
+      "lesson": "A delivery code belongs at the door: show it to the driver once the parcel is in your hands, and never read it out on a call or send it in a chat."
+    }
+  },
+  {
+    "id": "chat-delivery-address-incomplete",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "credentials",
+      "lookalike-domain",
+      "urgency",
+      "unknown-number",
+      "impersonation"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "طلبت حذاءً من متجر إلكتروني وكتبت عنوانك كاملاً.",
+      "card": {
+        "contact": "+965 6••• ••14",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "مرحباً 👋 معك فريق التوصيل، حاولنا توصيل شحنتك اليوم لكن العنوان ناقص ورقم المنزل غير موجود 📦",
+            "time": "10:11"
+          },
+          {
+            "from": "them",
+            "text": "أرسل لنا عنوانك كاملاً مع صورة بطاقتك المدنية حتى يتأكد المندوب من هوية المستلم عند الباب",
+            "time": "10:12"
+          },
+          {
+            "from": "me",
+            "text": "أنا كاتب رقم البيت بالطلب",
+            "time": "10:14"
+          },
+          {
+            "from": "them",
+            "text": "النظام ما حفظه، حدّث عنوانك عبر delivery-kw-address.com خلال ساعتين وإلا بترجع الشحنة للمرسل",
+            "time": "10:15"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "صورة بطاقتك المدنية",
+          "why": "المندوب يتحقق من اسمك ووجهك عند الباب، أما صورة البطاقة المدنية فهي ما يحتاجه المحتالون ليفتحوا حسابات أو خطوطاً باسمك."
+        },
+        {
+          "kind": "red",
+          "mark": "delivery-kw-address.com",
+          "why": "شركات التوصيل تصحح العنوان في تطبيقها أو بالاتصال بك، لا عبر رابط يصلك من رقم شخصي."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال ساعتين",
+          "why": "المهلة القصيرة تدفعك إلى فتح الرابط قبل أن تراجع طلبك بنفسك في تطبيق المتجر."
+        },
+        {
+          "kind": "trap",
+          "mark": "معك فريق التوصيل",
+          "why": "أي شخص يستطيع أن يقدّم نفسه على أنه فريق التوصيل، فهذه العبارة وحدها لا تثبت شيئاً."
+        }
+      ],
+      "lesson": "إذا قيل لك إن عنوانك ناقص فراجع طلبك بنفسك في تطبيق المتجر أو شركة التوصيل، ولا ترسل صورة هويتك ولا تفتح رابطاً وصلك في محادثة."
+    },
+    "en": {
+      "context": "You ordered shoes online and typed your full address.",
+      "card": {
+        "contact": "+965 6••• ••14",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Hello 👋 Delivery team here. We tried to deliver your parcel today but the address is incomplete, the house number is missing 📦",
+            "time": "10:11"
+          },
+          {
+            "from": "them",
+            "text": "Please send your full address with a photo of your civil ID so the driver can confirm the receiver at the door.",
+            "time": "10:12"
+          },
+          {
+            "from": "me",
+            "text": "I put the house number in my order",
+            "time": "10:14"
+          },
+          {
+            "from": "them",
+            "text": "The system didn't save it. Update your address at delivery-kw-address.com within 2 hours or the parcel goes back to the sender.",
+            "time": "10:15"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "a photo of your civil ID",
+          "why": "A driver checks your name and face at the door. A photo of your civil ID is what fraudsters need to open accounts or phone lines in your name."
+        },
+        {
+          "kind": "red",
+          "mark": "delivery-kw-address.com",
+          "why": "Couriers fix addresses in their own app or by calling you, not through a link sent from a personal number."
+        },
+        {
+          "kind": "red",
+          "mark": "within 2 hours",
+          "why": "The short deadline pushes you to open the link before you check your order in the store's app."
+        },
+        {
+          "kind": "trap",
+          "mark": "Delivery team here",
+          "why": "Anyone can say they are the delivery team. The words alone prove nothing."
+        }
+      ],
+      "lesson": "If you're told your address is incomplete, check the order yourself in the store or courier app, and never send ID photos or open links from a chat."
+    }
+  },
+  {
+    "id": "notification-delivery-locker-code",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "اخترت في تطبيق شركة التوصيل خزانة طرود لاستلام طلبك رقم 5520.",
+      "card": {
+        "app": "Courier",
+        "title": "شحنتك في خزانة الاستلام",
+        "body": "الشحنة رقم 5520 جاهزة في الخزانة رقم 14 بمحطة الوقود على الدائري الرابع، أدخل رمز الاستلام 739204 على شاشة الخزانة خلال 3 أيام، ولا تشارك هذا الرمز مع أي شخص",
+        "time": "12:40"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "الشحنة رقم 5520",
+          "why": "رقم الشحنة يطابق رقم الطلب الذي اخترت له الخزانة في التطبيق."
+        },
+        {
+          "kind": "green",
+          "mark": "على شاشة الخزانة",
+          "why": "أنت من يكتب الرمز بنفسك على شاشة الخزانة، فلا يحتاج إليه أي شخص آخر."
+        },
+        {
+          "kind": "green",
+          "mark": "ولا تشارك هذا الرمز مع أي شخص",
+          "why": "الإشعار يذكّرك بأن الرمز لك وحدك، وهذا ما تفعله الجهات الحقيقية."
+        }
+      ],
+      "lesson": "رمز الخزانة يُكتب على شاشتها فقط، فإذا اتصل بك أحد أو راسلك ليطلبه فهو يحاول أن يستلم شحنتك بدلاً منك."
+    },
+    "en": {
+      "context": "In the courier app you chose a parcel locker for your order 5520.",
+      "card": {
+        "app": "Courier",
+        "title": "Your parcel is in the locker",
+        "body": "Parcel 5520 is ready in locker 14 at the petrol station on Fourth Ring Road. Enter pickup code 739204 on the locker screen within 3 days. Do not share this code with anyone.",
+        "time": "12:40"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Parcel 5520",
+          "why": "The number matches the order you picked the locker for in the app."
+        },
+        {
+          "kind": "green",
+          "mark": "on the locker screen",
+          "why": "You type the code yourself at the locker, so nobody else ever needs it."
+        },
+        {
+          "kind": "green",
+          "mark": "Do not share this code with anyone",
+          "why": "It reminds you that the code is yours alone, which is what genuine services do."
+        }
+      ],
+      "lesson": "A locker code is typed only on the locker's own screen. If anyone calls or messages to ask for it, they are trying to collect your parcel."
+    }
+  },
+  {
+    "id": "sms-delivery-courier-app-install",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "delivery",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "app-install",
+      "lookalike-domain",
+      "urgency",
+      "impersonation"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "تنتظر هذا الأسبوع شحنة من متجر إلكتروني.",
+      "card": {
+        "sender": "Courier",
+        "time": "17:26",
+        "body": "شحنتك رقم KW73015 خرجت للتوصيل لكننا لم نتمكن من تحديد موقعك، ولاختيار موعد التوصيل ثبّت التطبيق الجديد من courier-kw-app.com/get خلال 12 ساعة، ثمّ اسمح له بقراءة الإشعارات"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "courier-kw-app.com/get",
+          "why": "تطبيقات شركات التوصيل الحقيقية تثبّتها من متجر التطبيقات الرسمي في هاتفك، لا من رابط في رسالة."
+        },
+        {
+          "kind": "red",
+          "mark": "ثبّت التطبيق الجديد",
+          "why": "تثبيت تطبيق من رابط قد يزرع في هاتفك برنامجاً خبيثاً يقرأ رسائلك ورموز البنك."
+        },
+        {
+          "kind": "red",
+          "mark": "اسمح له بقراءة الإشعارات",
+          "why": "تطبيق التتبع لا يحتاج إلى قراءة إشعاراتك، أما البرنامج الخبيث فيريدها ليلتقط رموز التحقق التي يرسلها البنك."
+        },
+        {
+          "kind": "trap",
+          "mark": "Courier",
+          "why": "اسم المرسل يمكن انتحاله فلا يثبت شيئاً، حتى لو ظهرت الرسالة بين رسائل شركة التوصيل الحقيقية."
+        }
+      ],
+      "lesson": "ثبّت تطبيقات التوصيل من متجر التطبيقات الرسمي في هاتفك فقط، ولا تثبّت أي شيء من رابط وصلك في رسالة عن شحنة."
+    },
+    "en": {
+      "context": "You are expecting a parcel from an online store this week.",
+      "card": {
+        "sender": "Courier",
+        "time": "17:26",
+        "body": "Your parcel KW73015 is out for delivery, but we could not find your location. To choose a delivery time, install our app from courier-kw-app.com/get within 12 hours, then allow it to read your notifications."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "courier-kw-app.com/get",
+          "why": "Real courier apps come from your phone's official app store, not from a link in a text."
+        },
+        {
+          "kind": "red",
+          "mark": "install our app",
+          "why": "An app installed from a link can plant malware that reads your messages and bank codes."
+        },
+        {
+          "kind": "red",
+          "mark": "allow it to read your notifications",
+          "why": "A tracking app has no need to read your notifications. Malware wants them to catch the codes your bank sends."
+        },
+        {
+          "kind": "trap",
+          "mark": "Courier",
+          "why": "A sender name can be spoofed, so it proves nothing, even when the text lands among real courier messages."
+        }
+      ],
+      "lesson": "Install courier apps only from your phone's official app store, and never install anything from a link in a delivery text."
+    }
+  },
+  {
+    "id": "web-delivery-cod-switch",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "shopping",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "payment",
+      "lookalike-domain",
+      "urgency",
+      "credentials"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "طلبت طقم عطور بقيمة 27.500 د.ك واخترت الدفع عند الاستلام.",
+      "card": {
+        "url": "kw-cod-confirm.shop/order/88214",
+        "secure": true,
+        "title": "تأكيد الطلب | الدفع الإلكتروني",
+        "heading": "خدمة الدفع عند الاستلام لم تعد متاحة",
+        "text": "حرصاً على سلامة المناديب لم يعد الدفع نقداً عند الباب متاحاً، لذا يرجى سداد 27.500 د.ك إلكترونياً الآن لتأكيد الطلب رقم 88214، والطلبات غير المدفوعة تُلغى خلال ساعتين\n\nوإذا لم تكن في المنزل وقت التوصيل فسيُرد إليك المبلغ كاملاً",
+        "fields": [
+          "رقم البطاقة",
+          "تاريخ الانتهاء",
+          "رمز الأمان"
+        ],
+        "button": "ادفع 27.500 د.ك"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "kw-cod-confirm.shop/order/88214",
+          "why": "هذا ليس موقع المتجر الذي طلبت منه، بل كلمات توحي بتأكيد الطلب على نطاق رخيص، ولو تغيّر شيء في طلبك لظهر في تطبيق المتجر أو موقعه."
+        },
+        {
+          "kind": "red",
+          "mark": "لم يعد الدفع نقداً عند الباب متاحاً",
+          "why": "الدفع عند الاستلام يحميك لأنك لا تدفع إلا والشحنة في يدك، والتحول المفاجئ إلى الدفع المسبق يسلبك هذه الحماية."
+        },
+        {
+          "kind": "red",
+          "mark": "خلال ساعتين",
+          "why": "المهلة القصيرة تدفعك إلى الدفع قبل أن تتصل بالمتجر وتسأله."
+        },
+        {
+          "kind": "trap",
+          "mark": "27.500 د.ك",
+          "why": "المبلغ يطابق طلبك وهذا ما يجعل الصفحة مقنعة، لكنّ بيانات الطلبات تتسرب من المتاجر وشركات التوصيل، لذا لا يثبت تطابق المبلغ شيئاً."
+        }
+      ],
+      "lesson": "إذا تغيّرت طريقة الدفع في طلبك فتحقق من ذلك في تطبيق المتجر أو اتصل به على رقم تعرفه، ولا تدفع عبر رابط ثمن طلب اخترت فيه الدفع عند الاستلام."
+    },
+    "en": {
+      "context": "You ordered a perfume set for 27.500 KWD and chose cash on delivery.",
+      "card": {
+        "url": "kw-cod-confirm.shop/order/88214",
+        "secure": true,
+        "title": "Order confirmation | Online payment",
+        "heading": "Cash on delivery is no longer available",
+        "text": "To keep our drivers safe, cash is no longer accepted at the door. Please pay 27.500 KWD online now to confirm order 88214. Unpaid orders are cancelled within 2 hours.\n\nIf you are not home at delivery time, you will get a full refund.",
+        "fields": [
+          "Card number",
+          "Expiry date",
+          "Security code"
+        ],
+        "button": "Pay 27.500 KWD"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "kw-cod-confirm.shop/order/88214",
+          "why": "This is not the shop you ordered from, just order sounding words on a cheap domain. A real change to your order would show in the shop's own app or site."
+        },
+        {
+          "kind": "red",
+          "mark": "cash is no longer accepted at the door",
+          "why": "Cash on delivery protects you because you pay only once the parcel is in your hands. A sudden switch to paying first takes that protection away."
+        },
+        {
+          "kind": "red",
+          "mark": "within 2 hours",
+          "why": "The short deadline pushes you to pay before you call the shop and ask."
+        },
+        {
+          "kind": "trap",
+          "mark": "27.500 KWD",
+          "why": "The amount matches your order, which makes the page convincing. Order details leak from shops and couriers, so a matching amount proves nothing."
+        }
+      ],
+      "lesson": "If a shop changes how you pay, check in its own app or call it on a number you know. Never pay for a cash on delivery order through a link."
+    }
+  },
+  {
+    "id": "market-delivery-courier-insurance-fee",
+    "channel": "market",
+    "verdict": "scam",
+    "category": "marketplace",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "advance-fee",
+      "small-fee",
+      "lookalike-domain",
+      "payment"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "عرضت كاميرتك القديمة للبيع بسعر 240 دولاراً في تطبيق للبيع والشراء.",
+      "card": {
+        "item": "كاميرا بدون مرآة مع عدستين",
+        "price": "240 دولار",
+        "messages": [
+          {
+            "from": "them",
+            "text": "مرحباً، الكاميرا لسا موجودة؟ بشتريها بسعرك كامل، هدية لولدي",
+            "time": "18:20"
+          },
+          {
+            "from": "them",
+            "text": "أنا مسافر، فحجزت مندوب توصيل يستلمها منك بكرة ويدفع لك عند الاستلام 👍 أرسلوا لك رابط الاستلام courier-pickup-secure.com/c/240",
+            "time": "18:24"
+          },
+          {
+            "from": "them",
+            "text": "شركة التوصيل تطلب من البائع يدفع رسوم تأمين 15 دولار أول وترجع لك مع الـ 240، الله يخليك سوّها اليوم عشان ما ينلغي الاستلام",
+            "time": "18:25"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "يدفع رسوم تأمين 15 دولار",
+          "why": "البائع لا يدفع شيئاً ليستلم ثمن ما يبيعه، فالرسوم هي الاحتيال نفسه، وبيانات البطاقة التي تكتبها لدفعها مكسب إضافي للمحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "courier-pickup-secure.com/c/240",
+          "why": "الرابط يقود إلى موقع شركة توصيل مختلق لا إلى تطبيق البيع، وشركات التوصيل الحقيقية لا ترسل للبائعين روابط دفع."
+        },
+        {
+          "kind": "red",
+          "mark": "أنا مسافر",
+          "why": "المشتري الذي لا يستطيع الحضور ويرتب كل شيء عن بعد يبني قصة لا تستطيع التحقق منها."
+        },
+        {
+          "kind": "trap",
+          "mark": "هدية لولدي",
+          "why": "القصة الشخصية الدافئة تجعل المشتري يبدو صادقاً لكنها لا تثبت شيئاً."
+        }
+      ],
+      "lesson": "بع لمن يقابلك ويدفع لك يداً بيد أو عبر نظام الدفع داخل تطبيق البيع نفسه، ولا تدفع أي رسوم لتستلم ثمن ما تبيعه."
+    },
+    "en": {
+      "context": "You listed your old camera on a marketplace app for 240 dollars.",
+      "card": {
+        "item": "Mirrorless camera with 2 lenses",
+        "price": "$240",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Hi! Is the camera still available? I'll pay your full price, it's a gift for my son",
+            "time": "18:20"
+          },
+          {
+            "from": "them",
+            "text": "I'm out of town, so I've booked a courier to collect it from you tomorrow and pay you on pickup 👍 They've sent you a pickup link: courier-pickup-secure.com/c/240",
+            "time": "18:24"
+          },
+          {
+            "from": "them",
+            "text": "The courier needs the seller to pay a $15 insurance fee first, it comes back to you with the $240. Please do it today so the pickup isn't cancelled",
+            "time": "18:25"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "pay a $15 insurance fee",
+          "why": "A seller never pays anything to receive money. The fee is the scam, and the card details you type to pay it are a bonus for the thief."
+        },
+        {
+          "kind": "red",
+          "mark": "courier-pickup-secure.com/c/240",
+          "why": "The link leads to a made up courier site, not the marketplace app. Real couriers do not send sellers payment links."
+        },
+        {
+          "kind": "red",
+          "mark": "I'm out of town",
+          "why": "A buyer who cannot meet and arranges everything remotely is building a story you cannot check."
+        },
+        {
+          "kind": "trap",
+          "mark": "a gift for my son",
+          "why": "A warm personal story makes the buyer seem genuine, but it proves nothing."
+        }
+      ],
+      "lesson": "Sell to buyers who meet you and pay in person or through the marketplace's own payment system, and never pay a fee to receive money."
+    }
+  },
+  {
+    "id": "email-delivery-reschedule-confirmed",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "delivery",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "delivery",
+    "ar": {
+      "context": "نقلت أمس موعد توصيل شحنتك إلى يوم الثلاثاء من تطبيق شركة التوصيل.",
+      "card": {
+        "fromName": "شركة التوصيل",
+        "fromAddress": "updates@courier.example.com",
+        "subject": "تم تأكيد موعد التوصيل الجديد",
+        "body": "مرحباً مريم،\n\nبناءً على طلبك في التطبيق سنوصل الشحنة رقم 31884 يوم الثلاثاء بين الساعة 2 و6 مساءً\n\nتغيير الموعد مجاني، وفي يوم التوصيل سيطلب منك المندوب عند الباب رمز الاستلام الذي سنرسله إليك برسالة نصية، فاحرصي على أن يكون جاهزاً لديك\n\nوإذا أردت تغييراً آخر فافتحي التطبيق واختاري قسم شحناتي"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "بناءً على طلبك في التطبيق",
+          "why": "الرسالة تؤكد تغييراً أجريته بنفسك في التطبيق أمس."
+        },
+        {
+          "kind": "green",
+          "mark": "تغيير الموعد مجاني",
+          "why": "الرسالة لا تطلب رسوماً ولا بيانات بطاقة، فلا يجد فيها المحتال ما يستفيد منه."
+        },
+        {
+          "kind": "green",
+          "mark": "فافتحي التطبيق",
+          "why": "الرسالة توجهك إلى التطبيق لأي تغيير آخر، ولا تحتوي على رابط أو زر."
+        },
+        {
+          "kind": "trap",
+          "mark": "مرحباً مريم",
+          "why": "ذكر اسمك علامة جيدة لكنه لا يكفي وحده لأنّ الأسماء تتسرب، وما يجعل الرسالة آمنة أنها تطابق ما فعلته ولا تطلب منك شيئاً."
+        }
+      ],
+      "lesson": "تأكيد تغيير أجريته بنفسك دون رسوم أو رابط رسالة طبيعية، والأسلم أن تجري أي تعديل آخر من تطبيق شركة التوصيل."
+    },
+    "en": {
+      "context": "Yesterday you moved your delivery to Tuesday in the courier app.",
+      "card": {
+        "fromName": "Courier",
+        "fromAddress": "updates@courier.example.com",
+        "subject": "Your new delivery date is confirmed",
+        "body": "Hi Maryam,\n\nAs you asked in the app, parcel 31884 will now be delivered on Tuesday between 2 and 6 PM.\n\nChanging the date is free. On the day, the driver will ask at your door for the delivery code we text you, so please have it ready.\n\nWant to change it again? Open the app and go to My deliveries."
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "As you asked in the app",
+          "why": "It confirms a change you made yourself in the app yesterday."
+        },
+        {
+          "kind": "green",
+          "mark": "Changing the date is free",
+          "why": "It asks for no fee and no card details, so there is nothing in it for a scammer."
+        },
+        {
+          "kind": "green",
+          "mark": "Open the app",
+          "why": "For any other change it sends you to the app, with no link or button in the email."
+        },
+        {
+          "kind": "trap",
+          "mark": "Hi Maryam",
+          "why": "Using your name is a good sign, but it proves little alone because names leak. What makes this safe is that it matches what you did and asks for nothing."
+        }
+      ],
+      "lesson": "A confirmation of a change you made yourself, with no fee and no link, is normal. Make any further changes in the courier app."
+    }
+  }
+]

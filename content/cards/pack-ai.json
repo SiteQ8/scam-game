@@ -1,0 +1,998 @@
+[
+  {
+    "id": "chat-ai-family-safe-word",
+    "channel": "chat",
+    "verdict": "legit",
+    "category": "family",
+    "region": "gcc",
+    "difficulty": 1,
+    "tags": [
+      "no-link",
+      "verify-independently"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "أرسلت لك أختك مريم هذه الرسائل مساء اليوم.",
+      "card": {
+        "contact": "أختي مريم",
+        "saved": true,
+        "messages": [
+          {
+            "from": "them",
+            "text": "سمعت شصار لأم فهد جارتنا؟ واحد اتصل عليها بصوت ولدها بالضبط وطلب منها فلوس 😟",
+            "time": "20:10"
+          },
+          {
+            "from": "them",
+            "text": "خلنا نتفق على كلمة سر للعيلة، إذا أحد اتصل يطلب فلوس على عجل نسأله عنها قبل أي شي",
+            "time": "20:11"
+          },
+          {
+            "from": "them",
+            "text": "بس لا نكتبها هني ولا بأي مكان، نتفق عليها يوم الجمعة على الغدا عند أمي",
+            "time": "20:11"
+          },
+          {
+            "from": "me",
+            "text": "فكرة حلوة 👍 وأي أحد يطلب فلوس بعد نتصل عليه على رقمه المحفوظ",
+            "time": "20:14"
+          },
+          {
+            "from": "them",
+            "text": "بالضبط، حتى لو كان الصوت صوتي 😅",
+            "time": "20:15"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "نتفق عليها يوم الجمعة على الغدا",
+          "why": "الاتفاق على كلمة السر وجهاً لوجه يعني أنها لن تُكتب في أي رسالة قد يطلع عليها محتال، وهذا ما يجعلها مفيدة."
+        },
+        {
+          "kind": "green",
+          "mark": "نسأله عنها قبل أي شي",
+          "why": "سؤال المتصل عن كلمة لا يعرفها إلا أفراد العائلة يكشف الصوت المستنسخ، لأنّ المحتال يقلد الصوت لكنه لا يعرف ما اتفقتم عليه."
+        },
+        {
+          "kind": "green",
+          "mark": "على رقمه المحفوظ",
+          "why": "معاودة الاتصال على الرقم المحفوظ خطوة ثانية تحميك حتى لو بدا الصوت مطابقاً تماماً."
+        },
+        {
+          "kind": "trap",
+          "mark": "أختي مريم",
+          "why": "الاسم المحفوظ لا يثبت وحده هوية المرسل، لكنّ الرسائل آمنة لأنها لا تطلب مالاً ولا رمزاً بل تقترح طريقة للحماية."
+        }
+      ],
+      "lesson": "اتفق مع عائلتك وجهاً لوجه على كلمة سر للطوارئ ولا تكتبها في أي رسالة، ثمّ اسأل عنها كل من يطلب مالاً على عجل مهما بدا صوته مألوفاً."
+    },
+    "en": {
+      "context": "Your sister Maryam sent you these messages this evening.",
+      "card": {
+        "contact": "Maryam (sister)",
+        "saved": true,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Did you hear what happened to Umm Fahad next door? Someone called her in her son's exact voice and asked for money 😟",
+            "time": "20:10"
+          },
+          {
+            "from": "them",
+            "text": "Let's agree on a family safe word. If anyone calls asking for money in a rush, we ask for the word before anything else",
+            "time": "20:11"
+          },
+          {
+            "from": "them",
+            "text": "But let's not write it here or anywhere. We'll choose it together at Friday lunch at Mum's",
+            "time": "20:11"
+          },
+          {
+            "from": "me",
+            "text": "Good idea 👍 And if anyone asks for money, we still call them back on their saved number",
+            "time": "20:14"
+          },
+          {
+            "from": "them",
+            "text": "Exactly, even if the voice sounds like mine 😅",
+            "time": "20:15"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "We'll choose it together at Friday lunch",
+          "why": "Agreeing on the word face to face means it never sits in a message a scammer could read, which is what makes it useful."
+        },
+        {
+          "kind": "green",
+          "mark": "we ask for the word before anything else",
+          "why": "Asking for a word only your family knows exposes a cloned voice. A scammer can copy a voice but not what you agreed in private."
+        },
+        {
+          "kind": "green",
+          "mark": "call them back on their saved number",
+          "why": "Calling back on the saved number is a second check that protects you even when the voice sounds exactly right."
+        },
+        {
+          "kind": "trap",
+          "mark": "Maryam (sister)",
+          "why": "A saved name does not prove who is typing on its own. These messages are safe because they ask for no money or codes and suggest a way to stay safe."
+        }
+      ],
+      "lesson": "Agree on an emergency safe word with your family in person and never write it in a message. Ask for it whenever someone wants money in a rush, however familiar the voice."
+    }
+  },
+  {
+    "id": "social-ai-deepfake-presenter",
+    "channel": "social",
+    "verdict": "scam",
+    "category": "investment",
+    "region": "global",
+    "difficulty": 2,
+    "tags": [
+      "deepfake",
+      "too-good",
+      "app-install",
+      "impersonation",
+      "urgency"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "ظهر لك هذا المنشور الممول مع مقطع فيديو وأنت تتصفح تطبيق تواصل اجتماعي.",
+      "card": {
+        "displayName": "أخبار المال اليوم",
+        "handle": "@finance.news.today7",
+        "verified": false,
+        "followers": "8,912",
+        "kind": "post",
+        "text": "🔴 عاجل: مذيعة تلفزيونية شهيرة تكشف على الهواء كيف تربح 1,800 دولار يومياً من تطبيق التداول الجديد بالذكاء الاصطناعي 😱 القناة حذفت المقابلة فشاهد الفيديو قبل أن يُحذف، ابدأ بـ 250 دولاراً فقط واحصل على أرباح مضمونة من أول يوم، حمّل التطبيق الآن من ai-profit-trade.online"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "مذيعة تلفزيونية شهيرة",
+          "why": "ظهور وجه مشهور وصوته في مقطع لا يثبت شيئاً، لأنّ التزييف العميق يصنع مقطعاً مقنعاً لأي شخص ظهر على الشاشة."
+        },
+        {
+          "kind": "red",
+          "mark": "أرباح مضمونة",
+          "why": "لا يوجد تطبيق تداول حقيقي يضمن الربح، وتحويل مبلغ صغير إلى آلاف الدولارات يومياً وعد لا يقدمه أي استثمار حقيقي."
+        },
+        {
+          "kind": "red",
+          "mark": "القناة حذفت المقابلة",
+          "why": "قصة المقابلة المحذوفة حيلة متكررة في إعلانات المشاهير المزيفة، فهي تفسر غياب المقابلة الحقيقية وتستعجلك قبل أن تبحث عنها."
+        },
+        {
+          "kind": "red",
+          "mark": "ai-profit-trade.online",
+          "why": "التطبيق يأتي من موقع مجهول لا من جهة استثمار مرخصة، وتثبيته يسلّم أموالك وبياناتك للمحتال."
+        }
+      ],
+      "lesson": "تعامل مع أي مقطع لشخصية مشهورة يعدك بأرباح سهلة على أنه تزييف عميق محتمل، وتحقق من ترخيص جهة التداول لدى الجهة الرقابية قبل أن تثبّت أي تطبيق أو تدفع أي مبلغ."
+    },
+    "en": {
+      "context": "This sponsored post with a video appeared while you were scrolling a social app.",
+      "card": {
+        "displayName": "Finance News Today",
+        "handle": "@finance.news.today7",
+        "verified": false,
+        "followers": "8,912",
+        "kind": "post",
+        "text": "🔴 BREAKING: a famous TV presenter reveals live on air how she makes $1,800 a day with the new AI trading app 😱 The channel deleted the interview, so watch the video before it's removed! Start with just $250 and get guaranteed profits from day one. Download the app now at ai-profit-trade.online"
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "a famous TV presenter",
+          "why": "A famous face and voice in a video prove nothing. AI can make a convincing deepfake of anyone who has been on screen."
+        },
+        {
+          "kind": "red",
+          "mark": "guaranteed profits",
+          "why": "No real trading app can guarantee profits, and turning $250 into $1,800 a day is far beyond any real return."
+        },
+        {
+          "kind": "red",
+          "mark": "The channel deleted the interview",
+          "why": "The deleted interview story is a classic trick in fake celebrity ads. It explains why you can't find the real interview and rushes you."
+        },
+        {
+          "kind": "red",
+          "mark": "ai-profit-trade.online",
+          "why": "The app comes from an unknown site, not a licensed investment firm, and installing it hands your money and details to the scammer."
+        }
+      ],
+      "lesson": "Treat any celebrity video promising easy profits as a likely deepfake. Check that a trading firm is licensed with the financial regulator before you install anything or pay."
+    }
+  },
+  {
+    "id": "web-ai-support-chatbot-card",
+    "channel": "web",
+    "verdict": "scam",
+    "category": "shopping",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "lookalike-domain",
+      "credentials",
+      "otp",
+      "impersonation"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "تنتظر استرداد ثمن طلبية أعدتها، فبحثت عن دردشة دعم المتجر وفتحت أول نتيجة.",
+      "card": {
+        "url": "store-refund-helpdesk.com/chat",
+        "secure": true,
+        "title": "المساعد الذكي | خدمة العملاء",
+        "heading": "مرحباً، أنا سارة، مساعدتك الذكية 🤖",
+        "text": "وجدت طلب الاسترداد الخاص بك بقيمة 86.40 دولار ويمكنني إرساله الآن، ولأتأكد أنك صاحب البطاقة اكتب رقم بطاقتك كاملاً وتاريخ انتهائها ورمز الأمان، ثمّ رمز التحقق الذي سيصلك على هاتفك\nهذه المحادثة مشفرة وآمنة تماماً",
+        "fields": [
+          "رقم البطاقة",
+          "تاريخ الانتهاء",
+          "رمز الأمان",
+          "رمز التحقق"
+        ],
+        "button": "أكّد الاسترداد"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "store-refund-helpdesk.com/chat",
+          "why": "العنوان ليس موقع المتجر الذي تتعامل معه بل كلمات مركّبة عن الاسترداد والدعم، والنتيجة الأولى في البحث قد تكون إعلاناً اشتراه المحتال."
+        },
+        {
+          "kind": "red",
+          "mark": "رمز الأمان",
+          "why": "الاسترداد يعود إلى البطاقة التي دفعت بها دون أن تكتب رمز الأمان، فمن يطلبه مع رقم البطاقة يريد أن يشتري بها."
+        },
+        {
+          "kind": "red",
+          "mark": "رمز التحقق الذي سيصلك",
+          "why": "رمز التحقق يؤكد عملية دفع من بطاقتك لا استرداداً إليها، لذا فطلبه يعني أن المحتال يدفع ببطاقتك الآن."
+        },
+        {
+          "kind": "trap",
+          "mark": "مساعدتك الذكية",
+          "why": "المساعد الآلي المهذب يبدو حديثاً وموثوقاً لكنه لا يثبت شيئاً، لأنّ المحتالين يشغّلون روبوتات دردشة بالذكاء الاصطناعي على مواقعهم المزيفة أيضاً."
+        }
+      ],
+      "lesson": "افتح دردشة الدعم من داخل تطبيق المتجر أو موقعه الذي تكتب عنوانه بنفسك، ولا تكتب رمز الأمان أو رمز التحقق لأي مساعد مهما بدا ذكياً ومهذباً."
+    },
+    "en": {
+      "context": "You searched for the store's support chat about a refund and opened the top result.",
+      "card": {
+        "url": "store-refund-helpdesk.com/chat",
+        "secure": true,
+        "title": "AI Assistant | Customer Care",
+        "heading": "Hi, I'm Sara, your AI assistant 🤖",
+        "text": "I found your refund of $86.40 and I can send it now. To confirm you are the cardholder, type your full card number, expiry date and security code, then the verification code that will arrive on your phone.\nThis chat is fully encrypted and secure.",
+        "fields": [
+          "Card number",
+          "Expiry date",
+          "Security code",
+          "Verification code"
+        ],
+        "button": "Confirm refund"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "store-refund-helpdesk.com/chat",
+          "why": "This is not the store's own site, just refund and helpdesk words glued together. The top search result can be an ad a scammer paid for."
+        },
+        {
+          "kind": "red",
+          "mark": "security code",
+          "why": "A refund goes back to the card you paid with and needs no security code. Whoever asks for it with your card number wants to shop with your card."
+        },
+        {
+          "kind": "red",
+          "mark": "the verification code that will arrive",
+          "why": "That code approves a payment from your card, not a refund to it, so asking for it means the scammer is paying with your card right now."
+        },
+        {
+          "kind": "trap",
+          "mark": "your AI assistant",
+          "why": "A polite AI assistant looks modern but proves nothing. Scammers run AI chatbots on their fake sites too."
+        }
+      ],
+      "lesson": "Open support chat from inside the store's app or a site you type yourself, and never give any assistant your security code or a verification code, however smart it seems."
+    }
+  },
+  {
+    "id": "chat-ai-dating-ai-photos",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "romance",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "deepfake",
+      "emotional",
+      "too-good",
+      "payment"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "تعرفت على إيما في تطبيق تعارف قبل ثلاثة أسابيع، وصورها تبدو مثالية.",
+      "card": {
+        "contact": "إيما ❤️",
+        "saved": true,
+        "messages": [
+          {
+            "from": "them",
+            "text": "صباح الخير ☀️ أرسلت لك صوري الجديدة من رحلتي إلى الشاطئ، هل أعجبتك؟ 😊",
+            "time": "08:02"
+          },
+          {
+            "from": "me",
+            "text": "تجنن! متى نسوي مكالمة فيديو أخيراً؟",
+            "time": "08:05"
+          },
+          {
+            "from": "them",
+            "text": "كاميرا هاتفي الأمامية معطلة 🙈 وبصراحة أنا خجولة، قريباً أعدك",
+            "time": "08:06"
+          },
+          {
+            "from": "them",
+            "text": "لدي خبر رائع 😍 حققت لي منصة التداول بالذكاء الاصطناعي التي يديرها خالي ربحاً بنسبة 40% هذا الشهر 📈 أودع 500 دولار وسأرشدك خطوة بخطوة، والربح مضمون وهذا من أجل مستقبلنا معاً ❤️ trade-with-emma.io/join",
+            "time": "08:08"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "صوري الجديدة",
+          "why": "الصور المثالية لا تثبت أن صاحبتها حقيقية، لأنّ أدوات الذكاء الاصطناعي تصنع صوراً مقنعة لأشخاص غير موجودين أصلاً."
+        },
+        {
+          "kind": "red",
+          "mark": "كاميرا هاتفي الأمامية معطلة",
+          "why": "التهرب من مكالمة الفيديو علامة واضحة، لأنّ الشخص الذي في الصور قد لا يكون موجوداً أصلاً."
+        },
+        {
+          "kind": "red",
+          "mark": "أودع 500 دولار",
+          "why": "الانتقال من الغزل إلى طلب إيداع في منصة استثمار هو الهدف الذي بُنيت عليه المحادثة كلها، والمال الذي تودعه لن يعود."
+        },
+        {
+          "kind": "red",
+          "mark": "الربح مضمون",
+          "why": "لا توجد منصة تداول تضمن الربح، ووعد الضمان موجود ليجعل الإيداع يبدو بلا مخاطرة."
+        }
+      ],
+      "lesson": "لا ترسل مالاً ولا تستثمر بطلب من شخص تعرفت عليه عبر الإنترنت ولم تره في مكالمة فيديو حية أو وجهاً لوجه، مهما كانت صوره مقنعة."
+    },
+    "en": {
+      "context": "You met Emma on a dating app three weeks ago. Her photos look flawless.",
+      "card": {
+        "contact": "Emma ❤️",
+        "saved": true,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Good morning ☀️ I sent you my new photos from my trip to the beach, did you like them? 😊",
+            "time": "08:02"
+          },
+          {
+            "from": "me",
+            "text": "You look amazing! Can we finally do a video call?",
+            "time": "08:05"
+          },
+          {
+            "from": "them",
+            "text": "My front camera is broken 🙈 and honestly I'm shy. Soon, I promise",
+            "time": "08:06"
+          },
+          {
+            "from": "them",
+            "text": "Guess what? My uncle's AI trading platform made me 40% this month 📈 Deposit $500 and I'll guide you step by step. It's guaranteed profit, and it's for our future together ❤️ trade-with-emma.io/join",
+            "time": "08:08"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "my new photos",
+          "why": "Flawless photos do not prove the person is real. AI tools can make convincing pictures of people who do not exist."
+        },
+        {
+          "kind": "red",
+          "mark": "My front camera is broken",
+          "why": "Dodging a video call is a clear sign, because the person in the photos may not exist at all."
+        },
+        {
+          "kind": "red",
+          "mark": "Deposit $500",
+          "why": "Moving from romance to a deposit on an investment platform is what the whole chat was building to, and that money will not come back."
+        },
+        {
+          "kind": "red",
+          "mark": "guaranteed profit",
+          "why": "No trading platform can guarantee profit. The promise is there to make the deposit feel safe."
+        }
+      ],
+      "lesson": "Never send money or invest because someone you met online asks, unless you have seen them on a live video call or in person, however convincing their photos."
+    }
+  },
+  {
+    "id": "notification-ai-bank-voice-clone-warning",
+    "channel": "notification",
+    "verdict": "legit",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "no-link",
+      "official-channel"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "تستخدم تطبيق البنك الرسمي على هاتفك كل يوم.",
+      "card": {
+        "app": "Bank",
+        "title": "تنبيه أمني: الأصوات المستنسخة",
+        "body": "أصبح بإمكان المحتالين تقليد صوت أحد أقاربك من مقطع قصير، فإذا اتصل بك أحد يطلب مالاً على عجل فأغلق الخط واتصل به على رقمه المحفوظ لديك، ونذكّرك بأننا لا نطلب منك الرقم السري أو رمز التحقق أبداً",
+        "time": "10:30"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Bank",
+          "why": "الإشعار صادر من تطبيق البنك المثبت على هاتفك لا من رسالة نصية، ولا يحمل رابطاً ولا يطلب منك أي إجراء."
+        },
+        {
+          "kind": "green",
+          "mark": "اتصل به على رقمه المحفوظ لديك",
+          "why": "النصيحة توجهك إلى التحقق بنفسك عبر رقم تعرفه أنت، لا إلى رقم أو رابط يرسله إليك أحد."
+        },
+        {
+          "kind": "green",
+          "mark": "لا نطلب منك الرقم السري أو رمز التحقق أبداً",
+          "why": "البنك يذكّرك بما لن يطلبه منك أبداً، وهذا سلوك الجهات الحقيقية بينما ينتهي الاحتيال دائماً بطلب رمز أو مال."
+        },
+        {
+          "kind": "trap",
+          "mark": "تنبيه أمني",
+          "why": "عبارة التنبيه الأمني وحدها لا تثبت شيئاً لأنّ المحتالين يستخدمونها كثيراً، لكنّ هذا الإشعار آمن لأنه لا يطلب منك شيئاً."
+        }
+      ],
+      "lesson": "تحذيرات البنك الحقيقية داخل تطبيقه لا تحمل روابط ولا تطلب بيانات، فاعمل بنصيحتها وتحقق من أي طلب مالي عاجل بالاتصال على الرقم المحفوظ لديك."
+    },
+    "en": {
+      "context": "You use your bank's official app on your phone every day.",
+      "card": {
+        "app": "Bank",
+        "title": "Security tip: cloned voices",
+        "body": "Scammers can now copy a relative's voice from a short clip. If someone calls asking for money in a rush, hang up and call them back on the number you have saved. We will never ask for your PIN or a verification code.",
+        "time": "10:30"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "Bank",
+          "why": "This alert comes from the bank app on your phone, not a text, and it has no link and asks you to do nothing."
+        },
+        {
+          "kind": "green",
+          "mark": "call them back on the number you have saved",
+          "why": "The tip sends you to check for yourself on a number you already know, not to a number or link someone sends you."
+        },
+        {
+          "kind": "green",
+          "mark": "We will never ask for your PIN or a verification code",
+          "why": "The bank reminds you what it will never ask for. Real institutions do this, while scams always end by asking for a code or money."
+        },
+        {
+          "kind": "trap",
+          "mark": "Security tip",
+          "why": "The words security tip prove nothing alone, since scammers use them too. This alert is safe because it asks for nothing."
+        }
+      ],
+      "lesson": "Real bank warnings inside its app carry no links and ask for nothing. Follow the advice, and check any urgent money request by calling the number you have saved."
+    }
+  },
+  {
+    "id": "sms-ai-voice-id-read-code",
+    "channel": "sms",
+    "verdict": "scam",
+    "category": "banking",
+    "region": "gcc",
+    "difficulty": 3,
+    "tags": [
+      "otp",
+      "impersonation",
+      "threat",
+      "deepfake",
+      "voice-clone"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "تستخدم خدمة الهاتف المصرفي لبنكك من حين لآخر.",
+      "card": {
+        "sender": "Bank",
+        "time": "13:12",
+        "body": "لحماية حسابك من الاحتيال الصوتي نفعّل الآن خدمة البصمة الصوتية، وسيتصل بك مساعدنا الآلي خلال دقائق، فاقرأ له رمز التحقق المكوّن من 6 أرقام الذي سيصلك، ثمّ كرر عبارة «صوتي هو كلمة مروري» ثلاث مرات لتسجيل بصمتك، وإن لم تكمل التسجيل اليوم فسيتم إيقاف خدمة الهاتف المصرفي"
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "فاقرأ له رمز التحقق",
+          "why": "رمز التحقق لا يُقرأ لأي متصل حتى لو كان صوتاً آلياً، لأنّ من يسمعه يستطيع أن يكمل به عملية في حسابك."
+        },
+        {
+          "kind": "red",
+          "mark": "صوتي هو كلمة مروري",
+          "why": "تكرار جملة بصوتك في مكالمة يمنح المحتال تسجيلاً نظيفاً لصوتك، فيستنسخه بالذكاء الاصطناعي ليخدع به بنكك وأهلك لاحقاً."
+        },
+        {
+          "kind": "red",
+          "mark": "فسيتم إيقاف خدمة الهاتف المصرفي",
+          "why": "التهديد بإيقاف الخدمة إن لم تكمل اليوم يدفعك إلى الاستجابة قبل أن تسأل البنك بنفسك."
+        },
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "ظهور اسم البنك في خانة المرسل لا يثبت شيئاً، لأنّ أسماء المرسلين يمكن انتحالها بسهولة."
+        }
+      ],
+      "lesson": "لا تقرأ رمز التحقق لأي متصل ولا تسجّل جملاً بصوتك بطلب من رسالة أو مكالمة، وإذا أردت تفعيل خدمة جديدة فافعل ذلك بنفسك من تطبيق البنك الرسمي."
+    },
+    "en": {
+      "context": "You use your bank's phone banking service now and then.",
+      "card": {
+        "sender": "Bank",
+        "time": "13:12",
+        "body": "To protect your account from voice fraud, we are switching on voice verification. Our automated assistant will call you in a few minutes. When it does, read out the 6 digit code you receive, then repeat the phrase “my voice is my password” three times to record your voiceprint. If you do not finish today, phone banking will be suspended."
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "read out the 6 digit code",
+          "why": "Never read a code to any caller, even an automated one. Whoever hears it can use it to complete an action in your account."
+        },
+        {
+          "kind": "red",
+          "mark": "my voice is my password",
+          "why": "Repeating a phrase on a call hands the scammer a clean recording of your voice, which AI can clone to fool your bank or your family."
+        },
+        {
+          "kind": "red",
+          "mark": "phone banking will be suspended",
+          "why": "The threat of losing the service today pushes you to respond before you ask the bank yourself."
+        },
+        {
+          "kind": "trap",
+          "mark": "Bank",
+          "why": "The bank's name in the sender line proves nothing, because sender names are easy to spoof."
+        }
+      ],
+      "lesson": "Never read a code to a caller or record phrases in your voice because a message asked you to. If you want a new service, switch it on yourself in the official bank app."
+    }
+  },
+  {
+    "id": "social-ai-labelled-ai-video",
+    "channel": "social",
+    "verdict": "legit",
+    "category": "education",
+    "region": "global",
+    "difficulty": 3,
+    "tags": [
+      "no-link"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "تتابع هذا الحساب منذ مدة وتشاهد أفلامه القصيرة عن التاريخ.",
+      "card": {
+        "displayName": "حكايات من الماضي",
+        "handle": "@tales_from_the_past",
+        "verified": false,
+        "followers": "41.2K",
+        "kind": "post",
+        "text": "🏷️ محتوى مولّد بالذكاء الاصطناعي\nماذا كان سيقول حارس منارة من عام 1920 عن الهواتف الذكية؟ 📱 صنعنا هذا الفيلم القصير بوجوه وأصوات مولّدة بالذكاء الاصطناعي، والمنصة تضع عليه هذه العلامة لتعرف ذلك دائماً، بلا إعلانات ولا روابط، مجرد حكاية لمحبي التاريخ 🎬 أي حقبة نزورها في المرة القادمة؟ أخبرونا في التعليقات 👇"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "محتوى مولّد بالذكاء الاصطناعي",
+          "why": "العلامة توضح لك أن المقطع مصنوع بالذكاء الاصطناعي، فالمنشور لا يخفي حقيقته ولا يحاول إقناعك بأنه حقيقي."
+        },
+        {
+          "kind": "green",
+          "mark": "بلا إعلانات ولا روابط",
+          "why": "المنشور لا يحمل رابطاً ولا يطلب مالاً ولا بيانات، فلا يوجد فيه ما يستفيد منه محتال."
+        },
+        {
+          "kind": "green",
+          "mark": "أخبرونا في التعليقات",
+          "why": "كل ما يطلبه صاحب الحساب تعليق على المنشور، وهو طلب لا يعرّضك لأي خسارة."
+        }
+      ],
+      "lesson": "المقطع المصنوع بالذكاء الاصطناعي ليس احتيالاً بحد ذاته، فإذا حمل علامة واضحة ولم يطلب منك مالاً ولا بيانات ولا تثبيت أي تطبيق فاستمتع به، أما إذا طلب شيئاً من ذلك فتوقف."
+    },
+    "en": {
+      "context": "You have followed this account for a while and enjoy its short history films.",
+      "card": {
+        "displayName": "Tales from the Past",
+        "handle": "@tales_from_the_past",
+        "verified": false,
+        "followers": "41.2K",
+        "kind": "post",
+        "text": "🏷️ AI generated\nWhat would a lighthouse keeper from 1920 think of smartphones? 📱 We made this short film with AI faces and voices, and the platform labels it so you always know. No ads and no links, just a story for history lovers 🎬 Which era should we visit next? Tell us in the comments 👇"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "AI generated",
+          "why": "The label tells you the video was made with AI, so the post is open about what it is instead of passing it off as real."
+        },
+        {
+          "kind": "green",
+          "mark": "No ads and no links",
+          "why": "There is no link and no request for money or details, so there is nothing in it for a scammer."
+        },
+        {
+          "kind": "green",
+          "mark": "Tell us in the comments",
+          "why": "All the creator asks for is a comment, which costs you nothing."
+        }
+      ],
+      "lesson": "AI made videos are not scams in themselves. If one is clearly labelled and asks for no money, details or installs, enjoy it, and if it asks for any of those, stop."
+    }
+  },
+  {
+    "id": "chat-ai-manager-video-call",
+    "channel": "chat",
+    "verdict": "scam",
+    "category": "business",
+    "region": "gcc",
+    "difficulty": 4,
+    "tags": [
+      "deepfake",
+      "voice-clone",
+      "secrecy",
+      "urgency",
+      "payment",
+      "impersonation",
+      "unknown-number"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "قبل دقائق انتهت مكالمة فيديو قصيرة ظهر فيها مديرك خالد بوجهه وصوته.",
+      "card": {
+        "contact": "+44 7700 900318",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "مشكورة على دخولك الاجتماع، وزي ما شفتي صفقة الاستحواذ سرية ومحد يدري عنها إلا أنا وإنتي",
+            "time": "14:02"
+          },
+          {
+            "from": "them",
+            "voice": true,
+            "duration": "0:14",
+            "text": "هلا سارة، معاج خالد، أبيج تحولين الدفعة الأولى اليوم، ثمنطعش ألف وأربع مية دينار على حساب الشريك اللي بأرسله لج الحين، ولا تدخلين المالية بالموضوع لين أرجع يوم الأحد وأوقع الأوراق",
+            "time": "14:03"
+          },
+          {
+            "from": "them",
+            "text": "حساب الشريك: KW•• •••• •••• 6620",
+            "time": "14:03"
+          },
+          {
+            "from": "me",
+            "text": "ما أقدر أسجلها بنظام الدفع أول؟",
+            "time": "14:06"
+          },
+          {
+            "from": "them",
+            "text": "ماكو وقت، الصفقة تسكر الساعة ثلاث، حوليها وخلي الموضوع بيني وبينج",
+            "time": "14:06"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "وزي ما شفتي",
+          "why": "رؤية وجه مديرك وسماع صوته في مكالمة فيديو لا تثبتان شيئاً، لأنّ التزييف العميق يبدّل الوجه والصوت مباشرة أثناء المكالمة."
+        },
+        {
+          "kind": "red",
+          "mark": "على حساب الشريك اللي بأرسله لج الحين",
+          "why": "حساب جديد يصلك في محادثة مع مهلة تنتهي اليوم هو الشكل المعتاد لهذا الاحتيال، والمال الذي يُحوّل إليه يصعب استرجاعه."
+        },
+        {
+          "kind": "red",
+          "mark": "ولا تدخلين المالية بالموضوع",
+          "why": "إبعاد قسم المالية هو جوهر الحيلة، لأنّ إجراءاته المعتادة كانت ستكشفها فوراً."
+        },
+        {
+          "kind": "red",
+          "mark": "خلي الموضوع بيني وبينج",
+          "why": "طلب الكتمان يعزلك عن زملائك الذين كانوا سيوقفون التحويل، والصفقات الحقيقية تمر بالموافقات المعتادة مهما كانت سرية."
+        }
+      ],
+      "lesson": "مهما بدا مديرك حقيقياً في مكالمة الفيديو فلا تحوّل أي مبلغ بطلب في محادثة، بل سجّل الطلب في نظام الدفع المعتاد وتأكد منه على رقم مكتبه المعروف."
+    },
+    "en": {
+      "context": "A few minutes ago you ended a short video call where you saw your manager, Khalid.",
+      "card": {
+        "contact": "+44 7700 900318",
+        "saved": false,
+        "messages": [
+          {
+            "from": "them",
+            "text": "Thanks for joining the call. As you saw, the acquisition is strictly confidential, only you and I know about it",
+            "time": "14:02"
+          },
+          {
+            "from": "them",
+            "voice": true,
+            "duration": "0:14",
+            "text": "Hi Sara, it's Khalid. I need the first payment sent today, eighteen thousand four hundred dinars, to the partner's account I'm sending you now. Don't bring finance into it until I'm back on Sunday to sign the papers.",
+            "time": "14:03"
+          },
+          {
+            "from": "them",
+            "text": "Partner account: KW•• •••• •••• 6620",
+            "time": "14:03"
+          },
+          {
+            "from": "me",
+            "text": "Shouldn't I log it in the payment system first?",
+            "time": "14:06"
+          },
+          {
+            "from": "them",
+            "text": "No time, the deal closes at 3. Just send it and keep this between us",
+            "time": "14:06"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "trap",
+          "mark": "As you saw",
+          "why": "A face and a voice on a video call prove nothing. A deepfake can swap both live while you talk."
+        },
+        {
+          "kind": "red",
+          "mark": "the partner's account I'm sending you now",
+          "why": "A brand new account sent in a chat, with a same day deadline, is the classic shape of this fraud, and money sent there is hard to recover."
+        },
+        {
+          "kind": "red",
+          "mark": "Don't bring finance into it",
+          "why": "Keeping finance out is the heart of the trick, because their usual checks would expose it at once."
+        },
+        {
+          "kind": "red",
+          "mark": "keep this between us",
+          "why": "Secrecy cuts you off from the colleagues who would stop the transfer. Real deals still go through the usual approvals, however confidential."
+        }
+      ],
+      "lesson": "However real a manager looks or sounds on a call, never move money because of a chat request. Log it in the usual payment system and confirm on their known office number."
+    }
+  },
+  {
+    "id": "email-ai-colleague-usual-channel",
+    "channel": "email",
+    "verdict": "legit",
+    "category": "business",
+    "region": "global",
+    "difficulty": 4,
+    "tags": [
+      "expected",
+      "official-channel",
+      "verify-independently",
+      "no-link"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "أرسل لك زميلك جون رسالة صوتية بشأن دفعة لمورد، فطلبت منه أن يؤكدها.",
+      "card": {
+        "fromName": "جون، قسم المالية",
+        "fromAddress": "john@company.example.com",
+        "subject": "رد: دفعة المورد",
+        "body": "مرحباً دانيال،\n\nنعم، الرسالة الصوتية هذا الصباح كانت مني، وكما طلبت سجلت الدفعة رسمياً في نظام المالية برقم الطلب 4471، والفاتورة مرفقة بالطلب هناك\n\nوافق عليها من النظام متى ما سنحت لك الفرصة، فلا شيء يُرسل عبر البريد أو الدردشة، والحساب المصرفي للمورد هو نفسه المسجل لدينا\n\nشكراً لأنك تحققت أولاً، فهذا بالضبط ما تطلبه السياسة الجديدة\n\nجون"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "في نظام المالية برقم الطلب 4471",
+          "why": "الدفعة تمر عبر نظام الموافقات المعتاد في الشركة حيث تُراجع الفاتورة وبيانات المورد، لا عبر رسالة أو دردشة."
+        },
+        {
+          "kind": "green",
+          "mark": "هو نفسه المسجل لدينا",
+          "why": "الطلب لا يتضمن بيانات حساب جديدة، بينما يعتمد هذا النوع من الاحتيال دائماً تقريباً على تحويل الدفعة إلى حساب جديد."
+        },
+        {
+          "kind": "green",
+          "mark": "شكراً لأنك تحققت أولاً",
+          "why": "الزميل الحقيقي يرحب بتحققك، أما المحتال فيدفعك إلى تجاوز التحقق بالاستعجال أو طلب الكتمان."
+        },
+        {
+          "kind": "trap",
+          "mark": "john@company.example.com",
+          "why": "عنوان البريد الصحيح يطمئنك لكنه لا يثبت شيئاً وحده لأنّ الحسابات قد تُخترق، فما يجعل الرسالة آمنة أنها تحيلك إلى النظام المعتاد ولا تغيّر شيئاً."
+        }
+      ],
+      "lesson": "إذا طلبت منك رسالة صوتية أو مكالمة دفع مبلغ فاطلب أن يمر الطلب عبر نظام الشركة المعتاد، فالزميل الحقيقي يسجله هناك دون حساب جديد ودون ضغط."
+    },
+    "en": {
+      "context": "John sent you a voice note about a supplier payment, and you asked him to confirm it.",
+      "card": {
+        "fromName": "John, Finance",
+        "fromAddress": "john@company.example.com",
+        "subject": "Re: Supplier payment",
+        "body": "Hi Daniel,\n\nYes, the voice note this morning was me. As you asked, I've logged the payment properly in the finance system as request 4471, with the supplier's invoice attached there.\n\nPlease approve it in the system when you get a moment. Nothing needs to be sent by email or chat, and the supplier's bank details are the ones already on file.\n\nThanks for checking first, that's exactly what the new policy asks us to do.\n\nJohn"
+      },
+      "signals": [
+        {
+          "kind": "green",
+          "mark": "in the finance system as request 4471",
+          "why": "The payment goes through the company's usual approval system, where the invoice and supplier are checked, not through a message."
+        },
+        {
+          "kind": "green",
+          "mark": "the ones already on file",
+          "why": "No new bank details are involved. This kind of fraud almost always switches the payment to a new account."
+        },
+        {
+          "kind": "green",
+          "mark": "Thanks for checking first",
+          "why": "A real colleague welcomes your check. A scammer pushes you to skip it with urgency or secrecy."
+        },
+        {
+          "kind": "trap",
+          "mark": "john@company.example.com",
+          "why": "The right work address helps but proves nothing alone, since accounts can be hacked. What makes this safe is that it sends you to the usual system and changes nothing."
+        }
+      ],
+      "lesson": "When a voice note or call asks for a payment, ask for it through the company's usual system. A genuine colleague will log it there with no new bank details and no pressure."
+    }
+  },
+  {
+    "id": "call-ai-cloned-voice-sister",
+    "channel": "call",
+    "verdict": "scam",
+    "category": "family",
+    "region": "gcc",
+    "difficulty": 5,
+    "tags": [
+      "deepfake",
+      "voice-clone",
+      "urgency",
+      "payment",
+      "emotional",
+      "impersonation"
+    ],
+    "pack": "ai",
+    "ar": {
+      "context": "الصوت على الخط يطابق صوت أختك نورة تماماً.",
+      "card": {
+        "caller": "نورة",
+        "saved": true,
+        "voice": {
+          "gender": "female",
+          "age": "young",
+          "tone": "urgent"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "ألو، أنا نورة، أنا بالطوارئ مع يوسف، طاح من الدرج ويبون عربون قبل لا يدخلونه العمليات"
+          },
+          {
+            "who": "you",
+            "text": "يا ساتر! شلونه؟ قولي لي أول كلمة السر اللي اتفقنا عليها"
+          },
+          {
+            "who": "caller",
+            "text": "مو وقته الحين! حوّل ثلاث مية وخمسين دينار على حساب محاسب المستشفى، بأرسل لك رقمه بمسج، بسرعة الله يخليك"
+          },
+          {
+            "who": "you",
+            "text": "خليني أسكر وأتصل عليج على رقمج"
+          },
+          {
+            "who": "caller",
+            "text": "لا لا تسكر، الدكتور واقف ينتظر"
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "مو وقته الحين",
+          "why": "تهرّب المتصلة من ذكر كلمة السر العائلية هو ما يكشفها، لأنّ أختك الحقيقية تعرفها ولن يستغرق ذكرها ثانية واحدة."
+        },
+        {
+          "kind": "red",
+          "mark": "على حساب محاسب المستشفى",
+          "why": "المستشفيات لا تطلب تحويل العربون إلى حساب شخص يصلك رقمه في رسالة، بل تحصّل رسومها عند الاستقبال وبإيصال رسمي."
+        },
+        {
+          "kind": "red",
+          "mark": "لا لا تسكر",
+          "why": "منعك من إغلاق الخط يقطع الطريق على اتصالك بأختك على رقمها، وهي الخطوة التي كانت ستكشف الخدعة فوراً."
+        },
+        {
+          "kind": "trap",
+          "mark": "نورة",
+          "why": "ظهور اسم أختك المحفوظ وصوتها المطابق لا يثبتان شيئاً، لأنّ الرقم الظاهر يمكن انتحاله والصوت يمكن استنساخه بالذكاء الاصطناعي من مقطع قصير."
+        }
+      ],
+      "lesson": "إذا طلب منك قريب مالاً على عجل فاسأله عن كلمة السر العائلية، فإن تهرّب فأغلق الخط واتصل به على رقمه المحفوظ قبل أن تحوّل أي مبلغ."
+    },
+    "en": {
+      "context": "The voice on the line sounds exactly like your sister Noura.",
+      "card": {
+        "caller": "Noura",
+        "saved": true,
+        "voice": {
+          "gender": "female",
+          "age": "young",
+          "tone": "urgent"
+        },
+        "lines": [
+          {
+            "who": "caller",
+            "text": "Hello? It's Noura. I'm in the emergency room with Yousef, he fell down the stairs and they want a deposit before surgery."
+          },
+          {
+            "who": "you",
+            "text": "Oh no! Is he okay? First tell me our family word."
+          },
+          {
+            "who": "caller",
+            "text": "There's no time for that! Transfer three hundred and fifty dinars to the hospital accountant's account, I'll text you the number. Quickly, please."
+          },
+          {
+            "who": "you",
+            "text": "Let me hang up and call you back on your number."
+          },
+          {
+            "who": "caller",
+            "text": "No, no, don't hang up, the doctor is standing here waiting."
+          }
+        ]
+      },
+      "signals": [
+        {
+          "kind": "red",
+          "mark": "There's no time for that",
+          "why": "Dodging the family word is the giveaway. Your real sister knows it, and saying it takes one second."
+        },
+        {
+          "kind": "red",
+          "mark": "the hospital accountant's account",
+          "why": "Hospitals do not take deposits by transfer to a person whose number arrives by text. They charge at reception with an official receipt."
+        },
+        {
+          "kind": "red",
+          "mark": "don't hang up",
+          "why": "Keeping you on the line stops you from calling your sister's own number, the one step that would expose the trick."
+        },
+        {
+          "kind": "trap",
+          "mark": "Noura",
+          "why": "Your sister's saved name and her exact voice prove nothing. Caller ID can be spoofed, and AI can clone a voice from a short clip."
+        }
+      ],
+      "lesson": "When a relative urgently asks for money, ask for your family word. If they dodge it, hang up and call their saved number before you send anything."
+    }
+  }
+]

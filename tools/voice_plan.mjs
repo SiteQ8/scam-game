@@ -32,6 +32,8 @@ const OVERRIDE = {
   'call-family-voice-clone.ar': 'lXwVtAOOlP0Qf7aXOebM',
   'call-driver-asks-directions.ar': 'ht2HShpHzhG4gY6wI5YF',
   'call-telecom-plan-change-confirm.ar': 'DANw8bnAVbjDEHwZIoYa',
+  // Kept apart from the cloned sister's English voice in the AI pack.
+  'call-jobs-hr-medical-check.en': '2oKmj8Mq72d27JWiLtSX',
 };
 // Voice notes: one voice per speaker, the same person keeps the same voice across cards.
 const NOTE_VOICE = {
@@ -40,6 +42,8 @@ const NOTE_VOICE = {
   'chat-voice-mum-groceries': { ar: ['3AH0h1SXwwhE8vUUWuQW', '[warmly]'], en: ['aPS7uh3HYtOcVW1TGy2d', '[warmly]'] },
   'chat-voice-trading-mentor': { ar: ['RL04FaPrUG6vS8aWd9NZ', '[smoothly]'], en: ['QZA1myOcnbLYY9uuhixV', '[smoothly]'] },
   'chat-voice-delivery-driver': { ar: ['ht2HShpHzhG4gY6wI5YF', '[casually]'], en: ['iP95p4xoKVk53GoZ742B', '[casually]'] },
+  'chat-invest-romance-trading-app': { ar: ['FZeLZd39ejvLgzR2gY0t', '[sweetly]'], en: ['6fLd3vCll0LutxnciLI8', '[sweetly]'] },
+  'chat-ai-manager-video-call': { ar: ['G1QUjBCuRBbLbAmYlTgl', '[firmly]'], en: ['IudHjFkI7DrAB5AYmMAs', '[firmly]'] },
 };
 const plan = [];
 for (const c of cards) {
