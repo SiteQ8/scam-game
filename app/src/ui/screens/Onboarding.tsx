@@ -7,7 +7,7 @@ import { lang, t } from '../../i18n/i18n';
 import { CardView } from '../cards/CardView';
 import { SwipeCard, type SwipeApi } from '../components/SwipeCard';
 import { Icon } from '../components/Icon';
-import { Mark } from '../components/common';
+import { Mark, Toggle } from '../components/common';
 import { sfx, unlockAudio } from '../../platform/audio';
 import { impact, notify } from '../../platform/haptics';
 
@@ -83,6 +83,9 @@ export function Onboarding() {
             <div class="art"><div class="glyph g-check" style={{ width: '120px', height: '120px', borderRadius: '36px', display: 'grid', placeItems: 'center' }}><Icon name="shield-check" class="hero-icon" /></div></div>
             <h2>{t('ob4Title')}</h2>
             <p>{t('ob4Body')}</p>
+            <div class="panel onb-family">
+              <div class="row"><Icon name="accessibility" class="lead" /><span class="lbl">{t('familyMode')}<small>{t('familyModeSub')}</small></span><Toggle checked={settings.value.family} label={t('familyMode')} onChange={(v) => updateSettings({ family: v })} /></div>
+            </div>
           </>
         )}
         <div class="dots" aria-hidden="true">{Array.from({ length: steps - first }, (_, i) => <i class={i + first === step ? 'on' : ''} />)}</div>

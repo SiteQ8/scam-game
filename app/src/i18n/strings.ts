@@ -244,6 +244,8 @@ export const S = {
   haptics: { en: 'Vibration', ar: 'الاهتزاز' },
   reduceMotion: { en: 'Reduce motion', ar: 'تقليل الحركة' },
   textSize: { en: 'Text size', ar: 'حجم النص' },
+  familyMode: { en: 'Family and seniors mode', ar: 'وضع العائلة وكبار السن' },
+  familyModeSub: { en: 'Larger text and buttons, no timers and calmer motion', ar: 'خط وأزرار أكبر، بلا عدّاد للوقت، وحركة أهدأ' },
   sizeS: { en: 'Default', ar: 'عادي' },
   sizeM: { en: 'Large', ar: 'كبير' },
   sizeL: { en: 'Largest', ar: 'الأكبر' },
