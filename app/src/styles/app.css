@@ -343,7 +343,8 @@ textarea, input { caret-color: var(--marker); }
 .journey-dots i.on { background: var(--marker); }
 .mode.tool { background: transparent; box-shadow: inset 0 0 0 1.5px var(--line-2); }
 
-.home-foot { display: flex; justify-content: center; gap: 4px; margin-top: 22px; }
+.home-foot { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-top: 22px; }
+.home-foot .btn { white-space: nowrap; padding-inline: 10px; }
 
 /* ============ Play ============ */
 .play-top { display: flex; align-items: center; gap: 10px; padding: 6px 10px 4px; min-height: 56px; }
@@ -710,6 +711,75 @@ textarea, input { caret-color: var(--marker); }
 .stars .icon { width: 16px; height: 16px; }
 .stars .on { color: var(--marker); fill: var(--marker); }
 .chapter-sheet .lead { color: var(--text-2); margin: 6px 0 16px; }
+
+/* ============ Streak, levels and badges ============ */
+.streak-panel { display: grid; grid-template-columns: auto 1fr; grid-template-areas: 'flame txt' 'week week'; gap: 10px 12px; align-items: center; margin-top: 14px; padding: 14px; border-radius: 18px; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line); }
+.streak-panel .flame { grid-area: flame; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--desk-3); color: var(--text-3); }
+.streak-panel.live .flame { background: rgba(255, 160, 50, 0.14); color: #ffb347; }
+.streak-panel .flame .icon { width: 22px; height: 22px; }
+.streak-panel .txt { grid-area: txt; min-width: 0; }
+.streak-panel .txt b { display: block; font-family: var(--font-display); font-weight: 650; font-size: 0.98rem; }
+.streak-panel .txt span { display: block; font-size: 0.84rem; color: var(--text-2); line-height: 1.4; }
+.streak-panel .week { grid-area: week; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.streak-panel .d { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 0.72rem; color: var(--text-3); }
+.streak-panel .d i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--desk-3); box-shadow: inset 0 0 0 1px var(--line); }
+.streak-panel .d i .icon { width: 15px; height: 15px; }
+.streak-panel .d.on i { background: #ffb347; color: #2a1800; box-shadow: none; }
+.streak-panel .d.today { color: var(--text); font-weight: 600; }
+.streak-panel .d.today i { box-shadow: inset 0 0 0 2px var(--marker); }
+.streak-panel .d.today.on i { box-shadow: 0 0 0 2px var(--desk-2), 0 0 0 4px #ffb347; }
+[data-theme='light'] .streak-panel.live .flame { color: #b45f00; }
+
+.level-ring { grid-row: span 2; position: relative; width: 44px; height: 44px; display: grid; place-items: center; flex: none; }
+.level-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+[dir='rtl'] .level-ring svg { transform: rotate(-90deg) scaleY(-1); }
+.level-ring circle { fill: none; stroke: var(--line-2); stroke-width: 7; }
+.level-ring circle.fill { stroke: var(--marker); stroke-linecap: round; transition: stroke-dashoffset 600ms var(--ease-out); }
+.level-ring b { font-family: var(--font-display); font-weight: 750; font-size: 1rem; }
+.level-card { display: flex; align-items: center; gap: 16px; margin-top: 6px; padding: 18px; border-radius: 22px; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line); }
+.level-card .level-ring { width: 84px; height: 84px; }
+.level-card .level-ring b { font-size: 1.7rem; }
+.level-card .txt { display: flex; flex-direction: column; min-width: 0; }
+.level-card .label { font-size: 0.82rem; color: var(--text-3); font-family: var(--font-display); font-weight: 600; }
+.level-card .txt b { font-family: var(--font-display); font-weight: 750; font-size: 1.35rem; letter-spacing: -0.01em; }
+.level-card .txt .num { font-size: 0.86rem; color: var(--text-2); }
+.badge-count { margin: 14px 4px 0; color: var(--text-2); font-size: 0.9rem; }
+
+.medal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+.medal-cell { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 6px 12px; border-radius: 16px; text-align: center; transition: transform 140ms var(--ease-out), background-color 160ms ease; }
+.medal-cell:active { transform: scale(0.96); background: var(--desk-2); }
+.medal-cell b { font-family: var(--font-display); font-weight: 600; font-size: 0.82rem; line-height: 1.3; }
+.medal-cell.off b { color: var(--text-3); }
+.medal-cell .num { font-size: 0.74rem; color: var(--text-3); margin-top: -4px; }
+.medal { position: relative; width: 64px; height: 64px; display: grid; place-items: center; flex: none; }
+.medal.lg { width: 96px; height: 96px; }
+.medal .face { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--desk-3); color: var(--text-3); box-shadow: inset 0 0 0 1px var(--line-2); }
+.medal.lg .face { width: 78px; height: 78px; }
+.medal .face .icon { width: 24px; height: 24px; }
+.medal.lg .face .icon { width: 36px; height: 36px; }
+.medal .ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+[dir='rtl'] .medal .ring { transform: rotate(-90deg) scaleY(-1); }
+.medal .ring circle { fill: none; stroke: var(--line); stroke-width: 3.5; }
+.medal .ring circle.fill { stroke: var(--text-3); stroke-linecap: round; }
+.medal.on .face { color: #1c1600; box-shadow: 0 0 0 3px var(--desk), 0 0 0 5px var(--rim), 0 10px 22px -10px var(--rim); background: radial-gradient(120% 120% at 30% 20%, #ffffff 0%, var(--metal) 46%, var(--rim) 100%); }
+.medal.tier-bronze { --metal: #e7b48c; --rim: #b9733f; }
+.medal.tier-silver { --metal: #e6ebf2; --rim: #9aa6b6; }
+.medal.tier-gold { --metal: #ffe27a; --rim: #e0a800; }
+.medal-cell.on .medal { animation: none; }
+.badge-sheet { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.badge-sheet .medal { margin: 4px 0 14px; }
+.badge-sheet .label { font-size: 0.8rem; color: var(--text-3); font-family: var(--font-display); font-weight: 600; letter-spacing: 0.02em; }
+.badge-sheet h3 { margin-top: 2px; }
+.badge-sheet p { margin-bottom: 10px; }
+.badge-sheet .when { color: var(--text-3); font-size: 0.86rem; margin-bottom: 18px; }
+.badge-sheet .bar { width: 100%; height: 8px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 4px 0 8px; }
+.badge-sheet .bar i { display: block; height: 100%; background: var(--marker); transform-origin: left; border-radius: 6px; }
+[dir='rtl'] .badge-sheet .bar i { transform-origin: right; }
+.badge-sheet .btn { width: 100%; }
+.celebrate.badge-won .medal { width: 48px; height: 48px; }
+.celebrate.badge-won .medal .face { width: 40px; height: 40px; }
+.celebrate.badge-won .medal .face .icon { width: 20px; height: 20px; color: #1c1600; margin: 0; }
+.celebrate.streak .icon { color: #ffb347; }
 
 /* ============ Packs ============ */
 .pack-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }

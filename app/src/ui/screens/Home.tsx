@@ -2,7 +2,9 @@ import { useEffect, useState } from 'preact/hooks';
 import { progress, settings } from '../../state/store';
 import { push } from '../../state/nav';
 import { lang, t, fmtNum, rankFor, duration, count } from '../../i18n/i18n';
-import { dayIndex, caseNumber, msToNextDay, shareGrid, DAILY_SIZE } from '../../engine/daily';
+import { dayIndex, caseNumber, msToNextDay, shareGrid, dateOfDay, DAILY_SIZE } from '../../engine/daily';
+import { levelFor, lastWeek } from '../../engine/levels';
+import { LevelRing } from '../components/Medal';
 import { CHAPTERS } from '../../engine/deck';
 import { PACKS, packDeck } from '../../engine/packs';
 import { CARDS } from '../../content/cards';
@@ -27,8 +29,9 @@ export function Home() {
   const packText = (id: PackId, sub = false) => S[`pack_${id}${sub ? '_sub' : ''}` as keyof typeof S][L];
   useEffect(() => { const tm = setInterval(() => setNow(Date.now()), 30000); setMusic(true); return () => clearInterval(tm); }, []);
   const rank = rankFor(p.xp);
-  const toNext = rank.next ? rank.next.xp - p.xp : 0;
-  const pct = rank.next ? Math.min(1, (p.xp - rank.floor) / (rank.next.xp - rank.floor)) : 1;
+  const lv = levelFor(p.xp);
+  const week = lastWeek(day, (d) => Boolean(p.daily[String(d)]?.done));
+  const weekday = new Intl.DateTimeFormat(L === 'ar' ? 'ar' : 'en-GB', { weekday: 'narrow' });
   const passed = CHAPTERS.filter((c) => (p.journey[c.id]?.stars || 0) > 0).length;
   const name = L === 'ar' ? (__BRAND__.nameAr || __BRAND__.nameEn) : __BRAND__.nameEn;
   const right = rec ? rec.results.filter(Boolean).length : 0;
@@ -74,10 +77,21 @@ export function Home() {
           </div>
         </section>
 
-        <button class="rank-strip" style={{ width: '100%', textAlign: 'start' }} onClick={() => go({ name: 'stats' })} aria-label={t('stats')}>
-          <span class="badge"><Icon name="award" /></span>
-          <span class="rank-name"><b>{rank.name}</b><span class="num">{rank.next ? t('toNextRank', { n: toNext, rank: rank.next.name }) : `${fmtNum(p.xp)} ${t('xp')}`}</span></span>
-          <span class="bar"><i style={{ transform: `scaleX(${pct})` }} /></span>
+        <section class={`streak-panel ${streak > 0 ? 'live' : ''}`} aria-label={t('dailyStreak')}>
+          <span class="flame"><Icon name="flame" /></span>
+          <span class="txt">
+            <b>{streak > 0 ? t('streakDays', { days: count(streak, 'day') }) : t('streakStart')}</b>
+            {streak > 0 && <span>{rec?.done ? t('streakDone') : t('streakKeep')}</span>}
+          </span>
+          <span class="week" aria-hidden="true">
+            {week.map((w) => <span class={`d ${w.done ? 'on' : ''} ${w.day === day ? 'today' : ''}`}><i>{w.done && <Icon name="check" />}</i>{weekday.format(dateOfDay(w.day))}</span>)}
+          </span>
+        </section>
+
+        <button class="rank-strip" style={{ width: '100%', textAlign: 'start' }} onClick={() => go({ name: 'badges' })} aria-label={`${t('levelN', { n: lv.n })}, ${rank.name}. ${t('badges')}`}>
+          <LevelRing n={lv.n} pct={lv.pct} />
+          <span class="rank-name"><b>{rank.name}</b><span class="num">{lv.next ? t('xpToLevel', { n: lv.next - p.xp, level: lv.n + 1 }) : `${fmtNum(p.xp)} ${t('xp')}`}</span></span>
+          <span class="bar"><i style={{ transform: `scaleX(${lv.pct})` }} /></span>
         </button>
 
         {packs.length > 0 && (
@@ -127,6 +141,7 @@ export function Home() {
         </div>
         <div class="home-foot">
           <button class="btn btn-ghost" style={{ width: 'auto' }} onClick={() => go({ name: 'stats' })}><Icon name="chart-column" />{t('stats')}</button>
+          <button class="btn btn-ghost" style={{ width: 'auto' }} onClick={() => go({ name: 'badges' })}><Icon name="medal" />{t('badges')}</button>
           <button class="btn btn-ghost" style={{ width: 'auto' }} onClick={() => go({ name: 'about' })}><Icon name="info" />{t('about')}</button>
         </div>
       </div></div>

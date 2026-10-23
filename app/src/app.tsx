@@ -12,6 +12,7 @@ import { PartySetup } from './ui/screens/PartySetup';
 import { Hunt } from './ui/screens/Hunt';
 import { Checker } from './ui/screens/Checker';
 import { Stats } from './ui/screens/Stats';
+import { Badges } from './ui/screens/Badges';
 import { Settings } from './ui/screens/Settings';
 import { About } from './ui/screens/About';
 import { Onboarding } from './ui/screens/Onboarding';
@@ -44,6 +45,7 @@ function Screen({ r }: { r: Entry }) {
     case 'hunt': return <Hunt />;
     case 'checker': return <Checker />;
     case 'stats': return <Stats />;
+    case 'badges': return <Badges />;
     case 'settings': return <Settings />;
     case 'about': return <About />;
     case 'onboarding': return <Onboarding />;
