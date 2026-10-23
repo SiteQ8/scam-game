@@ -80,7 +80,8 @@ function markedText(text: string, marks: Mark[]): string {
   return out;
 }
 
-export interface View { html: string; result: CheckResult | null; summary: string }
+/** The verdict with the marked message (html), and the numbered signs (list), shown apart on wide screens. */
+export interface View { html: string; list: string; result: CheckResult | null; summary: string }
 
 const LEVEL = { high: ['levelHigh', 'shield-alert'], medium: ['levelMedium', 'triangle-alert'], low: ['levelLow', 'info'] } as const;
 
@@ -105,17 +106,22 @@ function marked(m: number, n: number, lang: Lang): string {
 export function render(text: string, lang: Lang, empty: string): View {
   // The examples carry invisible marks for the text box (direction marks, word joiners); the view does its own layout.
   const input = text.replace(/[\u200E\u200F\u2060\u2066-\u2069]/g, '').trim();
-  if (!input) return { html: `<p class="chk-empty">${esc(empty)}</p>`, result: null, summary: empty };
+  if (!input) return { html: `<p class="chk-empty">${esc(empty)}</p>`, list: '', result: null, summary: empty };
   const result = check(input, { localCodes: GCC_CODES });
   const positives = result.findings.filter((f) => f.positive);
   // Each sign keeps the first stretch of text it points at (the engine lists the strongest signs first, so they win
   // an overlap). Then the signs are numbered in reading order: the marks from the top of the message down, then the
   // signs with nothing to mark, so the numbers in the text read 1, 2, 3 and the list below follows them.
+  // A sign that points at part of an address (a domain without its path) marks the whole address, so its number
+  // sits right beside its highlight and the website marks an address the way the game's cards do.
+  const addresses = addressRanges(input);
   const spans: Array<[number, number] | null> = [];
   const found = result.findings.filter((f) => !f.positive);
   found.forEach((f) => {
-    const at = locateEvidence(input, f.evidence);
-    spans.push(at && !spans.some((s) => s && at[0] < s[1] && at[1] > s[0]) ? at : null);
+    let at = locateEvidence(input, f.evidence);
+    const whole = at && addresses.find(([s, e]) => at![0] >= s && at![1] <= e);
+    if (at && whole) at = [whole[0], whole[1]];
+    spans.push(at && !spans.some((s) => s && at![0] < s[1] && at![1] > s[0]) ? at : null);
   });
   const order = found.map((f, i) => ({ f, at: spans[i] }))
     .sort((a, b) => (a.at && b.at ? a.at[0] - b.at[0] : a.at ? -1 : b.at ? 1 : 0));
@@ -131,10 +137,10 @@ export function render(text: string, lang: Lang, empty: string): View {
   const html = [
     `<div class="chk-head lvl-${result.level}">${icon(ico, 'ico-head')}<div><b>${esc(label)}</b><span>${esc(sub)}</span></div></div>`,
     `<div class="chk-msg" dir="auto">${markedText(input, marks)}</div>`,
-    negatives.length || positives.length
-      ? `<ol class="chk-list">${negatives.map((f, i) => item(f, i, 'red')).join('')}${positives.map((f, i) => item(f, i, 'green')).join('')}</ol>`
-      : '',
     `<p class="chk-foot">${icon('info', 'ico-foot')}<span>${esc(S.checkerDisclaimer[lang])}</span></p>`,
   ].join('');
-  return { html, result, summary: lang === 'ar' ? `${label}، ${sub}` : `${label}. ${sub}` };
+  const list = negatives.length || positives.length
+    ? `<ol class="chk-list">${negatives.map((f, i) => item(f, i, 'red')).join('')}${positives.map((f, i) => item(f, i, 'green')).join('')}</ol>`
+    : '';
+  return { html, list, result, summary: lang === 'ar' ? `${label}، ${sub}` : `${label}. ${sub}` };
 }

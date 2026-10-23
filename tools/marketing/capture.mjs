@@ -76,7 +76,7 @@ for (const lang of LANGS) {
   // With `cut`, only the kept element is drawn and everything around it is left clear, so rounded corners and the
   // card's own shadow sit on whatever field the website puts them on.
   // The website shows every card flat, with no drop shadow, so a cut-out leaves the game's shadow out.
-  const CUT = (keep, drop) => `html, body { background: transparent !important; } body * { visibility: hidden !important; } ${keep}, ${keep} * { visibility: visible !important; } .stage .msg, .cloth { box-shadow: none !important; }${drop ? ` ${drop} { visibility: hidden !important; }` : ''}`;
+  const CUT = (keep, drop) => `html, body { background: transparent !important; } body * { visibility: hidden !important; } ${keep}, ${keep} * { visibility: visible !important; } .stage .msg, .cloth, .stage .stamp { box-shadow: none !important; }${drop ? ` ${drop} { visibility: hidden !important; }` : ''}`;
   const stage = async (name, sel, pad = 0, lineSel = null, cut = null) => {
     await page.locator(sel).first().evaluate((e) => {
       const r = e.getBoundingClientRect();
@@ -177,6 +177,8 @@ for (const lang of LANGS) {
     const wrap = document.querySelector('.stage .card-wrap');
     const rot = (wrap.style.transform.match(/rotate\(([-\d.]+)deg\)/) || [])[1] || '-5.6';
     wrap.style.transform = `translate3d(0, 4px, 0) rotate(${rot}deg) scale(0.86)`;
+    // In a still picture a see-through label reads as a fault, so the label that shows is drawn at full strength.
+    for (const s of document.querySelectorAll('.stage .stamp')) if (Number(getComputedStyle(s).opacity) > 0.05) s.style.opacity = '1';
   });
   await page.evaluate((css) => {
     const st = document.createElement('style');

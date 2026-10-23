@@ -169,7 +169,7 @@ function context(lang, path) {
   return {
     lang, path, t, brand, root: '../'.repeat(depth),
     hash: { css: hash(css), js: hash(js), lang: hash(langJs) },
-    examples, checkerHtml: examples.length ? G.render(examples[0].text, lang, copy.sc_empty[lang]).html : '',
+    examples, checker: examples.length ? G.render(examples[0].text, lang, copy.sc_empty[lang]) : { html: '', list: '' },
     stages: (manifest[lang] || {}).stages || {}, loop: loops[lang] || null, ui: ui(lang), stores: stores(lang), storesLive: stores(lang).length > 0,
     trailer, cardCount: cards.length, pressShots: ['home', 'card', 'debrief', 'call', 'packs', 'badges', 'certificate', 'family'],
     jsonld: path === '' ? jsonld(lang) : '',
