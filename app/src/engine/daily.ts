@@ -14,6 +14,11 @@ export function caseNumber(day: number): number {
   return day + 1;
 }
 
+/** The local calendar date of a day index (day 0 is 16 October 2026). */
+export function dateOfDay(day: number): Date {
+  return new Date(2026, 9, 16 + day);
+}
+
 export function msToNextDay(now = new Date()): number {
   const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
   return next.getTime() - now.getTime();

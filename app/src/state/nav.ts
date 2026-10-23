@@ -9,6 +9,7 @@ export type Route =
   | { name: 'hunt' }
   | { name: 'checker' }
   | { name: 'stats' }
+  | { name: 'badges' }
   | { name: 'settings' }
   | { name: 'about' }
   | { name: 'onboarding' };
