@@ -37,6 +37,13 @@
   "shot_checker": { "en": "The message checker with its findings", "ar": "أداة فحص الرسائل ونتيجة الفحص" },
   "shot_chat": { "en": "A chat card from a stranger", "ar": "بطاقة محادثة من شخص غريب" },
   "shot_onboarding": { "en": "The first screen of the game", "ar": "الشاشة الأولى في اللعبة" },
+  "shot_packs": { "en": "The card packs on the home screen", "ar": "حزم البطاقات في الشاشة الرئيسية" },
+  "shot_badges": { "en": "Badges and the level ring", "ar": "الشارات وحلقة المستوى" },
+  "shot_certificate": { "en": "The certificate with the player’s name on it", "ar": "الشهادة وعليها اسم اللاعب" },
+  "shot_family": {
+    "en": "The home screen in family mode, with larger text",
+    "ar": "الشاشة الرئيسية في وضع العائلة بخط أكبر"
+  },
 
   "sc_a": { "en": "Paste any message", "ar": "الصق أي رسالة" },
   "sc_b": { "en": "see what it hides", "ar": "واكشف ما تخفيه" },
@@ -105,30 +112,48 @@
     "en": "It marks the traps too: details that feel reassuring but prove nothing, like a familiar sender name.",
     "ar": "وتحدد الفخاخ أيضاً، أي التفاصيل التي تطمئنك ولا تثبت شيئاً مثل اسم مرسل مألوف."
   },
-  "f4_h": { "en": "Eight chapters, two quick challenges", "ar": "ثمانية فصول وتحديان سريعان" },
+  "f4_h": { "en": "Eight chapters, six packs", "ar": "ثمانية فصول وست حزم" },
   "f4_p1": {
-    "en": "The journey runs from first steps to expert. Get seven of ten right to open the next chapter.",
-    "ar": "يبدأ المسار من الخطوات الأولى وينتهي بمستوى الخبراء، وتفتح الفصل التالي حين تصيب في سبع بطاقات من عشر."
+    "en": "The journey runs from first steps to expert, and six themed packs go deeper into bank fraud, deliveries, fake jobs, investment and crypto, fake government services and AI fakes.",
+    "ar": "يبدأ المسار من الخطوات الأولى وينتهي بمستوى الخبراء، بينما تتعمق ست حزم في الاحتيال المصرفي والتوصيل والوظائف الوهمية والاستثمار والعملات الرقمية وانتحال الجهات الحكومية والتزييف بالذكاء الاصطناعي."
   },
   "f4_p2": {
     "en": "In between, beat the clock in a 60 second rush, or hunt the warning signs before time runs out.",
     "ar": "وبين الفصول تسابق الوقت في سباق الستين ثانية أو تصطاد علامات التحذير قبل نفاده."
   },
-  "f5_h": { "en": "Play together on one phone", "ar": "العبوا معاً على هاتف واحد" },
+  "f5_h": { "en": "Levels, badges and a streak", "ar": "مستويات وشارات وسلسلة أيام" },
   "f5_p1": {
+    "en": "Every right call brings the next level closer, and badges mark what you have mastered, from your first catch to every pack.",
+    "ar": "كل حكم صائب يقربك من المستوى التالي، وتشهد الشارات على ما أتقنته من أول احتيال تكشفه حتى إكمال الحزم كلها."
+  },
+  "f5_p2": {
+    "en": "Play the daily case to keep your streak, read a new tip each day, and finish the journey for a certificate with your name to share.",
+    "ar": "العب ملف اليوم لتحافظ على سلسلتك واقرأ نصيحة جديدة كل يوم، ثمّ أكمل المسار لتحصل على شهادة باسمك تشاركها."
+  },
+  "f6_h": { "en": "Play together on one phone", "ar": "العبوا معاً على هاتف واحد" },
+  "f6_p1": {
     "en": "Pass the phone around the room. Each player judges their own cards and the game keeps the score.",
     "ar": "مرّروا الهاتف بينكم، فيحكم كل لاعب على بطاقاته وتحسب اللعبة النقاط."
   },
-  "f5_p2": {
+  "f6_p2": {
     "en": "Made for a family evening, a diwaniya or a classroom.",
     "ar": "تناسب سهرة العائلة والديوانية والفصل الدراسي."
   },
-  "f6_h": { "en": "Nothing leaves your phone", "ar": "لا شيء يغادر هاتفك" },
-  "f6_p1": {
+  "f7_h": { "en": "Family and seniors mode", "ar": "وضع العائلة وكبار السن" },
+  "f7_p1": {
+    "en": "Family mode makes the text and buttons larger, calms the motion and leaves out the timed challenges.",
+    "ar": "يكبّر وضع العائلة الخط والأزرار ويهدئ الحركة ويترك التحديات المؤقتة جانباً."
+  },
+  "f7_p2": {
+    "en": "Switch it on when you set up the game for a parent or grandparent, or any time in the settings.",
+    "ar": "فعّله حين تجهز اللعبة لأحد والديك أو أجدادك، أو متى شئت من الإعدادات."
+  },
+  "f8_h": { "en": "Nothing leaves your phone", "ar": "لا شيء يغادر هاتفك" },
+  "f8_p1": {
     "en": "No account, no ads and no tracking. The app works offline and never connects to the internet.",
     "ar": "لا حساب ولا إعلانات ولا تتبع، والتطبيق يعمل دون إنترنت ولا يتصل به أبداً."
   },
-  "f6_p2": {
+  "f8_p2": {
     "en": "Your progress is kept on your device, and you can erase it from the settings.",
     "ar": "يبقى تقدمك على جهازك وحده، وتستطيع أن تمسحه من الإعدادات."
   },
@@ -143,8 +168,8 @@
     "ar": "التحذيرات تطلب منا الحذر لكنها نادراً ما تُرينا شكله، فالحذر يأتي من رؤية أمثلة كثيرة ومن تعلّم {mark}العلامات الصغيرة{/mark} مثل العنوان الذي يكاد يكون صحيحاً والاستعجال وطلب الرمز."
   },
   "letter_3": {
-    "en": "So I made this game. Every card follows a trick that scammers really use, in the Gulf and around the world, with fictional names and links that lead nowhere.",
-    "ar": "لذلك صنعت هذه اللعبة، وكل بطاقة فيها تتبع حيلة يستخدمها المحتالون فعلاً في الخليج وحول العالم، بأسماء وهمية وروابط لا تقود إلى أي مكان."
+    "en": "So I made this game. Every card follows a trick that scammers really use, in the Arabian Gulf and around the world, with fictional names and links that lead nowhere.",
+    "ar": "لذلك صنعت هذه اللعبة، وكل بطاقة فيها تتبع حيلة يستخدمها المحتالون فعلاً في الخليج العربي وحول العالم، بأسماء وهمية وروابط لا تقود إلى أي مكان."
   },
   "letter_4": {
     "en": "It is free and open source, with no ads, and it never asks for your data. Play the daily case with your family, and if a message ever fools you, {mail}send it to me{/mail} so it can become a card.",
@@ -179,8 +204,8 @@
   },
   "q6": { "en": "Which languages and regions?", "ar": "ما اللغات والمناطق المتاحة؟" },
   "a6": {
-    "en": "Arabic and English. In the settings you can choose examples from the Gulf, from around the world, or both.",
-    "ar": "العربية والإنجليزية، وتستطيع أن تختار من الإعدادات أمثلة من الخليج أو من حول العالم أو من الاثنين معاً."
+    "en": "Arabic and English. In the settings you can choose examples from the Arabian Gulf, from around the world, or both.",
+    "ar": "العربية والإنجليزية، وتستطيع أن تختار من الإعدادات أمثلة من الخليج العربي أو من حول العالم أو من الاثنين معاً."
   },
   "q7": { "en": "How is the daily case chosen?", "ar": "كيف يُختار ملف اليوم؟" },
   "a7": {
@@ -237,15 +262,15 @@
 
   "pv_title": { "en": "Privacy", "ar": "الخصوصية" },
   "pv_desc": { "en": "The game collects nothing about you and never connects to the internet.", "ar": "اللعبة لا تجمع أي معلومة عنك ولا تتصل بالإنترنت أبداً." },
-  "pv_updated": { "en": "Updated 16 October 2026", "ar": "آخر تحديث في 16 أكتوبر 2026" },
+  "pv_updated": { "en": "Updated 23 October 2026", "ar": "آخر تحديث في 23 أكتوبر 2026" },
   "pv_lead": {
     "en": "The game collects nothing about you. There is no account, no ads, no analytics and no tracking, and the app never connects to the internet.",
     "ar": "لا تجمع اللعبة أي معلومة عنك، فلا حساب ولا إعلانات ولا أدوات تحليل ولا تتبع، والتطبيق لا يتصل بالإنترنت أبداً."
   },
   "pv_h1": { "en": "What stays on your device", "ar": "ما يبقى على جهازك" },
   "pv_p1": {
-    "en": "Your settings, scores, streaks and achievements are saved on your device so you can continue where you left off. They never leave it. You can erase them at any time with Erase my progress in the settings, or by deleting the app.",
-    "ar": "تُحفظ إعداداتك ونقاطك وسلاسلك وإنجازاتك على جهازك لتكمل من حيث توقفت، ولا تغادره أبداً، وتستطيع أن تمسحها متى شئت عبر خيار «امسح تقدمي» في الإعدادات أو بحذف التطبيق."
+    "en": "Your settings, scores, streaks, badges and the name you put on your certificate are saved on your device so you can continue where you left off. They never leave it. You can erase them at any time with Erase my progress in the settings, or by deleting the app.",
+    "ar": "تُحفظ إعداداتك ونقاطك وسلاسلك وشاراتك والاسم الذي تكتبه على شهادتك على جهازك لتكمل من حيث توقفت، ولا تغادره أبداً، وتستطيع أن تمسحها متى شئت عبر خيار «امسح تقدمي» في الإعدادات أو بحذف التطبيق."
   },
   "pv_h2": { "en": "The message checker", "ar": "أداة فحص الرسائل" },
   "pv_p2": {
@@ -254,8 +279,8 @@
   },
   "pv_h3": { "en": "Permissions", "ar": "الأذونات" },
   "pv_p3": {
-    "en": "The app asks for no access to your contacts, location, camera, microphone, photos or notifications. It uses vibration for feedback, which you can turn off in the settings.",
-    "ar": "لا يطلب التطبيق الوصول إلى جهات الاتصال ولا الموقع ولا الكاميرا ولا الميكروفون ولا الصور ولا الإشعارات، ويستخدم الاهتزاز للتنبيه اللمسي وتستطيع إيقافه من الإعدادات."
+    "en": "The app asks for no access to your contacts, location, camera, microphone, photos or notifications. It uses vibration for feedback, which you can turn off in the settings. When you share a result, a tip or your certificate, the app hands it to your phone’s share sheet and you choose where it goes; it sends nothing by itself.",
+    "ar": "لا يطلب التطبيق الوصول إلى جهات الاتصال ولا الموقع ولا الكاميرا ولا الميكروفون ولا الصور ولا الإشعارات، ويستخدم الاهتزاز للتنبيه اللمسي وتستطيع إيقافه من الإعدادات، وحين تشارك نتيجة أو نصيحة أو شهادتك يسلّمها التطبيق إلى قائمة المشاركة في هاتفك فتختار أنت وجهتها، فهو لا يرسل شيئاً من تلقاء نفسه."
   },
   "pv_h4": { "en": "This website and the web version", "ar": "هذا الموقع ونسخة الويب" },
   "pv_p4": {
@@ -327,7 +352,7 @@
   "pr_k_price": { "en": "Price", "ar": "السعر" },
   "pr_v_price": { "en": "Free, with no ads and no purchases", "ar": "مجانية بلا إعلانات ولا مشتريات" },
   "pr_k_content": { "en": "Inside", "ar": "المحتوى" },
-  "pr_v_content": { "en": "{cards} cards in nine channels, eight chapters, five ways to play", "ar": "{cards} بطاقة في تسع قنوات وثمانية فصول وخمس طرق للعب" },
+  "pr_v_content": { "en": "{cards} cards in nine channels, eight chapters, six themed packs and five ways to play", "ar": "{cards} بطاقة في تسع قنوات وثمانية فصول وست حزم موضوعية وخمس طرق للعب" },
   "pr_k_privacy": { "en": "Privacy", "ar": "الخصوصية" },
   "pr_v_privacy": { "en": "Collects no data and works offline", "ar": "لا تجمع أي بيانات وتعمل دون إنترنت" },
   "pr_k_contact": { "en": "Contact", "ar": "التواصل" },
@@ -337,8 +362,8 @@
     "ar": "كل بطاقة رسالة تحاكي ما يظهر على شاشة الهاتف، فيسحبها اللاعب يساراً إن رآها احتيالاً ويميناً إن رآها سليمة، ثمّ يظلل الشرح الكلمات التي كشفتها ويقدم درساً للمرة القادمة."
   },
   "pr_about_2": {
-    "en": "The game has a daily case shared by everyone, a journey of eight chapters, a 60 second rush, a flag hunt, a party mode for one phone and an offline checker for messages players actually receive. Calls are voiced and every example is fictional.",
-    "ar": "تضم اللعبة ملفاً يومياً يلعبه الجميع ومساراً من ثمانية فصول وسباقاً مدته ستون ثانية وصيداً للعلامات وتحدياً جماعياً على هاتف واحد وأداة فحص تعمل دون إنترنت للرسائل التي تصل اللاعبين فعلاً، والمكالمات فيها مسموعة وكل أمثلتها وهمية."
+    "en": "The game has a daily case shared by everyone, a journey of eight chapters, six themed card packs, a 60 second rush, a flag hunt, a party mode for one phone and an offline checker for messages players actually receive. Levels, badges, a daily streak, a tip each day, a family mode with larger text and a certificate for the whole journey keep players coming back. Calls are voiced and every example is fictional.",
+    "ar": "تضم اللعبة ملفاً يومياً يلعبه الجميع ومساراً من ثمانية فصول وست حزم موضوعية من البطاقات وسباقاً مدته ستون ثانية وصيداً للعلامات وتحدياً جماعياً على هاتف واحد وأداة فحص تعمل دون إنترنت للرسائل التي تصل اللاعبين فعلاً، وتعيد المستويات والشارات وسلسلة الأيام والنصيحة اليومية ووضع العائلة بخطه الأكبر وشهادة إتمام المسار اللاعبين إليها، والمكالمات فيها مسموعة وكل أمثلتها وهمية."
   },
   "pr_h_assets": { "en": "Downloads", "ar": "التنزيلات" },
   "pr_icon": { "en": "App icon, PNG, 1024 pixels", "ar": "أيقونة التطبيق، PNG بحجم 1024 بكسل" },
