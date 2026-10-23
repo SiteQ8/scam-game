@@ -41,7 +41,10 @@ const CAPTIONS = {
   day: { en: copy.how_h2.en, ar: copy.how_h2.ar },
   together: { en: copy.f5_h.en, ar: copy.f5_h.ar },
 };
-const END_LINE = { en: 'Free on iPhone, Android and the web', ar: 'مجانية على آيفون وأندرويد والويب' };
+// Until the apps are in the stores the trailer ends on the coming soon line; afterwards, on where to get it.
+const END_LINE = brand.appStoreId || brand.playLive
+  ? { en: 'Free on iPhone, Android and the web', ar: 'مجانية على آيفون وأندرويد والويب' }
+  : { en: 'Coming soon to iPhone and Android', ar: 'قريباً على آيفون وأندرويد' };
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const withMark = (text, word) => (word && text.includes(word) ? esc(text).replace(esc(word), `<mark>${esc(word)}</mark>`) : esc(text));

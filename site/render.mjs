@@ -166,9 +166,10 @@ export function homePage(ctx) {
   const faqs = Array.from({ length: 12 }, (_, i) => i + 1)
     .map((i) => `<p><b>${t(`q${i}`)}</b> ${i === 12 ? t(ctx.storesLive ? 'a12_live' : 'a12_soon') : t(`a${i}`)}</p>`)
     .join('\n    ');
+  const soon = `<p class="soon"><span class="dot" aria-hidden="true"></span>${t('soon_apps')}</p>`;
   const stores = ctx.stores.length
     ? `<p class="stores">${ctx.stores.map((s) => `<a href="${esc(s.url)}">${esc(s.label)}</a>`).join('')}</p>`
-    : '';
+    : soon;
   return `${head(ctx, { title: t.raw('meta_title'), desc: t.raw('meta_desc'), page: 'home' })}
 <body>
 <a class="skip" href="#hero">${t('skip')}</a>
@@ -187,6 +188,7 @@ export function homePage(ctx) {
         <a class="btn" href="${play}">${t('cta_primary')}</a>
         <a class="link" href="#check">${t('hero_check')}</a>
       </div>
+      ${ctx.storesLive ? '' : soon}
     </section>
   </div>
   <figure class="stage on-dark" data-stage="hero" aria-label="${esc(t.raw('stage_label'))}">
@@ -329,7 +331,7 @@ export function pressPage(ctx) {
 <p class="lead">${t('pr_lead')}</p>
 <h2>${t('pr_h_facts')}</h2>
 <dl class="facts">
-${name ? fact('pr_k_name', esc(name)) : ''}${fact('pr_k_dev', t('pr_v_dev'))}${fact('pr_k_platforms', t('pr_v_platforms'))}${fact('pr_k_langs', t('pr_v_langs'))}${fact('pr_k_price', t('pr_v_price'))}${fact('pr_k_content', t('pr_v_content', { cards: ctx.cardCount }))}${fact('pr_k_privacy', t('pr_v_privacy'))}${fact('pr_k_contact', `<a href="mailto:${EMAIL}">${EMAIL}</a>`)}
+${name ? fact('pr_k_name', esc(name)) : ''}${fact('pr_k_dev', t('pr_v_dev'))}${fact('pr_k_platforms', t(ctx.storesLive ? 'pr_v_platforms' : 'pr_v_platforms_soon'))}${fact('pr_k_langs', t('pr_v_langs'))}${fact('pr_k_price', t('pr_v_price'))}${fact('pr_k_content', t('pr_v_content', { cards: ctx.cardCount }))}${fact('pr_k_privacy', t('pr_v_privacy'))}${fact('pr_k_contact', `<a href="mailto:${EMAIL}">${EMAIL}</a>`)}
 </dl>
 <h2>${t('pr_h_about')}</h2>
 <p>${t('pr_about_1')}</p>
