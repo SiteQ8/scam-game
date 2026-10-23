@@ -187,6 +187,7 @@ Add the secrets in the repository settings, under Secrets and variables, Actions
 | `tools/` | Audio, icon and screenshot tools. |
 | `art/`, `assets/` | The icon source, and the icon and splash images made from it. |
 | `brand.json` | The names, web address, app ID and repository. |
+| `DESIGN.md` | The design system as built, for the app and the website: colours, type, spacing, components and the rules behind them, with its tokens in `.impeccable/design.json`. |
 
 ## Suggest a card
 
@@ -451,6 +452,7 @@ npx cap open ios
 | `tools` | أدوات الصوت والأيقونات ولقطات الشاشة |
 | `art` و `assets` | مصدر الأيقونة، وصور الأيقونة وشاشة البداية المولّدة منه |
 | `brand.json` | الاسمان وعنوان الويب ومعرّف التطبيق والمستودع |
+| `DESIGN.md` | نظام التصميم كما بُني للعبة والموقع بألوانه وخطوطه ومسافاته ومكوناته وقواعده، ورموزه في `.impeccable/design.json` |
 
 ## اقترح بطاقة
 
