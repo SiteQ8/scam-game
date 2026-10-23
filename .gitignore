@@ -20,3 +20,4 @@ coverage/
 
 # Working folders for the capture, recording and audio tools
 .work/
+__pycache__/
