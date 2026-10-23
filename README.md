@@ -140,18 +140,16 @@ These tools need Playwright, sharp or ffmpeg, and some set machine specific path
 
 ### Continuous integration and releases
 
-* **`ci.yml`** runs on every push to `main` and every pull request. It installs with `npm ci` on Node 22, validates the cards, type checks, runs the tests, builds the game and the site, and fails if `docs/` differs from the build. On pushes it also compiles the iOS app for the simulator without signing. It needs no secrets.
-* **`android.yml`** runs on pushes to `main` that touch the app, the cards or `android/`, on tags that start with `android-v`, and by hand. It builds a debug APK and keeps it as a workflow artifact. On a tag such as `android-v1.0.0`, with the keystore secrets set, it also builds a signed release bundle (AAB); with `PLAY_SERVICE_ACCOUNT` set too, it uploads the bundle to the internal testing track on Google Play, as a draft until the app has been sent for review, with release notes from `store/google-play/<language>/changelogs/default.txt` when that file exists.
-* **`ios.yml`** runs on tags that start with `ios-v`, and by hand. It builds a signed release archive, packages the IPA, validates it and uploads it to App Store Connect, and keeps the IPA as a workflow artifact. The build number is the workflow run number. It stops with a message when the signing secrets are missing.
+* **`ci.yml`** runs on every push to `main` and every pull request. It installs with `npm ci` on Node 22, validates the cards, type checks, runs the tests, builds the game and the site, fails if `docs/` differs from the build, and compiles the iOS app for the simulator without signing. It needs no secrets.
+* **`release.yml`** publishes a GitHub release for every note in `.github/release-notes/`. Merging a new note such as `v1.1.0.md` into `main` tags the merged commit, publishes the release and then calls `android.yml` and `ios.yml` for that tag. They build and sign both apps, attach `scam-game-<tag>.aab` and `scam-game-<tag>.ipa` to the release, and upload them to the internal testing track on Google Play and to App Store Connect for TestFlight. Run it by hand with a tag to build an existing release again, for example after adding secrets.
+* **`android.yml`** also runs on pushes to `main` that touch the app, the cards or `android/`, and by hand: it builds a debug APK and keeps it as a workflow artifact. A tag such as `android-v1.1.0` builds, signs and uploads the Android app on its own.
+* **`ios.yml`** also runs on tags that start with `ios-v`, and by hand, to build, sign and upload the iPhone app on its own.
 
-To start a release, push a tag:
+The version comes from `package.json`, and a release tag must match it. The build number, which is the Android versionCode and the iPhone build, is major × 10000 + minor × 100 + patch, so 1.1.0 builds 10100. A missing secret never fails a release: the release is published, and each platform skips what it cannot do with a notice that names the missing secrets.
 
-```bash
-git tag android-v1.0.0 && git push origin android-v1.0.0
-git tag ios-v1.0.0 && git push origin ios-v1.0.0
-```
+To publish a release, write `.github/release-notes/vX.Y.Z.md` (first line `# vX.Y.Z, title`, then the notes in English and an `## العربية` section), set the same version in `package.json`, and merge both in a pull request.
 
-Add the secrets in the repository settings, under Secrets and variables, Actions:
+Add the secrets in the repository settings, under Secrets and variables, Actions. [`store/SECRETS.md`](store/SECRETS.md) explains how to make each one and in which order to add them.
 
 | Secret | Workflow | Value |
 |---|---|---|
@@ -159,11 +157,10 @@ Add the secrets in the repository settings, under Secrets and variables, Actions
 | `ANDROID_KEYSTORE_PASSWORD` | android | The keystore password |
 | `ANDROID_KEY_ALIAS` | android | The key alias |
 | `ANDROID_KEY_PASSWORD` | android | The key password |
-| `PLAY_SERVICE_ACCOUNT` | android | The JSON key of a Google Play service account with access to the app |
-| `IOS_TEAM_ID` | ios | The Apple Developer team ID |
+| `PLAY_SERVICE_ACCOUNT` | android | The JSON key of a Google Cloud service account with access to the app in Play Console |
 | `IOS_CERT_P12` | ios | The Apple Distribution certificate with its private key, as a .p12 file, base64 encoded |
 | `IOS_CERT_PASSWORD` | ios | The password of that .p12 file |
-| `IOS_PROFILE` | ios | An App Store provisioning profile for the app ID in `brand.json`, base64 encoded |
+| `IOS_PROFILE` | ios | An App Store Connect provisioning profile for the app ID in `brand.json`, base64 encoded |
 | `ASC_KEY_ID` | ios | The App Store Connect API key ID |
 | `ASC_ISSUER_ID` | ios | The App Store Connect API issuer ID |
 | `ASC_KEY_P8` | ios | The App Store Connect API private key: the text of the .p8 file, not base64 |
@@ -397,26 +394,19 @@ npx cap open ios
 
 ### التكامل المستمر والإصدارات
 
-**`ci.yml`**: يعمل مع كل دفع إلى الفرع `main` ومع كل طلب دمج، فيثبت الحزم على Node 22 ويفحص البطاقات والأنواع ويشغّل الاختبارات ويبني اللعبة والموقع ويتأكد من أن المجلد `docs` يطابق نتيجة البناء، ومع كل دفع يبني تطبيق آيفون للمحاكي دون توقيع، ولا يحتاج إلى أي أسرار.
+**`ci.yml`**: يعمل مع كل دفع إلى الفرع `main` ومع كل طلب دمج، فيثبت الحزم على Node 22 ويفحص البطاقات والأنواع ويشغّل الاختبارات ويبني اللعبة والموقع ويتأكد من أن المجلد `docs` يطابق نتيجة البناء، ثمّ يبني تطبيق آيفون للمحاكي دون توقيع، ولا يحتاج إلى أي أسرار.
 
-**`android.yml`**: يعمل مع كل دفع إلى `main` يمس التطبيق أو البطاقات أو المجلد `android`، ومع الوسوم التي تبدأ بـ `android-v`، أو يدوياً، فيبني نسخة APK للتجربة ويحفظها في نتائج سير العمل.
+**`release.yml`**: ينشر إصداراً على GitHub لكل ملاحظة في المجلد `.github/release-notes`، فعند دمج ملاحظة جديدة مثل `v1.1.0.md` في `main` يضع الوسم على الإيداع المدموج وينشر الإصدار، ثمّ يستدعي `android.yml` و `ios.yml` لذلك الوسم فيبنيان التطبيقين ويوقعانهما ويرفقان الملفين `scam-game-<tag>.aab` و `scam-game-<tag>.ipa` بالإصدار ويرفعانهما إلى مسار الاختبار الداخلي في Google Play وإلى App Store Connect لتظهر النسخة في TestFlight، ويمكنك تشغيله يدوياً مع وسم موجود ليعيد بناء إصداره، كأن تضيف الأسرار بعد نشره.
 
-وعند دفع وسم مثل `android-v1.0.0` مع أسرار مخزن المفاتيح يبني حزمة إصدار موقّعة بصيغة AAB، وإذا وُجد السر `PLAY_SERVICE_ACCOUNT` أيضاً رفعها إلى مسار الاختبار الداخلي في Google Play في صورة مسودة إلى أن يُرسل التطبيق للمراجعة أول مرة، مع ملاحظات الإصدار من الملف `store/google-play/<language>/changelogs/default.txt` إن وُجد.
+**`android.yml`**: يعمل أيضاً مع كل دفع إلى `main` يمس التطبيق أو البطاقات أو المجلد `android`، أو يدوياً، فيبني نسخة APK للتجربة ويحفظها في نتائج سير العمل، أما الوسم مثل `android-v1.1.0` فيبني تطبيق أندرويد وحده ويوقعه ويرفعه.
 
-**`ios.yml`**: يعمل مع الوسوم التي تبدأ بـ `ios-v` أو يدوياً، فيبني أرشيف إصدار موقّعاً ويحزم ملف IPA ثمّ يتحقق منه ويرفعه إلى App Store Connect ويحفظه في نتائج سير العمل، ورقم البناء فيه هو رقم تشغيل سير العمل، وإذا غابت أسرار التوقيع توقف برسالة تذكر الأسرار المطلوبة.
+**`ios.yml`**: يعمل أيضاً مع الوسوم التي تبدأ بـ `ios-v` أو يدوياً، فيبني تطبيق آيفون وحده ويوقعه ويرفعه.
 
-ولتبدأ إصداراً ادفع وسماً:
+يُؤخذ رقم الإصدار من `package.json` ويجب أن يطابقه وسم الإصدار، أما رقم البناء، أي versionCode في أندرويد ورقم البناء في آيفون، فيساوي الرقم الرئيسي × 10000 + الرقم الفرعي × 100 + رقم التصحيح، لذا يحمل الإصدار 1.1.0 رقم البناء 10100، ولا يفشل أي إصدار بسبب سر ناقص، بل يُنشر الإصدار ويتخطى كل نظام ما لا يستطيع فعله مع تنبيه يذكر الأسرار الناقصة.
 
-<div dir="ltr">
+ولتنشر إصداراً اكتب الملف `.github/release-notes/vX.Y.Z.md`، وأول سطر فيه `# vX.Y.Z, title` ثمّ الملاحظات بالإنجليزية وقسم `## العربية`، ثمّ ضع الرقم نفسه في `package.json` وادمج الاثنين في طلب دمج.
 
-```bash
-git tag android-v1.0.0 && git push origin android-v1.0.0
-git tag ios-v1.0.0 && git push origin ios-v1.0.0
-```
-
-</div>
-
-وأضف الأسرار في إعدادات المستودع من صفحة Actions ضمن Secrets and variables:
+وأضف الأسرار في إعدادات المستودع من صفحة Actions ضمن Secrets and variables، ويشرح الملف [`store/SECRETS.md`](store/SECRETS.md) طريقة إعداد كل سر وترتيب إضافتها.
 
 | السر | سير العمل | محتواه |
 |---|---|---|
@@ -424,11 +414,10 @@ git tag ios-v1.0.0 && git push origin ios-v1.0.0
 | `ANDROID_KEYSTORE_PASSWORD` | android | كلمة مرور المخزن |
 | `ANDROID_KEY_ALIAS` | android | الاسم المستعار للمفتاح |
 | `ANDROID_KEY_PASSWORD` | android | كلمة مرور المفتاح |
-| `PLAY_SERVICE_ACCOUNT` | android | مفتاح JSON لحساب خدمة في Google Play له صلاحية على التطبيق |
-| `IOS_TEAM_ID` | ios | معرّف فريق المطور لدى Apple |
+| `PLAY_SERVICE_ACCOUNT` | android | مفتاح JSON لحساب خدمة في Google Cloud له صلاحية على التطبيق في Play Console |
 | `IOS_CERT_P12` | ios | شهادة Apple Distribution مع مفتاحها الخاص في ملف p12 بترميز base64 |
 | `IOS_CERT_PASSWORD` | ios | كلمة مرور ملف p12 |
-| `IOS_PROFILE` | ios | ملف توفير للتوزيع عبر App Store لمعرّف التطبيق في `brand.json` بترميز base64 |
+| `IOS_PROFILE` | ios | ملف توفير من نوع App Store Connect لمعرّف التطبيق في `brand.json` بترميز base64 |
 | `ASC_KEY_ID` | ios | معرّف مفتاح App Store Connect API |
 | `ASC_ISSUER_ID` | ios | معرّف الجهة المصدرة لمفتاح App Store Connect API |
 | `ASC_KEY_P8` | ios | المفتاح الخاص لواجهة App Store Connect API، أي نص ملف p8 كما هو دون base64 |
