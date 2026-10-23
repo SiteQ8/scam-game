@@ -11,7 +11,8 @@ const dir = process.argv[2] || join(root, 'content', 'cards');
 
 export const CHANNELS = ['sms', 'notification', 'chat', 'email', 'call', 'web', 'qr', 'social', 'market'];
 export const CATEGORIES = ['delivery', 'banking', 'accounts', 'government', 'telecom', 'utilities', 'shopping', 'marketplace', 'jobs', 'investment', 'romance', 'family', 'tech-support', 'prize', 'charity', 'travel', 'rental', 'education', 'subscriptions', 'business'];
-export const TAGS = ['urgency', 'threat', 'payment', 'small-fee', 'lookalike-domain', 'shortened-link', 'otp', 'credentials', 'impersonation', 'unknown-number', 'new-number', 'voice-clone', 'too-good', 'gift-cards', 'crypto', 'remote-access', 'app-install', 'qr', 'attachment', 'off-platform', 'advance-fee', 'emotional', 'secrecy', 'official-channel', 'no-link', 'expected', 'verify-independently'];
+export const PACKS = ['banking', 'delivery', 'jobs', 'invest', 'gov', 'ai'];
+export const TAGS = ['urgency', 'threat', 'payment', 'small-fee', 'lookalike-domain', 'shortened-link', 'otp', 'credentials', 'impersonation', 'unknown-number', 'new-number', 'voice-clone', 'too-good', 'gift-cards', 'crypto', 'remote-access', 'app-install', 'qr', 'attachment', 'off-platform', 'advance-fee', 'emotional', 'secrecy', 'official-channel', 'no-link', 'expected', 'verify-independently', 'deepfake'];
 const KINDS = ['red', 'green', 'trap'];
 
 // Brand names that must never appear. Latin names match whole words. Arabic names match whole words with
@@ -45,7 +46,8 @@ const DOMAIN = /(?:https?:\/\/)?(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[
 const CURRENCY = /(د\.ك|ر\.س|د\.إ|ر\.ق|د\.ب|ر\.ع)/g;
 const NUMBER = /\d+\.\d+/g;
 const RESERVED_PHONES = [/^\+44\s?7700\s?900\d{3}$/, /^\+1\s?\(?202\)?\s?555\s?01\d{2}$/];
-const LEGIT_DOMAIN = /(^|\.)(gov\.kw|gov|example|example\.com|example\.net|example\.org)$/i;
+// Government domains of the six Arabian Gulf states, the global .gov, and the reserved example domains.
+const LEGIT_DOMAIN = /(^|\.)(gov\.(kw|sa|ae|qa|bh|om)|gov|example|example\.com|example\.net|example\.org)$/i;
 
 const errors = [];
 const warnings = [];
@@ -227,6 +229,10 @@ for (const { c, f } of cards) {
   if (!['gcc', 'global'].includes(c.region)) err(id, 'region must be gcc or global');
   if (!Number.isInteger(c.difficulty) || c.difficulty < 1 || c.difficulty > 5) err(id, 'difficulty must be 1 to 5');
   if (c.tags !== undefined && (!Array.isArray(c.tags) || c.tags.some((t) => !TAGS.includes(t)))) err(id, `tags must come from: ${TAGS.join(', ')}`);
+  if (c.pack !== undefined) {
+    if (!PACKS.includes(c.pack)) err(id, `pack must be one of ${PACKS.join(', ')}`);
+    else if (!(c.id || '').startsWith(`${c.channel}-${c.pack}-`)) err(id, `a card in the ${c.pack} pack needs an id that starts with "${c.channel}-${c.pack}-"`);
+  }
 
   for (const lang of ['ar', 'en']) {
     const block = c[lang];
@@ -278,6 +284,10 @@ console.log(`Channel: ${fmt(count('channel'))}`);
 console.log(`Region: ${fmt(count('region'))}`);
 console.log(`Difficulty: ${fmt(count('difficulty'))}`);
 console.log(`Category: ${fmt(count('category'))}`);
+const packs = count('pack');
+const core = packs.undefined || 0;
+delete packs.undefined;
+console.log(`Pack: ${fmt(packs) || 'none'} (core cards ${core})`);
 if (warnings.length) { console.log(`\nWarnings (${warnings.length}):`); warnings.forEach((w) => console.log(`  ${w}`)); }
 if (errors.length) { console.log(`\nErrors (${errors.length}):`); errors.forEach((e) => console.log(`  ${e}`)); process.exit(1); }
 console.log('\nOK');
