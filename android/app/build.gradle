@@ -4,10 +4,10 @@ apply plugin: 'com.android.application'
 def appVersion = new groovy.json.JsonSlurper().parse(file('../../package.json')).version
 
 android {
-    namespace = "com.eworldq8.game"
+    namespace = "com.eworldq8.scamgame"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.eworldq8.game"
+        applicationId "com.eworldq8.scamgame"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode((System.getenv('VERSION_CODE') ?: '1').toInteger())

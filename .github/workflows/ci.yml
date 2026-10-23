@@ -29,8 +29,8 @@ jobs:
       - name: Site is in sync with the build
         run: git diff --stat --exit-code -- docs || (echo "docs/ is out of date, run npm run build:site and commit" && exit 1)
 
+  # Pull requests build for iPhone too, so a change to the Xcode project is checked before it merges.
   ios-compile:
-    if: github.event_name == 'push'
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v4

@@ -1,6 +1,6 @@
-# Swipe left on scams
+# Scam Detective
 
-A free swipe game that trains people to spot scams in texts, calls, emails, chats, web pages and QR codes, in Arabic and English.
+**Swipe left on scams.** A free swipe game that trains people to spot scams in texts, calls, emails, chats, web pages and QR codes, in Arabic and English.
 
 **[Play in your browser](https://siteq8.github.io/scam-game/play/)** · [Website](https://siteq8.github.io/scam-game/) · [العربية](#arabic)
 
@@ -204,9 +204,9 @@ MIT, © 2026 Ali AlEnezi. See [LICENSE](LICENSE). The fonts, icons and libraries
 
 <div dir="rtl" lang="ar">
 
-# <a name="arabic"></a>اكشف الاحتيال بسحبة
+# <a name="arabic"></a>محقق الاحتيال
 
-لعبة سحب مجانية تدرّب الناس على كشف الاحتيال في الرسائل والمكالمات والبريد والمحادثات والصفحات ورموز QR، بالعربية والإنجليزية.
+**اكشف الاحتيال بسحبة**، لعبة سحب مجانية تدرّب الناس على كشف الاحتيال في الرسائل والمكالمات والبريد والمحادثات والصفحات ورموز QR، بالعربية والإنجليزية.
 
 **[العب الآن في متصفحك](https://siteq8.github.io/scam-game/play/?lang=ar)** · [الموقع](https://siteq8.github.io/scam-game/ar/)
 
