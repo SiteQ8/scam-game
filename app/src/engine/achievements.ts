@@ -64,6 +64,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   counted({ id: 'chapters', icon: 'route', group: 'journey', tier: 'silver', en: { title: 'Journey complete', body: 'Pass every chapter.' }, ar: { title: 'أكملت المسار', body: 'اجتز كل الفصول.' } }, (p) => CHAPTERS.filter((c) => stars(p.journey, c.id) >= 1).length, CHAPTERS.length),
   counted({ id: 'allStars', icon: 'trophy', group: 'journey', tier: 'gold', en: { title: 'Top of the class', body: 'Three stars on every chapter.' }, ar: { title: 'الأول على الدفعة', body: 'ثلاث نجوم في كل فصل.' } }, (p) => CHAPTERS.filter((c) => stars(p.journey, c.id) >= 3).length, CHAPTERS.length),
   { id: 'expert', icon: 'award', group: 'journey', tier: 'gold', en: { title: 'Expert', body: 'Pass the expert chapter.' }, ar: { title: 'خبير', body: 'اجتز فصل الخبراء.' }, check: (p) => stars(p.journey, 'expert') >= 1 },
+  { id: 'certified', icon: 'file-badge', group: 'journey', tier: 'gold', en: { title: 'Certified', body: 'Get your journey certificate.' }, ar: { title: 'معتمد', body: 'احصل على شهادة المسار.' }, check: (p) => Boolean(p.certificate) },
   ...PACKS.map((pk): Achievement => {
     const b = PACK_BADGES[pk.id];
     return { id: `pack-${pk.id}`, icon: b.icon, group: 'journey', tier: 'bronze', en: { title: b.en, body: b.enBody }, ar: { title: b.ar, body: b.arBody }, check: (p) => stars(p.packs, pk.id) >= 1 };

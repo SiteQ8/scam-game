@@ -41,6 +41,8 @@ export interface Progress {
   partyGames: number;
   checkerUses: number;
   familyRounds: number;
+  /** The journey certificate, issued once all chapters are passed; the name never leaves the device. */
+  certificate?: { name: string; issued: number; serial: string };
   cards: Record<string, CardRecord>;
   categories: Partial<Record<Category, CardRecord>>;
   achievements: Record<string, number>;

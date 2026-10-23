@@ -980,3 +980,34 @@ textarea, input { caret-color: var(--marker); }
 .family .switch[aria-checked='true']::after { transform: translateX(24px); }
 .family[dir='rtl'] .switch[aria-checked='true']::after, [dir='rtl'] .family .switch[aria-checked='true']::after { transform: translateX(-24px); }
 .onb-family { margin-top: 16px; }
+
+/* ============ Certificate ============ */
+.cert-banner { display: flex; align-items: center; gap: 14px; width: 100%; margin: 6px 0 14px; padding: 14px; border-radius: 18px; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line); text-align: start; transition: transform 140ms var(--ease-out); }
+.cert-banner:active { transform: scale(0.985); }
+.cert-banner .glyph { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--desk-3); color: var(--text-3); flex: none; }
+.cert-banner .glyph .icon { width: 24px; height: 24px; }
+.cert-banner.ready { background: var(--marker-soft); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--marker) 55%, transparent); }
+.cert-banner.ready .glyph { background: var(--marker); color: var(--marker-ink); }
+.cert-banner .txt { flex: 1; min-width: 0; }
+.cert-banner .txt b { display: block; font-family: var(--font-display); font-weight: 650; }
+.cert-banner .txt span { display: block; font-size: 0.86rem; color: var(--text-2); }
+.cert-h { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 7vw, 2rem); letter-spacing: -0.02em; margin-top: 6px; }
+.cert-sub { color: var(--text-2); margin: 6px 0 16px; }
+.cert-preview { width: 100%; border-radius: 18px; overflow: hidden; background: var(--desk-2); box-shadow: var(--shadow-card); display: grid; place-items: center; }
+.cert-preview img { width: 100%; height: 100%; object-fit: cover; }
+.cert-preview .loading { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--line-2); border-top-color: var(--marker); animation: spin 900ms linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.cert-field { display: flex; flex-direction: column; gap: 8px; margin: 18px 0 14px; }
+.cert-field > span { font-family: var(--font-display); font-weight: 600; font-size: 0.92rem; color: var(--text-2); }
+.cert-field input { min-height: 56px; padding: 0 16px; border-radius: 14px; border: 0; outline: 0; background: var(--desk-2); box-shadow: inset 0 0 0 1px var(--line-2); font-size: 1.05rem; }
+.cert-field input:focus { box-shadow: inset 0 0 0 2px var(--marker); }
+.cert-field small { font-size: 0.82rem; color: var(--text-3); }
+.cert-locked { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 30px; }
+.cert-locked .seal { width: 96px; height: 96px; border-radius: 28px; display: grid; place-items: center; background: var(--desk-2); color: var(--text-3); box-shadow: inset 0 0 0 1px var(--line); }
+.cert-locked .seal .icon { width: 48px; height: 48px; }
+.cert-locked h2 { font-family: var(--font-display); font-weight: 750; font-size: 1.5rem; margin: 18px 0 6px; }
+.cert-locked p { color: var(--text-2); max-width: 32ch; }
+.cert-locked .bar { width: 100%; max-width: 320px; height: 8px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 20px 0 8px; }
+.cert-locked .bar i { display: block; height: 100%; background: var(--marker); transform-origin: left; }
+[dir='rtl'] .cert-locked .bar i { transform-origin: right; }
+.cert-locked .count { font-size: 0.86rem; color: var(--text-3); margin-bottom: 22px; }
