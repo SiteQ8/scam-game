@@ -14,15 +14,17 @@ Journey: open Chapter 1 and tap Start. Later chapters unlock after 7 of 10 right
 60 second rush: a timed round. A wrong answer costs 3 seconds.
 Play together: tap Start (two players are set up by default), then "I'm ready", and pass the phone.
 Flag hunt: tap the words that are warning signs before the 25 second timer runs out.
+Card packs: six themed packs of ten cards on the Home screen. Tap one, then Start; 7 of 10 right completes it.
 Check a message: type or paste any text, for example "URGENT: pay the fee within 24 hours at http://parcel-fee.example.com", then tap "Check it". iOS may ask for permission when Paste is tapped.
 4. Stats and About are at the bottom of Home. Settings (the gear at the top right) holds language, examples (Gulf, worldwide or both), appearance, text size, sound effects, music (off by default), play calls automatically, vibration, reduce motion and Erase my progress.
+5. Levels and badges: tap the level bar on Home, or Badges at the bottom of Home. The tip of the day is the card on Home, with All tips for earlier ones. Family and seniors mode is in Settings and on the last intro screen: larger text and buttons, calmer motion, and no timed modes. The certificate opens from Journey once all eight chapters are passed; the player can type a name on it and share the image.
 Calls: call cards play the caller's voice while the transcript appears. They start on their own, and this can be turned off in Settings.
 
 About the content
 Every name, phone number, address, link and QR code inside the cards is fictional. On scam cards they are made to look suspicious on purpose, because spotting them is the lesson. Addresses are plain text and cannot be opened. The QR codes only contain the sentence "Training example from a scam awareness game. This code opens nothing." No real bank, company or brand is named.
 
 Privacy and network
-The message checker runs entirely on the device, and the text is never saved or sent. The app makes no network requests: its content security policy allows only files bundled in the app, and it works in airplane mode. All cards, voices, music and sound effects are bundled; the audio was generated with ElevenLabs. There are no ads, analytics, tracking, purchases or third-party SDKs. Progress is stored on the device only. The only ways out of the app are the player's own taps: Share opens the system share sheet, and the email and source code rows open Mail or Safari.
+The message checker runs entirely on the device, and the text is never saved or sent. The app makes no network requests: its content security policy allows only files bundled in the app, and it works in airplane mode. All cards, voices, music and sound effects are bundled; the audio was generated with ElevenLabs. There are no ads, analytics, tracking, purchases or third-party SDKs. Progress, and the name typed on the certificate, are stored on the device only. The only ways out of the app are the player's own taps: Share opens the system share sheet, and the email and source code rows open Mail or Safari.
 
 Contact
 Ali AlEnezi
