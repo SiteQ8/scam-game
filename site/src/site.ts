@@ -1,4 +1,4 @@
-// Website behaviour: today's case number, the two stages, entrances, the live checker and the embedded game.
+// Website behaviour: today's case number, entrances, the live checker, the moving swipe, the time in Kuwait City and the language choice.
 import { render, type Lang } from './checker-view';
 import { dayIndex, caseNumber } from '../../app/src/engine/daily';
 
@@ -21,47 +21,6 @@ function stampToday() {
   for (const el of $$('[data-case-tpl]')) el.textContent = (el.getAttribute('data-case-tpl') || '').replace('{n}', String(n));
   for (const el of $$('[data-case-date]')) el.textContent = date;
   for (const el of $$('[data-case-sep]')) el.hidden = false;
-}
-
-/* A stage shows one screen at a time and crossfades to the next. */
-function show(stage: HTMLElement, img: HTMLImageElement | undefined) {
-  if (!img || img.classList.contains('on')) return;
-  const go = () => { for (const i of $$<HTMLImageElement>('img', stage)) i.classList.toggle('on', i === img); };
-  if (img.complete) go();
-  else { img.loading = 'eager'; img.addEventListener('load', go, { once: true }); }
-}
-
-function heroStage() {
-  const stage = $('[data-stage="hero"]');
-  if (!stage) return;
-  const imgs = $$<HTMLImageElement>('img', stage);
-  if (imgs.length < 2) return;
-  let i = 0;
-  let timer = 0;
-  const tick = () => {
-    if (document.hidden || reduce.matches) return;
-    i = (i + 1) % imgs.length;
-    show(stage, imgs[i]);
-  };
-  const start = () => { window.clearInterval(timer); if (!reduce.matches) timer = window.setInterval(tick, 5600); };
-  // Fetch the other screens once the first one is on screen.
-  window.setTimeout(() => imgs.forEach((im) => { im.loading = 'eager'; }), 1200);
-  document.addEventListener('visibilitychange', start);
-  reduce.addEventListener?.('change', start);
-  start();
-}
-
-function tourStage() {
-  const stage = $('[data-stage="tour"]');
-  if (!stage || !('IntersectionObserver' in window)) return;
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (!e.isIntersecting) continue;
-      const id = (e.target as HTMLElement).dataset.shot;
-      show(stage, $<HTMLImageElement>(`img[data-for="${id}"]`, stage) || undefined);
-    }
-  }, { rootMargin: '-45% 0px -45% 0px' });
-  for (const el of $$('[data-shot]')) io.observe(el);
 }
 
 /* Entrances: each section's parts rise in once, staggered by their --d. */
@@ -119,20 +78,44 @@ function checker() {
   fit();
 }
 
-/* The closing section holds the real game; it loads only on wide screens, when it is about to be seen. */
-function embeddedGame() {
-  const frame = $<HTMLIFrameElement>('.app-frame iframe');
-  if (!frame || !('IntersectionObserver' in window)) return;
-  const wide = window.matchMedia('(min-width: 960px)');
-  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-  if (saveData) return;
-  const io = new IntersectionObserver((entries) => {
-    if (!entries.some((e) => e.isIntersecting) || !wide.matches || frame.src) return;
-    frame.addEventListener('load', () => { frame.classList.add('loaded'); frame.tabIndex = 0; }, { once: true });
-    frame.src = frame.dataset.src || '';
-    io.disconnect();
-  }, { rootMargin: '600px 0px' });
-  io.observe(frame);
+/* The time in Kuwait City, in the footer, kept to the minute. */
+function clock() {
+  const el = $('[data-clock]');
+  if (!el) return;
+  const fmt = new Intl.DateTimeFormat(lang === 'ar' ? 'ar-KW-u-nu-latn' : 'en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kuwait' });
+  const tick = () => { el.textContent = fmt.format(new Date()); };
+  tick();
+  window.setInterval(tick, 20000);
+}
+
+/* The swipe in the second stage plays while it is on screen and rests when it is not. It never starts for a visitor
+   who asks for less motion, and its button stops or starts it at any time. */
+function loops() {
+  for (const v of $$<HTMLVideoElement>('video.loop-v')) {
+    const btn = v.parentElement?.querySelector<HTMLButtonElement>('.loop-btn');
+    if (!btn || !('IntersectionObserver' in window)) continue;
+    let stopped = reduce.matches;
+    let seen = false;
+    const label = () => {
+      const name = v.paused ? btn.dataset.play : btn.dataset.pause;
+      if (name) btn.setAttribute('aria-label', name);
+      btn.classList.toggle('playing', !v.paused);
+    };
+    const play = () => { v.play().catch(() => { /* the poster stays */ }); };
+    btn.hidden = false;
+    btn.addEventListener('click', () => {
+      stopped = !v.paused;
+      if (stopped) v.pause(); else play();
+    });
+    v.addEventListener('play', label);
+    v.addEventListener('pause', label);
+    new IntersectionObserver(([e]) => {
+      seen = e.isIntersecting;
+      if (seen && !stopped) play(); else if (!seen) v.pause();
+    }, { threshold: 0.35 }).observe(v);
+    reduce.addEventListener?.('change', () => { if (reduce.matches) { stopped = true; v.pause(); } });
+    label();
+  }
 }
 
 /* Remember an explicit language choice so the English home page stops suggesting Arabic. */
@@ -143,9 +126,8 @@ function languageChoice() {
 }
 
 stampToday();
-heroStage();
-tourStage();
 reveals();
 checker();
-embeddedGame();
+loops();
+clock();
 languageChoice();
