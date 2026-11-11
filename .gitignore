@@ -5,7 +5,8 @@ dist-capture/
 coverage/
 
 # Local tool state
-.taste-skill/
+.*/
+!.github/
 *.log
 .DS_Store
 .env

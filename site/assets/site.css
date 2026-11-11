@@ -295,7 +295,7 @@ svg.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 /* Every sign, marked: the message from its sender line down, each sign opened by its number. */
 .fr-marks { padding: 14px 16px 16px; border-radius: 16px 16px 16px 5px; background: #ffffff; color: #141820; line-height: 1.8; }
 :lang(ar) .fr-marks { border-radius: 16px 16px 5px 16px; }
-.fr-marks .from { font-weight: 600; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid rgba(16, 37, 43, 0.1); } /* taste-skill-ignore: the game's own line under a card's sender, inside a data-ui fragment */
+.fr-marks .from { font-weight: 600; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid rgba(16, 37, 43, 0.1); } /* the game's own line under a card's sender, inside a data-ui fragment */
 .fr-marks mark { padding: 1px 2px; border-radius: 4px; background: rgba(229, 88, 79, 0.28); color: inherit; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .fr-marks mark[dir='ltr'] { unicode-bidi: isolate; white-space: nowrap; }
 .fr-marks .n { display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; margin-inline-end: 0.35em; vertical-align: 0.12em; border-radius: 50%; background: var(--scam); color: #ffffff; font: 700 0.66em / 1 var(--text); unicode-bidi: isolate; }
